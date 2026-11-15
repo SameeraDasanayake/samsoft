@@ -1,0 +1,66 @@
+/* A/L Biology: the cell. Membrane colours: double = amber, single = violet, none = grey. */
+body { --m2: #e8a23c; --m1: #9b7cf0; --m0: #8c958f; }
+.cover .credit { position: absolute; right: 96px; bottom: 30px; z-index: 2; font: 500 13px/1.4 var(--mono); color: var(--chalk-3); letter-spacing: .03em; }
+
+/* 2 cell theory + size scale */
+.theory { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 44px; border-top: 1px solid var(--line-2); margin-bottom: 58px; }
+.theory li { display: grid; grid-template-columns: 52px 1fr; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.theory .n { font: 700 22px/1 var(--mono); color: var(--accent); }
+.theory p { font-size: 25px; }
+.scale { height: auto; padding: 22px 12px 10px; }
+.scale svg { display: block; width: 100%; height: auto; overflow: visible; }
+.scale .axis { stroke: var(--chalk-3); stroke-width: 2; }
+.scale .tk line { stroke: var(--chalk-3); stroke-width: 2; }
+.scale .tk text { font: 600 17px var(--mono); fill: var(--chalk-2); text-anchor: middle; }
+.scale .it circle { fill: var(--accent); }
+.scale .it line { stroke: var(--line-2); stroke-width: 1.5; }
+.scale .it text { font: 600 20px var(--body); fill: var(--chalk); text-anchor: middle; }
+.scale .it text.sz { font: 500 15px var(--mono); fill: var(--chalk-3); }
+.scale .it.hi text { fill: var(--accent); font-weight: 700; } .scale .it.hi line { stroke: var(--accent); }
+.scale .band rect { opacity: .3; } .scale .band .b3 { fill: var(--accent); } .scale .band .b2 { fill: #7fb6ff; } .scale .band .b1 { fill: #c08cff; }
+.scale .band text { font: 600 15px var(--mono); fill: var(--chalk); }
+
+/* 3 organelle picker */
+.orgs { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line-2); border-left: 1px solid var(--line-2); margin-top: 2px; }
+.orgs button { text-align: left; padding: 10px 14px; font: 600 18px/1.25 var(--body); color: var(--chalk-2); border-right: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); transition: background .2s, color .2s; }
+.orgs button:hover { color: var(--chalk); }
+.orgs button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.odesc { margin-top: 24px; min-height: 230px; }
+.ohead { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.ohead h3 { margin: 0; }
+.omem { font: 600 15px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 6px 0 6px 12px; border-left: 4px solid var(--m0); color: var(--chalk-2); }
+.omem[data-m="2"] { border-color: var(--m2); } .omem[data-m="1"] { border-color: var(--m1); } .omem:empty { display: none; }
+.odesc p { font-size: 23px; }
+.odesc b { color: var(--chalk); }
+html[data-lang="si"] .orgs button { font-size: 17px; }
+html[data-lang="si"] .odesc p { font-size: 21px; }
+
+/* 5 path */
+.path { list-style: none; counter-reset: p; margin-top: 4px; border-top: 1px solid var(--line-2); }
+.path li { counter-increment: p; position: relative; padding: 10px 0 10px 56px; border-bottom: 1px solid var(--line); font-size: 21px; color: var(--chalk-3); cursor: pointer; transition: color .25s, background .25s; }
+.path li::before { content: counter(p, decimal-leading-zero); position: absolute; left: 10px; top: 13px; font: 700 17px/1 var(--mono); color: var(--accent); }
+.path li.on { color: var(--chalk); background: rgba(236, 230, 214, .05); }
+.path li.on::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--accent); }
+.path b { color: var(--chalk); } .path li:not(.on) b { color: inherit; }
+html[data-lang="si"] .path li { font-size: 19.5px; }
+[data-id="secretion"] .note, [data-id="mito"] .note, [data-id="nucleus"] .note { font-size: 20px; }
+[data-id="mito"] .rows p, [data-id="nucleus"] .rows p { font-size: 23px; }
+html[data-lang="si"] [data-id="mito"] .rows p, html[data-lang="si"] [data-id="nucleus"] .rows p { font-size: 21px; }
+
+/* 7 membrane sort */
+.msort { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 56px; margin-top: 18px; }
+.mh { display: flex; align-items: center; gap: 14px; font: 800 34px/1.1 var(--head); color: var(--chalk); padding-bottom: 16px; border-bottom: 2px solid var(--line-2); }
+.mh i { width: 40px; height: 26px; flex: none; }
+.mh i.m2 { border: 4px double var(--m2); border-width: 8px; border-style: double; }
+.mh i.m1 { border: 3px solid var(--m1); }
+.mh i.m0 { border: 3px dashed var(--m0); }
+.mcol ul { list-style: none; }
+.mcol li { font-size: 27px; color: var(--chalk-2); padding: 14px 0; border-bottom: 1px solid var(--line); }
+[data-id="membranes"] .note { margin-top: 40px; font-size: 24px; max-width: 1200px; }
+
+/* 8 compare table */
+.cmp { margin-top: 18px; }
+.cmp th { font-size: 18px !important; }
+.cmp td { font-size: 25px !important; padding-top: 15px !important; padding-bottom: 15px !important; }
+.cmp td:first-child { width: 320px; color: var(--chalk-3); font: 500 19px/1.3 var(--mono) !important; }
+html[data-lang="si"] .cmp td { font-size: 21px !important; }

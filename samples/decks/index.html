@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samsoft Decks</title>
+<meta name="description" content="Interactive 3D lesson decks for Grade 5 scholarship, O/L and A/L classes, in English and Sinhala.">
+<link rel="icon" href="engine/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="engine/fonts/fonts.css">
+<style>
+:root { --board: #111915; --board-2: #18221d; --chalk: #ece6d6; --chalk-2: #c9c3b0; --chalk-3: #8f8b7c; --line: rgba(236,230,214,.16); --line-2: rgba(236,230,214,.32);
+  --head: 'Abhaya Libre', 'Noto Serif Sinhala', Georgia, serif; --body: 'Yaldevi', 'Noto Sans Sinhala', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, monospace; color-scheme: dark; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--board); color: var(--chalk); font-family: var(--body); -webkit-font-smoothing: antialiased; min-height: 100vh; }
+html[data-lang="en"] [lang="si"], html[data-lang="si"] [lang="en"] { display: none !important; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+header { border-bottom: 1px solid var(--line); }
+.top { display: flex; justify-content: space-between; align-items: center; height: 68px; font: 600 14px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--chalk-3); }
+.top b { color: #f4b942; }
+.seg { display: inline-flex; border: 1px solid var(--line-2); }
+.seg button { padding: 9px 14px; font: 600 14px/1 var(--mono); color: var(--chalk-2); }
+.seg button + button { border-left: 1px solid var(--line-2); }
+.seg button[aria-pressed="true"] { background: var(--chalk); color: var(--board); }
+.hero { padding: 64px 0 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; }
+h1 { font-family: var(--head); font-weight: 800; font-size: clamp(44px, 7vw, 84px); line-height: 1.02; }
+html[data-lang="si"] h1 { line-height: 1.2; font-size: clamp(38px, 6vw, 70px); }
+.hero p { font-size: 20px; line-height: 1.6; color: var(--chalk-2); max-width: 520px; }
+.facts { display: flex; gap: 28px; margin-top: 22px; font: 500 14px/1.4 var(--mono); color: var(--chalk-3); text-transform: uppercase; letter-spacing: .06em; }
+.facts b { display: block; font-size: 26px; color: var(--chalk); letter-spacing: 0; }
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px; padding: 40px 0 80px; }
+.card { display: block; position: relative; }
+.card .pic { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line-2); background: var(--board-2); }
+.card .pic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.card:hover .pic img { transform: scale(1.035); }
+.card .pic::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--c); }
+.card .meta { display: flex; justify-content: space-between; margin-top: 16px; font: 600 13px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+.card .meta span:last-child { color: var(--chalk-3); }
+.card h2 { font-family: var(--head); font-weight: 800; font-size: 30px; line-height: 1.15; margin-top: 8px; }
+.card p { font-size: 16px; line-height: 1.55; color: var(--chalk-2); margin-top: 6px; }
+.card.soon .pic { border-style: dashed; display: grid; place-items: center; font: 600 14px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--chalk-3); }
+.card.soon { pointer-events: none; opacity: .75; }
+.card[hidden] { display: none; }
+footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font: 500 13px/1.6 var(--mono); color: var(--chalk-3); }
+@media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } .hero { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .wrap { padding: 0 16px; } .grid { grid-template-columns: 1fr; gap: 32px; } .hero { padding: 40px 0 28px; } .bar .seg button { padding: 9px 10px; } }
+</style>
+</head>
+<body>
+<header><div class="wrap top"><span><b>Samsoft</b> · Decks</span><div class="seg" id="lang"><button data-l="en">EN</button><button data-l="si">සිං</button></div></div></header>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1><span lang="en">Lessons you can<br>turn in 3D.</span><span lang="si">3D වලින් කරකවා<br>පෙන්විය හැකි පාඩම්.</span></h1>
+    </div>
+    <div>
+      <p><span lang="en">Ten-slide lesson decks for the classroom screen or projector. Models you can turn, sliders, simulations and paper-style questions, in English and Sinhala.</span><span lang="si">පන්ති තිරයට හෝ ප්‍රක්ෂේපකයට සකස් කළ, slides දහයක පාඩම් decks. කරකවන්න පුළුවන් models, sliders, simulations සහ ප්‍රශ්න පත්‍ර ආකාරයේ ප්‍රශ්න, ඉංග්‍රීසි සහ සිංහල දෙකෙන්ම.</span></p>
+      <div class="facts"><div><b>9</b><span lang="en">decks</span><span lang="si">decks</span></div><div><b>90</b><span lang="en">slides</span><span lang="si">slides</span></div><div><b>EN · සිං</b><span lang="en">every slide</span><span lang="si">සෑම slide එකකම</span></div></div>
+    </div>
+  </section>
+  <div class="bar">
+    <div class="seg" id="lvl"><button data-v="all" aria-pressed="true"><span lang="en">All</span><span lang="si">සියල්ල</span></button><button data-v="sch"><span lang="en">Scholarship</span><span lang="si">ශිෂ්‍යත්ව</span></button><button data-v="ol">O/L</button><button data-v="al">A/L</button></div>
+  </div>
+  <div class="grid">
+    <a class="card" data-l="sch" href="sch-solar/index.html" style="--c:#f4b942"><div class="pic"><img src="thumbs/sch-solar.jpg" alt="" loading="lazy"></div>
+      <div class="meta"><span><span lang="en">Scholarship · Environment</span><span lang="si">ශිෂ්‍යත්ව · පරිසරය</span></span><span>01</span></div>
+      <h2><span lang="en">The solar system</span><span lang="si">සෞරග්‍රහ මණ්ඩලය</span></h2>
+      <p><span lang="en">Real-texture planets, day and night over Sri Lanka, Moon phases and Poya.</span><span lang="si">සැබෑ textures සහිත ග්‍රහලෝක, ලංකාවට දිවා රෑ, සඳේ කලා සහ පොහොය.</span></p></a>
+    <a class="card" data-l="ol" href="ol-solids/index.html" style="--c:#ff8a5b"><div class="pic"><img src="thumbs/ol-solids.jpg" alt="" loading="lazy"></div>
+      <div class="meta"><span><span lang="en">O/L · Mathematics</span><span lang="si">සා/පෙළ · ගණිතය</span></span><span>02</span></div>
+      <h2><span lang="en">Surface area and volume</span><span lang="si">පෘෂ්ඨ වර්ගඵලය සහ පරිමාව</span></h2>
+      <p><span lang="en">A cylinder that unrolls into its net, three cones that fill a cylinder.</span><span lang="si">දැලක් බවට දිග හැරෙන සිලින්ඩරය, සිලින්ඩරයක් පුරවන කේතු තුන.</span></p></a>
+    <a class="card" data-l="ol" href="ol-heart/index.html" style="--c:#ef5d6c"><div class="pic"><img src="thumbs/ol-heart.jpg" alt="" loading="lazy"></div>
+      <div class="meta"><span><span lang="en">O/L · Science</span><span lang="si">සා/පෙළ · විද්‍යාව</span></span><span>03</span></div>
+      <h2><span lang="en">Heart and blood circulation</span><span lang="si">හෘදය සහ රුධිර සංසරණය</span></h2>
+      <p><span lang="en">A real heart in 3D, cut open and beating, one drop of blood followed through it, double circulation.</span><span lang="si">3D සැබෑ හෘදයක්, කපා විවෘත කළ ස්පන්දනය වන හෘදය, එය හරහා රුධිර බිඳුවක ගමන, ද්විත්ව සංසරණය.</span></p></a>
+    <a class="card" data-l="ol" href="ol-computer/index.html" style="--c:#43c6db"><div class="pic"><img src="thumbs/ol-computer.jpg" alt="" loading="lazy"></div>
+      <div class="meta"><span><span lang="en">O/L · ICT</span><span lang="si">සා/පෙළ · ICT</span></span><span>04</span></div>
+      <h2><span lang="en">The computer system</span><span lang="si">පරිගණක පද්ධතිය</span></h2>
+      <p><span lang="en">A detailed PC that comes apart, a CPU with its lid lifted, the machine cycle.</span><span lang="si">කොටස් වෙන් වන PC එකක්, ආවරණය ඉවත් කළ CPU එකක්, යන්ත්‍ර චක්‍රය.</span></p></a>
+    <a class="card" data-l="al" href="al-proj/index.html" style="--c:#f7d44c"><div class="pic"><img src="thumbs/al-proj.jpg" alt="" loading="lazy"></div>
+      <div class="meta"><span><span lang="en">A/L · Physics</span><span lang="si">උ/පෙළ · භෞතික විද්‍යාව</span></span><span>05</span></div>
+      <h2><span lang="en">Projectile motion</span><span lang="si">ප්‍රක්ෂිප්ත චලිතය</span></h2>
+      <p><span lang="en">A launch simulator with Earth and Moon gravity, and why 45° goes furthest.</span><span lang="si">පෘථිවි සහ සඳ ගුරුත්වය සහිත simulator එක, 45° උපරිම දුර යන්නේ ඇයි.</span></p></a>
+    <a class="card" data-l="al" href="al-vsepr/index.html" style="--c:#a6d854"><div class="pic"><img src="thumbs/al-vsepr.jpg" alt="" loading="lazy"></div>
+      <div class="meta"><span><span lang="en">A/L · Chemistry</span><span lang="si">උ/පෙළ · රසායන විද්‍යාව</span></span><span>06</span></div>
+      <h2><span lang="en">Shapes of molecules</span><span lang="si">අණුවල හැඩය</span></h2>
+      <p><span lang="en">VSEPR in 3D, from BeCl₂ to XeF₄, with the real bond angles.</span><span lang="si">BeCl₂ සිට XeF₄ දක්වා VSEPR 3D වලින්, නියම බන්ධන කෝණ සමඟ.</span></p></a>
+    <a class="card" data-l="al" href="al-cell/index.html" style="--c:#5fcf8c"><div class="pic"><img src="thumbs/al-cell.jpg" alt="" loading="lazy"></div>
+      <div class="meta"><span><span lang="en">A/L · Biology</span><span lang="si">උ/පෙළ · ජීව විද්‍යාව</span></span><span>07</span></div>
+      <h2><span lang="en">The cell</span><span lang="si">සෛලය</span></h2>
+      <p><span lang="en">An animal cell cut open in 3D, every organelle explained, one protein followed out of the cell.</span><span lang="si">3D වලින් කපා විවෘත කළ සත්ත්ව සෛලයක්, සෑම ඉන්ද්‍රියිකාවක්ම පැහැදිලි කිරීම, ප්‍රෝටීනයක් සෛලයෙන් පිටතට යන ගමන.</span></p></a>
+    <a class="card" data-l="al" href="al-vectors/index.html" style="--c:#79a8ff"><div class="pic"><img src="thumbs/al-vectors.jpg" alt="" loading="lazy"></div>
+      <div class="meta"><span><span lang="en">A/L · Combined Maths</span><span lang="si">උ/පෙළ · සංයුක්ත ගණිතය</span></span><span>08</span></div>
+      <h2><span lang="en">Vectors</span><span lang="si">දෛශික</span></h2>
+      <p><span lang="en">Drag the arrows: components, the triangle law, position vectors, a · b.</span><span lang="si">ඊතල ඇදගෙන යන්න: සංරචක, ත්‍රිකෝණ නීතිය, පිහිටුම් දෛශික, a · b.</span></p></a>
+    <a class="card" data-l="al" href="al-network/index.html" style="--c:#2fd3b4"><div class="pic"><img src="thumbs/al-network.jpg" alt="" loading="lazy"></div>
+      <div class="meta"><span><span lang="en">A/L · ICT</span><span lang="si">උ/පෙළ · ICT</span></span><span>09</span></div>
+      <h2><span lang="en">Computer networks</span><span lang="si">පරිගණක ජාල</span></h2>
+      <p><span lang="en">Cables and devices in 3D, topologies you can break, live IP and subnet maths.</span><span lang="si">3D රැහැන් සහ උපාංග, කැඩිය හැකි ස්ථලක, IP සහ subnet ගණනය.</span></p></a>
+  </div>
+</main>
+<footer><div class="wrap"><span lang="en">Samsoft · sample lessons. Planet maps: Solar System Scope (CC BY 4.0). Heart models: “Realistic Human Heart” by neshallads, “Beating Heart” by jalmer (CC BY 4.0). Cell model: “Animal cell” by montanna, after Lauri Purhonen (CC BY). Other models: built in Blender by Samsoft.</span><span lang="si">Samsoft · සාම්පල් පාඩම්. ග්‍රහලෝක සිතියම්: Solar System Scope (CC BY 4.0). හෘද models: “Realistic Human Heart” - neshallads, “Beating Heart” - jalmer (CC BY 4.0). සෛල model: “Animal cell” - montanna, Lauri Purhonen ඇසුරින් (CC BY). අනෙක් models: Samsoft විසින් Blender වලින් සාදන ලදී.</span></div></footer>
+<script>
+(function () {
+  const root = document.documentElement, q = new URLSearchParams(location.search);
+  let lang = q.get('lang'); if (!lang) { try { lang = localStorage.getItem('samsoft-deck-lang'); } catch (e) {} }
+  const set = l => { root.dataset.lang = l; root.lang = l; document.querySelectorAll('#lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
+    document.querySelectorAll('.card[href]').forEach(a => { a.href = a.getAttribute('href').split('?')[0] + '?lang=' + l; }); try { localStorage.setItem('samsoft-deck-lang', l); } catch (e) {} };
+  set(lang === 'si' ? 'si' : 'en');
+  document.getElementById('lang').addEventListener('click', e => { const b = e.target.closest('button'); if (b) set(b.dataset.l); });
+  document.getElementById('lvl').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return;
+    document.querySelectorAll('#lvl button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    document.querySelectorAll('.card').forEach(c => c.hidden = b.dataset.v !== 'all' && c.dataset.l !== b.dataset.v); });
+})();
+</script>
+</body>
+</html>

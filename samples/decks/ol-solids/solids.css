@@ -1,0 +1,15 @@
+.fam { position: absolute; left: 0; right: 0; top: 230px; bottom: 120px; }
+.fam-note { position: absolute; left: 96px; bottom: 64px; font-size: 24px; }
+table.calc td { font-size: 24px; padding-top: 16px; padding-bottom: 16px; }
+table.calc td.num { text-align: right; color: var(--chalk); font-weight: 700; white-space: nowrap; }
+table.calc tr.tot td { border-bottom: 2px solid var(--accent); color: var(--chalk); }
+table.calc tr.tot td.num { color: var(--accent); font-size: 32px; }
+table.calc sup, table.calc sub { font-size: .62em; }
+.eq sup, .eq sub { font-size: .55em; }
+.frame.mini { height: 300px; margin-top: 34px; }
+.work li p { font-size: 27px; }
+.work li p.mono { font-family: var(--mono); font-size: 26px; color: var(--chalk); }
+.work sup, .work sub { font-size: .6em; }
+table.sumtab td { font-size: 27px; padding-top: 16px; padding-bottom: 16px; }
+table.sumtab td.mono { font-family: var(--mono); color: var(--chalk); font-size: 26px; }
+.frame.tank { height: 340px; }

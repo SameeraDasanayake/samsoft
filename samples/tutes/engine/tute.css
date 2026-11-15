@@ -1,0 +1,191 @@
+/* Samsoft tutes — print engine. A4 study notes: a main column + a margin column for words, notes and facts.
+   Own look (not the papers): Literata / Noto Sans Sinhala body, Schibsted Grotesk / Gemunu Libre headings,
+   ink + one subject colour, tinted panels, big section numerals. */
+:root {
+  --ink: #1c1d1f; --ink2: #45474b; --mute: #7d8086; --hair: #c9c6bf; --paper: #fff;
+  --ac: #b8541a; --tint: color-mix(in srgb, var(--ac) 8%, #fff); --tint2: color-mix(in srgb, var(--ac) 16%, #fff);
+  --body: 'Literata', 'Noto Sans Sinhala', serif;
+  --head: 'Schibsted Grotesk', 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif;
+  --disp: 'Schibsted Grotesk', sans-serif;
+  --main: 124mm; --gap: 8mm; --side: 46mm;
+}
+html[lang=si] { --body: 'Noto Sans Sinhala', 'Literata', sans-serif; --head: 'Noto Sans Sinhala', 'Schibsted Grotesk', sans-serif; --disp: 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif; }
+@page { size: A4; margin: 14mm 16mm 16mm 16mm; }
+@page :first { margin: 0; }
+* { box-sizing: border-box; }
+html { background: #e4e1da; }
+body { margin: 0; color: var(--ink); font: 10.2pt/1.5 var(--body); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html[lang=si] body { font-size: 9.8pt; line-height: 1.62; }
+.sheet { width: 210mm; margin: 0 auto; background: var(--paper); padding: 14mm 16mm 16mm; }
+@media screen { .sheet { margin: 64px auto 40px; box-shadow: 0 1px 0 #0002, 0 12px 40px #0002; } .cover { margin: 64px auto 0; box-shadow: 0 12px 40px #0002; } }
+@media print { html { background: #fff; } .sheet { width: auto; padding: 0; margin: 0; } .noprint { display: none !important; } }
+p { margin: 0 0 .5em; }
+b, strong { font-weight: 700; }
+sub, sup { font-size: .72em; line-height: 0; }
+i.v { font-style: italic; }
+.nw { white-space: nowrap; }
+.fr { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; font-size: .92em; line-height: 1.15; margin: 0 .12em; }
+.fr i { font-style: normal; padding: 0 .2em; } .fr i:first-child { border-bottom: .8px solid currentColor; }
+
+/* ---------- toolbar (screen only) ---------- */
+.bar { position: fixed; inset: 0 0 auto 0; z-index: 9; display: flex; gap: 18px; align-items: center; padding: 10px 20px;
+  background: #24221f; color: #eee; font: 600 13px/1 'Schibsted Grotesk', 'Gemunu Libre', sans-serif; }
+.bar a { color: #bbb; text-decoration: none; padding: 6px 2px; border-bottom: 2px solid transparent; }
+.bar a.on, .bar a:hover { color: #fff; border-color: var(--ac); }
+.bar .sp { flex: 1; } .bar .grp { display: flex; gap: 12px; }
+
+/* ---------- cover (full bleed page 1) ---------- */
+.cover { width: 210mm; height: 297mm; position: relative; overflow: hidden; background: var(--paper); break-after: page; }
+.cover .band { position: absolute; inset: 0 0 auto 0; height: 118mm; background: var(--ac); }
+.cover .band::after { content: ''; position: absolute; inset: auto 0 0 0; height: 30mm; background: linear-gradient(transparent, #0002); }
+.cover .top { position: absolute; left: 16mm; right: 16mm; top: 13mm; display: flex; justify-content: space-between; color: #fff;
+  font: 700 8.6pt/1 var(--head); letter-spacing: .14em; text-transform: uppercase; }
+html[lang=si] .cover .top { letter-spacing: .02em; font-size: 10pt; }
+.cover .no { position: absolute; left: 14mm; top: 22mm; font: 800 92pt/.9 'Schibsted Grotesk', sans-serif; color: #fff; opacity: .22; letter-spacing: -.04em; }
+.cover h1 { position: absolute; left: 16mm; right: 92mm; top: 58mm; margin: 0; color: #fff; font: 800 34pt/1.02 var(--disp); letter-spacing: -.02em; }
+html[lang=si] .cover h1 { font-size: 42pt; line-height: 1.08; letter-spacing: 0; }
+.cover .sub { position: absolute; left: 16mm; right: 100mm; top: 92mm; color: #fffd; font: 400 11pt/1.45 var(--body); }
+.cover .hero { position: absolute; right: 8mm; top: 40mm; width: 92mm; height: 108mm; display: flex; align-items: center; justify-content: center; }
+.cover .hero:has(svg) { top: 34mm; width: 100mm; height: auto; right: 6mm; display: block; }
+.cover:has(.hero svg) h1 { right: 100mm; }
+.cover:has(.hero svg) .sub { right: 108mm; }
+.cover .hero svg { width: 100%; height: auto; overflow: visible; display: block; }
+.cover .hero img { max-width: 100%; max-height: 100%; filter: drop-shadow(0 6mm 6mm #0003); }
+.cover .who { position: absolute; left: 16mm; right: 16mm; top: 166mm; display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 8mm; }
+.cover .who div { border-bottom: 1px solid var(--ink); padding-bottom: 1.5mm; height: 11mm; display: flex; align-items: flex-end;
+  font: 700 7.6pt/1 var(--head); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+html[lang=si] .cover .who div { letter-spacing: 0; font-size: 9pt; }
+.cover .toc { position: absolute; left: 16mm; right: 16mm; top: 190mm; }
+.cover .toc h3 { margin: 0 0 3mm; font: 700 8.6pt/1 var(--head); letter-spacing: .14em; text-transform: uppercase; color: var(--ac); }
+html[lang=si] .cover .toc h3 { letter-spacing: 0; font-size: 10pt; }
+html[lang=si] .cover .toc li { font-size: 10pt; }
+.cover .toc ol { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 10mm; }
+.cover .toc li { display: flex; gap: 4mm; align-items: baseline; padding: 2.1mm 0; border-top: .6px solid var(--hair); break-inside: avoid; font: 500 10.4pt/1.3 var(--head); }
+.cover .toc li span { font: 800 9pt/1 'Schibsted Grotesk', sans-serif; color: var(--ac); min-width: 6mm; }
+.cover .foot { position: absolute; left: 16mm; right: 16mm; bottom: 12mm; display: flex; justify-content: space-between; align-items: flex-end;
+  border-top: 2.4px solid var(--ink); padding-top: 3mm; font: 500 8.6pt/1.4 var(--head); color: var(--ink2); }
+.cover .foot b { display: block; color: var(--ink); font-size: 10.4pt; }
+.cover .foot .meta { text-align: right; }
+
+/* ---------- rows: main column + margin column ---------- */
+.row { display: grid; grid-template-columns: var(--main) var(--side); column-gap: var(--gap); align-items: start; }
+.row > .m { min-width: 0; }
+.row > .s { min-width: 0; padding-left: 3mm; border-left: .6px solid var(--hair); font: 8.4pt/1.42 var(--body); color: var(--ink2); }
+html[lang=si] .row > .s { font-size: 8.2pt; line-height: 1.55; }
+.row.wide > .m { grid-column: 1 / -1; }
+.row + .row { margin-top: 1.2mm; }
+.keep, .row { break-inside: avoid; }
+.s .term { margin-bottom: 2.4mm; }
+.s .term b { display: block; font: 700 9pt/1.25 var(--head); color: var(--ink); }
+.s .term em { display: block; font: 600 8.6pt/1.35 'Noto Sans Sinhala', sans-serif; font-style: normal; color: var(--ac); }
+.s .term span { display: block; margin-top: .6mm; }
+.s .tag { display: block; font: 800 6.8pt/1 var(--head); letter-spacing: .16em; text-transform: uppercase; color: var(--ac); margin-bottom: 1.2mm; }
+html[lang=si] .s .tag { letter-spacing: 0; font-size: 8pt; }
+.s .note { margin-bottom: 2.4mm; }
+.s img, .s svg { max-width: 100%; height: auto; display: block; }
+
+/* ---------- section heading ---------- */
+.sec { display: grid; grid-template-columns: 17mm 1fr; align-items: end; margin: 6mm 0 3.5mm; padding-bottom: 2mm; border-bottom: 1.6px solid var(--ink); break-after: avoid; }
+.sec.newpage, .newpage > .sec:first-child { break-before: page; margin-top: 0; }
+.sec .n { font: 800 30pt/.8 'Schibsted Grotesk', sans-serif; color: var(--ac); letter-spacing: -.04em; }
+.sec h2 { margin: 0; font: 800 17pt/1.1 var(--disp); letter-spacing: -.01em; }
+html[lang=si] .sec h2 { font-size: 22pt; line-height: 1.1; letter-spacing: 0; }
+.lead { font-size: 10.8pt; color: var(--ink2); }
+html[lang=si] .lead { font-size: 10.2pt; }
+h3.sub { margin: 3mm 0 1.2mm; font: 700 11pt/1.25 var(--head); color: var(--ink); break-after: avoid; }
+html[lang=si] h3.sub { font-size: 11.6pt; }
+ul.dots { margin: 0 0 .6em; padding: 0; list-style: none; }
+ul.dots li { position: relative; padding-left: 4.4mm; margin: .8mm 0; }
+ul.dots li::before { content: ''; position: absolute; left: .4mm; top: .62em; width: 1.7mm; height: 1.7mm; background: var(--ac); }
+
+/* ---------- figures ---------- */
+figure { margin: 1mm 0 2mm; }
+figure .art { display: flex; justify-content: center; }
+figure svg { display: block; max-width: 100%; height: auto; overflow: visible; }
+figcaption { margin-top: 1.2mm; font: 500 8.2pt/1.35 var(--head); color: var(--ink2); }
+html[lang=si] figcaption { font-size: 8.8pt; }
+figcaption b { color: var(--ac); font-weight: 800; margin-right: 1.6mm; }
+.lab text { font-family: var(--head); font-weight: 600; fill: var(--ink); }
+.lab .ld { stroke: var(--ink); fill: none; }
+.lab .dt { fill: var(--ac); stroke: #fff; }
+svg .t { font-family: var(--head); font-weight: 600; fill: var(--ink); }
+svg .tm { font-family: var(--body); font-style: italic; fill: var(--ink); }
+svg .ta { font-family: var(--head); font-weight: 700; fill: var(--ac); }
+
+/* ---------- boxes ---------- */
+.box { padding: 3mm 4mm 2.4mm; background: var(--tint); border-top: 2.4px solid var(--ac); margin: 1mm 0 2mm; }
+.box > .bt { display: block; font: 800 7.4pt/1 var(--head); letter-spacing: .16em; text-transform: uppercase; color: var(--ac); margin-bottom: 1.6mm; }
+html[lang=si] .box > .bt { letter-spacing: 0; font-size: 8.8pt; }
+.box.key { background: var(--ink); color: #fff; border-top: 0; }
+.box.key > .bt { color: color-mix(in srgb, var(--ac) 45%, #fff); }
+.box.key .big { font: 700 13pt/1.35 var(--body); }
+.box p:last-child, .box ul:last-child { margin-bottom: 0; }
+
+/* ---------- worked example ---------- */
+.ex { border-left: 3px solid var(--ac); padding: .6mm 0 .6mm 4mm; margin: 1.5mm 0 2.5mm; }
+.ex .eh { display: flex; gap: 3mm; align-items: baseline; margin-bottom: 1mm; }
+.ex .eh span { font: 800 7.6pt/1 var(--head); letter-spacing: .16em; text-transform: uppercase; color: var(--ac); white-space: nowrap; }
+html[lang=si] .ex .eh span { letter-spacing: 0; font-size: 8.8pt; }
+.ex .eq { font-weight: 600; }
+.ex ol.steps { counter-reset: st; list-style: none; margin: 1.2mm 0 0; padding: 0; }
+.ex ol.steps li { counter-increment: st; display: grid; grid-template-columns: 6mm 1fr; padding: .7mm 0; border-top: .5px dashed var(--hair); }
+.ex ol.steps li::before { content: counter(st); font: 700 8pt/1.8 var(--head); color: var(--mute); }
+.ex .ea { margin-top: 1mm; padding: 1.2mm 2.6mm; background: var(--tint2); display: inline-block; font-weight: 700; }
+
+/* ---------- tables ---------- */
+table.t { width: 100%; border-collapse: collapse; font-size: 9.2pt; margin: 1mm 0 2.4mm; }
+html[lang=si] table.t { font-size: 9pt; }
+table.t th { text-align: left; font: 700 7.8pt/1.25 var(--head); letter-spacing: .08em; text-transform: uppercase; color: var(--ac); padding: 1.4mm 2mm; border-bottom: 1.4px solid var(--ink); }
+html[lang=si] table.t th { letter-spacing: 0; font-size: 8.8pt; }
+table.t td { padding: 1.3mm 2mm; border-bottom: .5px solid var(--hair); vertical-align: top; }
+table.t tr:nth-child(even) td { background: #faf9f6; }
+table.t td.n, table.t th.n { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---------- quick check ---------- */
+.check { border: 1.2px solid var(--ink); padding: 2.6mm 4mm 2mm; margin: 2mm 0 3mm; break-inside: avoid; position: relative; }
+.check > .bt { position: absolute; top: -2.2mm; left: 3mm; background: var(--paper); padding: 0 1.6mm; font: 800 7.6pt/1.1 var(--head); letter-spacing: .14em; text-transform: uppercase; color: var(--ac); }
+html[lang=si] .check > .bt { letter-spacing: 0; font-size: 8.8pt; }
+.check ol { margin: 0; padding-left: 5mm; } .check li { margin: .8mm 0; }
+.check .ln { display: block; border-bottom: .7px dotted var(--ink2); height: 6mm; }
+
+/* ---------- exercises ---------- */
+.q { display: grid; grid-template-columns: 8mm 1fr auto; gap: 0 1mm; padding: 2mm 0; border-top: .5px solid var(--hair); break-inside: avoid; }
+.q .qn { font: 800 10pt/1.5 'Schibsted Grotesk', sans-serif; color: var(--ac); }
+.q .mk { font: 600 8pt/1.8 var(--head); color: var(--mute); padding-left: 2mm; white-space: nowrap; }
+.q p { margin-bottom: 1mm; }
+ol.opts { list-style: none; margin: .6mm 0 0; padding: 0; display: grid; gap: .6mm 4mm; }
+ol.opts.c4 { grid-template-columns: repeat(4, 1fr); } ol.opts.c2 { grid-template-columns: 1fr 1fr; } ol.opts.c1 { grid-template-columns: 1fr; }
+ol.opts li { display: flex; gap: 1.6mm; }
+ol.opts li > span:first-child { font: 600 8.6pt/1.7 var(--head); color: var(--mute); }
+.q .abox { width: 8mm; height: 8mm; border: 1px solid var(--ink); margin-left: 3mm; }
+.sq { display: grid; grid-template-columns: 8mm 1fr; gap: 0 1mm; break-inside: avoid; }
+.sq.first { border-top: .5px solid var(--hair); padding-top: 2mm; margin-top: 1mm; }
+.sq .qn { font: 800 10pt/1.5 'Schibsted Grotesk', sans-serif; color: var(--ac); }
+.sq p { margin-bottom: 1mm; }
+.qp { break-inside: avoid; display: grid; grid-template-columns: 7mm 1fr auto; padding: .8mm 0; }
+.qp .pl { color: var(--ink2); }
+.draw { width: 62mm; border: .8px solid var(--ink2); margin: 1.4mm 0 1mm; }
+.lines i { display: block; height: 7.4mm; border-bottom: .7px dotted var(--ink2); }
+.exh { margin: 4mm 0 1mm; padding: 1.6mm 0; display: flex; justify-content: space-between; align-items: baseline; font: 800 10pt/1.2 var(--head); letter-spacing: .06em; text-transform: uppercase; border-bottom: 1.6px solid var(--ink); break-after: avoid; }
+html[lang=si] .exh { letter-spacing: 0; font-size: 11pt; }
+.exh span { font: 600 8.4pt/1 var(--head); color: var(--mute); text-transform: none; letter-spacing: 0; }
+
+/* ---------- summary ---------- */
+.sum { counter-reset: s; list-style: none; padding: 0; margin: 0 0 4mm; display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; }
+.sum li { counter-increment: s; padding: 2.6mm 3mm 2.6mm 11mm; background: var(--tint); position: relative; break-inside: avoid; }
+.sum li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 3mm; top: 2.6mm; font: 800 10pt/1.45 'Schibsted Grotesk', sans-serif; color: var(--ac); }
+.gloss { columns: 2; column-gap: 8mm; font-size: 9pt; }
+.gloss div { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; padding: 1.2mm 0; border-bottom: .5px solid var(--hair); break-inside: avoid; }
+.gloss div b { font: 700 9pt/1.35 'Schibsted Grotesk', sans-serif; }
+.gloss div span { font: 500 8.8pt/1.45 'Noto Sans Sinhala', sans-serif; color: var(--ac); }
+
+/* ---------- answers ---------- */
+.ans { columns: 2; column-gap: 8mm; font-size: 9pt; }
+.ans h4 { margin: 2mm 0 1mm; font: 800 7.8pt/1.2 var(--head); letter-spacing: .14em; text-transform: uppercase; color: var(--ac); break-after: avoid; }
+html[lang=si] .ans h4 { letter-spacing: 0; font-size: 9pt; }
+.ans .a { display: grid; grid-template-columns: 9mm 1fr; padding: .9mm 0; border-bottom: .5px solid var(--hair); break-inside: avoid; }
+.ans .a > b { font: 800 8.6pt/1.6 'Schibsted Grotesk', sans-serif; color: var(--ink2); }
+.ans .mcqk { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1mm; margin-bottom: 2mm; break-inside: avoid; }
+.ans .mcqk div { border: .6px solid var(--hair); padding: 1mm 1.6mm; font: 600 8.6pt/1.3 'Schibsted Grotesk', sans-serif; }
+.ans .mcqk div b { color: var(--ac); margin-left: 1.4mm; }
+.newpage { break-before: page; }

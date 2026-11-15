@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sample tutes</title>
+<link rel="stylesheet" href="engine/fonts/fonts.css">
+<style>
+  :root { --ink: #1c1d1f; --ink2: #55575c; --hair: #d6d3cc; --paper: #fff; --bg: #f3f1ec; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 'Literata', 'Noto Sans Sinhala', serif; }
+  html[lang=si] body { font-family: 'Noto Sans Sinhala', 'Literata', sans-serif; font-size: 15.5px; line-height: 1.7; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+  header { background: var(--ink); color: #fff; }
+  .top { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; font: 700 12px/1 'Schibsted Grotesk', 'Noto Sans Sinhala', sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+  .top a { color: #fff; text-decoration: none; }
+  .lang { display: flex; gap: 16px; }
+  .lang button { all: unset; cursor: pointer; padding: 4px 0; border-bottom: 2px solid transparent; color: #aaa; letter-spacing: .04em; text-transform: none; font-size: 13px; }
+  .lang button.on { color: #fff; border-color: #fff; }
+  .intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; padding: 52px 0 34px; border-bottom: 2px solid var(--ink); }
+  h1 { margin: 0; font: 800 clamp(40px, 6.4vw, 76px)/.95 'Schibsted Grotesk', sans-serif; letter-spacing: -.035em; }
+  html[lang=si] h1 { font: 800 clamp(38px, 5.6vw, 64px)/1.1 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+  .intro p { margin: 0; color: var(--ink2); max-width: 50ch; }
+  .facts { display: flex; gap: 28px; margin-top: 18px; font: 600 13px/1.3 'Schibsted Grotesk', 'Noto Sans Sinhala', sans-serif; color: var(--ink2); }
+  .facts b { display: block; font: 800 26px/1 'Schibsted Grotesk', sans-serif; color: var(--ink); }
+  main { padding: 10px 0 70px; }
+  .t { display: grid; grid-template-columns: 90px 230px 1fr; gap: 0 34px; padding: 34px 0; border-bottom: 1px solid var(--hair); align-items: start; }
+  .no { font: 800 64px/.8 'Schibsted Grotesk', sans-serif; color: var(--ac); letter-spacing: -.04em; }
+  .cov { display: block; width: 230px; aspect-ratio: 210 / 297; background: #fff; box-shadow: 0 1px 2px #0002, 0 16px 34px -14px #0006; transition: transform .2s; }
+  .cov:hover { transform: translateY(-3px); }
+  .cov img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .meta { font: 700 12px/1.3 'Schibsted Grotesk', 'Noto Sans Sinhala', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--ac); }
+  html[lang=si] .meta { letter-spacing: 0; font-size: 13px; }
+  h2 { margin: 8px 0 6px; font: 800 34px/1.08 'Schibsted Grotesk', sans-serif; letter-spacing: -.02em; }
+  html[lang=si] h2 { font: 800 34px/1.2 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+  .what { margin: 0 0 14px; color: var(--ink2); max-width: 62ch; }
+  .inside { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 18px; padding: 0; list-style: none; font: 500 14px/1.4 'Schibsted Grotesk', 'Noto Sans Sinhala', sans-serif; }
+  .inside li::before { content: '— '; color: var(--ac); }
+  .get { display: flex; flex-wrap: wrap; gap: 10px; }
+  .get a { display: inline-flex; gap: 10px; align-items: baseline; padding: 9px 14px; border: 1.5px solid var(--ink); color: var(--ink); text-decoration: none; font: 700 14px/1.2 'Schibsted Grotesk', 'Noto Sans Sinhala', sans-serif; }
+  .get a.pdf { background: var(--ac); border-color: var(--ac); color: #fff; }
+  .get a small { font-weight: 500; opacity: .8; }
+  .get a:hover { filter: brightness(1.1); }
+  footer { padding: 22px 0 46px; font-size: 13.5px; color: var(--ink2); }
+  @media (max-width: 820px) {
+    .wrap { padding: 0 16px; }
+    .intro { grid-template-columns: 1fr; gap: 16px; padding-top: 34px; }
+    .t { grid-template-columns: 1fr; gap: 14px; }
+    .no { font-size: 46px; }
+    .cov { width: 62%; max-width: 250px; }
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap top"><a href="../../website/teachers.html">Samsoft</a>
+  <div class="lang"><button data-l="en">English</button><button data-l="si">සිංහල</button></div></div></header>
+<div class="wrap">
+  <section class="intro">
+    <div><h1 data-en="Sample tutes" data-si="ආදර්ශ නිබන්ධන"></h1>
+      <div class="facts"><div><b>5</b><span data-en="tutes" data-si="නිබන්ධන"></span></div><div><b>9–12</b><span data-en="A4 pages each" data-si="A4 පිටු බැගින්"></span></div><div><b>10</b><span data-en="PDF files" data-si="PDF ගොනු"></span></div></div></div>
+    <p data-en="Study notes for tuition classes, in Sinhala and English: short notes with labelled 3D figures, worked examples, quick checks, paper-style exercises, a summary with the key words in both languages, and answers at the back."
+       data-si="උපකාරක පන්ති සඳහා සිංහල හා ඉංග්‍රීසි මාධ්‍ය අධ්‍යයන සටහන්: නම් කළ ත්‍රිමාණ රූප සහිත කෙටි සටහන්, නිදසුන්, තේරුණාද බලමු ප්‍රශ්න, ප්‍රශ්න පත්‍ර ආකාරයේ අභ්‍යාස, භාෂා දෙකෙන්ම පාරිභාෂික වචන සහිත සාරාංශය සහ අවසානයේ පිළිතුරු."></p>
+  </section>
+  <main id="list"></main>
+</div>
+<footer><div class="wrap" data-en="Original text and questions written for these samples. 3D figures are rendered from the Samsoft lesson decks (heart models CC BY: neshallads, jalmer; planet maps: Solar System Scope, CC BY). Graphs are computed from the equations; no textbook figures are used."
+  data-si="මෙම ආදර්ශ සඳහා ම ලියූ මුල් පෙළ හා ප්‍රශ්න. ත්‍රිමාණ රූප Samsoft පාඩම් decks වලින් (හෘද මාදිලි CC BY: neshallads, jalmer; ග්‍රහලෝක සිතියම්: Solar System Scope, CC BY). ප්‍රස්තාර සමීකරණවලින් ගණනය කර ඇත; පෙළපොත් රූප භාවිත කර නැත."></div></footer>
+<script>
+const P = [
+  { id: 'sch-solar', no: '01', ac: '#b8541a', pages: [11, 11], t: { en: 'The Solar System', si: 'සෞරග්‍රහ මණ්ඩලය' }, l: { en: 'Grade 5 scholarship · Environment', si: '5 ශ්‍රේණිය ශිෂ්‍යත්ව · පරිසරය' },
+    w: { en: 'The Sun, the eight planets in order, small and giant planets, day and night, the year and leap years, and the phases of the Moon.', si: 'සූර්යයා, පිළිවෙළට ග්‍රහලෝක අට, කුඩා හා යෝධ ග්‍රහලෝක, දිවා රෑ, අවුරුද්ද හා අධික අවුරුද්ද සහ චන්ද්‍ර කලා.' },
+    i: { en: ['real-size planet row', 'Moon phases from a 3D model', '10 MCQ + 3 structured'], si: ['සැබෑ ප්‍රමාණයේ ග්‍රහලෝක පෙළ', 'ත්‍රිමාණ මාදිලියෙන් චන්ද්‍ර කලා', 'බහුවරණ 10 + ව්‍යුහගත 3'] } },
+  { id: 'ol-solids', no: '02', ac: '#1d6a78', pages: [12, 12], t: { en: 'Surface area and volume', si: 'පෘෂ්ඨ වර්ගඵලය සහ පරිමාව' }, l: { en: 'O/L Mathematics · Grades 10–11', si: 'සා/පෙළ ගණිතය · 10–11 ශ්‍රේණි' },
+    w: { en: 'Nets, cylinders, prisms, cones, pyramids and spheres: where every formula comes from, with seven worked examples and a formula sheet.', si: 'දැල්, සිලින්ඩර, ප්‍රිස්ම, කේතු, පිරමීඩ සහ ගෝල: එක් එක් සූත්‍රය එන්නේ කොහෙන්ද, නිදසුන් හතක් සහ සූත්‍ර පත්‍රයක් සමඟ.' },
+    i: { en: ['exact line diagrams', 'cone-into-cylinder render', 'composite-solid question'], si: ['නිවැරදි රේඛා රූප', 'කේතුව-සිලින්ඩරය රූපය', 'සංයුක්ත ඝන වස්තු ප්‍රශ්නය'] } },
+  { id: 'ol-heart', no: '03', ac: '#a11d33', pages: [11, 12], t: { en: 'The heart and blood circulation', si: 'හෘදය සහ රුධිර සංසරණය' }, l: { en: 'O/L Science · Human biology', si: 'සා/පෙළ විද්‍යාව · මිනිස් ජීව විද්‍යාව' },
+    w: { en: 'Chambers and valves, double circulation, heartbeat and pulse, and arteries, veins and capillaries — with a labelled cut-away heart.', si: 'කුටීර සහ කපාට, ද්විත්ව සංසරණය, හෘද ස්පන්දනය සහ නාඩිය, ධමනි, ශිරා සහ කේශනාලිකා — නම් කළ කපා විවෘත කළ හෘදයක් සමඟ.' },
+    i: { en: ['14-label cut-away heart', 'circulation plan', 'label-the-diagram question'], si: ['ලේබල 14ක හෘද රූපය', 'සංසරණ සැලැස්ම', 'රූපය නම් කිරීමේ ප්‍රශ්නය'] } },
+  { id: 'ol-computer', no: '04', ac: '#2b6b3f', pages: [10, 11], t: { en: 'The computer system', si: 'පරිගණක පද්ධතිය' }, l: { en: 'O/L ICT · Grade 10', si: 'සා/පෙළ තො.ස.තා. · 10 ශ්‍රේණිය' },
+    w: { en: 'Input–process–output, the parts inside the system unit, the CPU, the machine cycle, the memory hierarchy, RAM and ROM, and storage units.', si: 'ආදානය–සැකසීම–ප්‍රතිදානය, පද්ධති ඒකකය තුළ කොටස්, CPU, යන්ත්‍ර චක්‍රය, මතක ධුරාවලිය, RAM සහ ROM සහ ආචයන ඒකක.' },
+    i: { en: ['labelled PC and CPU die', 'exploded view', 'storage-unit sums'], si: ['නම් කළ පරිගණකය සහ CPU චිපය', 'කොටස් වෙන් කළ රූපය', 'ආචයන ඒකක ගණනය'] } },
+  { id: 'al-proj', no: '05', ac: '#1f4f8a', pages: [9, 10], t: { en: 'Projectile motion', si: 'ප්‍රක්ෂිප්ත චලිතය' }, l: { en: 'A/L Physics · Mechanics', si: 'උ/පෙළ භෞතික විද්‍යාව · යාන්ත්‍ර විද්‍යාව' },
+    w: { en: 'Two independent motions, components, position and velocity at time t, T, H and R, why 45° goes furthest, and horizontal launches.', si: 'ස්වායත්ත චලිත දෙක, සංරචක, t කාලයේදී පිහිටීම සහ ප්‍රවේගය, T, H සහ R, 45° උපරිම දුර යන්නේ ඇයි, සහ තිරස්ව විදීම.' },
+    i: { en: ['graphs computed from the equations', 'football and cliff examples', 'A/L structured questions'], si: ['සමීකරණවලින් ගණනය කළ ප්‍රස්තාර', 'පාපන්දු සහ කඳු මුදුන් නිදසුන්', 'උ/පෙළ ව්‍යුහගත ප්‍රශ්න'] } }
+];
+const T = { en: { e: 'English PDF', s: 'Sinhala PDF', v: 'View online', p: n => `${n} pages` }, si: { e: 'ඉංග්‍රීසි PDF', s: 'සිංහල PDF', v: 'බලන්න', p: n => `පිටු ${n}` } };
+function render(lang) {
+  try { localStorage.setItem('tutes-lang', lang); } catch (e) {}
+  document.documentElement.lang = lang; const L = T[lang];
+  document.querySelectorAll('[data-en]').forEach(e => e.innerHTML = e.dataset[lang]);
+  document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.l === lang));
+  document.getElementById('list').innerHTML = P.map(p => `<article class="t" style="--ac:${p.ac}">
+    <div class="no">${p.no}</div>
+    <a class="cov" href="${p.id}/index.html?lang=${lang}" target="_blank" rel="noopener"><img src="thumbs/${p.id}-${lang}.jpg" alt="${p.t[lang]}" loading="lazy"></a>
+    <div><div class="meta">${p.l[lang]}</div><h2>${p.t[lang]}</h2><p class="what">${p.w[lang]}</p>
+      <ul class="inside">${p.i[lang].map(x => `<li>${x}</li>`).join('')}</ul>
+      <div class="get">${lang === 'si'
+        ? `<a class="pdf" href="${p.id}/${p.id}-si.pdf" target="_blank" rel="noopener">${L.s} <small>${L.p(p.pages[1])}</small></a><a href="${p.id}/${p.id}-en.pdf" target="_blank" rel="noopener">${L.e} <small>${L.p(p.pages[0])}</small></a>`
+        : `<a class="pdf" href="${p.id}/${p.id}-en.pdf" target="_blank" rel="noopener">${L.e} <small>${L.p(p.pages[0])}</small></a><a href="${p.id}/${p.id}-si.pdf" target="_blank" rel="noopener">${L.s} <small>${L.p(p.pages[1])}</small></a>`}
+        <a href="${p.id}/index.html?lang=${lang}" target="_blank" rel="noopener">${L.v}</a></div>
+    </div></article>`).join('');
+}
+document.querySelectorAll('.lang button').forEach(b => b.onclick = () => render(b.dataset.l));
+let start = new URLSearchParams(location.search).get('lang'); if (!start) { try { start = localStorage.getItem('tutes-lang'); } catch (e) {} }
+render(start === 'si' ? 'si' : 'en');
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* O/L Science: the heart. Blood colours: oxygen-rich red, oxygen-poor blue (textbook convention). */
+body { --o2: #f0505c; --co2: #5b8cff; }
+.o2 { color: var(--o2); } .co2 { color: var(--co2); }
+b.o2, b.co2 { font-weight: 700; }
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: middle; margin-right: 8px; }
+.dot.o2 { background: var(--o2); } .dot.co2 { background: var(--co2); }
+
+.cover .credit { position: absolute; right: 96px; bottom: 30px; z-index: 2; font: 500 13px/1.4 var(--mono); color: var(--chalk-3); letter-spacing: .03em; }
+
+/* 3 label sets */
+.sets { position: relative; min-height: 400px; }
+.set { position: absolute; inset: 0 0 auto 0; opacity: 0; visibility: hidden; transition: opacity .3s; }
+.set.on { opacity: 1; visibility: visible; }
+.set > p { font-size: 27px; color: var(--chalk); }
+.mini { list-style: none; margin-top: 22px; border-top: 1px solid var(--line-2); }
+.mini li { font-size: 23px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--chalk-2); }
+.mini b { color: var(--chalk); }
+
+/* 4 path of blood */
+.path { list-style: none; counter-reset: p; margin-top: 4px; border-top: 1px solid var(--line-2); }
+.path li { counter-increment: p; position: relative; padding: 10px 0 10px 56px; border-bottom: 1px solid var(--line); font-size: 21px; color: var(--chalk-3); cursor: pointer; transition: color .25s, background .25s; }
+.path li::before { content: counter(p, decimal-leading-zero); position: absolute; left: 10px; top: 13px; font: 700 17px/1 var(--mono); }
+.path li.co2::before { color: var(--co2); } .path li.o2::before { color: var(--o2); }
+.path li.on { color: var(--chalk); background: rgba(236, 230, 214, .05); }
+.path li.on::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+.path li.co2.on::after { background: var(--co2); } .path li.o2.on::after { background: var(--o2); }
+.path b { color: var(--chalk); }
+.path li:not(.on) b { color: inherit; }
+
+/* 5 double circulation */
+.dbl { display: grid; grid-template-columns: 600px 1fr; gap: 70px; align-items: center; margin-top: 6px; }
+.loop { width: 600px; height: 619px; overflow: visible; }
+.loop .org { fill: var(--board-3); stroke: var(--line-2); stroke-width: 2; }
+.loop .ot { font: 800 34px var(--head); fill: var(--chalk); text-anchor: middle; }
+.loop .os { font: 500 17px var(--mono); fill: var(--chalk-3); text-anchor: middle; }
+.loop .hb { fill: color-mix(in srgb, var(--co2) 30%, var(--board)); stroke: var(--co2); stroke-width: 2; }
+.loop .hr { fill: color-mix(in srgb, var(--o2) 30%, var(--board)); stroke: var(--o2); stroke-width: 2; }
+.loop .ht { font: 700 21px var(--mono); fill: var(--chalk); text-anchor: middle; }
+.loop .fl { fill: none; stroke-width: 5; stroke-dasharray: 14 10; animation: flow 1.1s linear infinite; }
+.loop .fl.b { stroke: var(--co2); } .loop .fl.r { stroke: var(--o2); }
+.loop .gap { stroke: var(--board); stroke-width: 16; }
+.loop .vt { font: 600 18px var(--body); }
+.loop .vt.b { fill: var(--co2); } .loop .vt.r { fill: var(--o2); }
+@keyframes flow { to { stroke-dashoffset: -24; } }
+@media (prefers-reduced-motion: reduce) { .loop .fl { animation: none; } }
+.lp { padding: 16px 0 18px; border-bottom: 1px solid var(--line); }
+.lp:first-child { border-top: 1px solid var(--line-2); }
+.lp h3 { font-size: 32px; margin-bottom: 6px; }
+.lp p { font-size: 23px; color: var(--chalk-2); }
+.lp.warn h3 { color: var(--accent); font: 700 17px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; margin: 4px 0 10px; }
+.lp.warn p { color: var(--chalk); }
+.key { margin-top: 22px; font: 500 18px var(--mono); color: var(--chalk-3); }
+
+/* 6 heartbeat readouts */
+.beatread { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 18px; }
+.beatread i { display: block; font-style: normal; font-size: 18px; color: var(--chalk-3); margin-top: 8px; }
+.beatread .readout { font-size: 46px; }
+
+/* 7 vessels table */
+.vt3 { margin-top: 30px; width: 100%; }
+.vt3 th { font-size: 22px !important; padding-bottom: 14px !important; }
+.vt3 td { font-size: 25px !important; padding-top: 20px !important; padding-bottom: 20px !important; }
+.vt3 td:first-child { width: 250px; color: var(--chalk-3); font: 500 19px/1.3 var(--mono) !important; }
+.vt3 th.o2 { color: var(--o2); } .vt3 th.co2 { color: var(--co2); }
+
+html[data-lang="si"] .path li { font-size: 19.5px; }
+html[data-lang="si"] .vt3 td { font-size: 22px !important; }
+html[data-lang="si"] .lp p { font-size: 21px; }
+html[data-lang="si"] .set > p { font-size: 24px; }
+html[data-lang="si"] .mini li { font-size: 21px; }
+
+/* 6 heartbeat column is tighter */
+[data-id="beat"] .rows > li { padding: 10px 0; }
+[data-id="beat"] .rows p { font-size: 23px; }
+[data-id="beat"] .note { font-size: 20px; margin-top: 16px; }

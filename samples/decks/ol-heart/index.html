@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Heart and Blood Circulation | Samsoft Decks</title>
+<link rel="icon" href="../engine/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../engine/deck.css">
+<link rel="stylesheet" href="heart.css">
+<script type="importmap">{ "imports": { "three": "../engine/vendor/three.module.min.js" } }</script>
+<script defer src="../engine/deck.js"></script>
+<script>if(location.protocol==='file:')document.write('<script src="../engine/pack/draco.js"><\/script><script src="pack/assets.js"><\/script><script src="pack/app.js"><\/script>');else{const s=document.createElement('script');s.type='module';s.src='heart.js';document.head.appendChild(s)}</script>
+</head>
+<body data-subject="sci" data-tag-en="O/L · Science" data-tag-si="සා/පෙළ · විද්‍යාව"
+      data-title-en="The Heart and Blood Circulation | Samsoft Decks" data-title-si="හෘදය සහ රුධිර සංසරණය | Samsoft Decks">
+<main class="viewport"><div class="stage">
+
+<!-- 1 cover -->
+<section class="slide cover" data-id="cover">
+  <div class="bleed-r"><div class="v3d" id="v-cover"></div></div>
+  <div class="col" style="position:relative;z-index:2;pointer-events:none">
+    <div class="rule"></div>
+    <h1 data-en="The heart and&lt;br&gt;blood circulation" data-si="හෘදය සහ&lt;br&gt;රුධිර සංසරණය"></h1>
+    <p class="sub" data-en="A pump the size of your fist that never stops, and the two loops it drives." data-si="කිසිදා නොනවතින, ඔබේ මිටක් තරම් පොම්පය සහ එය ක්‍රියාත්මක කරන පුඩු දෙක."></p>
+  </div>
+  <div class="meta"><b>03</b> · <span data-en="O/L · Human biology" data-si="සා/පෙළ · මිනිස් ජීව විද්‍යාව"></span><br><span data-en="Science" data-si="විද්‍යාව"></span></div>
+  <p class="credit"><span lang="en">3D models: “Realistic Human Heart” by neshallads, “Beating Heart” by jalmer (CC BY 4.0)</span><span lang="si">3D models: “Realistic Human Heart” - neshallads, “Beating Heart” - jalmer (CC BY 4.0)</span></p>
+</section>
+
+<!-- 2 the heart from outside -->
+<section class="slide" data-id="outside">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="A muscular pump" data-si="පේශිමය පොම්පයක්"></span>
+      <h2 data-en="Meet the heart" data-si="හෘදය හඳුනා ගනිමු"></h2>
+      <ul class="rows tight">
+        <li><span class="n">01</span><p><span lang="en">Made of <strong>cardiac muscle</strong>, which contracts all life without getting tired.</span><span lang="si">සෑදී ඇත්තේ <strong>හෘද පේශි</strong> වලිනි. ඒවා ජීවිත කාලය පුරාම වෙහෙසට පත් නොවී සංකෝචනය වේ.</span></p></li>
+        <li><span class="n">02</span><p><span lang="en">Sits in the <strong>thoracic cavity</strong>, between the two lungs, a little to the left.</span><span lang="si"><strong>උරස් කුහරයේ</strong>, පෙනහළු දෙක අතර, මඳක් වම් පසට වන්නට පිහිටා ඇත.</span></p></li>
+        <li><span class="n">03</span><p><span lang="en">About the size of your fist, about <strong>300 g</strong>, wrapped in the <strong>pericardium</strong>.</span><span lang="si">ඔබේ මිටක් පමණ ප්‍රමාණය, ආසන්න වශයෙන් <strong>300 g</strong> කි. <strong>හෘදාවරණයෙන්</strong> වට වී ඇත.</span></p></li>
+        <li><span class="n">04</span><p><span lang="en">The <strong>coronary arteries</strong> on its surface feed the heart muscle itself.</span><span lang="si">පෘෂ්ඨය මත ඇති <strong>කිරීටක ධමනි</strong> මගින් හෘද පේශිවලටම රුධිරය සපයයි.</span></p></li>
+      </ul>
+      <p class="note"><span lang="en">At rest it beats about <b>72 times a minute</b> and pumps about <b>5 litres</b> of blood every minute.</span><span lang="si">විවේකයේදී මිනිත්තුවකට <b>72 වාරයක්</b> පමණ ස්පන්දනය වන අතර, මිනිත්තුවකට රුධිරය <b>ලීටර 5ක්</b> පමණ පොම්ප කරයි.</span></p>
+    </div>
+    <div class="fill"><div class="v3d" id="v-outside"></div></div>
+  </div>
+</section>
+
+<!-- 3 inside: chambers, valves, vessels -->
+<section class="slide" data-id="inside">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Cut open from the front" data-si="ඉදිරියෙන් කපා විවෘත කළ විට"></span>
+      <h2 data-en="Four chambers" data-si="කුටීර හතර"></h2>
+      <div class="seg" id="set" style="margin:6px 0 26px">
+        <button data-k="ch" aria-pressed="true" data-en="Chambers" data-si="කුටීර"></button>
+        <button data-k="va" aria-pressed="false" data-en="Valves" data-si="කපාට"></button>
+        <button data-k="ve" aria-pressed="false" data-en="Blood vessels" data-si="රුධිර වාහිනී"></button>
+      </div>
+      <div class="sets">
+        <div class="set on" data-k="ch">
+          <p><span lang="en">Two <strong>atria</strong> on top receive blood. Two <strong>ventricles</strong> below pump it out. A wall in the middle keeps the right side and the left side apart.</span><span lang="si">ඉහළ <strong>කර්ණිකා</strong> දෙක රුධිරය ලබා ගනී. පහළ <strong>කෝෂිකා</strong> දෙක රුධිරය පිටතට පොම්ප කරයි. මැද බිත්තිය දකුණු පස සහ වම් පස වෙන් කර තබයි.</span></p>
+          <p class="note"><span lang="en">The <b>left ventricle</b> has the thickest wall: it pumps blood to the whole body.</span><span lang="si"><b>වම් කෝෂිකාවේ</b> බිත්තිය ඝනම වේ: එය මුළු සිරුරටම රුධිරය පොම්ප කරයි.</span></p>
+        </div>
+        <div class="set" data-k="va">
+          <p><span lang="en">Valves let blood flow <strong>one way only</strong>. They close when blood tries to flow back.</span><span lang="si">කපාට මගින් රුධිරය ගලා යාමට ඉඩ දෙන්නේ <strong>එක් දිශාවකට පමණි</strong>. රුධිරය ආපසු ගලන්නට උත්සාහ කරන විට ඒවා වැසේ.</span></p>
+          <ul class="mini">
+            <li><span lang="en"><b>Tricuspid</b>: right atrium → right ventricle (3 flaps)</span><span lang="si"><b>ත්‍රිතුණ්ඩ කපාටය</b>: දකුණු කර්ණිකාව → දකුණු කෝෂිකාව (පෙති 3)</span></li>
+            <li><span lang="en"><b>Bicuspid</b>: left atrium → left ventricle (2 flaps)</span><span lang="si"><b>ද්විතුණ්ඩ කපාටය</b>: වම් කර්ණිකාව → වම් කෝෂිකාව (පෙති 2)</span></li>
+            <li><span lang="en"><b>Semilunar</b>: at the start of the aorta and the pulmonary artery</span><span lang="si"><b>අර්ධචන්ද්‍රාකාර කපාට</b>: මහා ධමනිය සහ පුප්ඵුසීය ධමනිය ආරම්භයේ</span></li>
+          </ul>
+        </div>
+        <div class="set" data-k="ve">
+          <p><span lang="en"><strong>Veins</strong> bring blood <strong>into</strong> the atria. <strong>Arteries</strong> carry blood <strong>away</strong> from the ventricles.</span><span lang="si"><strong>ශිරා</strong> මගින් රුධිරය කර්ණිකා <strong>තුළට</strong> ගෙන එයි. <strong>ධමනි</strong> මගින් රුධිරය කෝෂිකාවලින් <strong>ඉවතට</strong> ගෙන යයි.</span></p>
+          <ul class="mini">
+            <li><span lang="en"><b class="co2">Venae cavae</b> → right atrium</span><span lang="si"><b class="co2">මහා ශිරා</b> → දකුණු කර්ණිකාව</span></li>
+            <li><span lang="en">right ventricle → <b class="co2">pulmonary artery</b></span><span lang="si">දකුණු කෝෂිකාව → <b class="co2">පුප්ඵුසීය ධමනිය</b></span></li>
+            <li><span lang="en"><b class="o2">Pulmonary veins</b> → left atrium</span><span lang="si"><b class="o2">පුප්ඵුසීය ශිරා</b> → වම් කර්ණිකාව</span></li>
+            <li><span lang="en">left ventricle → <b class="o2">aorta</b></span><span lang="si">වම් කෝෂිකාව → <b class="o2">මහා ධමනිය</b></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="fill"><div class="v3d" id="v-inside"></div></div>
+  </div>
+</section>
+
+<!-- 4 path of blood through the heart -->
+<section class="slide" data-id="path">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Follow one drop of blood" data-si="රුධිර බිඳුවක් අනුගමනය කරමු"></span>
+      <h2 data-en="Through the heart" data-si="හෘදය හරහා"></h2>
+      <ol class="path" id="path">
+        <li class="co2" data-k="0"><span lang="en">Venae cavae bring blood from the body into the <b>right atrium</b>.</span><span lang="si">මහා ශිරා මගින් සිරුරේ සිට රුධිරය <b>දකුණු කර්ණිකාවට</b> ගෙන එයි.</span></li>
+        <li class="co2" data-k="1"><span lang="en">Through the <b>tricuspid valve</b> into the right ventricle.</span><span lang="si"><b>ත්‍රිතුණ්ඩ කපාටය</b> හරහා දකුණු කෝෂිකාවට.</span></li>
+        <li class="co2" data-k="2"><span lang="en">The <b>right ventricle</b> pumps it through a semilunar valve.</span><span lang="si"><b>දකුණු කෝෂිකාව</b> එය අර්ධචන්ද්‍රාකාර කපාටයක් හරහා පොම්ප කරයි.</span></li>
+        <li class="co2" data-k="3"><span lang="en">The <b>pulmonary artery</b> takes it to the lungs.</span><span lang="si"><b>පුප්ඵුසීය ධමනිය</b> එය පෙනහළු වෙත ගෙන යයි.</span></li>
+        <li class="o2" data-k="4"><span lang="en">Pulmonary veins bring it back, rich in oxygen, to the <b>left atrium</b>.</span><span lang="si">ඔක්සිජන් බහුල රුධිරය පුප්ඵුසීය ශිරා මගින් <b>වම් කර්ණිකාවට</b> පැමිණේ.</span></li>
+        <li class="o2" data-k="5"><span lang="en">Through the <b>bicuspid valve</b> into the left ventricle.</span><span lang="si"><b>ද්විතුණ්ඩ කපාටය</b> හරහා වම් කෝෂිකාවට.</span></li>
+        <li class="o2" data-k="6"><span lang="en">The <b>left ventricle</b> pumps it through a semilunar valve.</span><span lang="si"><b>වම් කෝෂිකාව</b> එය අර්ධචන්ද්‍රාකාර කපාටයක් හරහා පොම්ප කරයි.</span></li>
+        <li class="o2" data-k="7"><span lang="en">The <b>aorta</b> carries it to the whole body.</span><span lang="si"><b>මහා ධමනිය</b> එය මුළු සිරුරටම ගෙන යයි.</span></li>
+      </ol>
+    </div>
+    <div class="fill"><div class="v3d" id="v-path"></div></div>
+  </div>
+</section>
+
+<!-- 5 double circulation -->
+<section class="slide" data-id="double">
+  <span class="kick" data-en="Blood passes through the heart twice" data-si="රුධිරය හෘදය හරහා දෙවරක් ගමන් කරයි"></span>
+  <h2 data-en="Double circulation" data-si="ද්විත්ව සංසරණය"></h2>
+  <div class="dbl">
+    <svg viewBox="0 0 640 660" class="loop" aria-hidden="true">
+      <defs>
+        <marker id="ab" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--co2)"/></marker>
+        <marker id="ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--o2)"/></marker>
+      </defs>
+      <!-- organs -->
+      <rect class="org" x="170" y="20" width="300" height="96"/><text class="ot" x="320" y="62" data-svg-en="Lungs" data-svg-si="පෙනහළු"></text><text class="os" x="320" y="92" data-svg-en="CO₂ out · O₂ in" data-svg-si="CO₂ ඉවතට · O₂ ඇතුළට"></text>
+      <rect class="org" x="170" y="544" width="300" height="96"/><text class="ot" x="320" y="586" data-svg-en="Body" data-svg-si="සිරුර"></text><text class="os" x="320" y="616" data-svg-en="O₂ used · CO₂ made" data-svg-si="O₂ භාවිතය · CO₂ නිපදවීම"></text>
+      <!-- heart: right side (blue) on the left of the picture, as when facing a person -->
+      <rect class="hb" x="200" y="238" width="120" height="76"/><text class="ht" x="260" y="283" data-svg-en="RA" data-svg-si="ද.ක."></text>
+      <rect class="hb" x="200" y="318" width="120" height="104"/><text class="ht" x="260" y="377" data-svg-en="RV" data-svg-si="ද.කෝ."></text>
+      <rect class="hr" x="320" y="238" width="120" height="76"/><text class="ht" x="380" y="283" data-svg-en="LA" data-svg-si="ව.ක."></text>
+      <rect class="hr" x="320" y="318" width="120" height="104"/><text class="ht" x="380" y="377" data-svg-en="LV" data-svg-si="ව.කෝ."></text>
+      <!-- pulmonary loop -->
+      <path class="fl b" d="M170 592 H60 V276 H200" marker-end="url(#ab)"/>
+      <path class="gap" d="M110 300 V252"/>
+      <path class="fl b" d="M200 370 H110 V68 H170" marker-end="url(#ab)"/>
+      <path class="fl r" d="M470 68 H530 V276 H440" marker-end="url(#ar)"/>
+      <!-- systemic loop -->
+      <path class="fl r" d="M440 370 H530 V592 H470" marker-end="url(#ar)"/>
+      <text class="vt b" x="104" y="210" text-anchor="end" data-svg-en="pulmonary artery" data-svg-si="පුප්ඵුසීය ධමනිය"></text>
+      <text class="vt r" x="538" y="150" data-svg-en="pulmonary veins" data-svg-si="පුප්ඵුසීය ශිරා"></text>
+      <text class="vt r" x="538" y="470" data-svg-en="aorta" data-svg-si="මහා ධමනිය"></text>
+      <text class="vt b" x="54" y="470" text-anchor="end" data-svg-en="venae cavae" data-svg-si="මහා ශිරා"></text>
+    </svg>
+    <div class="col">
+      <div class="lp" data-step="1"><h3><span class="dot o2"></span><span class="dot co2"></span> <span data-en="Pulmonary circulation" data-si="පුප්ඵුසීය සංසරණය"></span></h3>
+        <p data-en="Right ventricle → lungs → left atrium. Blood picks up oxygen and gives off carbon dioxide." data-si="දකුණු කෝෂිකාව → පෙනහළු → වම් කර්ණිකාව. රුධිරය ඔක්සිජන් ලබා ගෙන කාබන් ඩයොක්සයිඩ් ඉවත් කරයි."></p></div>
+      <div class="lp" data-step="2"><h3><span class="dot o2"></span><span class="dot co2"></span> <span data-en="Systemic circulation" data-si="දේහ සංසරණය"></span></h3>
+        <p data-en="Left ventricle → all body tissues → right atrium. Cells take oxygen and food, and give carbon dioxide." data-si="වම් කෝෂිකාව → සියලු දේහ පටක → දකුණු කර්ණිකාව. සෛල ඔක්සිජන් සහ ආහාර ලබා ගෙන කාබන් ඩයොක්සයිඩ් ලබා දෙයි."></p></div>
+      <div class="lp warn" data-step="3"><h3 data-en="Exam point" data-si="විභාග කරුණ"></h3>
+        <p><span lang="en">The <b class="co2">pulmonary artery</b> is the only artery with oxygen-poor blood. The <b class="o2">pulmonary veins</b> are the only veins with oxygen-rich blood.</span><span lang="si">ඔක්සිජන් ඌන රුධිරය ගෙන යන එකම ධමනිය <b class="co2">පුප්ඵුසීය ධමනියයි</b>. ඔක්සිජන් බහුල රුධිරය ගෙන යන එකම ශිරා <b class="o2">පුප්ඵුසීය ශිරා</b> වේ.</span></p></div>
+      <p class="key"><span class="dot o2"></span><span data-en="oxygen-rich blood" data-si="ඔක්සිජන් බහුල රුධිරය"></span> <span class="dot co2" style="margin-left:24px"></span><span data-en="oxygen-poor blood" data-si="ඔක්සිජන් ඌන රුධිරය"></span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 heartbeat and pulse -->
+<section class="slide" data-id="beat">
+  <div class="split">
+    <div class="col">
+      <span class="kick" data-en="One heartbeat" data-si="එක් හෘද ස්පන්දනයක්"></span>
+      <h2 data-en="Heartbeat and pulse" data-si="හෘද ස්පන්දනය සහ නාඩිය"></h2>
+      <ul class="rows tight">
+        <li><span class="n">01</span><p data-en="The atria contract and push blood into the ventricles." data-si="කර්ණිකා සංකෝචනය වී රුධිරය කෝෂිකාවලට තල්ලු කරයි."></p></li>
+        <li><span class="n">02</span><p data-en="The ventricles contract and push blood into the arteries. The valves snap shut: “lub-dub”." data-si="කෝෂිකා සංකෝචනය වී රුධිරය ධමනිවලට තල්ලු කරයි. කපාට වැසෙන ශබ්දය “ලබ්-ඩබ්” ලෙස ඇසේ."></p></li>
+        <li><span class="n">03</span><p data-en="The heart relaxes and fills with blood again." data-si="හෘදය ඉහිල් වී නැවත රුධිරයෙන් පිරේ."></p></li>
+      </ul>
+      <div class="slider" style="margin-top:26px"><label data-en="Heart rate" data-si="හෘද ස්පන්දන වේගය"></label><input type="range" id="bpm" min="40" max="180" step="1" value="72"><output id="bpmO">72</output></div>
+      <div class="beatread">
+        <div><span class="readout" id="perMin">5.0<small>L / min</small></span><i data-en="blood pumped (≈ 70 mL each beat)" data-si="පොම්ප වන රුධිරය (ස්පන්දනයකට ≈ 70 mL)"></i></div>
+        <div><span class="readout" id="state">—</span><i id="stateNote"></i></div>
+      </div>
+      <p class="note"><span lang="en">Each beat sends a wave along the arteries: the <b>pulse</b>. Feel it at the wrist or the neck. Count for 15 s × 4 = beats per minute.</span><span lang="si">සෑම ස්පන්දනයකදීම ධමනි දිගේ තරංගයක් ගමන් කරයි: එය <b>නාඩි වැටීමයි</b>. මැණික් කටුවේ හෝ බෙල්ලේ එය දැනිය හැක. තත්පර 15ක් ගණන් කර 4න් ගුණ කළ විට මිනිත්තුවට ස්පන්දන ගණන ලැබේ.</span></p>
+    </div>
+    <div class="fill"><div class="v3d" id="v-beat"></div></div>
+  </div>
+</section>
+
+<!-- 7 blood vessels -->
+<section class="slide" data-id="vessels">
+  <span class="kick" data-en="Three kinds of blood vessel" data-si="රුධිර වාහිනී වර්ග තුන"></span>
+  <h2 data-en="Arteries, veins and capillaries" data-si="ධමනි, ශිරා සහ කේශනාලිකා"></h2>
+  <table class="ruled vt3">
+    <thead><tr><th></th><th class="o2" data-en="Artery" data-si="ධමනිය"></th><th class="co2" data-en="Vein" data-si="ශිරාව"></th><th data-en="Capillary" data-si="කේශනාලිකාව"></th></tr></thead>
+    <tbody>
+      <tr data-step="1"><td data-en="Carries blood" data-si="රුධිරය ගෙන යන්නේ"></td><td data-en="away from the heart" data-si="හෘදයෙන් ඉවතට"></td><td data-en="to the heart" data-si="හෘදය වෙතට"></td><td data-en="between arteries and veins, through the tissues" data-si="ධමනි සහ ශිරා අතර, පටක හරහා"></td></tr>
+      <tr data-step="2"><td data-en="Wall" data-si="බිත්තිය"></td><td data-en="thick, muscular, elastic" data-si="ඝන, පේශිමය, ප්‍රත්‍යාස්ථ"></td><td data-en="thinner, less muscle" data-si="තුනී, පේශි අඩු"></td><td data-en="one cell thick" data-si="එක් සෛලයක ඝනකමක්"></td></tr>
+      <tr data-step="3"><td data-en="Lumen (space inside)" data-si="කුහරය (ඇතුළත ඉඩ)"></td><td data-en="narrow" data-si="පටු"></td><td data-en="wide" data-si="පළල්"></td><td data-en="just wide enough for one red blood cell" data-si="රතු රුධිරාණුවකට යා හැකි තරම් පමණි"></td></tr>
+      <tr data-step="4"><td data-en="Blood pressure" data-si="රුධිර පීඩනය"></td><td data-en="high, flows in spurts" data-si="ඉහළ, ස්පන්දන ලෙස ගලයි"></td><td data-en="low, flows smoothly" data-si="අඩු, සුමටව ගලයි"></td><td data-en="low" data-si="අඩු"></td></tr>
+      <tr data-step="5"><td data-en="Valves" data-si="කපාට"></td><td data-en="none (only at the heart)" data-si="නැත (හෘදය අසල පමණි)"></td><td data-en="yes: stop backflow" data-si="ඇත: ආපසු ගැලීම වළක්වයි"></td><td data-en="none" data-si="නැත"></td></tr>
+      <tr data-step="6"><td data-en="Job" data-si="කාර්යය"></td><td data-en="take blood out fast, under pressure" data-si="පීඩනය යටතේ රුධිරය ඉක්මනින් ගෙන යාම"></td><td data-en="bring blood back" data-si="රුධිරය ආපසු ගෙන ඒම"></td><td data-en="exchange O₂, CO₂, food and waste with cells" data-si="සෛල සමඟ O₂, CO₂, ආහාර සහ අපද්‍රව්‍ය හුවමාරුව"></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 8 quiz -->
+<section class="slide" data-id="quiz">
+  <span class="kick" data-en="Paper style" data-si="ප්‍රශ්න පත්‍ර ආකාරයට"></span>
+  <h2 data-en="Try these" data-si="උත්තර දෙන්න"></h2>
+  <div class="mcq" data-ans="3">
+    <p class="q" data-en="Which chamber of the heart has the thickest wall?" data-si="හෘදයේ ඝනම බිත්තිය ඇත්තේ කුමන කුටීරයටද?"></p>
+    <ol><li><button data-en="Right atrium" data-si="දකුණු කර්ණිකාව"></button></li><li><button data-en="Right ventricle" data-si="දකුණු කෝෂිකාව"></button></li><li><button data-en="Left ventricle" data-si="වම් කෝෂිකාව"></button></li><li><button data-en="Left atrium" data-si="වම් කර්ණිකාව"></button></li></ol>
+    <p class="why" data-en="The left ventricle pumps blood to the whole body, so it needs the most muscle." data-si="වම් කෝෂිකාව මුළු සිරුරටම රුධිරය පොම්ප කරන නිසා එයට වැඩිම පේශි අවශ්‍ය වේ."></p>
+  </div>
+  <div class="mcq" data-ans="2">
+    <p class="q" data-en="Which blood vessel carries oxygen-poor blood from the heart to the lungs?" data-si="ඔක්සිජන් ඌන රුධිරය හෘදයේ සිට පෙනහළු වෙත ගෙන යන රුධිර වාහිනිය කුමක්ද?"></p>
+    <ol><li><button data-en="Aorta" data-si="මහා ධමනිය"></button></li><li><button data-en="Pulmonary artery" data-si="පුප්ඵුසීය ධමනිය"></button></li><li><button data-en="Pulmonary vein" data-si="පුප්ඵුසීය ශිරාව"></button></li><li><button data-en="Vena cava" data-si="මහා ශිරාව"></button></li></ol>
+    <p class="why" data-en="Arteries carry blood away from the heart. The pulmonary artery goes from the right ventricle to the lungs." data-si="ධමනි රුධිරය හෘදයෙන් ඉවතට ගෙන යයි. පුප්ඵුසීය ධමනිය දකුණු කෝෂිකාවේ සිට පෙනහළු වෙත යයි."></p>
+  </div>
+</section>
+
+<!-- 9 quiz 2 -->
+<section class="slide" data-id="quiz2">
+  <span class="kick" data-en="Paper style" data-si="ප්‍රශ්න පත්‍ර ආකාරයට"></span>
+  <h2 data-en="Two more" data-si="තවත් දෙකක්"></h2>
+  <div class="mcq" data-ans="4">
+    <p class="q" data-en="What stops blood flowing back from the right ventricle into the right atrium?" data-si="දකුණු කෝෂිකාවේ සිට දකුණු කර්ණිකාවට රුධිරය ආපසු ගැලීම වළක්වන්නේ කුමක්ද?"></p>
+    <ol><li><button data-en="Bicuspid valve" data-si="ද්විතුණ්ඩ කපාටය"></button></li><li><button data-en="Aortic semilunar valve" data-si="මහා ධමනියේ අර්ධචන්ද්‍රාකාර කපාටය"></button></li><li><button data-en="The middle wall" data-si="මැද බිත්තිය"></button></li><li><button data-en="Tricuspid valve" data-si="ත්‍රිතුණ්ඩ කපාටය"></button></li></ol>
+    <p class="why" data-en="The tricuspid valve sits between the right atrium and the right ventricle and lets blood pass one way only." data-si="ත්‍රිතුණ්ඩ කපාටය දකුණු කර්ණිකාව සහ දකුණු කෝෂිකාව අතර පිහිටා, රුධිරයට එක් දිශාවකට පමණක් යාමට ඉඩ දෙයි."></p>
+  </div>
+  <div class="mcq" data-ans="1">
+    <p class="q" data-en="A student counts 19 pulse beats in 15 seconds. What is the pulse rate?" data-si="සිසුවෙක් තත්පර 15කදී නාඩි වැටීම් 19ක් ගණන් කරයි. නාඩි වේගය කීයද?"></p>
+    <ol><li><button data-en="76 per minute" data-si="මිනිත්තුවට 76"></button></li><li><button data-en="19 per minute" data-si="මිනිත්තුවට 19"></button></li><li><button data-en="34 per minute" data-si="මිනිත්තුවට 34"></button></li><li><button data-en="95 per minute" data-si="මිනිත්තුවට 95"></button></li></ol>
+    <p class="why" data-en="60 s = 4 × 15 s, so 19 × 4 = 76 beats per minute." data-si="තත්පර 60 = 4 × තත්පර 15, එබැවින් 19 × 4 = මිනිත්තුවට ස්පන්දන 76."></p>
+  </div>
+</section>
+
+<!-- 10 summary -->
+<section class="slide" data-id="summary">
+  <div class="split wide-l">
+    <div class="col">
+      <span class="kick" data-en="Summary" data-si="සාරාංශය"></span>
+      <h2 data-en="What we learned" data-si="මේ පාඩමෙන් අපි ඉගෙන ගත්තේ"></h2>
+      <ol class="sum" style="columns:1">
+        <li data-en="The heart is a pump of cardiac muscle in the thoracic cavity, between the lungs." data-si="හෘදය උරස් කුහරයේ, පෙනහළු අතර පිහිටි හෘද පේශිවලින් සෑදුණු පොම්පයකි."></li>
+        <li data-en="Four chambers: two atria receive blood, two ventricles pump it out." data-si="කුටීර හතරයි: කර්ණිකා දෙක රුධිරය ලබා ගනී, කෝෂිකා දෙක එය පිටතට පොම්ප කරයි."></li>
+        <li data-en="Tricuspid, bicuspid and semilunar valves keep blood moving one way." data-si="ත්‍රිතුණ්ඩ, ද්විතුණ්ඩ සහ අර්ධචන්ද්‍රාකාර කපාට රුධිරය එක් දිශාවකට ගලා යාමට සලස්වයි."></li>
+        <li data-en="Double circulation: heart → lungs → heart → body → heart." data-si="ද්විත්ව සංසරණය: හෘදය → පෙනහළු → හෘදය → සිරුර → හෘදය."></li>
+        <li data-en="Arteries carry blood away from the heart, veins bring it back, capillaries exchange with cells." data-si="ධමනි රුධිරය හෘදයෙන් ඉවතට ගෙන යයි, ශිරා ආපසු ගෙන එයි, කේශනාලිකා සෛල සමඟ හුවමාරු කරයි."></li>
+        <li data-en="Pulse = heartbeats per minute; about 72 at rest." data-si="නාඩි වේගය = මිනිත්තුවට හෘද ස්පන්දන ගණන; විවේකයේදී 72 පමණ."></li>
+      </ol>
+    </div>
+    <div class="fill"><div class="v3d" id="v-end"></div></div>
+  </div>
+</section>
+
+</div></main>
+</body>
+</html>

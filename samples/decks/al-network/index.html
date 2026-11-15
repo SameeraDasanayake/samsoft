@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Computer Networks | Samsoft Decks</title>
+<link rel="icon" href="../engine/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../engine/deck.css">
+<link rel="stylesheet" href="network.css">
+<script type="importmap">{ "imports": { "three": "../engine/vendor/three.module.min.js" } }</script>
+<script defer src="../engine/deck.js"></script>
+<script>if(location.protocol==='file:')document.write('<script src="../engine/pack/draco.js"><\/script><script src="pack/assets.js"><\/script><script src="pack/app.js"><\/script>');else{const s=document.createElement('script');s.type='module';s.src='network.js';document.head.appendChild(s)}</script>
+</head>
+<body data-subject="alict" data-tag-en="A/L · ICT" data-tag-si="උ/පෙළ · තොරතුරු හා සන්නිවේදන තාක්ෂණය"
+      data-title-en="Computer Networks | Samsoft Decks" data-title-si="පරිගණක ජාල | Samsoft Decks">
+<main class="viewport"><div class="stage">
+
+<!-- 1 cover -->
+<section class="slide cover" data-id="cover">
+  <div class="bleed-r"><div class="v3d" id="v-cover"></div></div>
+  <div class="col" style="position:relative;z-index:2;pointer-events:none">
+    <div class="rule"></div>
+    <h1 data-en="Computer&lt;br&gt;networks" data-si="පරිගණක&lt;br&gt;ජාල"></h1>
+    <p class="sub" data-en="Cables, devices, layers and addresses: how data finds its way." data-si="රැහැන්, උපාංග, ස්තර සහ ලිපින: දත්ත තම මඟ සොයා ගන්නා හැටි."></p>
+  </div>
+  <div class="meta"><b>09</b> · <span data-en="A/L · Data communication" data-si="උ/පෙළ · දත්ත සන්නිවේදනය"></span><br><span data-en="ICT" data-si="තොරතුරු හා සන්නිවේදන තාක්ෂණය"></span></div>
+</section>
+
+<!-- 2 types -->
+<section class="slide" data-id="types">
+  <span class="kick" data-en="By the area they cover" data-si="ආවරණය කරන ප්‍රදේශය අනුව"></span>
+  <h2 data-en="Types of network" data-si="ජාල වර්ග"></h2>
+  <div class="scale-row">
+    <div style="--s:1"><b>PAN</b><span data-en="Personal Area Network" data-si="පුද්ගලික ප්‍රදේශ ජාලය"></span><i data-en="a few metres · phone + earbuds" data-si="මීටර කිහිපයක් · දුරකථනය + ඉයර්බඩ්"></i></div>
+    <div style="--s:2"><b>LAN</b><span data-en="Local Area Network" data-si="ස්ථානීය ප්‍රදේශ ජාලය"></span><i data-en="a building · school lab" data-si="ගොඩනැගිල්ලක් · පාසල් විද්‍යාගාරය"></i></div>
+    <div style="--s:3"><b>MAN</b><span data-en="Metropolitan Area Network" data-si="නාගරික ප්‍රදේශ ජාලය"></span><i data-en="a city · campus links" data-si="නගරයක් · විශ්වවිද්‍යාල පරිශ්‍ර"></i></div>
+    <div style="--s:4"><b>WAN</b><span data-en="Wide Area Network" data-si="පුළුල් ප්‍රදේශ ජාලය"></span><i data-en="countries · the Internet" data-si="රටවල් · අන්තර්ජාලය"></i></div>
+  </div>
+</section>
+
+<!-- 3 media -->
+<section class="slide" data-id="media">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Transmission media" data-si="සම්ප්‍රේෂණ මාධ්‍ය"></span>
+      <h2 data-en="Wired media" data-si="රැහැන් සහිත මාධ්‍ය"></h2>
+      <table class="ruled media">
+        <thead><tr><th></th><th data-en="carries" data-si="රැගෙන යන්නේ"></th><th data-en="speed / reach" data-si="වේගය / දුර"></th></tr></thead>
+        <tbody>
+          <tr><td data-en="Twisted pair (UTP)" data-si="ඇඹරි යුගල (UTP)"></td><td data-en="electric signals" data-si="විද්‍යුත් සංඥා"></td><td class="mono">1–10 Gb/s · 100 m</td></tr>
+          <tr><td data-en="Coaxial" data-si="සමක්ෂක (Coaxial)"></td><td data-en="electric signals" data-si="විද්‍යුත් සංඥා"></td><td class="mono">≈1 Gb/s · 500 m</td></tr>
+          <tr><td data-en="Optical fibre" data-si="ප්‍රකාශ තන්තු"></td><td data-en="light (total internal reflection)" data-si="ආලෝකය (පූර්ණ අභ්‍යන්තර පරාවර්තනය)"></td><td class="mono">100+ Gb/s · km</td></tr>
+        </tbody>
+      </table>
+      <p class="note"><span lang="en"><b>Wireless:</b> radio (Wi-Fi, Bluetooth), microwave, infrared.</span><span lang="si"><b>රැහැන් රහිත:</b> රේඩියෝ (Wi-Fi, Bluetooth), ක්ෂුද්‍ර තරංග, අධෝරක්ත.</span></p>
+    </div>
+    <div class="fill"><div class="v3d" id="v-media"></div></div>
+  </div>
+</section>
+
+<!-- 4 devices -->
+<section class="slide" data-id="devices">
+  <div class="bleed" style="left:44%"><div class="v3d" id="v-dev"></div></div>
+  <div class="dev-head">
+    <span class="kick" data-en="Network devices" data-si="ජාල උපාංග"></span>
+    <h2 data-en="Who does what" data-si="කවුද මොකද කරන්නේ"></h2>
+    <ul class="rows tight dev-list">
+      <li><span class="n">NIC</span><p data-en="connects one computer; has a MAC address" data-si="එක් පරිගණකයක් සම්බන්ධ කරයි; MAC ලිපිනයක් ඇත"></p></li>
+      <li><span class="n">SW</span><p data-en="switch: joins devices in a LAN, sends to the right MAC" data-si="ස්විචය: LAN එකක උපාංග සම්බන්ධ කරයි, නිවැරදි MAC එකට යවයි"></p></li>
+      <li><span class="n">RT</span><p data-en="router: joins networks, chooses a path by IP address" data-si="රවුටරය: ජාල සම්බන්ධ කරයි, IP ලිපිනය අනුව මාර්ගය තෝරයි"></p></li>
+      <li><span class="n">ONT</span><p data-en="fibre modem: light ↔ electric signals" data-si="ප්‍රකාශ තන්තු මොඩමය: ආලෝකය ↔ විද්‍යුත් සංඥා"></p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5 topologies -->
+<section class="slide" data-id="topo">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Network topologies" data-si="ජාල ස්ථලක"></span>
+      <h2 data-en="How the nodes are joined" data-si="නෝඩ සම්බන්ධ කර ඇති ආකාරය"></h2>
+      <div class="seg pick" id="tsel"><button data-t="bus" data-en="Bus" data-si="බස්"></button><button data-t="star" data-en="Star" data-si="තරු"></button><button data-t="ring" data-en="Ring" data-si="වළලු"></button><button data-t="mesh" data-en="Mesh" data-si="දැල්"></button></div>
+      <p id="tdesc" class="tdesc"></p>
+      <div class="ctl"><div class="seg"><button id="tbreak" data-en="Cut a cable" data-si="රැහැනක් කපන්න"></button><button id="tfix" data-en="Repair" data-si="අලුත්වැඩියා කරන්න"></button></div></div>
+      <div class="readout" id="tcount" style="margin-top:22px"></div>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-topo"></canvas></div>
+  </div>
+</section>
+
+<!-- 6 layers -->
+<section class="slide" data-id="layers">
+  <span class="kick" data-en="Reference models" data-si="ආදර්ශ ආකෘති"></span>
+  <h2 data-en="OSI and TCP/IP" data-si="OSI සහ TCP/IP"></h2>
+  <div class="layers">
+    <div class="osi">
+      <div class="l" data-l="7"><b>7</b><span data-en="Application" data-si="යෙදුම්"></span><i>HTTP, SMTP, DNS</i></div>
+      <div class="l" data-l="6"><b>6</b><span data-en="Presentation" data-si="ඉදිරිපත් කිරීම්"></span><i data-en="encryption, compression" data-si="ගුප්තකේතනය, සම්පීඩනය"></i></div>
+      <div class="l" data-l="5"><b>5</b><span data-en="Session" data-si="සැසි"></span><i data-en="start / end a dialogue" data-si="සංවාදය ආරම්භ / අවසන්"></i></div>
+      <div class="l" data-l="4"><b>4</b><span data-en="Transport" data-si="ප්‍රවාහන"></span><i>TCP, UDP · port</i></div>
+      <div class="l" data-l="3"><b>3</b><span data-en="Network" data-si="ජාල"></span><i>IP · router</i></div>
+      <div class="l" data-l="2"><b>2</b><span data-en="Data link" data-si="දත්ත සබැඳි"></span><i>MAC · switch</i></div>
+      <div class="l" data-l="1"><b>1</b><span data-en="Physical" data-si="භෞතික"></span><i data-en="bits on cable / radio" data-si="රැහැන් / රේඩියෝ මත බිට්"></i></div>
+    </div>
+    <div class="tcp">
+      <div style="--n:3"><span data-en="Application" data-si="යෙදුම්"></span></div>
+      <div style="--n:1"><span data-en="Transport" data-si="ප්‍රවාහන"></span></div>
+      <div style="--n:1"><span data-en="Internet" data-si="අන්තර්ජාල"></span></div>
+      <div style="--n:2"><span data-en="Network access" data-si="ජාල ප්‍රවේශ"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 IPv4 -->
+<section class="slide" data-id="ip">
+  <div class="split" style="grid-template-columns:1fr 1.1fr">
+    <div class="col">
+      <span class="kick" data-en="IPv4 address" data-si="IPv4 ලිපිනය"></span>
+      <h2 data-en="32 bits, four octets" data-si="බිටු 32, අෂ්ටක හතරක්"></h2>
+      <p><span lang="en">Each octet is 8 bits, so 0 to 255. Change a number and watch the bits.</span><span lang="si">සෑම අෂ්ටකයක්ම බිටු 8 කි, එබැවින් 0 සිට 255 දක්වා. අංකයක් වෙනස් කර බිටු බලන්න.</span></p>
+      <p class="note"><span lang="en"><b>Private ranges:</b> 10.x.x.x · 172.16–31.x.x · 192.168.x.x</span><span lang="si"><b>පෞද්ගලික පරාස:</b> 10.x.x.x · 172.16–31.x.x · 192.168.x.x</span></p>
+    </div>
+    <div class="col">
+      <div class="octets" id="oct"><input type="number" min="0" max="255" value="192"><b>.</b><input type="number" min="0" max="255" value="168"><b>.</b><input type="number" min="0" max="255" value="10"><b>.</b><input type="number" min="0" max="255" value="77"></div>
+      <div class="bits" id="bits"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 subnet -->
+<section class="slide" data-id="subnet">
+  <span class="kick" data-en="Network part + host part" data-si="ජාල කොටස + ධාරක කොටස"></span>
+  <h2 data-en="Subnet mask" data-si="උපජාල ආවරණය"></h2>
+  <div class="split" style="height:auto;grid-template-columns:1fr 1fr;align-items:start">
+    <div>
+      <div class="slider"><label data-en="prefix /n" data-si="උපසර්ගය /n"></label><input type="range" id="pre" min="16" max="30" value="24"><output id="preO">/24</output></div>
+      <div class="maskbar" id="maskbar"></div>
+      <p class="note"><span lang="en">Network address = IP <b>AND</b> mask. Usable hosts = 2<sup>32−n</sup> − 2 (the network and broadcast addresses are kept).</span><span lang="si">ජාල ලිපිනය = IP <b>AND</b> ආවරණය. භාවිත කළ හැකි ධාරක = 2<sup>32−n</sup> − 2 (ජාල සහ විකාශන ලිපින දෙක ඉවත් වේ).</span></p>
+    </div>
+    <table class="ruled res" id="sub">
+      <tr><td data-en="IP address" data-si="IP ලිපිනය"></td><td class="mono">192.168.10.77</td></tr>
+      <tr><td data-en="Mask" data-si="ආවරණය"></td><td class="mono" data-o="mask"></td></tr>
+      <tr><td data-en="Network" data-si="ජාල ලිපිනය"></td><td class="mono" data-o="net"></td></tr>
+      <tr><td data-en="Broadcast" data-si="විකාශන ලිපිනය"></td><td class="mono" data-o="bc"></td></tr>
+      <tr><td data-en="Usable hosts" data-si="භාවිත කළ හැකි ධාරක"></td><td class="mono acc" data-o="hosts"></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 9 quiz -->
+<section class="slide" data-id="quiz">
+  <span class="kick" data-en="Paper style" data-si="ප්‍රශ්න පත්‍ර ආකාරයට"></span>
+  <h2 data-en="Try these" data-si="උත්තර දෙන්න"></h2>
+  <div class="mcq" data-ans="3">
+    <p class="q" data-en="Which device forwards packets between networks using IP addresses?" data-si="IP ලිපින භාවිතයෙන් ජාල අතර පැකට් යොමු කරන උපාංගය කුමක්ද?"></p>
+    <ol><li><button data-en="Hub" data-si="හබ්"></button></li><li><button data-en="Switch" data-si="ස්විචය"></button></li><li><button data-en="Router" data-si="රවුටරය"></button></li><li><button data-en="Repeater" data-si="පුනරාවර්තකය"></button></li></ol>
+    <p class="why" data-en="Routers work at the network layer (layer 3) with IP addresses. Switches use MAC addresses (layer 2)." data-si="රවුටර ජාල ස්තරයේ (ස්තර 3) IP ලිපින සමඟ ක්‍රියා කරයි. ස්විච MAC ලිපින (ස්තර 2) භාවිත කරයි."></p>
+  </div>
+  <div class="mcq" data-ans="4">
+    <p class="q" data-en="How many usable host addresses does a /26 network have?" data-si="/26 ජාලයක භාවිත කළ හැකි ධාරක ලිපින කීයක් තිබේද?"></p>
+    <ol><li><button>26</button></li><li><button>30</button></li><li><button>64</button></li><li><button>62</button></li></ol>
+    <p class="why" data-en="32 − 26 = 6 host bits: 2⁶ − 2 = 62." data-si="32 − 26 = ධාරක බිටු 6: 2⁶ − 2 = 62."></p>
+  </div>
+</section>
+
+<!-- 10 summary -->
+<section class="slide" data-id="summary">
+  <div class="split wide-l">
+    <div class="col">
+      <span class="kick" data-en="Summary" data-si="සාරාංශය"></span>
+      <h2 data-en="What we learned" data-si="මේ පාඩමෙන් අපි ඉගෙන ගත්තේ"></h2>
+      <ol class="sum" style="columns:1">
+        <li data-en="PAN, LAN, MAN, WAN: from a few metres to the whole world." data-si="PAN, LAN, MAN, WAN: මීටර කිහිපයේ සිට මුළු ලෝකයටම."></li>
+        <li data-en="UTP and coax carry electricity; fibre carries light, fastest and furthest." data-si="UTP සහ coax විදුලිය රැගෙන යයි; ප්‍රකාශ තන්තු ආලෝකය රැගෙන යයි, වේගවත්ම හා දුරටම."></li>
+        <li data-en="Switch → MAC (layer 2). Router → IP (layer 3)." data-si="ස්විචය → MAC (ස්තර 2). රවුටරය → IP (ස්තර 3)."></li>
+        <li data-en="Star needs a central device; mesh needs n(n − 1)/2 links." data-si="තරු ස්ථලකයට මධ්‍ය උපාංගයක් අවශ්‍යයි; දැල් ස්ථලකයට සබැඳි n(n − 1)/2 ක්."></li>
+        <li data-en="OSI has 7 layers, TCP/IP has 4." data-si="OSI ස්තර 7 කි, TCP/IP ස්තර 4 කි."></li>
+        <li data-en="IPv4 = 32 bits; hosts in /n = 2^(32−n) − 2." data-si="IPv4 = බිටු 32; /n හි ධාරක = 2^(32−n) − 2."></li>
+      </ol>
+    </div>
+    <div class="fill"><div class="v3d" id="v-end"></div></div>
+  </div>
+</section>
+
+</div></main>
+</body>
+</html>

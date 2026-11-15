@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vectors | Samsoft Decks</title>
+<link rel="icon" href="../engine/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../engine/deck.css">
+<link rel="stylesheet" href="vectors.css">
+<script type="importmap">{ "imports": { "three": "../engine/vendor/three.module.min.js" } }</script>
+<script defer src="../engine/deck.js"></script>
+<script>if(location.protocol==='file:')document.write('<script src="../engine/pack/draco.js"><\/script><script src="pack/assets.js"><\/script><script src="pack/app.js"><\/script>');else document.write('<script type="module" src="vectors.js"><\/script>');</script>
+</head>
+<body data-subject="cmath" data-tag-en="A/L · Combined Mathematics" data-tag-si="උ/පෙළ · සංයුක්ත ගණිතය"
+      data-title-en="Vectors | Samsoft Decks" data-title-si="දෛශික | Samsoft Decks">
+<main class="viewport"><div class="stage">
+
+<!-- 1 cover -->
+<section class="slide cover" data-id="cover">
+  <div class="bleed-r"><div class="v3d" id="v-cover"></div></div>
+  <div class="col" style="position:relative;z-index:2;pointer-events:none">
+    <div class="rule"></div>
+    <h1 data-en="Vectors" data-si="දෛශික"></h1>
+    <p class="sub" data-en="Size and direction together: adding, scaling and multiplying them." data-si="විශාලත්වය සහ දිශාව එකට: එකතු කිරීම, ගුණ කිරීම සහ අදිශ ගුණිතය."></p>
+  </div>
+  <div class="meta"><b>08</b> · <span data-en="A/L · Grade 12" data-si="උ/පෙළ · 12 ශ්‍රේණිය"></span><br><span data-en="Combined Mathematics" data-si="සංයුක්ත ගණිතය"></span></div>
+</section>
+
+<!-- 2 scalar vs vector -->
+<section class="slide" data-id="kinds">
+  <span class="kick" data-en="Two kinds of quantity" data-si="රාශි වර්ග දෙකක්"></span>
+  <h2 data-en="Scalars and vectors" data-si="අදිශ සහ දෛශික"></h2>
+  <div class="two">
+    <div><h3 data-en="Scalar" data-si="අදිශ"></h3><p data-en="Size (magnitude) only." data-si="විශාලත්වය පමණි."></p>
+      <ul class="tags"><li data-en="mass 5 kg" data-si="ස්කන්ධය 5 kg"></li><li data-en="time 3 s" data-si="කාලය 3 s"></li><li data-en="speed 20 m s⁻¹" data-si="වේගය 20 m s⁻¹"></li><li data-en="work 40 J" data-si="කාර්යය 40 J"></li></ul></div>
+    <div class="hot"><h3 data-en="Vector" data-si="දෛශික"></h3><p data-en="Magnitude and direction. Added with the triangle law." data-si="විශාලත්වය සහ දිශාව. ත්‍රිකෝණ නීතියෙන් එකතු කරයි."></p>
+      <ul class="tags"><li data-en="displacement 5 m north" data-si="විස්ථාපනය උතුරට 5 m"></li><li data-en="velocity 20 m s⁻¹ east" data-si="ප්‍රවේගය නැගෙනහිරට 20 m s⁻¹"></li><li data-en="force 10 N down" data-si="බලය පහළට 10 N"></li><li data-en="acceleration g" data-si="ත්වරණය g"></li></ul></div>
+  </div>
+  <p class="note" data-step="1"><span lang="en">Writing: <b class="mono"><span class="vec">AB</span></b>, bold <b>a</b>, or <b class="mono">a̲</b> by hand. Magnitude: <b class="mono">|a|</b>.</span><span lang="si">ලියන හැටි: <b class="mono"><span class="vec">AB</span></b>, තද අකුරින් <b>a</b>, අතින් ලියන විට <b class="mono">a̲</b>. විශාලත්වය: <b class="mono">|a|</b>.</span></p>
+</section>
+
+<!-- 3 components -->
+<section class="slide" data-id="comp">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Unit vectors i and j" data-si="ඒකක දෛශික i සහ j"></span>
+      <h2 data-en="Components" data-si="සංරචක"></h2>
+      <div class="eq"><b>a</b> = <i>x</i><b>i</b> + <i>y</i><b>j</b><small><span lang="en">|a| = √(x² + y²), unit vector â = a / |a|</span><span lang="si">|a| = √(x² + y²), ඒකක දෛශිකය â = a / |a|</span></small></div>
+      <table class="ruled res" id="t-comp">
+        <tr><td>a</td><td class="mono" data-o="a"></td></tr>
+        <tr><td>|a|</td><td class="mono" data-o="m"></td></tr>
+        <tr><td>θ</td><td class="mono" data-o="t"></td></tr>
+        <tr><td>â</td><td class="mono" data-o="u"></td></tr>
+      </table>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-comp"></canvas></div>
+  </div>
+</section>
+
+<!-- 4 addition -->
+<section class="slide" data-id="add">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Adding vectors" data-si="දෛශික එකතු කිරීම"></span>
+      <h2 data-en="Triangle and parallelogram" data-si="ත්‍රිකෝණ සහ සමාන්තරාස්‍ර නීති"></h2>
+      <p><span lang="en">Put <b>b</b> at the end of <b>a</b>: the arrow from the start to the end is <strong>a + b</strong>. Going round the other way gives the same arrow, so <strong>a + b = b + a</strong>.</span><span lang="si"><b>a</b> හි අගට <b>b</b> තබන්න: ආරම්භයේ සිට අගට ඇති ඊතලය <strong>a + b</strong> වේ. අනෙක් පැත්තෙන් ගියද එම ඊතලයම ලැබේ: <strong>a + b = b + a</strong>.</span></p>
+      <div class="eq mono-eq" id="o-add"></div>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-add"></canvas></div>
+  </div>
+</section>
+
+<!-- 5 scalar multiple, subtraction -->
+<section class="slide" data-id="scale">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Multiply by a number" data-si="සංඛ්‍යාවකින් ගුණ කිරීම"></span>
+      <h2 data-en="λa and a − b" data-si="λa සහ a − b"></h2>
+      <p><span lang="en"><strong>λa</strong> is parallel to <b>a</b> and <strong>|λ|</strong> times as long. If λ &lt; 0 it points the other way. <strong>a − b = a + (−b)</strong>.</span><span lang="si"><strong>λa</strong>, <b>a</b> ට සමාන්තර වන අතර දිග <strong>|λ|</strong> ගුණයකි. λ &lt; 0 නම් ප්‍රතිවිරුද්ධ දිශාවට යොමු වේ. <strong>a − b = a + (−b)</strong>.</span></p>
+      <div class="slider"><label>λ</label><input type="range" id="lam" min="-2" max="3" step=".25" value="2"><output id="lamO">2</output></div>
+      <div class="eq mono-eq" id="o-scale"></div>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-scale"></canvas></div>
+  </div>
+</section>
+
+<!-- 6 position vectors -->
+<section class="slide" data-id="pos">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Position vectors" data-si="පිහිටුම් දෛශික"></span>
+      <h2 data-en="From A to B" data-si="A සිට B දක්වා"></h2>
+      <div class="eq"><span class="vec">AB</span> = <b>b</b> − <b>a</b><small><span lang="en">a, b: position vectors of A, B from O</span><span lang="si">a, b: O සිට A, B හි පිහිටුම් දෛශික</span></small></div>
+      <div class="eq" data-step="1"><span lang="en">P divides AB in m : n</span><span lang="si">P, AB රේඛාව m : n ලෙස බෙදයි</span><small>p = (n a + m b) / (m + n)</small></div>
+      <div class="slider" data-step="1"><label>m : n</label><input type="range" id="ratio" min="1" max="4" step="1" value="1"><output id="ratioO">1 : 1</output></div>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-pos"></canvas></div>
+  </div>
+</section>
+
+<!-- 7 dot product -->
+<section class="slide" data-id="dot">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Scalar product" data-si="අදිශ ගුණිතය"></span>
+      <h2 data-en="a · b" data-si="a · b"></h2>
+      <div class="eq"><b>a</b>·<b>b</b> = |<b>a</b>||<b>b</b>| cos <i>θ</i><small>= x₁x₂ + y₁y₂</small></div>
+      <p><span lang="en">The answer is a <strong>number</strong>. If <b>a</b> and <b>b</b> are perpendicular, <strong>a · b = 0</strong>.</span><span lang="si">පිළිතුර <strong>සංඛ්‍යාවකි</strong>. <b>a</b> සහ <b>b</b> ලම්බක නම් <strong>a · b = 0</strong> වේ.</span></p>
+      <div class="readout" id="o-dot" style="margin-top:22px"></div>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-dot"></canvas></div>
+  </div>
+</section>
+
+<!-- 8 worked example -->
+<section class="slide" data-id="example">
+  <span class="kick" data-en="Worked example" data-si="නිදසුන"></span>
+  <h2 data-en="a = 3i + 4j, b = 4i − 3j" data-si="a = 3i + 4j, b = 4i − 3j"></h2>
+  <ol class="rows work">
+    <li data-step="1"><span class="n">|a|</span><p class="mono">√(3² + 4²) = √25 = <strong class="acc">5</strong></p></li>
+    <li data-step="2"><span class="n">â</span><p class="mono">a / |a| = <strong class="acc">3/5 i + 4/5 j</strong></p></li>
+    <li data-step="3"><span class="n">a+b</span><p class="mono">(3+4) i + (4−3) j = <strong class="acc">7i + j</strong></p></li>
+    <li data-step="4"><span class="n">a·b</span><p class="mono">3×4 + 4×(−3) = 12 − 12 = <strong class="acc">0</strong></p></li>
+    <li data-step="5"><span class="n">∴</span><p><span lang="en"><strong>a ⟂ b</strong>: the two vectors are perpendicular.</span><span lang="si"><strong>a ⟂ b</strong>: දෛශික දෙක එකිනෙකට ලම්බක වේ.</span></p></li>
+  </ol>
+</section>
+
+<!-- 9 quiz -->
+<section class="slide" data-id="quiz">
+  <span class="kick" data-en="Paper style" data-si="ප්‍රශ්න පත්‍ර ආකාරයට"></span>
+  <h2 data-en="Try these" data-si="උත්තර දෙන්න"></h2>
+  <div class="mcq" data-ans="3">
+    <p class="q" data-en="If a = 2i + kj and b = 3i − 6j are perpendicular, k = ?" data-si="a = 2i + kj සහ b = 3i − 6j ලම්බක නම් k = ?"></p>
+    <ol><li><button>−1</button></li><li><button>−4</button></li><li><button>1</button></li><li><button>4</button></li></ol>
+    <p class="why" data-en="a·b = 6 − 6k = 0, so k = 1." data-si="a·b = 6 − 6k = 0, එබැවින් k = 1."></p>
+  </div>
+  <div class="mcq" data-ans="2">
+    <p class="q" data-en="A and B have position vectors a and b. The position vector of the midpoint of AB is …" data-si="A සහ B හි පිහිටුම් දෛශික a සහ b වේ. AB හි මධ්‍ය ලක්ෂ්‍යයේ පිහිටුම් දෛශිකය …"></p>
+    <ol><li><button>b − a</button></li><li><button>½(a + b)</button></li><li><button>½(b − a)</button></li><li><button>a + b</button></li></ol>
+    <p class="why" data-en="m : n = 1 : 1 gives p = (a + b) / 2." data-si="m : n = 1 : 1 විට p = (a + b) / 2."></p>
+  </div>
+</section>
+
+<!-- 10 summary -->
+<section class="slide" data-id="summary">
+  <span class="kick" data-en="Summary" data-si="සාරාංශය"></span>
+  <h2 data-en="What we learned" data-si="මේ පාඩමෙන් අපි ඉගෙන ගත්තේ"></h2>
+  <ol class="sum">
+    <li data-en="A vector has magnitude and direction; a scalar has magnitude only." data-si="දෛශිකයකට විශාලත්වය සහ දිශාව ඇත; අදිශයකට විශාලත්වය පමණි."></li>
+    <li data-en="a = xi + yj, |a| = √(x² + y²), â = a / |a|." data-si="a = xi + yj, |a| = √(x² + y²), â = a / |a|."></li>
+    <li data-en="Triangle / parallelogram law: a + b = b + a." data-si="ත්‍රිකෝණ / සමාන්තරාස්‍ර නීතිය: a + b = b + a."></li>
+    <li data-en="λa is parallel to a; a − b = a + (−b)." data-si="λa, a ට සමාන්තරය; a − b = a + (−b)."></li>
+    <li data-en="&lt;span class=&quot;vec&quot;&gt;AB&lt;/span&gt; = b − a; P (m : n) = (na + mb) / (m + n)." data-si="&lt;span class=&quot;vec&quot;&gt;AB&lt;/span&gt; = b − a; P (m : n) = (na + mb) / (m + n)."></li>
+    <li data-en="a · b = |a||b| cos θ = x₁x₂ + y₁y₂; zero means perpendicular." data-si="a · b = |a||b| cos θ = x₁x₂ + y₁y₂; ශූන්‍ය නම් ලම්බකයි."></li>
+  </ol>
+</section>
+
+</div></main>
+</body>
+</html>

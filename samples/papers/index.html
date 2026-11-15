@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sample papers</title>
+<link rel="stylesheet" href="engine/fonts/fonts.css">
+<style>
+  :root { --ink: #161616; --ink2: #4a4740; --desk: #e6e2d8; --line: #c9c3b5; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--desk); color: var(--ink); font: 16px/1.5 'Source Serif 4', 'Noto Serif Sinhala', serif; }
+  html[lang=si] body { font-size: 16.5px; line-height: 1.65; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  header { border-bottom: 1.5px solid var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; font: 700 12px/1 'Archivo Narrow', sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+  .top a { color: var(--ink); text-decoration: none; }
+  .lang { display: flex; gap: 14px; }
+  .lang button { all: unset; cursor: pointer; padding: 4px 0; border-bottom: 2px solid transparent; color: var(--ink2); }
+  .lang button.on { color: var(--ink); border-color: var(--ink); }
+  .hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: end; padding: 46px 0 30px; }
+  h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1; margin: 0; letter-spacing: -.02em; }
+  html[lang=si] h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.2; letter-spacing: 0; }
+  .hero p { margin: 0; color: var(--ink2); max-width: 46ch; }
+  .facts { display: flex; gap: 0; margin-top: 26px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .facts div { padding: 8px 22px 8px 0; margin-right: 22px; border-right: 1px solid var(--line); font-size: 14px; }
+  .facts div:last-child { border: 0; }
+  .facts b { display: block; font: 600 22px/1.1 'IBM Plex Mono', monospace; }
+  main { padding: 30px 0 70px; }
+  .row { display: grid; grid-template-columns: 220px 1fr; gap: 36px; padding: 30px 0; border-top: 1px solid var(--line); }
+  .row:first-child { border-top: 0; }
+  .sheet { position: relative; display: block; width: 220px; aspect-ratio: 210 / 297; background: #fff; box-shadow: 0 1px 0 #0003, 6px 6px 0 -1px #fbfaf6, 6px 6px 0 0 #0002, 0 14px 30px -12px #0005; }
+  .sheet img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .info { display: flex; flex-direction: column; justify-content: center; }
+  .code { font: 500 12.5px/1 'IBM Plex Mono', monospace; color: var(--ac); letter-spacing: .04em; }
+  h2 { font-size: 34px; line-height: 1.1; margin: 8px 0 4px; }
+  html[lang=si] h2 { font-size: 29px; line-height: 1.35; }
+  .lvl { font: 500 15px/1.4 'Archivo Narrow', 'Noto Serif Sinhala', sans-serif; color: var(--ink2); }
+  .what { margin: 12px 0 18px; color: var(--ink2); max-width: 62ch; font-size: 15.5px; }
+  .dl { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 0 26px; }
+  .dl div { border-top: 1.5px solid var(--ink); padding-top: 6px; }
+  .dl h3 { margin: 0 0 4px; font: 700 11.5px/1.4 'Archivo Narrow', 'Noto Serif Sinhala', sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); }
+  html[lang=si] .dl h3 { letter-spacing: 0; font-size: 13px; }
+  .dl a { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dotted var(--line); color: var(--ink); text-decoration: none; font-size: 15.5px; }
+  .dl a span:last-child { font: 500 12px/1.9 'IBM Plex Mono', monospace; color: var(--ac); }
+  .dl a:hover { color: var(--ac); }
+  footer { border-top: 1.5px solid var(--ink); padding: 18px 0 40px; font-size: 13.5px; color: var(--ink2); }
+  [data-si] { } html[lang=si] [data-en-only], html[lang=en] [data-si-only] { display: none; }
+  @media (max-width: 760px) {
+    .wrap { padding: 0 16px; }
+    .hero { grid-template-columns: 1fr; gap: 16px; padding-top: 30px; }
+    .row { grid-template-columns: 1fr; gap: 18px; }
+    .sheet { width: 62%; max-width: 240px; }
+    .dl { grid-template-columns: 1fr; gap: 14px; }
+    .facts div { padding-right: 14px; margin-right: 14px; }
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap top"><a href="../../website/teachers.html">Samsoft</a>
+  <div class="lang"><button data-l="en">English</button><button data-l="si">සිංහල</button></div></div></header>
+<div class="wrap">
+  <section class="hero">
+    <div><h1 data-en="Sample papers" data-si="ආදර්ශ ප්‍රශ්න පත්‍ර"></h1></div>
+    <div><p data-en="Five print-ready papers for tuition classes, each in Sinhala and English, with a full marking scheme for the teacher. A4, black ink, made to photocopy cleanly."
+            data-si="උපකාරක පන්ති සඳහා මුද්‍රණයට සූදානම් ප්‍රශ්න පත්‍ර පහක්. එක් එක් පත්‍රය සිංහල හා ඉංග්‍රීසි මාධ්‍යවලින්, ගුරුවරයාට සම්පූර්ණ ලකුණු දීමේ පටිපාටිය සමඟ. A4, කළු තීන්ත, ඡායා පිටපත් කිරීමට ගැළපේ."></p></div>
+  </section>
+  <div class="facts"><div><b>5</b><span data-en="papers" data-si="ප්‍රශ්න පත්‍ර"></span></div><div><b>2</b><span data-en="languages" data-si="මාධ්‍ය"></span></div><div><b>20</b><span data-en="PDF files" data-si="PDF ගොනු"></span></div></div>
+  <main id="list"></main>
+</div>
+<footer><div class="wrap" data-en="Original questions written for these samples. Diagrams drawn to exact measurements; no textbook figures are used." data-si="මෙම ආදර්ශ සඳහා ම ලියූ මුල් ප්‍රශ්න. රූප සටහන් නිවැරදි මිනුම්වලට ඇඳ ඇත; පෙළපොත් රූප භාවිත කර නැත."></div></footer>
+<script>
+const P = [
+  { id: 'sch5', code: 'SCH5-S1', ac: '#0f5560', t: { en: 'Grade 5 Scholarship', si: '5 ශ්‍රේණිය ශිෂ්‍යත්වය' }, l: { en: 'Grade 5 · Paper I style · 45 minutes · 40 marks', si: '5 ශ්‍රේණිය · I පත්‍ර ආකාරය · මිනිත්තු 45 · ලකුණු 40' },
+    w: { en: '20 questions: patterns, measures, time, money, fractions, shapes on a grid and general knowledge, with answer boxes.', si: 'ප්‍රශ්න 20: රටා, මිනුම්, කාලය, මුදල්, භාග, කොටු දැලක රූප හා සාමාන්‍ය දැනීම, පිළිතුරු කොටු සමඟ.' } },
+  { id: 'ol-maths', code: 'OLM-S1', ac: '#1f4e3d', t: { en: 'O/L Mathematics', si: 'සා/පෙළ ගණිතය' }, l: { en: 'Grade 11 · term test · 1 hour · 40 marks', si: '11 ශ්‍රේණිය · වාර පරීක්ෂණය · පැය 1 · ලකුණු 40' },
+    w: { en: 'Part A short answers (fractions, algebra, geometry, circles, probability) and Part B structured questions on a water tank and a frequency table.', si: 'A කොටස කෙටි පිළිතුරු (භාග, වීජ ගණිතය, ජ්‍යාමිතිය, වෘත්ත, සම්භාවිතාව) හා B කොටස ජල ටැංකියක් හා සංඛ්‍යාත වගුවක් පිළිබඳ ව්‍යුහගත ප්‍රශ්න.' } },
+  { id: 'ol-sci', code: 'OLS-S1', ac: '#6b4a12', t: { en: 'O/L Science', si: 'සා/පෙළ විද්‍යාව' }, l: { en: 'Grades 10 – 11 · term test · 1 hour · 50 marks', si: '10 – 11 ශ්‍රේණි · වාර පරීක්ෂණය · පැය 1 · ලකුණු 50' },
+    w: { en: 'Multiple choice across biology, chemistry and physics, then structured questions on blood circulation and an element’s atom.', si: 'ජීව විද්‍යාව, රසායන විද්‍යාව හා භෞතික විද්‍යාව ආවරණය වන බහුවරණ, ඉන්පසු රුධිර සංසරණය හා මූලද්‍රව්‍යයක පරමාණුව පිළිබඳ ව්‍යුහගත ප්‍රශ්න.' } },
+  { id: 'ol-ict', code: 'OLI-S1', ac: '#1d3f6e', t: { en: 'O/L ICT', si: 'සා/පෙළ තොරතුරු හා සන්නිවේදන තාක්ෂණය' }, l: { en: 'Grades 10 – 11 · term test · 1 hour · 50 marks', si: '10 – 11 ශ්‍රේණි · වාර පරීක්ෂණය · පැය 1 · ලකුණු 50' },
+    w: { en: 'Number systems, logic gates with a truth table, spreadsheet formulas and a short Python program.', si: 'සංඛ්‍යා පද්ධති, සත්‍යතා වගුවක් සහිත තාර්කික ද්වාර, පැතුරුම්පත් සූත්‍ර හා කෙටි Python ක්‍රමලේඛයක්.' } },
+  { id: 'al-phy', code: 'ALP-S1', ac: '#5a2330', t: { en: 'A/L Physics', si: 'උ/පෙළ භෞතික විද්‍යාව' }, l: { en: 'Grades 12 – 13 · unit test · 1 hour 15 minutes · 50 marks', si: '12 – 13 ශ්‍රේණි · ඒකක පරීක්ෂණය · පැය 1 මිනිත්තු 15 · ලකුණු 50' },
+    w: { en: 'Five-option multiple choice, then a projectile over a wall and a cell with internal resistance, worked mark by mark in the scheme.', si: 'පිළිතුරු පහේ බහුවරණ, ඉන්පසු බිත්තියක් උඩින් යන ප්‍රක්ෂිප්තයක් හා අභ්‍යන්තර ප්‍රතිරෝධය සහිත කෝෂයක්; ලකුණු දීමේ පටිපාටියේ පියවරෙන් පියවර ලකුණු.' } },
+];
+const T = { en: { p: 'Paper', s: 'Marking scheme', e: 'English medium', si: 'Sinhala medium', v: 'View online' }, si: { p: 'ප්‍රශ්න පත්‍රය', s: 'ලකුණු දීමේ පටිපාටිය', e: 'ඉංග්‍රීසි මාධ්‍යය', si: 'සිංහල මාධ්‍යය', v: 'බලන්න' } };
+function render(lang) {
+  let L; try { localStorage.setItem('papers-lang', lang); } catch (e) {}
+  document.documentElement.lang = lang; L = T[lang];
+  document.querySelectorAll('[data-en]').forEach(e => e.innerHTML = e.dataset[lang]);
+  document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.l === lang));
+  const a = (href, txt, tag) => `<a href="${href}" target="_blank" rel="noopener"><span>${txt}</span><span>${tag}</span></a>`;
+  document.getElementById('list').innerHTML = P.map(p => `<article class="row" style="--ac:${p.ac}">
+    <a class="sheet" href="${p.id}/index.html?lang=${lang}" target="_blank" rel="noopener"><img src="thumbs/${p.id}-${lang}.jpg" alt="${p.t[lang]}" loading="lazy"></a>
+    <div class="info"><span class="code">${p.code}</span><h2>${p.t[lang]}</h2><div class="lvl">${p.l[lang]}</div><p class="what">${p.w[lang]}</p>
+      <div class="dl">${['si', 'en'].map(m => `<div><h3>${L[m === 'en' ? 'e' : 'si']}</h3>${a(`${p.id}/${p.id}-${m}.pdf`, L.p, 'PDF')}${a(`${p.id}/${p.id}-${m}-scheme.pdf`, L.s, 'PDF')}${a(`${p.id}/index.html?lang=${m}`, L.v, 'HTML')}</div>`).join('')}</div>
+    </div></article>`).join('');
+}
+document.querySelectorAll('.lang button').forEach(b => b.onclick = () => render(b.dataset.l));
+let start = new URLSearchParams(location.search).get('lang'); if (!start) { try { start = localStorage.getItem('papers-lang'); } catch (e) {} }
+render(start === 'si' ? 'si' : 'en');
+</script>
+</body>
+</html>

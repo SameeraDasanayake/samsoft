@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shapes of Molecules | Samsoft Decks</title>
+<link rel="icon" href="../engine/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../engine/deck.css">
+<link rel="stylesheet" href="vsepr.css">
+<script type="importmap">{ "imports": { "three": "../engine/vendor/three.module.min.js" } }</script>
+<script defer src="../engine/deck.js"></script>
+<script>if(location.protocol==='file:')document.write('<script src="../engine/pack/draco.js"><\/script><script src="pack/assets.js"><\/script><script src="pack/app.js"><\/script>');else document.write('<script type="module" src="vsepr.js"><\/script>');</script>
+</head>
+<body data-subject="chem" data-tag-en="A/L · Chemistry" data-tag-si="උ/පෙළ · රසායන විද්‍යාව"
+      data-title-en="Shapes of Molecules | Samsoft Decks" data-title-si="අණුවල හැඩය | Samsoft Decks">
+<main class="viewport"><div class="stage">
+
+<!-- 1 cover -->
+<section class="slide cover" data-id="cover">
+  <div class="bleed-r"><div class="v3d" id="v-cover"></div></div>
+  <div class="col" style="position:relative;z-index:2;pointer-events:none">
+    <div class="rule"></div>
+    <h1 data-en="Shapes of&lt;br&gt;molecules" data-si="අණුවල&lt;br&gt;හැඩය"></h1>
+    <p class="sub" data-en="VSEPR theory: electron pairs push apart, and that sets the shape." data-si="VSEPR න්‍යාය: ඉලෙක්ට්‍රෝන යුගල එකිනෙක විකර්ෂණය කරයි; එයින් හැඩය තීරණය වේ."></p>
+  </div>
+  <div class="meta"><b>06</b> · <span data-en="A/L · Chemical bonding" data-si="උ/පෙළ · රසායනික බන්ධන"></span><br><span data-en="Chemistry" data-si="රසායන විද්‍යාව"></span></div>
+</section>
+
+<!-- 2 the idea -->
+<section class="slide" data-id="idea">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Valence Shell Electron Pair Repulsion" data-si="සංයුජතා කවච ඉලෙක්ට්‍රෝන යුගල විකර්ෂණය"></span>
+      <h2 data-en="Pairs push apart" data-si="යුගල එකිනෙක තල්ලු කරයි"></h2>
+      <ul class="rows tight">
+        <li data-step="1"><span class="n">01</span><p><span lang="en">Electron pairs round the <strong>central atom</strong> repel each other.</span><span lang="si"><strong>මධ්‍ය පරමාණුව</strong> වටා ඇති ඉලෙක්ට්‍රෝන යුගල එකිනෙක විකර්ෂණය කරයි.</span></p></li>
+        <li data-step="2"><span class="n">02</span><p><span lang="en">They sit <strong>as far apart as possible</strong>.</span><span lang="si">ඒවා <strong>හැකි තරම් ඈතින්</strong> පිහිටයි.</span></p></li>
+        <li data-step="3"><span class="n">03</span><p><span lang="en">Count <strong>bond pairs</strong> and <strong>lone pairs</strong>. The shape is named from the atoms only.</span><span lang="si"><strong>බන්ධන යුගල</strong> සහ <strong>එකසර යුගල</strong> ගණන් කරන්න. හැඩය නම් කරන්නේ පරමාණුවල පිහිටීම අනුව පමණි.</span></p></li>
+      </ul>
+      <div class="eq small-eq" data-step="4">lp–lp &gt; lp–bp &gt; bp–bp<small><span lang="en">lone pairs repel the most</span><span lang="si">එකසර යුගල වැඩියෙන්ම විකර්ෂණය කරයි</span></small></div>
+    </div>
+    <div class="fill"><div class="v3d" id="v-idea"></div></div>
+  </div>
+</section>
+
+<!-- 3 counting pairs -->
+<section class="slide" data-id="count">
+  <span class="kick" data-en="Step by step" data-si="පියවරෙන් පියවර"></span>
+  <h2 data-en="Count the electron pairs" data-si="ඉලෙක්ට්‍රෝන යුගල ගණන් කිරීම"></h2>
+  <div class="split" style="height:auto;align-items:start;grid-template-columns:1fr 1fr">
+    <div>
+      <div class="eq"><span lang="en">pairs = ½ (V + N − charge)</span><span lang="si">යුගල = ½ (V + N − ආරෝපණය)</span><small><span lang="en">V = valence electrons of the central atom, N = atoms bonded with single bonds (H, halogens)</span><span lang="si">V = මධ්‍ය පරමාණුවේ සංයුජතා ඉලෙක්ට්‍රෝන, N = ඒක බන්ධනයෙන් බැඳුණු පරමාණු (H, හැලජන)</span></small></div>
+      <p class="note" style="margin-top:6px"><span lang="en">A double or triple bond still counts as <b>one</b> region of electrons.</span><span lang="si">ද්විත්ව හෝ ත්‍රිත්ව බන්ධනයක්ද <b>එක්</b> ඉලෙක්ට්‍රෝන ප්‍රදේශයක් ලෙස ගණන් ගනී.</span></p>
+    </div>
+    <table class="ruled work">
+      <thead><tr><th></th><th>V</th><th>N</th><th data-en="pairs" data-si="යුගල"></th><th>bp</th><th>lp</th></tr></thead>
+      <tbody>
+        <tr data-step="1"><td>CH₄</td><td>4</td><td>4</td><td>4</td><td>4</td><td>0</td></tr>
+        <tr data-step="2"><td>NH₃</td><td>5</td><td>3</td><td>4</td><td>3</td><td>1</td></tr>
+        <tr data-step="3"><td>H₂O</td><td>6</td><td>2</td><td>4</td><td>2</td><td>2</td></tr>
+        <tr data-step="4"><td>NH₄⁺</td><td>5</td><td>4</td><td>½(5+4−1) = 4</td><td>4</td><td>0</td></tr>
+        <tr data-step="5"><td>XeF₄</td><td>8</td><td>4</td><td>6</td><td>4</td><td>2</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 4 explorer: 2..6 pairs -->
+<section class="slide" data-id="explore">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Only bond pairs" data-si="බන්ධන යුගල පමණි"></span>
+      <h2 data-en="Five basic shapes" data-si="මූලික හැඩ පහ"></h2>
+      <div class="seg pick" id="pick"><button data-n="2">2</button><button data-n="3">3</button><button data-n="4">4</button><button data-n="5">5</button><button data-n="6">6</button></div>
+      <table class="ruled info" id="info">
+        <tr><td data-en="Pairs" data-si="යුගල"></td><td class="mono" data-f="n"></td></tr>
+        <tr><td data-en="Shape" data-si="හැඩය"></td><td data-f="shape"></td></tr>
+        <tr><td data-en="Bond angle" data-si="බන්ධන කෝණය"></td><td class="mono" data-f="ang"></td></tr>
+        <tr><td data-en="Example" data-si="උදාහරණය"></td><td class="mono" data-f="ex"></td></tr>
+      </table>
+    </div>
+    <div class="fill"><div class="v3d" id="v-explore"></div></div>
+  </div>
+</section>
+
+<!-- 5 lone pairs squeeze -->
+<section class="slide" data-id="lone">
+  <span class="kick" data-en="Four pairs, more and more lone pairs" data-si="යුගල හතරක්, එකසර යුගල වැඩි වන විට"></span>
+  <h2 data-en="Lone pairs squeeze the bonds" data-si="එකසර යුගල බන්ධන තද කරයි"></h2>
+  <div class="trio"><div class="v3d" id="v-trio"></div></div>
+  <div class="trio-cap">
+    <div><b>CH₄</b><span data-en="tetrahedral" data-si="චතුස්තලීය"></span><i class="mono">109.5°</i></div>
+    <div><b>NH₃</b><span data-en="trigonal pyramidal" data-si="ත්‍රිකෝණාකාර පිරමීඩාකාර"></span><i class="mono">107°</i></div>
+    <div><b>H₂O</b><span data-en="bent (V-shaped)" data-si="කෝණික (V හැඩය)"></span><i class="mono">104.5°</i></div>
+  </div>
+</section>
+
+<!-- 6 five pairs -->
+<section class="slide" data-id="five">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Five pairs" data-si="යුගල පහක්"></span>
+      <h2 data-en="Lone pairs go to the middle ring" data-si="එකසර යුගල සමක තලයට යයි"></h2>
+      <p><span lang="en">In a trigonal bipyramid, lone pairs take the <strong>equatorial</strong> positions: there they have more room (120°).</span><span lang="si">ත්‍රිකෝණාකාර ද්විපිරමීඩයක එකසර යුගල <strong>සමක</strong> පිහිටීම් ගනී: එහි වැඩි ඉඩක් (120°) ඇත.</span></p>
+      <div class="seg pick" id="pick5"><button data-m="PCl5">PCl₅</button><button data-m="SF4">SF₄</button><button data-m="ClF3">ClF₃</button><button data-m="XeF2">XeF₂</button></div>
+      <div class="readout shape-name" id="name5"></div>
+    </div>
+    <div class="fill"><div class="v3d" id="v-five"></div></div>
+  </div>
+</section>
+
+<!-- 7 six pairs -->
+<section class="slide" data-id="six">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Six pairs" data-si="යුගල හයක්"></span>
+      <h2 data-en="Octahedral family" data-si="අෂ්ටතලීය පවුල"></h2>
+      <p><span lang="en">All six positions are equal. A second lone pair goes <strong>opposite</strong> the first (180°).</span><span lang="si">පිහිටීම් හයම සමානය. දෙවන එකසර යුගලය පළමුවැන්නට <strong>ප්‍රතිවිරුද්ධව</strong> (180°) පිහිටයි.</span></p>
+      <div class="seg pick" id="pick6"><button data-m="SF6">SF₆</button><button data-m="BrF5">BrF₅</button><button data-m="XeF4">XeF₄</button></div>
+      <div class="readout shape-name" id="name6"></div>
+    </div>
+    <div class="fill"><div class="v3d" id="v-six"></div></div>
+  </div>
+</section>
+
+<!-- 8 table -->
+<section class="slide" data-id="table">
+  <span class="kick" data-en="All in one place" data-si="සියල්ල එක තැනක"></span>
+  <h2 data-en="Shape table" data-si="හැඩ වගුව"></h2>
+  <table class="ruled big">
+    <thead><tr><th data-en="pairs" data-si="යුගල"></th><th>bp</th><th>lp</th><th data-en="shape" data-si="හැඩය"></th><th data-en="angle" data-si="කෝණය"></th><th data-en="example" data-si="උදාහරණ"></th></tr></thead>
+    <tbody>
+      <tr><td>2</td><td>2</td><td>0</td><td data-en="linear" data-si="රේඛීය"></td><td>180°</td><td>BeCl₂, CO₂</td></tr>
+      <tr><td>3</td><td>3</td><td>0</td><td data-en="trigonal planar" data-si="තලීය ත්‍රිකෝණාකාර"></td><td>120°</td><td>BF₃</td></tr>
+      <tr><td>4</td><td>4</td><td>0</td><td data-en="tetrahedral" data-si="චතුස්තලීය"></td><td>109.5°</td><td>CH₄, NH₄⁺</td></tr>
+      <tr><td>4</td><td>3</td><td>1</td><td data-en="trigonal pyramidal" data-si="ත්‍රිකෝණාකාර පිරමීඩාකාර"></td><td>107°</td><td>NH₃</td></tr>
+      <tr><td>4</td><td>2</td><td>2</td><td data-en="bent (V-shaped)" data-si="කෝණික (V හැඩය)"></td><td>104.5°</td><td>H₂O</td></tr>
+      <tr><td>5</td><td>5</td><td>0</td><td data-en="trigonal bipyramidal" data-si="ත්‍රිකෝණාකාර ද්විපිරමීඩාකාර"></td><td>90°, 120°</td><td>PCl₅</td></tr>
+      <tr><td>6</td><td>6</td><td>0</td><td data-en="octahedral" data-si="අෂ්ටතලීය"></td><td>90°</td><td>SF₆</td></tr>
+      <tr><td>6</td><td>4</td><td>2</td><td data-en="square planar" data-si="සමචතුරස්‍ර තලීය"></td><td>90°</td><td>XeF₄</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 9 quiz -->
+<section class="slide" data-id="quiz">
+  <span class="kick" data-en="Paper style" data-si="ප්‍රශ්න පත්‍ර ආකාරයට"></span>
+  <h2 data-en="Try these" data-si="උත්තර දෙන්න"></h2>
+  <div class="mcq" data-ans="2">
+    <p class="q" data-en="What is the shape of the NH₃ molecule?" data-si="NH₃ අණුවේ හැඩය කුමක්ද?"></p>
+    <ol><li><button data-en="trigonal planar" data-si="තලීය ත්‍රිකෝණාකාර"></button></li><li><button data-en="trigonal pyramidal" data-si="ත්‍රිකෝණාකාර පිරමීඩාකාර"></button></li><li><button data-en="tetrahedral" data-si="චතුස්තලීය"></button></li><li><button data-en="T-shaped" data-si="T හැඩය"></button></li></ol>
+    <p class="why" data-en="4 pairs (3 bp + 1 lp). The pairs are tetrahedral, but the atoms make a pyramid." data-si="යුගල 4 (bp 3 + lp 1). යුගල චතුස්තලීයව පිහිටියද පරමාණු පිරමීඩයක් සාදයි."></p>
+  </div>
+  <div class="mcq" data-ans="4">
+    <p class="q" data-en="Which molecule is square planar?" data-si="සමචතුරස්‍ර තලීය හැඩය ඇති අණුව කුමක්ද?"></p>
+    <ol><li><button>CH₄</button></li><li><button>SF₄</button></li><li><button>BrF₅</button></li><li><button>XeF₄</button></li></ol>
+    <p class="why" data-en="XeF₄: 6 pairs, 4 bp + 2 lp. The two lone pairs sit opposite each other, leaving a flat square." data-si="XeF₄: යුගල 6, bp 4 + lp 2. එකසර යුගල දෙක ප්‍රතිවිරුද්ධව පිහිටන නිසා පැතලි සමචතුරස්‍රයක් ඉතිරි වේ."></p>
+  </div>
+</section>
+
+<!-- 10 summary -->
+<section class="slide" data-id="summary">
+  <div class="split wide-l">
+    <div class="col">
+      <span class="kick" data-en="Summary" data-si="සාරාංශය"></span>
+      <h2 data-en="What we learned" data-si="මේ පාඩමෙන් අපි ඉගෙන ගත්තේ"></h2>
+      <ol class="sum" style="columns:1">
+        <li data-en="Electron pairs round the central atom get as far apart as possible." data-si="මධ්‍ය පරමාණුව වටා ඉලෙක්ට්‍රෝන යුගල හැකි තරම් ඈතින් පිහිටයි."></li>
+        <li data-en="pairs = ½(V + N − charge); a multiple bond counts once." data-si="යුගල = ½(V + N − ආරෝපණය); බහු බන්ධනයක් එක් වරක් ගණන් ගනී."></li>
+        <li data-en="2, 3, 4, 5, 6 pairs → linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral." data-si="යුගල 2, 3, 4, 5, 6 → රේඛීය, තලීය ත්‍රිකෝණාකාර, චතුස්තලීය, ත්‍රිකෝණාකාර ද්විපිරමීඩාකාර, අෂ්ටතලීය."></li>
+        <li data-en="lp–lp &gt; lp–bp &gt; bp–bp, so lone pairs close the bond angle: 109.5° → 107° → 104.5°." data-si="lp–lp &gt; lp–bp &gt; bp–bp; එබැවින් එකසර යුගල බන්ධන කෝණය අඩු කරයි: 109.5° → 107° → 104.5°."></li>
+        <li data-en="The shape is named from where the atoms are, not the lone pairs." data-si="හැඩය නම් කරන්නේ පරමාණු පිහිටන ආකාරය අනුවය, එකසර යුගල අනුව නොවේ."></li>
+      </ol>
+    </div>
+    <div class="fill"><div class="v3d" id="v-end"></div></div>
+  </div>
+</section>
+
+</div></main>
+</body>
+</html>

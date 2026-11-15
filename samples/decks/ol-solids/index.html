@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surface Area and Volume | Samsoft Decks</title>
+<link rel="icon" href="../engine/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../engine/deck.css">
+<link rel="stylesheet" href="solids.css">
+<script type="importmap">{ "imports": { "three": "../engine/vendor/three.module.min.js" } }</script>
+<script defer src="../engine/deck.js"></script>
+<script>if(location.protocol==='file:')document.write('<script src="../engine/pack/draco.js"><\/script><script src="pack/assets.js"><\/script><script src="pack/app.js"><\/script>');else{const s=document.createElement('script');s.type='module';s.src='solids.js';document.head.appendChild(s)}</script>
+</head>
+<body data-subject="math" data-tag-en="O/L · Mathematics" data-tag-si="සා/පෙළ · ගණිතය"
+      data-title-en="Surface Area and Volume | Samsoft Decks" data-title-si="පෘෂ්ඨ වර්ගඵලය සහ පරිමාව | Samsoft Decks">
+<main class="viewport"><div class="stage">
+
+<!-- 1 cover -->
+<section class="slide cover" data-id="cover">
+  <div class="bleed-r"><div class="v3d" id="v-cover"></div></div>
+  <div class="col" style="position:relative;z-index:2;pointer-events:none">
+    <div class="rule"></div>
+    <h1 data-en="Surface area&lt;br&gt;and volume" data-si="පෘෂ්ඨ වර්ගඵලය&lt;br&gt;සහ පරිමාව"></h1>
+    <p class="sub" data-en="Cylinders, prisms, cones, pyramids and spheres: where every formula comes from." data-si="සිලින්ඩර, ප්‍රිස්ම, කේතු, පිරමීඩ සහ ගෝල: එක් එක් සූත්‍රය එන්නේ කොහෙන්ද කියා."></p>
+  </div>
+  <div class="meta"><b>02</b> · <span data-en="O/L · Grades 10 and 11" data-si="සා/පෙළ · 10 සහ 11 ශ්‍රේණි"></span><br><span data-en="Mathematics" data-si="ගණිතය"></span></div>
+</section>
+
+<!-- 2 the family -->
+<section class="slide" data-id="family">
+  <span class="kick" data-en="Solids we measure" data-si="අප මනින ඝන වස්තු"></span>
+  <h2 data-en="Five solids" data-si="ඝන වස්තු පහක්"></h2>
+  <div class="fam"><div class="v3d" id="v-family"></div></div>
+  <p class="fam-note"><span lang="en"><span class="mono acc">r</span> radius &nbsp; <span class="mono acc">h</span> perpendicular height &nbsp; <span class="mono acc">l</span> slant height &nbsp; <span class="mono acc">π = 22/7</span></span><span lang="si"><span class="mono acc">r</span> අරය &nbsp; <span class="mono acc">h</span> ලම්බ උස &nbsp; <span class="mono acc">l</span> ඇල උස &nbsp; <span class="mono acc">π = 22/7</span></span></p>
+</section>
+
+<!-- 3 cylinder net -->
+<section class="slide" data-id="net">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Open it up" data-si="දිග හරිමු"></span>
+      <h2 data-en="The net of a cylinder" data-si="සිලින්ඩරයක දැල"></h2>
+      <p><span lang="en">Cut the curved surface along its height and flatten it. It becomes a <strong>rectangle</strong>. Its length is the <strong>circumference</strong> of the circle.</span><span lang="si">වක්‍ර පෘෂ්ඨය උස දිගේ කපා දිග හැරිය විට එය <strong>සෘජුකෝණාස්‍රයක්</strong> වේ. එහි දිග වෘත්තයේ <strong>පරිධියට</strong> සමාන ය.</span></p>
+      <div class="eq" data-step="1"><span lang="en">length = 2<i>πr</i>, width = <i>h</i></span><span lang="si">දිග = 2<i>πr</i>, පළල = <i>h</i></span><small><span lang="en">curved surface area = 2<i>πrh</i></span><span lang="si">වක්‍ර පෘෂ්ඨයේ වර්ගඵලය = 2<i>πrh</i></span></small></div>
+      <div class="slider"><label data-en="Open" data-si="දිග හැරීම"></label><input type="range" id="open" min="0" max="1" step=".01" value="0"><output id="openOut">0%</output></div>
+    </div>
+    <div class="fill"><div class="v3d" id="v-net"></div></div>
+  </div>
+</section>
+
+<!-- 4 total surface area of a cylinder -->
+<section class="slide" data-id="tsa">
+  <div class="split">
+    <div class="col">
+      <span class="kick" data-en="Closed cylinder" data-si="සංවෘත සිලින්ඩරය"></span>
+      <h2 data-en="Total surface area" data-si="මුළු පෘෂ්ඨ වර්ගඵලය"></h2>
+      <div class="eq">2<i>πr</i>² + 2<i>πrh</i><small><span lang="en">two circles + the curved surface</span><span lang="si">වෘත්ත දෙක + වක්‍ර පෘෂ්ඨය</span></small></div>
+      <div class="slider"><label data-en="radius r (cm)" data-si="අරය r (cm)"></label><input type="range" id="tr" min="1" max="21" step="1" value="7"><output id="trO">7</output></div>
+      <div class="slider"><label data-en="height h (cm)" data-si="උස h (cm)"></label><input type="range" id="th" min="1" max="30" step="1" value="10"><output id="thO">10</output></div>
+    </div>
+    <div class="col">
+      <table class="ruled calc">
+        <tr><td data-en="Two circles" data-si="වෘත්ත දෙක"></td><td class="mono">2 × <sup>22</sup>⁄<sub>7</sub> × <span class="vr">7</span>²</td><td class="mono num" id="c1"></td></tr>
+        <tr><td data-en="Curved surface" data-si="වක්‍ර පෘෂ්ඨය"></td><td class="mono">2 × <sup>22</sup>⁄<sub>7</sub> × <span class="vr">7</span> × <span class="vh">10</span></td><td class="mono num" id="c2"></td></tr>
+        <tr class="tot"><td data-en="Total" data-si="මුළු එකතුව"></td><td></td><td class="mono num" id="c3"></td></tr>
+      </table>
+      <div class="frame mini"><div class="v3d" id="v-tsa"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 worked example -->
+<section class="slide" data-id="example">
+  <span class="kick" data-en="Worked example" data-si="නිදසුන"></span>
+  <h2 data-en="A water tank" data-si="ජල ටැංකියක්"></h2>
+  <div class="split wide-l" style="height:auto;align-items:start">
+    <div>
+      <p class="lead"><span lang="en">A closed cylindrical water tank has a radius of <strong>70 cm</strong> and a height of <strong>1 m</strong>. Find the area of metal sheet needed to make it.</span><span lang="si">සංවෘත සිලින්ඩරාකාර ජල ටැංකියක අරය <strong>70 cm</strong> ද උස <strong>1 m</strong> ද වේ. එය සෑදීමට අවශ්‍ය ලෝහ තහඩුවේ වර්ගඵලය සොයන්න.</span></p>
+      <ol class="rows work">
+        <li data-step="1"><span class="n">01</span><p><span lang="en">Same units: <i>h</i> = 1 m = <strong>100 cm</strong></span><span lang="si">ඒකක සමාන කරන්න: <i>h</i> = 1 m = <strong>100 cm</strong></span></p></li>
+        <li data-step="2"><span class="n">02</span><p class="mono">A = 2<i>πr</i>(<i>r</i> + <i>h</i>)</p></li>
+        <li data-step="3"><span class="n">03</span><p class="mono">= 2 × <sup>22</sup>⁄<sub>7</sub> × 70 × (70 + 100)</p></li>
+        <li data-step="4"><span class="n">04</span><p class="mono">= 2 × 22 × 10 × 170 = <strong class="acc">74 800 cm²</strong></p></li>
+      </ol>
+    </div>
+    <div><div class="frame tank"><div class="v3d" id="v-tank"></div></div>
+    <div class="note" data-step="5"><span lang="en"><b>Tip:</b> 2<i>πr</i>² + 2<i>πrh</i> = 2<i>πr</i>(<i>r</i> + <i>h</i>). Taking out the common factor makes the working shorter.</span><span lang="si"><b>ඉඟිය:</b> 2<i>πr</i>² + 2<i>πrh</i> = 2<i>πr</i>(<i>r</i> + <i>h</i>). පොදු සාධකය ඉවතට ගත් විට ගණනය කෙටි වේ.</span></div></div>
+  </div>
+</section>
+
+<!-- 6 prism volume -->
+<section class="slide" data-id="prism">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Volume of a prism" data-si="ප්‍රිස්මයක පරිමාව"></span>
+      <h2 data-en="Cross-section × length" data-si="හරස්කඩ වර්ගඵලය × දිග"></h2>
+      <p><span lang="en">A prism has the <strong>same cross-section</strong> all along its length. Stack that face again and again and you get the volume.</span><span lang="si">ප්‍රිස්මයක දිග පුරාම <strong>හරස්කඩ එක සමාන</strong> ය. ඒ මුහුණත නැවත නැවත එක මත එක තැබූ විට පරිමාව ලැබේ.</span></p>
+      <div class="eq"><i>V</i> = <i>A</i> × <i>l</i><small><span lang="en">a cylinder is a prism too: V = πr²h</span><span lang="si">සිලින්ඩරයද ප්‍රිස්මයකි: V = πr²h</span></small></div>
+      <div class="slider"><label data-en="length l (cm)" data-si="දිග l (cm)"></label><input type="range" id="pl" min="1" max="12" step="1" value="8"><output id="plO">8</output></div>
+      <div class="readout"><span id="pv">96</span><small>cm³</small></div>
+      <p class="small mono" style="margin-top:10px;color:var(--chalk-3)"><span lang="en">cross-section: right triangle, 6 cm × 4 cm → A = 12 cm²</span><span lang="si">හරස්කඩ: සෘජුකෝණී ත්‍රිකෝණය, 6 cm × 4 cm → A = 12 cm²</span></p>
+    </div>
+    <div class="fill"><div class="v3d" id="v-prism"></div></div>
+  </div>
+</section>
+
+<!-- 7 cone = one third of the cylinder -->
+<section class="slide" data-id="cone">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Same base, same height" data-si="එකම පාදය, එකම උස"></span>
+      <h2 data-en="Three cones fill one cylinder" data-si="කේතු තුනකින් සිලින්ඩරයක් පිරේ"></h2>
+      <div class="eq"><i>V</i> = <sup>1</sup>⁄<sub>3</sub> <i>πr</i>²<i>h</i><small><span lang="en">a pyramid works the same way: ⅓ × base area × h</span><span lang="si">පිරමීඩයටද එසේමය: ⅓ × පාදයේ වර්ගඵලය × h</span></small></div>
+      <div class="ctl" style="margin-top:20px"><div class="seg"><button id="pour" data-en="Pour a cone" data-si="කේතුවක් වත් කරන්න"></button><button id="empty" data-en="Empty" data-si="හිස් කරන්න"></button></div></div>
+      <div class="readout" style="margin-top:26px"><span id="fill">0</span><small>/ 3</small></div>
+    </div>
+    <div class="fill"><div class="v3d" id="v-cone"></div></div>
+  </div>
+</section>
+
+<!-- 8 sphere -->
+<section class="slide" data-id="sphere">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Sphere" data-si="ගෝලය"></span>
+      <h2 data-en="Archimedes' sphere" data-si="ආකිමිඩීස්ගේ ගෝලය"></h2>
+      <p><span lang="en">Put a sphere in the smallest cylinder that holds it. The sphere has <strong>⅔ of the cylinder's volume</strong>, and the same curved area.</span><span lang="si">ගෝලයක් එය අල්ලා ගන්නා කුඩාම සිලින්ඩරය තුළ තබන්න. ගෝලයේ පරිමාව <strong>සිලින්ඩරයේ පරිමාවෙන් ⅔ කි</strong>; පෘෂ්ඨ වර්ගඵලය සිලින්ඩරයේ වක්‍ර පෘෂ්ඨයට සමාන ය.</span></p>
+      <div class="eq" data-step="1"><i>A</i> = 4<i>πr</i>²<small><span lang="en">curved area of the cylinder: 2πr × 2r</span><span lang="si">සිලින්ඩරයේ වක්‍ර පෘෂ්ඨය: 2πr × 2r</span></small></div>
+      <div class="eq" data-step="2"><i>V</i> = <sup>4</sup>⁄<sub>3</sub> <i>πr</i>³<small><span lang="en">⅔ × πr² × 2r</span><span lang="si">⅔ × πr² × 2r</span></small></div>
+    </div>
+    <div class="fill"><div class="v3d" id="v-sphere"></div></div>
+  </div>
+</section>
+
+<!-- 9 quiz -->
+<section class="slide" data-id="quiz">
+  <span class="kick" data-en="Paper style" data-si="ප්‍රශ්න පත්‍ර ආකාරයට"></span>
+  <h2 data-en="Try these" data-si="උත්තර දෙන්න"></h2>
+  <div class="mcq" data-ans="2">
+    <p class="q" data-en="A cylinder has radius 7 cm and height 10 cm. What is the area of its curved surface? (π = 22/7)" data-si="සිලින්ඩරයක අරය 7 cm ද උස 10 cm ද වේ. එහි වක්‍ර පෘෂ්ඨයේ වර්ගඵලය කීයද? (π = 22/7)"></p>
+    <ol><li><button>154 cm²</button></li><li><button>440 cm²</button></li><li><button>748 cm²</button></li><li><button>1540 cm²</button></li></ol>
+    <p class="why" data-en="2πrh = 2 × 22/7 × 7 × 10 = 440 cm². (748 cm² is the total area: 440 + 2 × 154.)" data-si="2πrh = 2 × 22/7 × 7 × 10 = 440 cm². (748 cm² යනු මුළු වර්ගඵලයයි: 440 + 2 × 154.)"></p>
+  </div>
+  <div class="mcq" data-ans="2">
+    <p class="q" data-en="A cone and a cylinder have the same radius and height. The cylinder holds 360 cm³. How much does the cone hold?" data-si="කේතුවක හා සිලින්ඩරයක අරය සහ උස සමාන වේ. සිලින්ඩරයේ පරිමාව 360 cm³ නම් කේතුවේ පරිමාව කීයද?"></p>
+    <ol><li><button>60 cm³</button></li><li><button>120 cm³</button></li><li><button>180 cm³</button></li><li><button>360 cm³</button></li></ol>
+    <p class="why" data-en="Cone = ⅓ × cylinder = ⅓ × 360 = 120 cm³." data-si="කේතුව = ⅓ × සිලින්ඩරය = ⅓ × 360 = 120 cm³."></p>
+  </div>
+</section>
+
+<!-- 10 summary -->
+<section class="slide" data-id="summary">
+  <span class="kick" data-en="Summary" data-si="සාරාංශය"></span>
+  <h2 data-en="What we learned" data-si="මේ පාඩමෙන් අපි ඉගෙන ගත්තේ"></h2>
+  <table class="ruled sumtab">
+    <thead><tr><th data-en="Solid" data-si="ඝන වස්තුව"></th><th data-en="Surface area" data-si="පෘෂ්ඨ වර්ගඵලය"></th><th data-en="Volume" data-si="පරිමාව"></th></tr></thead>
+    <tbody>
+      <tr><td data-en="Cylinder" data-si="සිලින්ඩරය"></td><td class="mono">2πr² + 2πrh</td><td class="mono">πr²h</td></tr>
+      <tr><td data-en="Prism" data-si="ප්‍රිස්මය"></td><td data-en="sum of all faces" data-si="සියලු මුහුණත්වල එකතුව"></td><td class="mono">A × l</td></tr>
+      <tr><td data-en="Cone" data-si="කේතුව"></td><td class="mono">πr² + πrl</td><td class="mono">⅓ πr²h</td></tr>
+      <tr><td data-en="Pyramid" data-si="පිරමීඩය"></td><td data-en="base + triangles" data-si="පාදය + ත්‍රිකෝණ"></td><td class="mono">⅓ × A × h</td></tr>
+      <tr><td data-en="Sphere" data-si="ගෝලය"></td><td class="mono">4πr²</td><td class="mono">⁴⁄₃ πr³</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><span lang="en"><b>Always</b> change every length to the same unit first. Area is in units², volume in units³.</span><span lang="si"><b>සැමවිටම</b> මුලින්ම සියලු දිග එකම ඒකකයට හරවන්න. වර්ගඵලය ඒකක² වලින්ද පරිමාව ඒකක³ වලින්ද ලියන්න.</span></p>
+</section>
+
+</div></main>
+</body>
+</html>

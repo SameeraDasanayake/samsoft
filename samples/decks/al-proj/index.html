@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projectile Motion | Samsoft Decks</title>
+<link rel="icon" href="../engine/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../engine/deck.css">
+<link rel="stylesheet" href="proj.css">
+<script type="importmap">{ "imports": { "three": "../engine/vendor/three.module.min.js" } }</script>
+<script defer src="../engine/deck.js"></script>
+<script>if(location.protocol==='file:')document.write('<script src="../engine/pack/draco.js"><\/script><script src="pack/assets.js"><\/script><script src="pack/app.js"><\/script>');else{const s=document.createElement('script');s.type='module';s.src='proj.js';document.head.appendChild(s)}</script>
+</head>
+<body data-subject="phy" data-tag-en="A/L · Physics" data-tag-si="උ/පෙළ · භෞතික විද්‍යාව"
+      data-title-en="Projectile Motion | Samsoft Decks" data-title-si="ප්‍රක්ෂිප්ත චලිතය | Samsoft Decks">
+<main class="viewport"><div class="stage">
+
+<!-- 1 cover -->
+<section class="slide cover" data-id="cover">
+  <div class="bleed"><div class="v3d" id="v-cover"></div></div>
+  <div class="col" style="position:relative;z-index:2;pointer-events:none;height:auto;padding-top:60px">
+    <div class="rule"></div>
+    <h1 data-en="Projectile&lt;br&gt;motion" data-si="ප්‍රක්ෂිප්ත&lt;br&gt;චලිතය"></h1>
+    <p class="sub" data-en="Two simple motions at once: steady sideways, accelerating downwards." data-si="එකවර චලිත දෙකක්: තිරස් අතට ඒකාකාරව, සිරස් අතට ත්වරණයෙන්."></p>
+  </div>
+  <div class="meta"><b>05</b> · <span data-en="A/L · Mechanics" data-si="උ/පෙළ · යාන්ත්‍ර විද්‍යාව"></span><br><span data-en="Physics" data-si="භෞතික විද්‍යාව"></span></div>
+</section>
+
+<!-- 2 two motions -->
+<section class="slide" data-id="two">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="The key idea" data-si="මූලික අදහස"></span>
+      <h2 data-en="Split it into two motions" data-si="චලිත දෙකකට වෙන් කරන්න"></h2>
+      <ul class="rows tight">
+        <li data-step="1"><span class="n">→</span><p><span lang="en"><strong>Horizontal:</strong> no force, so the velocity stays <strong>constant</strong>. Equal distances in equal times.</span><span lang="si"><strong>තිරස්:</strong> බලයක් නැති නිසා ප්‍රවේගය <strong>නියත</strong> ය. සමාන කාලවලදී සමාන දුර.</span></p></li>
+        <li data-step="2"><span class="n">↓</span><p><span lang="en"><strong>Vertical:</strong> weight acts, so it accelerates at <strong><i>g</i></strong> downwards. Gaps grow each time.</span><span lang="si"><strong>සිරස්:</strong> බර ක්‍රියා කරන නිසා <strong><i>g</i></strong> ත්වරණයෙන් පහළට. අවකාශ ක්‍රමයෙන් වැඩි වේ.</span></p></li>
+      </ul>
+      <p class="note"><span lang="en">We ignore air resistance. Dots are 0.1 s apart.</span><span lang="si">වායු ප්‍රතිරෝධය නොසලකා හරිමු. ලක්ෂ්‍ය අතර කාලය 0.1 s.</span></p>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-strobe"></canvas></div>
+  </div>
+</section>
+
+<!-- 3 components -->
+<section class="slide" data-id="comp">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Resolve the initial velocity" data-si="ආරම්භක ප්‍රවේගය විභේදනය"></span>
+      <h2 data-en="Components of u" data-si="u හි සංරචක"></h2>
+      <div class="eq"><i>u<sub>x</sub></i> = <i>u</i> cos <i>θ</i><small><span lang="en">horizontal: never changes</span><span lang="si">තිරස්: කිසිදා වෙනස් නොවේ</span></small></div>
+      <div class="eq"><i>u<sub>y</sub></i> = <i>u</i> sin <i>θ</i><small><span lang="en">vertical: falls by g every second</span><span lang="si">සිරස්: තත්පරයකට g බැගින් අඩු වේ</span></small></div>
+      <div class="slider"><label data-en="angle θ" data-si="කෝණය θ"></label><input type="range" id="ang" min="5" max="85" value="40"><output id="angO">40°</output></div>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-comp"></canvas></div>
+  </div>
+</section>
+
+<!-- 4 equations -->
+<section class="slide" data-id="eqs">
+  <span class="kick" data-en="Use the equations of motion in each direction" data-si="එක් එක් දිශාවට චලිත සමීකරණ යොදන්න"></span>
+  <h2 data-en="Position at time t" data-si="t කාලයේදී පිහිටීම"></h2>
+  <div class="eqgrid">
+    <div><h3 data-en="Horizontal" data-si="තිරස්"></h3><div class="eq"><i>x</i> = (<i>u</i> cos <i>θ</i>) <i>t</i></div><div class="eq"><i>v<sub>x</sub></i> = <i>u</i> cos <i>θ</i></div></div>
+    <div><h3 data-en="Vertical (up +)" data-si="සිරස් (ඉහළට +)"></h3><div class="eq"><i>y</i> = (<i>u</i> sin <i>θ</i>) <i>t</i> − ½ <i>g t</i>²</div><div class="eq"><i>v<sub>y</sub></i> = <i>u</i> sin <i>θ</i> − <i>g t</i></div></div>
+  </div>
+  <div class="eq wide" data-step="1"><i>y</i> = <i>x</i> tan <i>θ</i> − <span class="frac"><span><i>g x</i>²</span><span>2<i>u</i>² cos²<i>θ</i></span></span><small><span lang="en">remove t → y = ax − bx²: the path is a parabola</span><span lang="si">t ඉවත් කළ විට → y = ax − bx²: ගමන් පථය පරාවලයකි</span></small></div>
+</section>
+
+<!-- 5 T H R -->
+<section class="slide" data-id="thr">
+  <span class="kick" data-en="Three results to remember" data-si="මතක තබා ගත යුතු ප්‍රතිඵල තුනක්"></span>
+  <h2 data-en="Time, height, range" data-si="කාලය, උස, පරාසය"></h2>
+  <div class="thr">
+    <div data-step="1"><span class="mono acc" data-en="Time of flight" data-si="පියාසර කාලය"></span><div class="eq"><i>T</i> = <span class="frac"><span>2<i>u</i> sin <i>θ</i></span><span><i>g</i></span></span></div><p class="small" data-en="y = 0 again: t(u sin θ − ½gt) = 0" data-si="නැවත y = 0: t(u sin θ − ½gt) = 0"></p></div>
+    <div data-step="2"><span class="mono acc" data-en="Maximum height" data-si="උපරිම උස"></span><div class="eq"><i>H</i> = <span class="frac"><span><i>u</i>² sin²<i>θ</i></span><span>2<i>g</i></span></span></div><p class="small" data-en="at the top v_y = 0: v² = u² − 2gs" data-si="ඉහළම ලක්ෂ්‍යයේ v_y = 0: v² = u² − 2gs"></p></div>
+    <div data-step="3"><span class="mono acc" data-en="Horizontal range" data-si="තිරස් පරාසය"></span><div class="eq"><i>R</i> = <span class="frac"><span><i>u</i>² sin 2<i>θ</i></span><span><i>g</i></span></span></div><p class="small" data-en="R = (u cos θ) × T, and 2 sin θ cos θ = sin 2θ" data-si="R = (u cos θ) × T, සහ 2 sin θ cos θ = sin 2θ"></p></div>
+  </div>
+  <div class="thr-pic"><canvas class="cv" id="c-thr"></canvas></div>
+</section>
+
+<!-- 6 simulator -->
+<section class="slide" data-id="sim">
+  <div class="simwrap">
+    <div class="simside">
+      <span class="kick" data-en="Simulator" data-si="අනුකරණය"></span>
+      <h2 data-en="Launch it" data-si="විදින්න"></h2>
+      <div class="slider"><label data-en="speed u (m/s)" data-si="වේගය u (m/s)"></label><input type="range" id="su" min="5" max="40" value="20"><output id="suO">20</output></div>
+      <div class="slider"><label data-en="angle θ" data-si="කෝණය θ"></label><input type="range" id="sa" min="5" max="85" value="45"><output id="saO">45°</output></div>
+      <div class="ctl" style="margin:18px 0 26px"><div class="seg" id="gsel"><button data-g="10" aria-pressed="true" data-en="Earth g = 10" data-si="පෘථිවිය g = 10"></button><button data-g="1.6" aria-pressed="false" data-en="Moon g = 1.6" data-si="සඳ g = 1.6"></button></div></div>
+      <table class="ruled res">
+        <tr><td><i>T</i></td><td class="mono" id="rT"></td></tr>
+        <tr><td><i>H</i></td><td class="mono" id="rH"></td></tr>
+        <tr><td><i>R</i></td><td class="mono" id="rR"></td></tr>
+      </table>
+      <div class="ctl" style="margin-top:22px"><div class="seg"><button id="fire" data-en="Launch" data-si="විදින්න"></button><button id="clear" data-en="Clear" data-si="මකන්න"></button></div></div>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-sim"></canvas></div>
+  </div>
+</section>
+
+<!-- 7 45 degrees -->
+<section class="slide" data-id="best">
+  <div class="split wide-r">
+    <div class="col">
+      <span class="kick" data-en="Same speed, different angles" data-si="එකම වේගය, වෙනස් කෝණ"></span>
+      <h2 data-en="45° goes furthest" data-si="45° උපරිම දුර යයි"></h2>
+      <p><span lang="en"><i>R</i> = <i>u</i>² sin 2<i>θ</i> / <i>g</i> is largest when sin 2<i>θ</i> = 1, so <strong>θ = 45°</strong> and <strong><i>R</i><sub>max</sub> = <i>u</i>²/<i>g</i></strong>.</span><span lang="si"><i>R</i> = <i>u</i>² sin 2<i>θ</i> / <i>g</i> උපරිම වන්නේ sin 2<i>θ</i> = 1 විටය. එනම් <strong>θ = 45°</strong> සහ <strong><i>R</i><sub>max</sub> = <i>u</i>²/<i>g</i></strong>.</span></p>
+      <p class="note" data-step="1"><span lang="en"><b>Complementary angles</b> (θ and 90° − θ) give the <b>same range</b>: 30° and 60°, 15° and 75°.</span><span lang="si"><b>අනුපූරක කෝණ</b> (θ සහ 90° − θ) <b>එකම පරාසය</b> දෙයි: 30° සහ 60°, 15° සහ 75°.</span></p>
+    </div>
+    <div class="fill"><canvas class="cv" id="c-best"></canvas></div>
+  </div>
+</section>
+
+<!-- 8 worked example -->
+<section class="slide" data-id="example">
+  <span class="kick" data-en="Worked example" data-si="නිදසුන"></span>
+  <h2 data-en="A football kick" data-si="පාපන්දු පහරක්"></h2>
+  <div class="split" style="height:auto;align-items:start;grid-template-columns:1.1fr 1fr">
+    <div>
+      <p class="lead"><span lang="en">A ball is kicked at <strong>20 m s⁻¹</strong> at <strong>30°</strong> to the ground. Find the time of flight, the maximum height and the range. (<i>g</i> = 10 m s⁻²)</span><span lang="si">බෝලයක් තිරසට <strong>30°</strong> ක කෝණයකින් <strong>20 m s⁻¹</strong> වේගයෙන් පයින් ගසනු ලැබේ. පියාසර කාලය, උපරිම උස සහ පරාසය සොයන්න. (<i>g</i> = 10 m s⁻²)</span></p>
+    </div>
+    <ol class="rows work">
+      <li data-step="1"><span class="n">T</span><p class="mono">2 × 20 × sin 30° / 10 = <strong class="acc">2 s</strong></p></li>
+      <li data-step="2"><span class="n">H</span><p class="mono">20² × sin²30° / (2 × 10) = <strong class="acc">5 m</strong></p></li>
+      <li data-step="3"><span class="n">R</span><p class="mono">20² × sin 60° / 10 = <strong class="acc">34.6 m</strong></p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 9 quiz -->
+<section class="slide" data-id="quiz">
+  <span class="kick" data-en="Paper style" data-si="ප්‍රශ්න පත්‍ර ආකාරයට"></span>
+  <h2 data-en="Try these" data-si="උත්තර දෙන්න"></h2>
+  <div class="mcq" data-ans="3">
+    <p class="q" data-en="At the highest point of a projectile's path (no air resistance) …" data-si="ප්‍රක්ෂිප්තයක ගමන් පථයේ ඉහළම ලක්ෂ්‍යයේදී (වායු ප්‍රතිරෝධය නැත) …"></p>
+    <ol><li><button data-en="its velocity is zero." data-si="ප්‍රවේගය ශූන්‍ය වේ."></button></li><li><button data-en="its acceleration is zero." data-si="ත්වරණය ශූන්‍ය වේ."></button></li><li><button data-en="the vertical component of velocity is zero." data-si="ප්‍රවේගයේ සිරස් සංරචකය ශූන්‍ය වේ."></button></li><li><button data-en="the horizontal component of velocity is zero." data-si="ප්‍රවේගයේ තිරස් සංරචකය ශූන්‍ය වේ."></button></li></ol>
+    <p class="why" data-en="It still moves sideways at u cos θ, and g still acts downwards. Only v_y is zero." data-si="එය තවමත් u cos θ වේගයෙන් තිරස්ව ගමන් කරයි; g තවමත් පහළට ක්‍රියා කරයි. ශූන්‍ය වන්නේ v_y පමණි."></p>
+  </div>
+  <div class="mcq" data-ans="3">
+    <p class="q" data-en="Two stones are thrown at the same speed, one at 30° and one at 60°. Their ranges are …" data-si="ගල් දෙකක් එකම වේගයෙන්, එකක් 30° ටද අනෙක 60° ටද විසි කරයි. ඒවායේ පරාස …"></p>
+    <ol><li><button data-en="greater at 30°." data-si="30° ට වැඩිය."></button></li><li><button data-en="greater at 60°." data-si="60° ට වැඩිය."></button></li><li><button data-en="equal." data-si="සමානය."></button></li><li><button data-en="decided by the masses." data-si="ස්කන්ධ මත රඳා පවතී."></button></li></ol>
+    <p class="why" data-en="sin 60° = sin 120°, so R is the same. 30° and 60° are complementary." data-si="sin 60° = sin 120° නිසා R සමානය. 30° සහ 60° අනුපූරක කෝණ වේ."></p>
+  </div>
+</section>
+
+<!-- 10 summary -->
+<section class="slide" data-id="summary">
+  <span class="kick" data-en="Summary" data-si="සාරාංශය"></span>
+  <h2 data-en="What we learned" data-si="මේ පාඩමෙන් අපි ඉගෙන ගත්තේ"></h2>
+  <ol class="sum">
+    <li data-en="Horizontal velocity is constant; vertical acceleration is g downwards." data-si="තිරස් ප්‍රවේගය නියතය; සිරස් ත්වරණය පහළට g වේ."></li>
+    <li data-en="Resolve u: u cos θ across, u sin θ up." data-si="u විභේදනය: තිරසට u cos θ, ඉහළට u sin θ."></li>
+    <li data-en="The path is a parabola." data-si="ගමන් පථය පරාවලයකි."></li>
+    <li data-en="T = 2u sin θ / g" data-si="T = 2u sin θ / g"></li>
+    <li data-en="H = u² sin²θ / 2g" data-si="H = u² sin²θ / 2g"></li>
+    <li data-en="R = u² sin 2θ / g, largest at 45°" data-si="R = u² sin 2θ / g, 45° දී උපරිම"></li>
+    <li data-en="At the top: v_y = 0, but v_x and g are not zero." data-si="ඉහළම ලක්ෂ්‍යයේ: v_y = 0, නමුත් v_x සහ g ශූන්‍ය නොවේ."></li>
+    <li data-en="θ and 90° − θ give the same range." data-si="θ සහ 90° − θ එකම පරාසය දෙයි."></li>
+  </ol>
+</section>
+
+</div></main>
+</body>
+</html>

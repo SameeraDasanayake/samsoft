@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WEERA/ICT · Class LMS</title>
+<meta name="description" content="Class LMS demo by Samsoft: recordings, online MCQ papers with automatic marks, results and fees for an O/L ICT tuition class.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Sinhala:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="lms.css">
+</head>
+<body>
+<header class="top">
+  <a href="#" class="brand" data-go="home" aria-label="WEERA ICT home"><span class="b-w">WEERA</span><span class="b-s">/</span><span class="b-i">ICT</span></a>
+  <nav id="nav" class="nav"></nav>
+  <div class="tools">
+    <div id="role" class="role" role="group" aria-label="View as"><button data-role="student"></button><button data-role="teacher"></button></div>
+    <button id="langBtn" class="lang"></button>
+    <div id="who" class="who"></div>
+  </div>
+</header>
+<main id="view" class="view"></main>
+<footer id="foot" class="foot"></footer>
+<nav id="tabbar" class="tabbar"></nav>
+<div id="modal" class="modal"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="data.js"></script>
+<script src="lms.js"></script>
+</body>
+</html>
