@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Senuri Bridal &amp; Beauty – Salon Demo by Samsoft</title>
+<meta name="description" content="Samsoft ladies salon demo: stylist calendar, bridal packages with advance and balance, client profiles, WhatsApp reminders and reports.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&family=Noto+Sans+Sinhala:wght@400;500;600&family=Noto+Serif+Sinhala:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="beauty.css">
+</head>
+<body data-page="cal">
+
+<div class="demo-bar">
+  <span class="demo-tag">Demo</span>
+  <span class="demo-msg" data-t="demoMsg"></span>
+  <a class="demo-by" id="homeLink" href="../../website/business.html">Samsoft</a>
+  <a class="demo-cta" id="waCta" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+    <span data-t="demoCta"></span>
+  </a>
+</div>
+
+<header class="top">
+  <div class="brand">
+    <b>Senuri</b>
+    <span data-t="shopSub"></span>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-act="nav" data-id="cal"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-t="nav_cal"></span></button>
+    <button data-act="nav" data-id="bridal"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z"/></svg><span data-t="nav_bridal"></span></button>
+    <button data-act="nav" data-id="clients"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span data-t="nav_clients"></span></button>
+    <button data-act="nav" data-id="rem"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4l2-2ZM10 21h4"/></svg><span data-t="nav_rem"></span><i class="cnt" id="remCnt"></i></button>
+    <button data-act="nav" data-id="reports"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M21 20H3"/></svg><span data-t="nav_reports"></span></button>
+  </nav>
+  <div class="top-r">
+    <button class="icon-btn" data-act="settings" aria-label="Settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></button>
+    <button class="lang" data-act="lang"><span class="l-en">EN</span><span class="l-si">සිං</span></button>
+  </div>
+</header>
+
+<main class="main">
+  <section class="page" id="pg-cal"></section>
+  <section class="page" id="pg-bridal"></section>
+  <section class="page" id="pg-clients"></section>
+  <section class="page" id="pg-rem"></section>
+  <section class="page" id="pg-reports"></section>
+</main>
+
+<div class="modal" id="modal" hidden><div class="sheet" id="sheet"></div></div>
+<div class="toasts" id="toasts"></div>
+<div id="print" aria-hidden="true"></div>
+
+<script src="data.js"></script>
+<script src="beauty.js"></script>
+</body>
+</html>

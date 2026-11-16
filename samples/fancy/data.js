@@ -1,0 +1,80 @@
+// Samsoft Fancy shop demo - catalogue with variants. Sales, stock levels and loyalty data are generated in fancy.js.
+// v: [id, en, si, swatch, priceDelta]
+window.FANCY = {
+  shop: { name: 'Tikiri', full: 'Tikiri Fancy & Gifts', sub_en: 'Fancy · Gifts · Toys — Kurunegala', sub_si: 'ෆැන්සි · තෑගි · සෙල්ලම් බඩු — කුරුණෑගල',
+    addr: '21, Colombo Rd, Kurunegala', phone: '037 222 5418', footer_en: 'Thank you! Exchange within 7 days with this bill.', footer_si: 'ස්තූතියි! මේ බිල සමඟ දින 7ක් ඇතුළත මාරු කරගත හැක.' },
+  cats: [
+    { id: 'toys', en: 'Toys', si: 'සෙල්ලම් බඩු', col: '#ff8a3d' },
+    { id: 'stat', en: 'Stationery', si: 'ලිපිද්‍රව්‍ය', col: '#3d7bff' },
+    { id: 'gift', en: 'Gifts', si: 'තෑගි', col: '#ff4f7b' },
+    { id: 'acc', en: 'Accessories', si: 'ආභරණ / උපාංග', col: '#9b5cff' },
+    { id: 'party', en: 'Party', si: 'සාද භාණ්ඩ', col: '#ffc21a' },
+    { id: 'cards', en: 'Cards & bags', si: 'කාඩ් / බෑග්', col: '#19b37d' }
+  ],
+  opt: { colour: ['Colour', 'පාට'], size: ['Size', 'ප්‍රමාණය'], design: ['Design', 'මෝස්තරය'], scent: ['Scent', 'සුවඳ'] },
+  products: [
+    { id: 'teddy', cat: 'toys', en: 'Teddy bear', si: 'ටෙඩි බෝලා', retail: 1450, whole: 1150, wq: 6, opt: 'size',
+      v: [['s', 'Small 20cm', 'කුඩා 20cm', '#c89b6d', 0], ['m', 'Medium 35cm', 'මධ්‍යම 35cm', '#b9845a', 1200], ['l', 'Large 60cm', 'විශාල 60cm', '#9c6a43', 3350]] },
+    { id: 'doll', cat: 'toys', en: 'Fashion doll', si: 'බෝනික්කා', retail: 1850, whole: 1480, wq: 6, opt: 'design',
+      v: [['bride', 'Bride', 'මනාලිය', '#f4f1ea', 0], ['princess', 'Princess', 'කුමරිය', '#f59bc4', 0], ['doctor', 'Doctor', 'වෛද්‍ය', '#7cc6e8', 0]] },
+    { id: 'rccar', cat: 'toys', en: 'Remote control car', si: 'රිමෝට් කාර් එක', retail: 3950, whole: 3300, wq: 4, opt: 'colour',
+      v: [['red', 'Red', 'රතු', '#e53935', 0], ['blue', 'Blue', 'නිල්', '#1e63d6', 0], ['yel', 'Yellow', 'කහ', '#ffc21a', 0]] },
+    { id: 'puzzle', cat: 'toys', en: 'Jigsaw puzzle', si: 'Jigsaw puzzle', retail: 950, whole: 760, wq: 6, opt: 'size',
+      v: [['100', '100 pieces', 'කෑලි 100', '#8bc34a', 0], ['500', '500 pieces', 'කෑලි 500', '#558b2f', 900]] },
+    { id: 'pcase', cat: 'stat', en: 'Pencil case', si: 'පැන්සල් පෙට්ටිය', retail: 650, whole: 480, wq: 12, opt: 'colour',
+      v: [['pink', 'Pink', 'රෝස', '#f48fb1', 0], ['blue', 'Blue', 'නිල්', '#64b5f6', 0], ['black', 'Black', 'කළු', '#222222', 0], ['purple', 'Purple', 'දම්', '#9c6ade', 0]] },
+    { id: 'note', cat: 'stat', en: 'Notebook A5', si: 'සටහන් පොත A5', retail: 390, whole: 290, wq: 12, opt: 'design',
+      v: [['uni', 'Unicorn', 'යුනිකෝන්', '#d6a4ff', 0], ['foot', 'Football', 'පාපන්දු', '#43a047', 0], ['gal', 'Galaxy', 'ගැලැක්සි', '#283593', 0], ['flo', 'Floral', 'මල්', '#ff8a80', 0]] },
+    { id: 'gel', cat: 'stat', en: 'Gel pen set', si: 'Gel pen කට්ටලය', retail: 480, whole: 360, wq: 12, opt: 'size',
+      v: [['6', '6 colours', 'පාට 6', '#26c6da', 0], ['12', '12 colours', 'පාට 12', '#ab47bc', 370]] },
+    { id: 'bag', cat: 'stat', en: 'School bag', si: 'පාසල් බෑගය', retail: 3450, whole: 2900, wq: 4, opt: 'colour',
+      v: [['navy', 'Navy', 'තද නිල්', '#1a237e', 0], ['pink', 'Pink', 'රෝස', '#ec407a', 0], ['red', 'Red', 'රතු', '#c62828', 0]] },
+    { id: 'mug', cat: 'gift', en: 'Printed mug', si: 'මුද්‍රිත mug එක', retail: 890, whole: 690, wq: 6, opt: 'design',
+      v: [['amma', 'Best Amma', 'Best Amma', '#ff7aa2', 0], ['thaththa', 'Best Thaththa', 'Best Thaththa', '#3d7bff', 0], ['bday', 'Happy Birthday', 'Happy Birthday', '#ffc21a', 0], ['love', 'I love you', 'I love you', '#e53935', 0]] },
+    { id: 'frame', cat: 'gift', en: 'Photo frame', si: 'ඡායාරූප රාමුව', retail: 750, whole: 560, wq: 6, opt: 'size',
+      v: [['4', '4 × 6 in', '4 × 6 අඟල්', '#d7b98e', 0], ['6', '6 × 8 in', '6 × 8 අඟල්', '#b8956a', 350], ['8', '8 × 10 in', '8 × 10 අඟල්', '#8d6e48', 750]] },
+    { id: 'candle', cat: 'gift', en: 'Scented candle jar', si: 'සුවඳ ඉටිපන්දම', retail: 1250, whole: 980, wq: 6, opt: 'scent',
+      v: [['van', 'Vanilla', 'වැනිලා', '#f3e5ab', 0], ['rose', 'Rose', 'රෝස', '#f8bbd0', 0], ['lav', 'Lavender', 'ලැවෙන්ඩර්', '#b39ddb', 0]] },
+    { id: 'clock', cat: 'gift', en: 'Wall clock', si: 'බිත්ති ඔරලෝසුව', retail: 2250, whole: 1850, wq: 4, opt: 'colour',
+      v: [['wood', 'Wood', 'ලී', '#a1887f', 0], ['white', 'White', 'සුදු', '#f5f5f5', 0], ['gold', 'Gold', 'රන්', '#d4af37', 300]] },
+    { id: 'clips', cat: 'acc', en: 'Hair clip set', si: 'කොණ්ඩ කටු කට්ටලය', retail: 350, whole: 240, wq: 12, opt: 'colour',
+      v: [['pastel', 'Pastel', 'Pastel', '#ffd1dc', 0], ['pearl', 'Pearl', 'Pearl', '#f5f0e6', 0], ['black', 'Black', 'කළු', '#222222', 0]] },
+    { id: 'ear', cat: 'acc', en: 'Earrings', si: 'කරාබු', retail: 450, whole: 320, wq: 12, opt: 'design',
+      v: [['pearl', 'Pearl drop', 'Pearl drop', '#efe9df', 0], ['hoop', 'Gold hoop', 'රන් වළලු', '#d4af37', 0], ['fly', 'Butterfly', 'සමනළ', '#80deea', 0]] },
+    { id: 'brace', cat: 'acc', en: 'Beaded bracelet', si: 'පබළු වළල්ල', retail: 390, whole: 270, wq: 12, opt: 'colour',
+      v: [['red', 'Red', 'රතු', '#d32f2f', 0], ['turq', 'Turquoise', 'Turquoise', '#26a69a', 0], ['multi', 'Multicolour', 'බහු වර්ණ', '#ffb74d', 0]] },
+    { id: 'wallet', cat: 'acc', en: 'Ladies purse', si: 'කාන්තා පර්ස්', retail: 1950, whole: 1550, wq: 4, opt: 'colour',
+      v: [['tan', 'Tan', 'දුඹුරු', '#c08a5b', 0], ['black', 'Black', 'කළු', '#222222', 0], ['red', 'Red', 'රතු', '#b71c1c', 0]] },
+    { id: 'balloon', cat: 'party', en: 'Balloons (pack of 25)', si: 'බැලූන් (25)', retail: 450, whole: 330, wq: 10, opt: 'colour',
+      v: [['red', 'Red', 'රතු', '#e53935', 0], ['gold', 'Gold', 'රන්', '#d4af37', 100], ['pink', 'Pink', 'රෝස', '#f48fb1', 0], ['blue', 'Blue', 'නිල්', '#42a5f5', 0], ['mix', 'Mixed', 'මිශ්‍ර', '#7e57c2', 0]] },
+    { id: 'banner', cat: 'party', en: 'Happy Birthday banner', si: 'Happy Birthday banner', retail: 550, whole: 400, wq: 10, opt: 'colour',
+      v: [['gold', 'Gold', 'රන්', '#d4af37', 0], ['rainbow', 'Rainbow', 'දේදුන්න', '#ff7043', 0]] },
+    { id: 'numc', cat: 'party', en: 'Number candle', si: 'අංක ඉටිපන්දම', retail: 180, whole: 120, wq: 20, opt: 'colour',
+      v: [['gold', 'Gold', 'රන්', '#d4af37', 0], ['silver', 'Silver', 'රිදී', '#bdbdbd', 0], ['pink', 'Pink', 'රෝස', '#f06292', 0]] },
+    { id: 'hats', cat: 'party', en: 'Party hats (pack of 10)', si: 'සාද තොප්පි (10)', retail: 520, whole: 380, wq: 10, opt: 'design',
+      v: [['dots', 'Polka dots', 'තිත්', '#ff4f7b', 0], ['stars', 'Stars', 'තරු', '#3d7bff', 0]] },
+    { id: 'card', cat: 'cards', en: 'Greeting card', si: 'සුබපැතුම් කාඩ්', retail: 250, whole: 170, wq: 20, opt: 'design',
+      v: [['bday', 'Birthday', 'උපන්දින', '#ffc21a', 0], ['wed', 'Wedding', 'මංගල', '#f5f0e6', 50], ['anni', 'Anniversary', 'සංවත්සර', '#e57373', 0], ['thanks', 'Thank you', 'ස්තූතියි', '#81c784', 0]] },
+    { id: 'gbag', cat: 'cards', en: 'Gift bag', si: 'තෑගි බෑගය', retail: 120, whole: 80, wq: 20, opt: 'size',
+      v: [['s', 'Small', 'කුඩා', '#f8bbd0', 0], ['m', 'Medium', 'මධ්‍යම', '#ce93d8', 60], ['l', 'Large', 'විශාල', '#9575cd', 130]] }
+  ],
+  wraps: [
+    { id: 'paper', en: 'Gift paper wrap', si: 'තෑගි කඩදාසියෙන් ඔතන', price: 150 },
+    { id: 'box', en: 'Gift box + ribbon', si: 'තෑගි පෙට්ටිය + රිබන්', price: 450 },
+    { id: 'bow', en: 'Ribbon bow', si: 'රිබන් bow', price: 100 },
+    { id: 'msg', en: 'Message card', si: 'පණිවිඩ කාඩ්', price: 80 }
+  ],
+  bases: [
+    { id: 'box', en: 'Kraft gift box', si: 'Kraft තෑගි පෙට්ටිය', price: 650 },
+    { id: 'basket', en: 'Wicker basket – medium', si: 'වේවැල් කූඩය – මධ්‍යම', price: 1200 },
+    { id: 'big', en: 'Wicker basket – large', si: 'වේවැල් කූඩය – විශාල', price: 1950 }
+  ],
+  presets: [
+    { id: 'p1', en: 'Birthday girl hamper', si: 'උපන්දින දියණියට hamper', base: 'basket', items: [['teddy', 's', 1], ['clips', 'pastel', 1], ['ear', 'fly', 1], ['card', 'bday', 1], ['candle', 'rose', 1]] },
+    { id: 'p2', en: "Teacher's day pack", si: 'ගුරු දින තෑගි පැකේජය', base: 'box', items: [['mug', 'bday', 1], ['gel', '12', 1], ['note', 'flo', 1], ['card', 'thanks', 1]] },
+    { id: 'p3', en: 'Little boy party box', si: 'පුංචි පුතාට සාද පෙට්ටිය', base: 'box', items: [['rccar', 'blue', 1], ['puzzle', '100', 1], ['balloon', 'blue', 1], ['card', 'bday', 1]] }
+  ],
+  first: ['Nadeesha', 'Kasun', 'Hasini', 'Dilan', 'Sachini', 'Ruwan', 'Imasha', 'Tharindu', 'Upeksha', 'Chamara', 'Nirosha', 'Lahiru', 'Madhavi',
+    'Sandun', 'Piyumi', 'Asela', 'Shanika', 'Kalana', 'Dulani', 'Isuru', 'Rizna', 'Sajith', 'Thanuja', 'Mihiri'],
+  last: ['Perera', 'Bandara', 'Herath', 'Rathnayake', 'Wijesinghe', 'Dissanayake', 'Senanayake', 'Ekanayake', 'Jayawardena', 'Kumari', 'Fernando', 'Abeykoon']
+};

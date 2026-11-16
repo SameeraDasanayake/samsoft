@@ -69,8 +69,8 @@
   const ICON = {
     play: '<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>',
     pause: '<svg viewBox="0 0 24 24"><path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z" fill="currentColor"/></svg>',
-    back: '<svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 1-7 7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1.5v7L7.5 5z" fill="currentColor"/><text x="12" y="15.5" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" font-family="Archivo,sans-serif">10</text></svg>',
-    fwd: '<svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 0 7 7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1.5v7L16.5 5z" fill="currentColor"/><text x="12" y="15.5" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" font-family="Archivo,sans-serif">10</text></svg>',
+    back: '<svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 1-7 7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1.5v7L7.5 5z" fill="currentColor"/><text x="12" y="15.5" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" font-family="DM Mono,monospace">10</text></svg>',
+    fwd: '<svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 0 7 7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1.5v7L16.5 5z" fill="currentColor"/><text x="12" y="15.5" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor" font-family="DM Mono,monospace">10</text></svg>',
     file: '<svg viewBox="0 0 24 24"><path d="M6 2.5h8l4.5 4.5v14.5H6z M14 2.5V7h4.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 12.5h6M9 16h6" stroke="currentColor" stroke-width="1.7"/></svg>',
     up: '<svg viewBox="0 0 24 24"><path d="M12 16V4M6.5 9.5 12 4l5.5 5.5M4 20h16" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
     plus: '<svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.2"/></svg>',

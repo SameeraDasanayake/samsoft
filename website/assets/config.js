@@ -8,6 +8,7 @@ window.SAMSOFT = {
   messages: {
     si: {
       general: "ආයුබෝවන් Samsoft, මට ඔබේ සේවා ගැන විස්තර දැනගන්න ඕන.",
+      quote: "ආයුබෝවන් Samsoft, මම website එකේ විස්තර කියෙව්වා. මට මිල ගණනක් ඕන.\nසේවාව: \nමගේ ව්‍යාපාරය / පන්තිය: ",
       presentation: "ආයුබෝවන් Samsoft, මට presentation එකක් හදාගන්න ඕන.",
       paper: "ආයුබෝවන් Samsoft, මට ප්‍රශ්න පත්‍රයක් හදාගන්න ඕන.",
       tute: "ආයුබෝවන් Samsoft, මට tute එකක් හදාගන්න ඕන.",
@@ -22,6 +23,7 @@ window.SAMSOFT = {
     },
     en: {
       general: "Hello Samsoft, I would like to know more about your services.",
+      quote: "Hello Samsoft, I read the details on your website and would like a quote.\nService: \nMy business / class: ",
       presentation: "Hello Samsoft, I would like a presentation made.",
       paper: "Hello Samsoft, I would like an exam paper made.",
       tute: "Hello Samsoft, I would like a tute made.",

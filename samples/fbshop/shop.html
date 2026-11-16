@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nethu Closet – Shop Demo by Samsoft</title>
+<meta name="description" content="Samsoft demo: a mobile shop page for a Facebook / WhatsApp clothing seller. Customers pick items and send the order on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Figtree:wght@400;500;600;700&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="shop.css">
+</head>
+<body>
+<div class="demo-bar"><span class="demo-tag">DEMO</span><span class="demo-msg" data-t="demoMsg"></span><a class="demo-link" href="index.html" data-t="seeSeller"></a></div>
+<header class="top">
+  <a class="logo" href="#top"><b>Nethu</b><span>closet</span></a>
+  <div class="top-r">
+    <button class="lang" data-act="lang"><span class="l-en">EN</span><span class="l-si">සිං</span></button>
+    <button class="bagbtn" data-act="bag" aria-label="bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><i id="bagN"></i></button>
+  </div>
+</header>
+<main id="top">
+  <section class="hero"><p class="kicker" data-t="kicker"></p><h1 data-t="heroH"></h1><p class="sub" data-t="heroP"></p></section>
+  <nav class="cats" id="cats"></nav>
+  <section class="grid" id="grid"></section>
+  <section class="how"><h2 data-t="howH"></h2><ol><li data-t="how1"></li><li data-t="how2"></li><li data-t="how3"></li></ol></section>
+  <footer class="foot"><b>Nethu Closet</b><span data-t="tag"></span><span>fb.com/nethucloset · Kiribathgoda</span><a href="index.html" data-t="seeSeller"></a></footer>
+</main>
+<div class="ov" id="ov" hidden><div class="panel" id="panel"></div></div>
+<div class="toast" id="toast" hidden></div>
+<script src="data.js"></script>
+<script src="shop.js"></script>
+</body>
+</html>

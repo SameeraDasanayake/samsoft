@@ -8,13 +8,13 @@
   const teacher = { name: 'Dilan Weerasinghe', brand: 'WEERA', sub: 'ICT', town: 'Nugegoda', fee: 2500 };
 
   const units = {
-    U01: { code: 'U01', en: 'Data & information', si: 'දත්ත හා තොරතුරු', color: '#e8d6a8' },
-    U02: { code: 'U02', en: 'Number systems', si: 'සංඛ්‍යා පද්ධති', color: '#d4ff3a' },
-    U03: { code: 'U03', en: 'Logic gates', si: 'තාර්කික ද්වාර', color: '#ff6a3d' },
-    U04: { code: 'U04', en: 'Operating systems', si: 'මෙහෙයුම් පද්ධති', color: '#3ec5ff' },
-    U05: { code: 'U05', en: 'Spreadsheets', si: 'පැතුරුම්පත්', color: '#39e6a7' },
-    U06: { code: 'U06', en: 'Databases', si: 'දත්ත සමුදාය', color: '#ffb020' },
-    U07: { code: 'U07', en: 'Networks', si: 'පරිගණක ජාල', color: '#ff4f7e' }
+    U01: { code: 'U01', en: 'Data & information', si: 'දත්ත හා තොරතුරු', color: '#8a6a3a' },
+    U02: { code: 'U02', en: 'Number systems', si: 'සංඛ්‍යා පද්ධති', color: '#2f5f8a' },
+    U03: { code: 'U03', en: 'Logic gates', si: 'තාර්කික ද්වාර', color: '#b0482c' },
+    U04: { code: 'U04', en: 'Operating systems', si: 'මෙහෙයුම් පද්ධති', color: '#2e6e6a' },
+    U05: { code: 'U05', en: 'Spreadsheets', si: 'පැතුරුම්පත්', color: '#557a33' },
+    U06: { code: 'U06', en: 'Databases', si: 'දත්ත සමුදාය', color: '#a8742a' },
+    U07: { code: 'U07', en: 'Networks', si: 'පරිගණක ජාල', color: '#8c3b5a' }
   };
 
   const toSec = s => s.split(':').map(Number).reduce((a, b) => a * 60 + b, 0);
