@@ -499,3 +499,17 @@ html[data-lang="si"] .svc h4 { letter-spacing: 0; text-transform: none; font-siz
 /* language spans inside the subjects strip must not get the pill style */
 .subjects b span, .subjects span span { padding: 0; border: 0; background: none; color: inherit; border-radius: 0; }
 @media (min-width: 1021px) { .demos.three { grid-template-columns: repeat(3, 1fr); } }
+
+/* ===== background flicker fix (2026-11-16): no animated blur filters; soft gradients on their own GPU layer ===== */
+.field { height: 100vh; height: 100lvh; bottom: auto; transform: translateZ(0); contain: strict; }
+.field i { filter: none; opacity: 1; will-change: transform; backface-visibility: hidden; }
+.field .a { width: 900px; height: 900px; top: -330px; right: -270px; background: radial-gradient(circle, rgba(0, 101, 122, .55) 0%, rgba(0, 101, 122, .18) 40%, transparent 68%); }
+.field .b { width: 700px; height: 700px; top: 200px; right: calc(22% - 140px); background: radial-gradient(circle, rgba(138, 90, 0, .3) 0%, rgba(138, 90, 0, .1) 40%, transparent 68%); }
+.field .c { width: 820px; height: 820px; bottom: -410px; left: -310px; background: radial-gradient(circle, rgba(0, 74, 90, .55) 0%, rgba(0, 74, 90, .18) 40%, transparent 68%); }
+.t-page .field .a { background: radial-gradient(circle, rgba(90, 61, 0, .55) 0%, rgba(90, 61, 0, .18) 40%, transparent 68%); }
+.t-page .field .b { background: radial-gradient(circle, rgba(0, 101, 122, .3) 0%, rgba(0, 101, 122, .1) 40%, transparent 68%); }
+/* phones: the background stays still, and glass blur is lighter (cheaper to paint while scrolling) */
+@media (max-width: 1020px) {
+  .field i { animation: none; }
+  .glass { backdrop-filter: blur(10px) saturate(130%); -webkit-backdrop-filter: blur(10px) saturate(130%); }
+}
