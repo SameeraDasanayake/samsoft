@@ -32,11 +32,19 @@
   const prog = document.createElement('div'); prog.className = 'progress'; stage.appendChild(prog);
 
   /* scale */
+  let rotOff = false;
   function fit() {
     const k = Math.min(innerWidth / 1600, innerHeight / 900);
-    stage.style.transform = `scale(${k})`;
+    stage.style.transform = `translate(-50%, -50%) scale(${k})`;
+    body.classList.toggle('portrait', !rotOff && innerHeight > innerWidth && innerWidth < 900);
   }
-  addEventListener('resize', fit); fit();
+  addEventListener('resize', fit); addEventListener('orientationchange', fit);
+  const rot = document.createElement('div'); rot.className = 'rotate';
+  rot.innerHTML = `<svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="17" rx="1.5"/><path d="M3 15a9 9 0 0 0 9 7l-2-2M21 9a9 9 0 0 0-9-7l2 2"/></svg>
+    <span><span lang="en">Turn your phone sideways for a bigger slide.</span><span lang="si">ලොකුවට බලන්න phone එක හරස් අතට හරවන්න.</span></span><button type="button">OK</button>`;
+  rot.querySelector('button').addEventListener('click', () => { rotOff = true; fit(); });
+  body.appendChild(rot);
+  fit();
 
   /* steps */
   const steps = s => $$('[data-step]', s).sort((a, b) => a.dataset.step - b.dataset.step);

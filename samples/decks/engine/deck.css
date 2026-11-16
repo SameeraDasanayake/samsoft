@@ -31,8 +31,18 @@ html[data-lang="en"] [lang="si"], html[data-lang="si"] [lang="en"] { display: no
 html[data-lang="si"] body { --head: 'Abhaya Libre', 'Noto Serif Sinhala', serif; }
 
 /* stage: a fixed 1600x900 board scaled to the window */
-.viewport { position: fixed; inset: 0; display: grid; place-items: center; }
-.stage { position: relative; width: 1600px; height: 900px; transform-origin: center; flex: none; }
+.viewport { position: fixed; inset: 0; overflow: hidden; }
+/* centred with left/top 50% + translate, so it stays centred on screens narrower than 1600px (phones, tablets, laptops) */
+.stage { position: absolute; left: 50%; top: 50%; width: 1600px; height: 900px; transform-origin: center; transform: translate(-50%, -50%); }
+
+/* phone held upright: suggest turning it sideways */
+.rotate { position: fixed; left: 12px; right: 12px; bottom: 14px; z-index: 30; display: none; align-items: center; gap: 12px; padding: 12px 14px;
+  background: rgba(17,25,21,.96); border: 1px solid var(--line-2); border-left: 3px solid var(--accent); font: 500 14px/1.4 var(--body); color: var(--chalk); }
+.rotate svg { width: 26px; height: 26px; flex: none; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+.rotate span { flex: 1; }
+.rotate button { font: 600 13px/1 var(--mono); color: var(--chalk-2); padding: 8px 10px; border: 1px solid var(--line-2); }
+body.portrait .rotate { display: flex; }
+body.portrait .bar { bottom: auto; top: 12px; right: 12px; }
 .slide {
   position: absolute; inset: 0; overflow: hidden; background: var(--board);
   background-image:

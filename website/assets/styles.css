@@ -469,3 +469,33 @@ html[data-lang="si"] .svc h4 { letter-spacing: 0; text-transform: none; font-siz
 .svc-price dl { grid-template-columns: minmax(0, 1fr) auto; }
 .svc-price dd { white-space: nowrap; }
 @media (max-width: 640px) { .svc-price { flex-direction: column; align-items: stretch; } .svc-price dl { padding-left: 0; } }
+
+/* ===== phone: centre-aligned layout (user request 2026-11-16). Lists, FAQ and price tables stay left for reading. ===== */
+@media (max-width: 640px) {
+  .hero-in > div:first-child, .phero-in > div:first-child, .sp-hero .wrap, .head, .choose-q { text-align: center; }
+  .lead, .sub, .head { margin-left: auto; margin-right: auto; }
+  .cta, .stats, .card-foot, .svc-demos, .jump-row, .subjects { justify-content: center; }
+  .stats { margin-left: auto; margin-right: auto; }
+  .card, .soon-card, .pick { align-items: center; text-align: center; }
+  .card .link, .card .btn { align-self: center; }
+  .card .ticks, .pick ul { align-self: center; text-align: left; }
+  .pick-go { align-self: stretch; }
+  .why > div { text-align: center; }
+  .steps li { display: block; text-align: center; }
+  .steps .dot { margin: 0 auto 14px; }
+  .demo-txt { text-align: center; }
+  .contact { text-align: center; }
+  .contact-sym { margin: 0 auto; }
+  .foot { flex-direction: column; text-align: center; }
+  .pay-note { flex-direction: column; align-items: center; text-align: center; }
+  .jump-h { text-align: center; }
+  .svc-for, .svc h3, .svc-desc { text-align: center; }
+  .svc-price { text-align: center; }
+  .svc-price dl { text-align: left; }
+  .support { align-items: center; text-align: center; }
+  .support-price { text-align: center; }
+  .terms h3 { text-align: center; }
+}
+/* language spans inside the subjects strip must not get the pill style */
+.subjects b span, .subjects span span { padding: 0; border: 0; background: none; color: inherit; border-radius: 0; }
+@media (min-width: 1021px) { .demos.three { grid-template-columns: repeat(3, 1fr); } }
