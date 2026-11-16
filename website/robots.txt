@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://samsoft.lk/sitemap.xml
