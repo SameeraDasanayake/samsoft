@@ -100,7 +100,7 @@ function render(lang) {
     </div></article>`).join('');
 }
 document.querySelectorAll('.lang button').forEach(b => b.onclick = () => render(b.dataset.l));
-let start = new URLSearchParams(location.search).get('lang'); if (!start) { try { start = localStorage.getItem('tutes-lang'); } catch (e) {} }
+let start = new URLSearchParams(location.search).get('lang');
 render(start === 'si' ? 'si' : 'en');
 </script>
 </body>

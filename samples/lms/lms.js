@@ -17,7 +17,7 @@
   st.uploads = st.uploads || [];
   st.newPapers = st.newPapers || [];
 
-  let lang = qs.get('lang') || (() => { try { return localStorage.getItem('samsoft-lms-lang'); } catch (e) { return null; } })() || 'en';
+  let lang = qs.get('lang') === 'si' ? 'si' : 'en';
   if (lang !== 'si') lang = 'en';
   const S = { role: qs.get('role') === 'teacher' ? 'teacher' : 'student', page: qs.get('page') || '', sub: qs.get('id') || '' };
   const T = (en, si) => (lang === 'si' ? si : en);

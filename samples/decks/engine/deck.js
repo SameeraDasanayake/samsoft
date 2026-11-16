@@ -5,9 +5,8 @@
   const stage = $('.stage'), slides = $$('.slide', stage), body = document.body, root = document.documentElement;
   const hooks = {}; let cur = -1;
 
-  /* language: English default, ?lang=si or the last choice */
+  /* language: always opens in English; Sinhala only with ?lang=si or the toggle */
   let lang = new URLSearchParams(location.search).get('lang');
-  if (!lang) { try { lang = localStorage.getItem('samsoft-deck-lang'); } catch (e) {} }
   lang = lang === 'si' ? 'si' : 'en';
   function setLang(l) {
     lang = l; root.dataset.lang = l; root.lang = l === 'si' ? 'si' : 'en';

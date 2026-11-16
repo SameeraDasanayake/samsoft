@@ -131,7 +131,7 @@
   function initLang() {
     const q = new URLSearchParams(location.search).get('lang');
     if (q === 'si' || q === 'en') return q;
-    try { return localStorage.getItem('samsoft-ui-lang') || 'en'; } catch (e) { return 'en'; }
+    return 'en';
   }
   const U = {
     lang: initLang(), page: 'bill', cat: 'all', q: '',

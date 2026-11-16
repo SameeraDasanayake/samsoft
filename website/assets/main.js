@@ -13,7 +13,7 @@
     try { localStorage.setItem("samsoft-ui-lang", l); } catch (e) {}
     updateWa();
     document.querySelectorAll(".js-demo").forEach(function (a) {
-      a.setAttribute("href", a.getAttribute("data-demo") + "&lang=" + l);
+      a.setAttribute("href", a.getAttribute("data-demo"));
     });
   }
 

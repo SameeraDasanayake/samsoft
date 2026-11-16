@@ -106,7 +106,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font: 500 13px
 <script>
 (function () {
   const root = document.documentElement, q = new URLSearchParams(location.search);
-  let lang = q.get('lang'); if (!lang) { try { lang = localStorage.getItem('samsoft-deck-lang'); } catch (e) {} }
+  let lang = q.get('lang');
   const set = l => { root.dataset.lang = l; root.lang = l; document.querySelectorAll('#lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
     document.querySelectorAll('.card[href]').forEach(a => { a.href = a.getAttribute('href').split('?')[0] + '?lang=' + l; }); try { localStorage.setItem('samsoft-deck-lang', l); } catch (e) {} };
   set(lang === 'si' ? 'si' : 'en');
