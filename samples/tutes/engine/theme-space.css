@@ -1,0 +1,92 @@
+/* Tute theme: SPACE MISSION (Grade 5 scholarship · Solar System).
+   Star-field cover, mission-patch badge, rounded friendly shapes, orange + sky blue on midnight. Fredoka headings. */
+:root {
+  --ink: #141a3a; --ink2: #3f4770; --mute: #8088aa; --hair: #dde1f0;
+  --ac: #ff7a30; --ac2: #2f8bff; --night: #0b1033; --sun: #ffc93c;
+  --tint: #fff4ec; --tint2: #eef5ff;
+  --body: 'Literata', 'Noto Sans Sinhala', serif;
+  --head: 'Fredoka', 'Noto Sans Sinhala', sans-serif;
+  --disp: 'Fredoka', 'Gemunu Libre', sans-serif;
+  --blank-line: #ff7a30; --blank-bg: #fff4ec; --hl: #ffc93c99; --ed-bg: #ffc93c; --ed-ink: #141a3a; --eds-bg: #2f8bff; --eds-ink: #fff;
+}
+html[lang=si] { --body: 'Noto Sans Sinhala', 'Literata', sans-serif; --head: 'Noto Sans Sinhala', 'Fredoka', sans-serif; --disp: 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif; }
+html { background: #10153a; }
+.bar { background: #070a24; }
+
+/* ---------- cover ---------- */
+.cover { background: var(--night); color: #fff; }
+.cover::before { content: ''; position: absolute; inset: 0; background: url(cover-space.jpg) center / cover no-repeat; }
+.cover .band { display: none; }
+.cover .top { color: #ffd68a; font: 600 9pt/1 var(--head); letter-spacing: .1em; top: 12mm; }
+html[lang=si] .cover .top { letter-spacing: 0; }
+.cover .no { left: 15mm; top: 24mm; width: 30mm; height: 30mm; border-radius: 50%; display: grid; place-items: center; opacity: 1;
+  font: 700 26pt/1 'Fredoka', sans-serif; color: var(--night); background: var(--sun); border: 1.4mm solid #fff; box-shadow: 0 0 0 .8mm var(--ac); letter-spacing: 0; }
+.cover .no::after { content: 'MISSION'; position: absolute; top: 32.5mm; left: 50%; transform: translateX(-50%); font: 700 6.6pt/1 'Fredoka', sans-serif; letter-spacing: .3em; color: var(--sun); }
+.cover h1 { top: 66mm; color: #fff; }
+.cover .sub { top: 102mm; color: #d6dcff; }
+.cover .hero img { filter: drop-shadow(0 0 10mm #ffb35a55); }
+.cover .toc h3 { color: var(--sun); font-family: var(--head); letter-spacing: .14em; }
+html[lang=si] .cover .toc h3 { letter-spacing: 0; }
+.cover .toc ol { columns: 2; column-gap: 6mm; }
+.cover .toc li { border: 0; border-radius: 6mm; background: #ffffff14; padding: 2.2mm 4mm; margin-bottom: 2mm; color: #fff; }
+.cover .toc li span { font: 700 8.6pt/1 'Fredoka', sans-serif; width: 6mm; height: 6mm; border-radius: 50%; display: inline-grid; place-items: center; background: var(--ac); color: #fff; min-width: 6mm; }
+.cover .foot { border-top: .4mm dashed #ffffff55; color: #c8cff5; }
+.cover .foot b { color: #fff; }
+.cover .foot .meta { color: var(--sun); }
+
+/* ---------- sections: rounded mission tags ---------- */
+.sec { grid-template-columns: auto 1fr; gap: 3.5mm; align-items: center; border-bottom: .5mm dashed var(--hair); padding-bottom: 2.4mm; margin: 7mm 0 4mm; }
+.sec .n { font: 700 12pt/1 'Fredoka', sans-serif; color: #fff; background: var(--ac); width: 11mm; height: 11mm; border-radius: 50%; display: grid; place-items: center; letter-spacing: 0;
+  box-shadow: 0 0 0 1mm #ffd9bf; }
+.sec h2 { color: var(--night); }
+h3.sub { color: var(--ac2); }
+ul.dots li::before { width: 2.2mm; height: 2.2mm; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ffd68a, var(--ac)); }
+
+/* ---------- margin column ---------- */
+.row > .s { border-left: .6mm dotted #c9d2f0; }
+.s .term em { color: var(--ac2); }
+.s .tag { color: var(--ac); }
+
+/* ---------- figures: rounded porthole frame ---------- */
+figure .art { border-radius: 4mm; background: #f6f8ff; padding: 2.5mm; }
+.s figure .art { background: none; padding: 0; }
+figcaption b { color: var(--ac); }
+.lab .dt { fill: var(--ac); }
+svg .ta { fill: var(--ac); }
+
+/* ---------- boxes ---------- */
+.box { border-top: 0; border-radius: 4mm; background: var(--tint); border: .5mm solid #ffd2b3; }
+.box > .bt { display: inline-block; color: #fff; background: var(--ac); border-radius: 3mm; padding: 1mm 2.6mm; letter-spacing: .08em; }
+html[lang=si] .box > .bt { letter-spacing: 0; }
+.box.key { background: var(--night); border-color: #2f3a80; color: #eef1ff; }
+.box.key > .bt { background: var(--sun); color: var(--night); }
+.box.key .blank { background: #ffffff18; border-color: var(--sun); }
+.box.key b.fill { background: linear-gradient(transparent 58%, #ff7a3099 58%); }
+.box.fact { background: var(--tint2); border-color: #c6dcff; } .box.fact > .bt { background: var(--ac2); }
+
+/* ---------- worked example ---------- */
+.ex { border-left: 0; border-radius: 4mm; border: .5mm solid #c6dcff; background: #f7faff; padding: 3mm 4mm; }
+.ex .eh span { color: #fff; background: var(--ac2); border-radius: 3mm; padding: 1mm 2.6mm; letter-spacing: .08em; }
+html[lang=si] .ex .eh span { letter-spacing: 0; }
+.ex .ea { background: var(--sun); color: var(--night); border-radius: 2mm; }
+
+/* ---------- tables ---------- */
+table.t { border-collapse: separate; border-spacing: 0; border: .4mm solid #d5dcf2; border-radius: 3mm; overflow: hidden; }
+table.t th { background: var(--night); color: var(--sun); border-bottom: 0; }
+table.t tr:nth-child(even) td { background: #f5f7ff; }
+
+/* ---------- quick check ---------- */
+.check { border: .5mm dashed var(--ac2); border-radius: 4mm; background: #f7faff; }
+.check > .bt { background: var(--ac2); color: #fff; border-radius: 3mm; padding: 1mm 2.6mm; }
+
+/* ---------- exercises ---------- */
+.exh { border-bottom: .5mm dashed var(--hair); }
+.q .qn, .sq .qn { font: 700 9pt/1 'Fredoka', sans-serif; color: #fff; background: var(--ac); border-radius: 50%; width: 6.4mm; height: 6.4mm; display: grid; place-items: center; }
+.q .abox { border: .5mm solid var(--ac); border-radius: 50%; }
+
+/* ---------- summary / answers ---------- */
+.sum li { background: var(--tint2); border-radius: 4mm; }
+.sum li::before { color: var(--ac); font-family: 'Fredoka', sans-serif; }
+.gloss div span { color: var(--ac2); }
+.ans h4 { color: var(--ac); }
+.ans .mcqk div { border-radius: 2mm; } .ans .mcqk div b { color: var(--ac); }

@@ -1,5 +1,5 @@
 // Grade 5 scholarship — The Solar System. Figures: renders from the sch-solar deck (tools/tutes/shots.json) + exact diagrams.
-const INK = '#1c1d1f', NIGHT = '#3b4459', SUNC = '#f0a03c';
+const INK = '#141a3a', NIGHT = '#2a3470', SUNC = '#ffb02e';
 
 const dayNight = SVG2(l => SVG(118, 480, 210, `${ARROW('dnA')}${ARROW('dnB', '#c77a1c')}
   <circle cx="44" cy="105" r="36" fill="${SUNC}"/>
@@ -34,7 +34,7 @@ const phases = SVG2(l => SVG(176, 800, 150, PH.map(([d, en, si], i) => {
 }).join('') + `<path d="M60 145 H740" stroke="${INK}" stroke-width="1" marker-end="url(#phA)"/>${ARROW('phA')}`));
 
 window.TUTE = {
-  no: '01', code: 'SCH-T1', accent: '#b8541a', hero: 'sol-hero',
+  no: '01', code: 'SCH-T1', accent: '#ff7a30', hero: 'sol-hero',
   inst: B('Kelani Academy', 'කැලණි ඇකඩමිය'), teacher: B('Grade 5 scholarship class', '5 ශ්‍රේණිය ශිෂ්‍යත්ව පන්තිය'),
   subject: B('Environment', 'පරිසරය'), grade: B('Grade 5', '5 ශ්‍රේණිය'),
   title: B('The Solar System', 'සෞරග්‍රහ මණ්ඩලය'),

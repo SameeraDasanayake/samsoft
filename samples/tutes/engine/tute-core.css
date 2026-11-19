@@ -1,0 +1,36 @@
+/* Samsoft tutes — layout mechanics shared by every theme (loads after tute.css, before the theme file).
+   Themes set the look; this file keeps pages full and the editions working. */
+
+/* print: never show the screen background */
+@media print { html { background: #fff !important; } }
+
+/* less empty space: rows stay whole, but long tables / figures may continue on the next page */
+.row { break-inside: avoid; } .row.rtbl, .row.rfig { break-inside: auto; }
+.row figure, .box, .ex, .check, table.t tr, .sum li, .q, .qp { break-inside: avoid; }
+
+/* margin notes float in the right column, so the main text never waits for them (no gaps after short paragraphs) */
+.row { display: block; }
+.row > .s { float: right; clear: right; width: var(--side); margin: 0 0 2mm var(--gap); }
+.row > .m { margin-right: calc(var(--side) + var(--gap)); }
+.row.wide { clear: both; } .row.wide > .m { margin-right: 0; }
+.sec, .exh, .sum, .gloss, .ans { clear: both; }
+
+/* quick-check label sits inside its box (an absolute label can be left behind at a page end) */
+.check { margin-top: 2mm; padding-top: 2.6mm; }
+.check > .bt { position: static; display: inline-block; margin: 0 0 1.6mm; }
+
+/* cover: no name / class / date fields; the contents move up */
+.cover .toc { top: 168mm; }
+
+/* editions: student copy = blanks, teacher copy = highlighted answers (colours from the theme) */
+.blank { display: inline-block; max-width: 100%; height: 1.05em; vertical-align: -.2em; margin: 0 .15em;
+  border-bottom: .3mm dashed var(--blank-line, var(--ac)); background: var(--blank-bg, #f2f4f7); border-radius: .6mm .6mm 0 0; }
+b.fill { background: linear-gradient(transparent 58%, var(--hl, #ffe08a) 58%); padding: 0 .1em; }
+.cover .ed { position: absolute; right: 16mm; top: 20mm; z-index: 3; padding: 1.6mm 3.2mm; border-radius: 1.6mm;
+  font: 700 7.4pt/1 var(--ed-font, var(--head)); letter-spacing: .16em; text-transform: uppercase; color: var(--ed-ink, #fff); background: var(--ed-bg, var(--ac)); }
+.cover .ed.student { color: var(--eds-ink, #1a1000); background: var(--eds-bg, #ffb21e); }
+html[lang=si] .cover .ed { font: 700 9pt/1 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+
+/* a row whose margin notes are long may continue its notes on the next page (the notes float, the text stays) */
+.row:has(> .s) { break-inside: auto; }
+.row > .s > * { break-inside: avoid; }

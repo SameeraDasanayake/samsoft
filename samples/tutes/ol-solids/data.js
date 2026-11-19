@@ -1,5 +1,5 @@
 // O/L Maths — Surface area and volume of solids. Renders from the ol-solids deck + exact line diagrams (drawn to their numbers).
-const INK = '#1c1d1f', FILL = '#d8eef0', FILL2 = '#b9dfe3', DASH = 'stroke-dasharray="5 4"';
+const INK = '#0d2440', FILL = '#e1ecfa', FILL2 = '#c3d8f3', DASH = 'stroke-dasharray="5 4"';
 const ln = (d, w = 1.6, x = '') => `<path d="${d}" fill="none" stroke="${INK}" stroke-width="${w}" ${x}/>`;
 const tx = (x, y, s, a = 'middle', c = 't', fs = 15) => `<text class="${c}" x="${x}" y="${y}" font-size="${fs}" text-anchor="${a}">${s}</text>`;
 const dim = (x1, y1, x2, y2, id) => `<path d="M${x1} ${y1} L${x2} ${y2}" stroke="${INK}" stroke-width="1.1" marker-start="url(#${id})" marker-end="url(#${id})"/>`;
@@ -46,7 +46,7 @@ const capsule = SVG(36, 220, 290, `${ARROW('cpA')}<path d="M40 100 A70 70 0 0 1 
   ${ln('M110 250 H180', 1.2)}${tx(145, 244, '7 cm', 'middle', 't', 13)}${dim(200, 100, 200, 250, 'cpA')}${tx(206, 180, '10', 'start', 't', 13)}`);
 
 window.TUTE = {
-  no: '02', code: 'OLM-T2', accent: '#1d6a78', hero: 'sd-hero',
+  no: '02', code: 'OLM-T2', accent: '#1452a0', hero: 'sd-hero',
   inst: B('Kelani Academy', 'කැලණි ඇකඩමිය'), teacher: B('O/L Mathematics class', 'සා/පෙළ ගණිතය පන්තිය'),
   subject: B('Mathematics', 'ගණිතය'), grade: B('O/L · Grades 10–11', 'සා/පෙළ · 10–11 ශ්‍රේණි'),
   title: B('Surface area and volume', 'පෘෂ්ඨ වර්ගඵලය සහ පරිමාව'),

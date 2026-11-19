@@ -1,0 +1,105 @@
+/* Tute theme: PHYSICS LAB OSCILLOSCOPE (A/L Physics · projectile motion).
+   Phosphor-green scope screen cover with the trajectory as the trace, instrument-panel labels (CH1, CH2),
+   graph-paper figure panels, amber readouts. Saira headings, Share Tech Mono readouts. */
+:root {
+  --ink: #101611; --ink2: #3e4a40; --mute: #7f8a80; --hair: #d4ddd5;
+  --ac: #0e8a4a; --ac2: #e08a00; --scope: #050906; --ph: #39ff88;
+  --tint: #eef8f1; --tint2: #fff6e6;
+  --body: 'Literata', 'Noto Sans Sinhala', serif;
+  --head: 'Saira', 'Noto Sans Sinhala', sans-serif;
+  --disp: 'Saira', 'Gemunu Libre', sans-serif;
+  --mono: 'Share Tech Mono', 'Noto Sans Sinhala', monospace;
+  --blank-line: #0e8a4a; --blank-bg: #eef8f1; --hl: #ffb00066; --ed-bg: #39ff88; --ed-ink: #050906; --eds-bg: #ffb000; --eds-ink: #050906; --ed-font: 'Share Tech Mono', monospace;
+}
+html[lang=si] { --body: 'Noto Sans Sinhala', 'Literata', sans-serif; --head: 'Noto Sans Sinhala', 'Saira', sans-serif; --disp: 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif; }
+html { background: #070b08; }
+.bar { background: #040704; }
+
+/* ---------- cover: the scope screen holds the trajectory ---------- */
+.cover { background: var(--scope); color: #fff; }
+.cover::before { content: ''; position: absolute; inset: 0; background: url(cover-scope.jpg) center / cover no-repeat; }
+.cover .band { display: none; }
+.cover .top { color: #8fd9a8; font: 400 9pt/1 var(--mono); letter-spacing: .16em; top: 12mm; }
+html[lang=si] .cover .top { font: 600 9.4pt/1 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.cover .top span:first-child::before { content: 'CH1 ▸ '; color: var(--ph); }
+.cover .no { top: 165mm; left: 16mm; opacity: 1; font: 400 11pt/1 var(--mono); color: #ffb000; letter-spacing: .2em; }
+.cover .no::before { content: 'TUTE '; }
+/* trajectory graph inside the screen, title + subtitle under it */
+.cover .hero, .cover .hero:has(svg) { left: 18mm; right: 18mm; top: 34mm; width: auto; height: 120mm; display: flex; align-items: center; justify-content: center; }
+.cover .hero svg { width: 100%; height: 100%; filter: drop-shadow(0 0 2.4mm #39ff8899); }
+.cover .hero svg * { stroke: #39ff88 !important; }
+.cover .hero svg text { fill: #39ff88 !important; stroke: none !important; }
+.cover h1, .cover:has(.hero svg) h1 { top: 174mm; right: 16mm; color: var(--ph); font-weight: 700; text-shadow: 0 0 5mm #39ff8866; }
+.cover .sub, .cover:has(.hero svg) .sub { top: 198mm; right: 30mm; color: #bfe8cc; }
+.cover .toc { top: 222mm; }
+.cover .toc h3 { color: #ffb000; font-family: var(--mono); font-weight: 400; letter-spacing: .24em; }
+html[lang=si] .cover .toc h3 { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.cover .toc ol { columns: 3; column-gap: 5mm; }
+.cover .toc li { border-top: .3mm solid #39ff8840; color: #dff7e6; padding: 1.6mm 0; font-size: 9.4pt; }
+.cover .toc li span { font-family: var(--mono); color: var(--ph); }
+.cover .foot { border-top: .4mm solid #39ff8855; color: #8fd9a8; }
+.cover .foot b { color: #fff; }
+.cover .foot .meta { font-family: var(--mono); color: #ffb000; }
+
+/* ---------- sections: instrument channel labels ---------- */
+.sec { grid-template-columns: auto 1fr; gap: 3.5mm; align-items: center; border-bottom: .5mm solid var(--ink); padding-bottom: 2.2mm; margin: 7mm 0 4mm; }
+.sec .n { font: 400 11pt/1 var(--mono); color: var(--ph); background: var(--scope); padding: 2mm 2.8mm; border-radius: 1mm; letter-spacing: .06em; }
+.sec .n::before { content: 'CH'; opacity: .7; margin-right: .5mm; }
+.sec h2 { color: var(--ink); font-weight: 700; }
+h3.sub { color: var(--ac); }
+ul.dots li::before { width: 1.8mm; height: 1.8mm; border-radius: 0; background: var(--ac); }
+
+/* ---------- margin column ---------- */
+.row > .s { border-left: .4mm solid #b9d6c1; }
+.s .term em { color: var(--ac2); }
+.s .tag { color: var(--ac); font-family: var(--mono); letter-spacing: .1em; }
+html[lang=si] .s .tag { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+
+/* ---------- figures: graph paper ---------- */
+figure .art { padding: 3mm; border: .3mm solid #c4d6c8; background:
+  linear-gradient(#e2ece4 .2mm, transparent .2mm) 0 0 / 4mm 4mm, linear-gradient(90deg, #e2ece4 .2mm, transparent .2mm) 0 0 / 4mm 4mm, #fcfefc; }
+.s figure .art { border: 0; background: none; padding: 0; }
+figcaption b { color: var(--ac2); font-family: var(--mono); }
+.lab .dt { fill: var(--ac2); }
+svg .ta { fill: var(--ac); }
+
+/* ---------- boxes: instrument panels with screw heads ---------- */
+.box { border-top: 0; border: .4mm solid #b9d6c1; background: var(--tint); border-radius: 1.4mm; position: relative; }
+.box::before, .box::after { content: ''; position: absolute; top: 1.4mm; width: 1.6mm; height: 1.6mm; border-radius: 50%; background: #b9d6c1; }
+.box::before { right: 1.4mm; } .box::after { right: 4mm; }
+.box > .bt { font-family: var(--mono); color: var(--ac); letter-spacing: .16em; }
+html[lang=si] .box > .bt { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.box.key { background: var(--scope); color: #dff7e6; border-color: #1d3a24; }
+.box.key > .bt { color: #ffb000; }
+.box.key .blank { background: #ffffff14; border-color: var(--ph); }
+.box.key b.fill { background: linear-gradient(transparent 58%, #39ff8866 58%); }
+
+/* ---------- worked example: readout ---------- */
+.ex { border-left: 0; border: .4mm solid #e7c27a; background: var(--tint2); border-radius: 1.4mm; padding: 2.4mm 4mm; }
+.ex .eh span { font-family: var(--mono); color: #fff; background: var(--ac2); padding: .8mm 2.2mm; border-radius: .8mm; letter-spacing: .12em; }
+html[lang=si] .ex .eh span { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.ex ol.steps li::before { font-family: var(--mono); color: var(--ac2); }
+.ex .ea { background: var(--scope); color: var(--ph); font-family: var(--mono); border-radius: 1mm; }
+
+/* ---------- tables ---------- */
+table.t th { background: var(--scope); color: var(--ph); border-bottom: 0; font-family: var(--mono); font-weight: 400; }
+html[lang=si] table.t th { font-family: 'Noto Sans Sinhala', sans-serif; }
+table.t tr:nth-child(even) td { background: #f3f8f4; }
+
+/* ---------- quick check ---------- */
+.check { border: .4mm solid var(--ink); border-radius: 1.4mm; background: #fff; }
+.check > .bt { background: var(--ac2); color: #fff; font-family: var(--mono); border-radius: .8mm; padding: .8mm 2.4mm; }
+html[lang=si] .check > .bt { font-family: 'Noto Sans Sinhala', sans-serif; }
+
+/* ---------- exercises ---------- */
+.exh { border-bottom: .5mm solid var(--ink); }
+.q .qn, .sq .qn { font: 400 10pt/1.4 var(--mono); color: var(--ac); }
+.q .abox { border: .4mm solid var(--ac); border-radius: 1mm; }
+
+/* ---------- summary / answers ---------- */
+.sum li { background: var(--tint); border-radius: 1.4mm; }
+.sum li::before { color: var(--ac2); font-family: var(--mono); }
+.gloss div span { color: var(--ac); }
+.ans h4 { color: var(--ac); font-family: var(--mono); }
+html[lang=si] .ans h4 { font-family: 'Noto Sans Sinhala', sans-serif; }
+.ans .mcqk div b { color: var(--ac2); }

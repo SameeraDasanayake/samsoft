@@ -1,5 +1,5 @@
 // O/L Science — The heart and blood circulation. Renders from the ol-heart deck (models CC BY: neshallads, jalmer) + schematic diagrams.
-const INK = '#1c1d1f', RED = '#c3343c', BLUE = '#3560ad';
+const INK = '#12161c', RED = '#d62839', BLUE = '#2f5fb3';
 const tx = (x, y, s, a = 'middle', c = 't', fs = 13, st = '') => `<text class="${c}" x="${x}" y="${y}" font-size="${fs}" text-anchor="${a}" ${st}>${s}</text>`;
 
 const circ = SVG2(l => {
@@ -32,7 +32,7 @@ const IN = { RA: 'Right atrium', RV: 'Right ventricle', LA: 'Left atrium', LV: '
   ASL: 'Semilunar valve (aortic)', BI: 'Bicuspid valve', SVC: 'Superior vena cava', IVC: 'Inferior vena cava', AO: 'Aorta', PA: 'Pulmonary artery', PV: 'Pulmonary veins' };
 
 window.TUTE = {
-  no: '03', code: 'OLS-T3', accent: '#a11d33', hero: 'hh-hero',
+  no: '03', code: 'OLS-T3', accent: '#d62839', hero: 'hh-hero',
   inst: B('Kelani Academy', 'කැලණි ඇකඩමිය'), teacher: B('O/L Science class', 'සා/පෙළ විද්‍යාව පන්තිය'),
   subject: B('Science', 'විද්‍යාව'), grade: B('O/L · Human biology', 'සා/පෙළ · මිනිස් ජීව විද්‍යාව'),
   title: B('The heart and blood circulation', 'හෘදය සහ රුධිර සංසරණය'),

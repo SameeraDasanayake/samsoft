@@ -1,0 +1,101 @@
+/* Tute theme: ENGINEERING BLUEPRINT (O/L Maths · solids).
+   Blueprint-blue cover with drafting grid, title-block section numbers, dimension-line rules, red-pencil accent.
+   Barlow Condensed headings, IBM Plex Mono labels. Square corners. */
+:root {
+  --ink: #0d2440; --ink2: #3a516e; --mute: #7d8ea5; --hair: #c9d6e6;
+  --ac: #1452a0; --ac2: #e63946; --bp: #0c3e7a;
+  --tint: #eef4fb; --tint2: #fdf0f1;
+  --body: 'Literata', 'Noto Sans Sinhala', serif;
+  --head: 'Barlow Condensed', 'Noto Sans Sinhala', sans-serif;
+  --disp: 'Barlow Condensed', 'Gemunu Libre', sans-serif;
+  --mono: 'IBM Plex Mono', 'Noto Sans Sinhala', monospace;
+  --blank-line: #1452a0; --blank-bg: #eef4fb; --hl: #ffd16680; --ed-bg: #ffffff; --ed-ink: #0c3e7a; --eds-bg: #e63946; --eds-ink: #fff; --ed-font: 'IBM Plex Mono', monospace;
+}
+html[lang=si] { --body: 'Noto Sans Sinhala', 'Literata', sans-serif; --head: 'Noto Sans Sinhala', 'Barlow Condensed', sans-serif; --disp: 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif; }
+html { background: #0a2f5c; }
+.bar { background: #082447; }
+
+/* ---------- cover ---------- */
+.cover { background: var(--bp); color: #fff; }
+.cover::before { content: ''; position: absolute; inset: 0; background: url(cover-blueprint.jpg) center / cover no-repeat; }
+.cover::after { content: ''; position: absolute; inset: 8mm; border: .5mm solid #ffffffaa; pointer-events: none; }
+.cover .band { display: none; }
+.cover .top { color: #dbe9ff; font: 500 8pt/1 var(--mono); letter-spacing: .14em; top: 14mm; left: 16mm; right: 16mm; }
+html[lang=si] .cover .top { font: 600 9.4pt/1 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.cover .no { top: 24mm; left: 15mm; opacity: 1; color: #fff; font: 700 70pt/.9 'Barlow Condensed', sans-serif; letter-spacing: 0; }
+.cover .no::before { content: 'DWG NO.'; display: block; font: 500 7pt/1 'IBM Plex Mono', monospace; letter-spacing: .3em; color: #9cc3ff; margin-bottom: 1.5mm; }
+.cover h1 { top: 64mm; color: #fff; font-weight: 700; text-transform: none; }
+.cover .sub { top: 100mm; color: #d4e4ff; }
+.cover .hero img { filter: drop-shadow(0 4mm 6mm #00102a66); }
+.cover .toc h3 { color: #9cc3ff; font-family: var(--mono); font-weight: 500; letter-spacing: .24em; }
+html[lang=si] .cover .toc h3 { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.cover .toc li { border-top: .3mm solid #ffffff55; color: #fff; }
+.cover .toc li span { font-family: var(--mono); color: #ffd166; }
+/* title block, like the corner of a technical drawing */
+.cover .foot { left: auto; right: 12mm; bottom: 12mm; width: 96mm; border: .5mm solid #fff; padding: 0; display: grid; grid-template-columns: 1fr auto; color: #d4e4ff; }
+.cover .foot > div { padding: 2.5mm 3.5mm; } .cover .foot .meta { border-left: .5mm solid #fff; display: grid; place-items: center; font-family: var(--mono); color: #ffd166; }
+.cover .foot b { color: #fff; }
+
+/* ---------- sections: title-block number + dimension line ---------- */
+.sec { grid-template-columns: auto 1fr; gap: 0; align-items: stretch; border-bottom: 0; padding-bottom: 0; margin: 7mm 0 5mm; border: .5mm solid var(--ink); }
+.sec .n { font: 700 13pt/1 var(--mono); color: #fff; background: var(--ac); padding: 2.4mm 3.2mm; letter-spacing: 0; display: grid; place-items: center; }
+.sec h2 { padding: 2.2mm 4mm; font-weight: 700; color: var(--ink); align-self: center; }
+h3.sub { color: var(--ac); }
+h3.sub::after { content: ''; display: block; margin-top: 1mm; height: 2.4mm; width: 40mm;
+  background: linear-gradient(var(--ac), var(--ac)) 0 50% / 100% .3mm no-repeat, linear-gradient(var(--ac), var(--ac)) 0 0 / .3mm 100% no-repeat, linear-gradient(var(--ac), var(--ac)) 100% 0 / .3mm 100% no-repeat; }
+ul.dots li::before { width: 2mm; height: 2mm; background: none; border: .4mm solid var(--ac); border-radius: 0; transform: rotate(45deg); }
+
+/* ---------- margin column ---------- */
+.row > .s { border-left: .4mm dashed #9db4d1; }
+.s .term b { font-family: var(--head); font-size: 10pt; }
+.s .term em { color: var(--ac2); }
+.s .tag { color: var(--ac); font-family: var(--mono); }
+html[lang=si] .s .tag { font-family: 'Noto Sans Sinhala', sans-serif; }
+
+/* ---------- figures: drafting sheet with crop marks ---------- */
+figure .art { position: relative; padding: 3mm; background:
+  linear-gradient(#dbe6f4 .25mm, transparent .25mm) 0 0 / 5mm 5mm, linear-gradient(90deg, #dbe6f4 .25mm, transparent .25mm) 0 0 / 5mm 5mm, #fbfdff; border: .3mm solid #c9d6e6; }
+.s figure .art { background: none; border: 0; padding: 0; }
+figcaption b { color: var(--ac2); font-family: var(--mono); }
+.lab .dt { fill: var(--ac2); }
+svg .ta { fill: var(--ac); }
+
+/* ---------- boxes ---------- */
+.box { border-top: 0; border: .4mm solid var(--ac); background: var(--tint); border-radius: 0; position: relative; }
+.box > .bt { font-family: var(--mono); color: var(--ac); letter-spacing: .18em; }
+html[lang=si] .box > .bt { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.box.key { background: var(--bp); color: #fff; border-color: var(--bp); }
+.box.key > .bt { color: #ffd166; }
+.box.key .blank { background: #ffffff1a; border-color: #ffd166; }
+.box.key b.fill { background: linear-gradient(transparent 58%, #e6394699 58%); }
+
+/* ---------- worked example: calculation sheet ---------- */
+.ex { border-left: .9mm solid var(--ac2); background: #fffafa; padding: 2.4mm 4mm; }
+.ex .eh span { font-family: var(--mono); color: var(--ac2); letter-spacing: .16em; }
+html[lang=si] .ex .eh span { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.ex ol.steps li::before { font-family: var(--mono); color: var(--ac2); }
+.ex .ea { background: none; border: .5mm solid var(--ac2); color: var(--ac2); border-radius: 0; }
+
+/* ---------- tables ---------- */
+table.t { border: .4mm solid var(--ink); }
+table.t th { background: var(--ac); color: #fff; border-bottom: 0; font-family: var(--mono); font-weight: 500; letter-spacing: .08em; }
+html[lang=si] table.t th { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+table.t td { border-bottom: .3mm solid #c9d6e6; } table.t tr:nth-child(even) td { background: #f4f8fd; }
+
+/* ---------- quick check ---------- */
+.check { border: .4mm solid var(--ink); border-radius: 0; background: #fff; }
+.check > .bt { background: var(--ink); color: #fff; font-family: var(--mono); padding: .8mm 2.4mm; }
+html[lang=si] .check > .bt { font-family: 'Noto Sans Sinhala', sans-serif; }
+
+/* ---------- exercises ---------- */
+.exh { border-bottom: .5mm solid var(--ink); font-family: var(--head); }
+.q .qn, .sq .qn { font: 600 9pt/1 var(--mono); color: var(--ac); border: .4mm solid var(--ac); width: 7mm; height: 5.6mm; display: grid; place-items: center; }
+.q .abox { border: .4mm solid var(--ink); }
+
+/* ---------- summary / answers ---------- */
+.sum li { background: var(--tint); border-left: .9mm solid var(--ac); border-radius: 0; }
+.sum li::before { color: var(--ac); font-family: var(--mono); }
+.gloss div span { color: var(--ac2); }
+.ans h4 { color: var(--ac); font-family: var(--mono); }
+html[lang=si] .ans h4 { font-family: 'Noto Sans Sinhala', sans-serif; }
+.ans .mcqk div b { color: var(--ac2); }

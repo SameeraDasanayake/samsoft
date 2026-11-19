@@ -1,5 +1,5 @@
 // A/L Physics — Projectile motion. Every graph is computed from the equations (g = 10 m s⁻², no air resistance).
-const INK = '#1c1d1f', AC = '#1f4f8a', AMB = '#d9822b', GR = '#c9c6bf';
+const INK = '#101611', AC = '#0e8a4a', AMB = '#e08a00', GR = '#c4d6c8';
 const rad = d => d * Math.PI / 180;
 const path = (u, th, g = 10) => { const T = 2 * u * Math.sin(rad(th)) / g; return { T, H: (u * Math.sin(rad(th))) ** 2 / (2 * g), R: u * u * Math.sin(rad(2 * th)) / g, at: t => [u * Math.cos(rad(th)) * t, u * Math.sin(rad(th)) * t - g * t * t / 2] }; };
 const tx = (x, y, s, a = 'middle', c = 't', fs = 13, st = '') => `<text class="${c}" x="${x}" y="${y}" font-size="${fs}" text-anchor="${a}" ${st}>${s}</text>`;
@@ -39,7 +39,7 @@ const strobe = SVG2(l => {
     s += `<circle cx="${F.X(x)}" cy="${F.Y(0) - 6}" r="2.6" fill="${AC}"/><circle cx="${F.X(0) + 6}" cy="${F.Y(y)}" r="2.6" fill="${AMB}"/><circle cx="${F.X(x)}" cy="${F.Y(y)}" r="4.2" fill="${INK}"/>`;
   }
   s += tx(F.X(10), F.Y(0) - 14, l(B('equal steps: steady speed across', 'සමාන පියවර: තිරස්ව ඒකාකාර වේගය')), 'middle', 't', 11, `style="fill:${AC}"`);
-  s += tx(F.X(11.2), F.Y(6.7), l(B('steps shrink, then grow: accelerating down', 'පියවර කුඩා වී නැවත විශාල වේ: පහළට ත්වරණය')), 'start', 't', 11, `style="fill:${AMB}"`);
+  s += tx(F.X(19.6), F.Y(6.7), l(B('steps shrink, then grow: accelerating down', 'පියවර කුඩා වී, නැවත විශාල වේ: පහළට ත්වරණය')), 'end', 't', 11, `style="fill:${AMB}"`);
   return SVG(124, 520, 210, s);
 });
 
@@ -94,7 +94,7 @@ const cliff = SVG2(l => {
 });
 
 window.TUTE = {
-  no: '05', code: 'ALP-T5', accent: '#1f4f8a', heroSvg,
+  no: '05', code: 'ALP-T5', accent: '#0e8a4a', heroSvg,
   inst: B('Kelani Academy', 'කැලණි ඇකඩමිය'), teacher: B('A/L Physics class', 'උ/පෙළ භෞතික විද්‍යාව පන්තිය'),
   subject: B('Physics', 'භෞතික විද්‍යාව'), grade: B('A/L · Mechanics', 'උ/පෙළ · යාන්ත්‍ර විද්‍යාව'),
   title: B('Projectile motion', 'ප්‍රක්ෂිප්ත චලිතය'),

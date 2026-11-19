@@ -1,0 +1,100 @@
+/* Tute theme: MEDICAL MONITOR (O/L Science · heart and circulation).
+   Patient-monitor cover with a glowing ECG trace, vital-sign readouts, red + monitor-green, clinical IBM Plex type,
+   pulse-line section dividers. */
+:root {
+  --ink: #12161c; --ink2: #424b57; --mute: #85909c; --hair: #dde3e8;
+  --ac: #d62839; --ac2: #11a37a; --mon: #0a0e13; --green: #2ee59d;
+  --tint: #fdf1f2; --tint2: #ecfaf4;
+  --body: 'IBM Plex Sans', 'Noto Sans Sinhala', sans-serif;
+  --head: 'IBM Plex Sans', 'Noto Sans Sinhala', sans-serif;
+  --disp: 'IBM Plex Sans', 'Gemunu Libre', sans-serif;
+  --mono: 'IBM Plex Mono', 'Noto Sans Sinhala', monospace;
+  --blank-line: #d62839; --blank-bg: #fdf1f2; --hl: #2ee59d66; --ed-bg: #2ee59d; --ed-ink: #0a0e13; --eds-bg: #d62839; --eds-ink: #fff; --ed-font: 'IBM Plex Mono', monospace;
+}
+html[lang=si] { --body: 'Noto Sans Sinhala', 'IBM Plex Sans', sans-serif; --head: 'Noto Sans Sinhala', 'IBM Plex Sans', sans-serif; --disp: 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif; }
+html { background: #0b0f14; }
+.bar { background: #06090c; }
+
+/* ---------- cover: patient monitor ---------- */
+.cover { background: var(--mon); color: #fff; }
+.cover::before { content: ''; position: absolute; inset: 0; background: url(cover-ecg.jpg) center / cover no-repeat; }
+.cover .band { display: none; }
+.cover .top { color: #8fa1b3; font: 500 8pt/1 var(--mono); letter-spacing: .14em; top: 12mm; }
+html[lang=si] .cover .top { font: 600 9.4pt/1 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.cover .top span:first-child::before { content: '● '; color: var(--ac); }
+.cover .no { top: 23mm; left: 15mm; opacity: 1; font: 700 54pt/.9 'IBM Plex Mono', monospace; color: var(--green); letter-spacing: -.02em; }
+.cover .no::after { content: 'BPM 72  ·  SpO₂ 98%'; display: block; margin-top: 2.5mm; font: 500 7.4pt/1 'IBM Plex Mono', monospace; letter-spacing: .12em; color: #ff8a95; }
+.cover h1 { top: 64mm; color: #fff; font-weight: 700; }
+.cover .sub { top: 100mm; color: #b9c5d1; }
+.cover .hero img { filter: drop-shadow(0 0 9mm #d6283955); }
+.cover .toc h3 { color: var(--green); font-family: var(--mono); font-weight: 500; letter-spacing: .2em; }
+html[lang=si] .cover .toc h3 { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.cover .toc ol { columns: 2; column-gap: 6mm; }
+.cover .toc li { border: .3mm solid #2ee59d40; border-left: 1mm solid var(--green); background: #ffffff08; padding: 2.2mm 3mm; margin-bottom: 2mm; color: #e9eef3; }
+.cover .toc li span { font-family: var(--mono); color: var(--green); }
+.cover .foot { border-top: .4mm solid #2ee59d55; color: #8fa1b3; }
+.cover .foot b { color: #fff; }
+.cover .foot .meta { font-family: var(--mono); color: var(--green); }
+
+/* ---------- sections: pulse-line divider ---------- */
+.sec { grid-template-columns: auto 1fr; gap: 3.5mm; align-items: center; border-bottom: 0; padding-bottom: 4.6mm; margin: 7mm 0 4mm; position: relative; }
+.sec::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 4mm;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M0 10 H46 L50 10 L53 2 L57 15 L60 10 H66 Q70 6 74 10 H120' fill='none' stroke='%23d62839' stroke-width='1.4'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat; }
+.sec .n { font: 700 10pt/1 var(--mono); color: #fff; background: var(--ac); padding: 2mm 2.6mm; border-radius: 1mm; letter-spacing: 0; }
+.sec h2 { color: var(--ink); font-weight: 700; }
+h3.sub { color: var(--ac); }
+ul.dots li::before { width: 2mm; height: 2mm; border-radius: 50%; background: var(--ac); box-shadow: 0 0 0 .6mm #f7c3c8; }
+
+/* ---------- margin column ---------- */
+.row > .s { border-left: .6mm solid #c9eadb; }
+.s .term em { color: var(--ac2); }
+.s .tag { color: var(--ac); font-family: var(--mono); }
+html[lang=si] .s .tag { font-family: 'Noto Sans Sinhala', sans-serif; }
+
+/* ---------- figures: monitor screen panel ---------- */
+figure .art { border-radius: 2mm; border: .3mm solid #d9e1e7; background: #fbfcfd; padding: 2.5mm; position: relative; }
+figure .art::before { content: 'SCAN'; position: absolute; left: 2.5mm; top: 1.8mm; font: 500 5.6pt/1 'IBM Plex Mono', monospace; letter-spacing: .2em; color: var(--ac2); }
+.s figure .art { border: 0; background: none; padding: 0; } .s figure .art::before { display: none; }
+figcaption b { color: var(--ac); font-family: var(--mono); }
+.lab .dt { fill: var(--ac); }
+svg .ta { fill: var(--ac); }
+
+/* ---------- boxes ---------- */
+.box { border-top: 0; border-radius: 2mm; background: var(--tint); border-left: 1.2mm solid var(--ac); }
+.box > .bt { font-family: var(--mono); color: var(--ac); letter-spacing: .16em; }
+html[lang=si] .box > .bt { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.box.key { background: var(--mon); color: #e9eef3; border-left-color: var(--green); }
+.box.key > .bt { color: var(--green); }
+.box.key .blank { background: #ffffff14; border-color: var(--green); }
+.box.key b.fill { background: linear-gradient(transparent 58%, #d6283999 58%); }
+.box.fact { background: var(--tint2); border-left-color: var(--ac2); } .box.fact > .bt { color: var(--ac2); }
+
+/* ---------- worked example ---------- */
+.ex { border-left: 1.2mm solid var(--ac2); background: #f6fcf9; border-radius: 0 2mm 2mm 0; padding: 2.4mm 4mm; }
+.ex .eh span { font-family: var(--mono); color: var(--ac2); letter-spacing: .16em; }
+html[lang=si] .ex .eh span { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.ex .ea { background: var(--mon); color: var(--green); border-radius: 1.4mm; font-family: var(--mono); }
+
+/* ---------- tables ---------- */
+table.t { border-collapse: separate; border-spacing: 0; border: .3mm solid #d9e1e7; border-radius: 2mm; overflow: hidden; }
+table.t th { background: var(--mon); color: var(--green); border-bottom: 0; font-family: var(--mono); font-weight: 500; }
+html[lang=si] table.t th { font-family: 'Noto Sans Sinhala', sans-serif; }
+table.t tr:nth-child(even) td { background: #f6f8fa; }
+
+/* ---------- quick check ---------- */
+.check { border: .4mm solid #d9e1e7; border-top: 1mm solid var(--ac); border-radius: 2mm; background: #fff; }
+.check > .bt { background: var(--ac); color: #fff; font-family: var(--mono); border-radius: 1mm; padding: .8mm 2.4mm; }
+html[lang=si] .check > .bt { font-family: 'Noto Sans Sinhala', sans-serif; }
+
+/* ---------- exercises ---------- */
+.exh { border-bottom: .5mm solid var(--ac); }
+.q .qn, .sq .qn { font: 600 9pt/1 var(--mono); color: var(--ac); }
+.q .abox { border: .4mm solid var(--ac); border-radius: 1mm; }
+
+/* ---------- summary / answers ---------- */
+.sum li { background: var(--tint2); border-radius: 2mm; }
+.sum li::before { color: var(--ac); font-family: var(--mono); }
+.gloss div span { color: var(--ac); }
+.ans h4 { color: var(--ac); font-family: var(--mono); }
+html[lang=si] .ans h4 { font-family: 'Noto Sans Sinhala', sans-serif; }
+.ans .mcqk div b { color: var(--ac); }
