@@ -513,3 +513,14 @@ html[data-lang="si"] .svc h4 { letter-spacing: 0; text-transform: none; font-siz
   .field i { animation: none; }
   .glass { backdrop-filter: blur(10px) saturate(130%); -webkit-backdrop-filter: blur(10px) saturate(130%); }
 }
+
+/* tutes: "not typesetting" callout */
+.svc-note { margin: 4px 0 22px; padding: 18px 22px; border-radius: 16px; border: 1px solid rgba(255, 178, 30, .35);
+  background: linear-gradient(135deg, rgba(255, 178, 30, .10), rgba(0, 200, 224, .06)); }
+.svc-note > b { display: block; font-size: 17px; color: #fff; margin-bottom: 6px; }
+.svc-note p { font-size: 14.5px; color: var(--text); }
+.svc-note ul { list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 7px; }
+.svc-note li { position: relative; padding-left: 20px; font-size: 14.5px; }
+.svc-note li::before { content: "\2726"; position: absolute; left: 0; top: 0; color: var(--amber); font-size: 12px; }
+.svc-note strong { color: var(--amber); }
+.svc-note .sn-foot { margin-top: 4px; padding-top: 10px; border-top: 1px dashed rgba(255, 178, 30, .35); color: #ffd98a; font-weight: 600; }
