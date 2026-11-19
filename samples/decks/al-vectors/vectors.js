@@ -1,7 +1,7 @@
 // A/L Combined Maths: vectors on an i, j grid. Drag the arrow heads (snaps to whole numbers). 3D cover in three.js.
 import { viewer, THREE } from '../engine/v3d.js';
 const $ = s => document.querySelector(s);
-const C = { a: '#79a8ff', b: '#ff8a5b', r: '#6fd08c', chalk: '#ece6d6', dim: '#8f8b7c', grid: 'rgba(236,230,214,.09)', axis: 'rgba(236,230,214,.38)' };
+const C = { a: '#2f6bdb', b: '#e8590c', r: '#138a44', chalk: '#121826', dim: '#6c7488', grid: 'rgba(18,24,38,.08)', axis: 'rgba(18,24,38,.42)' };
 const fmt = n => (Math.round(n * 100) / 100).toString().replace('-', '−');
 const ij = (x, y) => `${fmt(x)}i ${y < 0 ? '−' : '+'} ${fmt(Math.abs(y))}j`;
 

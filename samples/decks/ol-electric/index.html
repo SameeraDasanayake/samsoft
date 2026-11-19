@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electricity | Samsoft Decks</title>
+<link rel="icon" href="../engine/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../engine/deck.css">
+<link rel="stylesheet" href="../engine/deck-fx.css">
+<link rel="stylesheet" href="../engine/deck-themes.css">
+<link rel="stylesheet" href="electric.css">
+<script defer src="../engine/deck.js"></script>
+<script defer src="../engine/deck-score.js"></script>
+<script defer src="electric.js"></script>
+</head>
+<body data-theme="electric" data-subject="sci" data-tag-en="O/L · Science" data-tag-si="සා/පෙළ · විද්‍යාව"
+      data-title-en="Electricity | Samsoft Decks" data-title-si="විදුලිය | Samsoft Decks">
+<main class="viewport"><div class="stage">
+
+<!-- 1 cover: a live circuit -->
+<section class="slide cover" data-id="cover">
+  <div class="col" style="position:relative;z-index:2;max-width:680px">
+    <span class="kick" data-en="O/L Science · Lesson 10" data-si="සා/පෙළ විද්‍යාව · පාඩම 10"></span>
+    <div class="rule"></div>
+    <h1 data-en="Electricity" data-si="විදුලිය"></h1>
+    <p class="sub" data-en="Current, voltage and resistance: what makes a bulb light, and how much it costs." data-si="ධාරාව, වෝල්ටීයතාව සහ ප්‍රතිරෝධය: බල්බයක් දැල්වෙන්නේ කෙසේද, ඊට වැය වන මුදල කීයද."></p>
+  </div>
+  <svg class="cvr" viewBox="0 0 760 640" aria-hidden="true">
+    <path id="cvLoop" class="wire" d="M120 120 H640 V520 H120 Z"/>
+    <path class="flow" d="M120 120 H640 V520 H120 Z"/>
+    <g id="cvDots"></g>
+    <g transform="translate(380 120)"><circle class="glow" r="70"/><circle class="bulb" r="34"/><path class="fil" d="M-14 6 q7 -18 14 0 q7 18 14 0"/></g>
+    <g transform="translate(120 320)"><rect x="-40" y="-34" width="80" height="68" class="batb"/><path d="M-40 -14 H40" class="batl"/><path d="M-22 14 H22" class="bats"/><text x="-64" y="-8" class="lbl2">+</text><text x="-64" y="30" class="lbl2">−</text><text x="0" y="66" class="lbl2">12 V</text></g>
+    <g transform="translate(640 320)"><circle r="46" class="meter"/><text y="2" class="mtxt">2.0</text><text y="28" class="munit">A</text></g>
+    <g transform="translate(380 520)"><path class="res" d="M-70 0 h20 l8 -16 l16 32 l16 -32 l16 32 l16 -32 l8 16 h20"/><text y="48" class="lbl2">6 Ω</text></g>
+  </svg>
+  <div class="meta"><b>10</b> · <span data-en="O/L · Grades 10–11" data-si="සා/පෙළ · 10–11 ශ්‍රේණි"></span><br><span data-en="Science · Physics" data-si="විද්‍යාව · භෞතික විද්‍යාව"></span></div>
+</section>
+
+<!-- 2 I, V, R -->
+<section class="slide" data-id="ivr">
+  <span class="kick" data-en="Three words you must know" data-si="දැනගත යුතු වචන තුනක්"></span>
+  <h2 data-en="Current, voltage, resistance" data-si="ධාරාව, වෝල්ටීයතාව, ප්‍රතිරෝධය"></h2>
+  <div class="trio">
+    <div class="card"><b class="sym">I</b><h3 data-en="Current" data-si="ධාරාව"></h3><p data-en="How much charge flows past a point each second." data-si="තත්පරයකදී ලක්ෂ්‍යයක් පසුකර ගලන ආරෝපණ ප්‍රමාණය."></p><div class="u"><span data-en="unit" data-si="ඒකකය"></span> <b>ampere (A)</b></div><div class="u"><span data-en="measured with" data-si="මනින්නේ"></span> <b data-en="an ammeter, in series" data-si="ඇමීටරයකින්, ශ්‍රේණිගතව"></b></div><div class="w" data-en="Water: how much water flows" data-si="ජලය: ගලන ජල ප්‍රමාණය"></div></div>
+    <div class="card"><b class="sym">V</b><h3 data-en="Voltage" data-si="වෝල්ටීයතාව"></h3><p data-en="The push that drives the charge round the circuit (potential difference)." data-si="ආරෝපණය පරිපථය වටා තල්ලු කරන බලය (විභව අන්තරය)."></p><div class="u"><span data-en="unit" data-si="ඒකකය"></span> <b>volt (V)</b></div><div class="u"><span data-en="measured with" data-si="මනින්නේ"></span> <b data-en="a voltmeter, in parallel" data-si="වෝල්ට්මීටරයකින්, සමාන්තරව"></b></div><div class="w" data-en="Water: how hard the pump pushes" data-si="ජලය: පොම්පය තල්ලු කරන තරම"></div></div>
+    <div class="card"><b class="sym">R</b><h3 data-en="Resistance" data-si="ප්‍රතිරෝධය"></h3><p data-en="How much a part slows the current down." data-si="කොටසක් ධාරාව අඩු කරන තරම."></p><div class="u"><span data-en="unit" data-si="ඒකකය"></span> <b>ohm (Ω)</b></div><div class="u"><span data-en="found from" data-si="සොයන්නේ"></span> <b>R = V / I</b></div><div class="w" data-en="Water: how narrow the pipe is" data-si="ජලය: බටය කෙතරම් පටුද"></div></div>
+  </div>
+</section>
+
+<!-- 3 symbols -->
+<section class="slide" data-id="symbols">
+  <span class="kick" data-en="Draw circuits the exam way" data-si="විභාගයට ගැළපෙන ලෙස පරිපථ අඳිමු"></span>
+  <h2 data-en="Circuit symbols" data-si="පරිපථ සංකේත"></h2>
+  <div class="syms" id="syms"></div>
+</section>
+
+<!-- 4 circuit builder -->
+<section class="slide" data-id="build">
+  <span class="kick" data-en="Simulation · series and parallel" data-si="සිමියුලේෂන් · ශ්‍රේණිගත සහ සමාන්තර"></span>
+  <h2 data-en="Two bulbs, two ways" data-si="බල්බ දෙකක්, ක්‍රම දෙකක්"></h2>
+  <div class="lab nodrag">
+    <div class="ctrl panel">
+      <div class="seg" id="mode"><button aria-pressed="true" data-m="s"><span data-en="Series" data-si="ශ්‍රේණිගත"></span></button><button data-m="p"><span data-en="Parallel" data-si="සමාන්තර"></span></button></div>
+      <div class="row2"><label data-en="Battery" data-si="බැටරිය"></label><input type="range" id="bV" min="3" max="12" step="1.5" value="6"><b id="bVo"></b></div>
+      <div class="row2"><label data-en="Each bulb" data-si="එක් බල්බයක්"></label><input type="range" id="bR" min="2" max="12" step="1" value="6"><b id="bRo"></b></div>
+      <button class="sw on" id="bSw"><i></i><span data-en="Switch" data-si="ස්විචය"></span></button>
+      <button class="cut" id="bCut"><span data-en="Remove bulb B" data-si="B බල්බය ඉවත් කරන්න"></span></button>
+      <div class="reads"><div><span>I</span><b id="rI"></b></div><div><span>V<sub>A</sub></span><b id="rVA"></b></div><div><span>V<sub>B</sub></span><b id="rVB"></b></div><div><span>R<sub>total</sub></span><b id="rRT"></b></div></div>
+    </div>
+    <svg class="circ" id="circ" viewBox="0 0 760 520"></svg>
+    <p class="tip" id="bTip"></p>
+  </div>
+</section>
+
+<!-- 5 Ohm's law -->
+<section class="slide" data-id="ohm">
+  <span class="kick" data-en="The rule behind it all" data-si="සියල්ලට පදනම වන නීතිය"></span>
+  <h2 data-en="Ohm's law: V = IR" data-si="ඕම් නියමය: V = IR"></h2>
+  <div class="ohm nodrag">
+    <div class="panel oc">
+      <div class="tri"><b>V</b><span>I</span><span>R</span></div>
+      <p class="hint2" data-en="Cover the one you want: V = I × R, I = V ÷ R, R = V ÷ I" data-si="සොයන එක වසන්න: V = I × R, I = V ÷ R, R = V ÷ I"></p>
+      <div class="row2"><label data-en="Voltage V" data-si="වෝල්ටීයතාව V"></label><input type="range" id="oV" min="0" max="12" step=".5" value="6"><b id="oVo"></b></div>
+      <div class="row2"><label data-en="Resistance R" data-si="ප්‍රතිරෝධය R"></label><input type="range" id="oR" min="1" max="12" step="1" value="4"><b id="oRo"></b></div>
+      <div class="big3"><span>I = V ÷ R =</span><b id="oI"></b></div>
+    </div>
+    <svg class="graph" id="ohmG" viewBox="0 0 640 470"></svg>
+  </div>
+</section>
+
+<!-- 6 resistors -->
+<section class="slide" data-id="combine">
+  <span class="kick" data-en="Adding resistors" data-si="ප්‍රතිරෝධක එකතු කිරීම"></span>
+  <h2 data-en="Series or parallel?" data-si="ශ්‍රේණිගතද සමාන්තරද?"></h2>
+  <div class="comb nodrag">
+    <div class="panel">
+      <div class="row2"><label>R<sub>1</sub></label><input type="range" id="c1" min="1" max="30" value="6"><b id="c1o"></b></div>
+      <div class="row2"><label>R<sub>2</sub></label><input type="range" id="c2" min="1" max="30" value="3"><b id="c2o"></b></div>
+    </div>
+    <div class="panel res2"><h3 data-en="Series" data-si="ශ්‍රේණිගත"></h3><svg viewBox="0 0 360 90"><path class="w2" d="M10 45 H70"/><path class="rz" d="M70 45 l8 -14 l14 28 l14 -28 l14 28 l14 -28 l8 14"/><path class="w2" d="M150 45 H210"/><path class="rz" d="M210 45 l8 -14 l14 28 l14 -28 l14 28 l14 -28 l8 14"/><path class="w2" d="M290 45 H350"/></svg>
+      <p class="f">R = R<sub>1</sub> + R<sub>2</sub></p><b class="ans" id="cS"></b><p class="say2" data-en="Always bigger than the biggest one." data-si="සෑම විටම විශාලතම එකට වඩා විශාලයි."></p></div>
+    <div class="panel res2"><h3 data-en="Parallel" data-si="සමාන්තර"></h3><svg viewBox="0 0 360 120"><path class="w2" d="M10 60 H90 M90 25 V95 M270 25 V95 M270 60 H350 M90 25 H140 M220 25 H270 M90 95 H140 M220 95 H270"/><path class="rz" d="M140 25 l6 -12 l12 24 l12 -24 l12 24 l12 -24 l14 12"/><path class="rz" d="M140 95 l6 -12 l12 24 l12 -24 l12 24 l12 -24 l14 12"/></svg>
+      <p class="f"><span class="fr2"><i>1</i><i>R</i></span> = <span class="fr2"><i>1</i><i>R<sub>1</sub></i></span> + <span class="fr2"><i>1</i><i>R<sub>2</sub></i></span></p><b class="ans" id="cP"></b><p class="say2" data-en="Always smaller than the smallest one." data-si="සෑම විටම කුඩාම එකට වඩා කුඩායි."></p></div>
+  </div>
+</section>
+
+<!-- 7 power and the bill -->
+<section class="slide" data-id="bill">
+  <span class="kick" data-en="Simulation · power and energy" data-si="සිමියුලේෂන් · ක්ෂමතාව සහ ශක්තිය"></span>
+  <h2 data-en="What does it cost?" data-si="වියදම කීයද?"></h2>
+  <div class="bill nodrag">
+    <div class="panel apps" id="apps"></div>
+    <div class="panel tot2">
+      <p class="f">P = V × I &nbsp;·&nbsp; E = P × t</p>
+      <div class="kv"><span data-en="Energy per day" data-si="දිනකට ශක්තිය"></span><b id="eDay"></b></div>
+      <div class="kv"><span data-en="Energy per month (30 days)" data-si="මසකට ශක්තිය (දින 30)"></span><b id="eMon"></b></div>
+      <div class="kv big"><span data-en="Cost per month" data-si="මසකට වියදම"></span><b id="eCost"></b></div>
+      <p class="say2" data-en="1 unit = 1 kWh (1000 W for 1 hour). Example price used: Rs. 30 per unit." data-si="ඒකක 1 = 1 kWh (වොට් 1000ක් පැය 1ක්). මෙහි ගත් උදාහරණ මිල: ඒකකයට රු. 30."></p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 safety: fuse -->
+<section class="slide" data-id="fuse">
+  <span class="kick" data-en="Simulation · staying safe" data-si="සිමියුලේෂන් · ආරක්ෂාව"></span>
+  <h2 data-en="Why a fuse melts" data-si="විලායකය දිය වන්නේ ඇයි"></h2>
+  <div class="fz nodrag">
+    <div class="panel">
+      <p class="say2" data-en="Plug more appliances into one 230 V socket. The current adds up. Above 13 A the fuse melts and cuts the circuit before the wires get hot." data-si="එක 230 V කෙවෙනියකට තවත් උපකරණ සම්බන්ධ කරන්න. ධාරාව එකතු වේ. 13 A ඉක්මවූ විට කම්බි රත් වීමට පෙර විලායකය දිය වී පරිපථය කපා හරී."></p>
+      <div class="plugs" id="plugs"></div>
+      <button class="reset" id="fReset"><span data-en="Replace the fuse" data-si="විලායකය මාරු කරන්න"></span></button>
+    </div>
+    <div class="panel fview">
+      <svg viewBox="0 0 520 220" id="fuseSvg"><rect x="60" y="70" width="400" height="80" rx="40" class="fcap"/><rect x="120" y="80" width="280" height="60" rx="10" class="fglass"/><path id="fwire" class="fwire" d="M120 110 C200 80 320 140 400 110"/><text x="260" y="196" class="lbl2">13 A</text></svg>
+      <div class="amp"><span>I =</span><b id="fI">0.0 A</b></div>
+      <div class="bar13"><i id="fBar"></i><em>13 A</em></div>
+      <p class="fmsg" id="fMsg"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 9 quiz -->
+<section class="slide" data-id="quiz">
+  <span class="kick" data-en="Paper style" data-si="ප්‍රශ්න පත්‍ර ආකාරයට"></span>
+  <h2 data-en="Try these" data-si="උත්තර දෙන්න"></h2>
+  <div class="mcq" data-ans="3">
+    <p class="q" data-en="A 12 V battery drives 3 A through a lamp. The resistance of the lamp is" data-si="12 V බැටරියක් ලාම්පුවක් හරහා 3 A ධාරාවක් යවයි. ලාම්පුවේ ප්‍රතිරෝධය"></p>
+    <ol><li><button>36 Ω</button></li><li><button>15 Ω</button></li><li><button>4 Ω</button></li><li><button>0.25 Ω</button></li></ol>
+    <p class="why" data-en="R = V ÷ I = 12 ÷ 3 = 4 Ω." data-si="R = V ÷ I = 12 ÷ 3 = 4 Ω."></p>
+  </div>
+  <div class="mcq" data-ans="2">
+    <p class="q" data-en="Two 6 Ω resistors are connected in parallel. The total resistance is" data-si="6 Ω ප්‍රතිරෝධක දෙකක් සමාන්තරව සම්බන්ධ කර ඇත. මුළු ප්‍රතිරෝධය"></p>
+    <ol><li><button>12 Ω</button></li><li><button>3 Ω</button></li><li><button>6 Ω</button></li><li><button>36 Ω</button></li></ol>
+    <p class="why" data-en="1/R = 1/6 + 1/6 = 2/6, so R = 3 Ω." data-si="1/R = 1/6 + 1/6 = 2/6, එබැවින් R = 3 Ω."></p>
+  </div>
+  <div class="mcq" data-ans="4">
+    <p class="q" data-en="A 1000 W iron is used for 2 hours a day. The energy used in 30 days is" data-si="1000 W ඉස්ත්‍රික්කයක් දිනකට පැය 2ක් භාවිත කරයි. දින 30කදී වැය වන ශක්තිය"></p>
+    <ol><li><button>2 kWh</button></li><li><button>30 kWh</button></li><li><button>2000 kWh</button></li><li><button>60 kWh</button></li></ol>
+    <p class="why" data-en="1 kW × 2 h × 30 = 60 kWh (60 units)." data-si="1 kW × පැය 2 × 30 = 60 kWh (ඒකක 60)."></p>
+  </div>
+</section>
+
+<!-- 10 summary -->
+<section class="slide" data-id="summary">
+  <span class="kick" data-en="Summary" data-si="සාරාංශය"></span>
+  <h2 data-en="What we learned" data-si="මේ පාඩමෙන් අපි ඉගෙන ගත්තේ"></h2>
+  <ol class="cards2">
+    <li data-en="Current I in amperes (ammeter in series); voltage V in volts (voltmeter in parallel); resistance R in ohms." data-si="ධාරාව I ඇම්පියර්වලින් (ඇමීටරය ශ්‍රේණිගතව); වෝල්ටීයතාව V වෝල්ට්වලින් (වෝල්ට්මීටරය සමාන්තරව); ප්‍රතිරෝධය R ඕම්වලින්."></li>
+    <li data-en="Ohm's law: V = IR." data-si="ඕම් නියමය: V = IR."></li>
+    <li data-en="Series: one path, same current; R = R₁ + R₂. One bulb out → all go out." data-si="ශ්‍රේණිගත: එක් මාර්ගයක්, එකම ධාරාව; R = R₁ + R₂. එක් බල්බයක් නිවුණොත් සියල්ල නිවේ."></li>
+    <li data-en="Parallel: many paths, same voltage; 1/R = 1/R₁ + 1/R₂. Homes are wired in parallel." data-si="සමාන්තර: මාර්ග කිහිපයක්, එකම වෝල්ටීයතාව; 1/R = 1/R₁ + 1/R₂. නිවාස රැහැන් ඇත්තේ සමාන්තරවයි."></li>
+    <li data-en="P = VI; energy in kWh = kW × hours. 1 unit = 1 kWh." data-si="P = VI; kWh ශක්තිය = kW × පැය. ඒකක 1 = 1 kWh."></li>
+    <li data-en="A fuse melts when the current is too big, protecting the wires." data-si="ධාරාව වැඩි වූ විට විලායකය දිය වී කම්බි ආරක්ෂා කරයි."></li>
+  </ol>
+</section>
+
+</div></main>
+</body>
+</html>

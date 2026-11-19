@@ -60,14 +60,14 @@ once('v-end', async el => { const v = viewer(el, { cam: [.3, .35, .45], fov: 30,
   function down(i, N) { if (!cut) return false; if (kind === 'bus') return true; if (kind === 'star') return i === 1; if (kind === 'ring') return true; return false; }
   function draw() {
     x.clearRect(0, 0, W, H); const N = nodes(), L = links(N);
-    if (kind === 'bus') { x.strokeStyle = '#ece6d6'; x.lineWidth = 6; x.beginPath(); x.moveTo(W * .08, H / 2); x.lineTo(W * .45, H / 2); x.moveTo(W * .5, H / 2); x.lineTo(W * .92, H / 2); if (!cut) { x.moveTo(W * .44, H / 2); x.lineTo(W * .51, H / 2); } x.stroke();
-      x.fillStyle = '#ece6d6'; [W * .08, W * .92].forEach(t => x.fillRect(t - 6, H / 2 - 16, 12, 32)); }
-    L.forEach(([p, q, isCut]) => { if (cut && isCut && kind !== 'bus') { x.strokeStyle = '#ff6b6b'; x.setLineDash([6, 8]); } else { x.strokeStyle = 'rgba(236,230,214,.7)'; x.setLineDash([]); }
+    if (kind === 'bus') { x.strokeStyle = '#3d4659'; x.lineWidth = 6; x.beginPath(); x.moveTo(W * .08, H / 2); x.lineTo(W * .45, H / 2); x.moveTo(W * .5, H / 2); x.lineTo(W * .92, H / 2); if (!cut) { x.moveTo(W * .44, H / 2); x.lineTo(W * .51, H / 2); } x.stroke();
+      x.fillStyle = '#3d4659'; [W * .08, W * .92].forEach(t => x.fillRect(t - 6, H / 2 - 16, 12, 32)); }
+    L.forEach(([p, q, isCut]) => { if (cut && isCut && kind !== 'bus') { x.strokeStyle = '#d62839'; x.setLineDash([6, 8]); } else { x.strokeStyle = 'rgba(18,24,38,.45)'; x.setLineDash([]); }
       x.lineWidth = 3; x.beginPath(); x.moveTo(...p); x.lineTo(...q); x.stroke(); x.setLineDash([]); });
-    if (kind === 'star') { x.fillStyle = '#2fd3b4'; x.fillRect(W / 2 - 44, H / 2 - 26, 88, 52); x.fillStyle = '#06201b'; x.font = '700 18px "JetBrains Mono", monospace'; x.textAlign = 'center'; x.fillText('SWITCH', W / 2, H / 2 + 6); }
-    N.forEach((p, i) => { const off = down(i, N); x.fillStyle = off ? '#3a2324' : '#18221d'; x.strokeStyle = off ? '#ff6b6b' : '#2fd3b4'; x.lineWidth = 3;
+    if (kind === 'star') { x.fillStyle = '#0f8f84'; x.fillRect(W / 2 - 44, H / 2 - 26, 88, 52); x.fillStyle = '#ffffff'; x.font = '700 18px "JetBrains Mono", monospace'; x.textAlign = 'center'; x.fillText('SWITCH', W / 2, H / 2 + 6); }
+    N.forEach((p, i) => { const off = down(i, N); x.fillStyle = off ? '#ffe9ea' : '#ffffff'; x.strokeStyle = off ? '#d62839' : '#0f8f84'; x.lineWidth = 3;
       x.fillRect(p[0] - 34, p[1] - 24, 68, 48); x.strokeRect(p[0] - 34, p[1] - 24, 68, 48);
-      x.fillStyle = off ? '#ff6b6b' : '#ece6d6'; x.font = '700 18px "JetBrains Mono", monospace'; x.textAlign = 'center'; x.fillText('PC' + (i + 1), p[0], p[1] + 6); });
+      x.fillStyle = off ? '#d62839' : '#121826'; x.font = '700 18px "JetBrains Mono", monospace'; x.textAlign = 'center'; x.fillText('PC' + (i + 1), p[0], p[1] + 6); });
     const n = 6, cables = kind === 'mesh' ? n * (n - 1) / 2 : kind === 'bus' ? n + 1 : n;
     const lang = document.documentElement.dataset.lang;
     $('#tcount').innerHTML = `${cables}<small>${lang === 'si' ? 'රැහැන්' : 'cables'}${kind === 'mesh' ? ' = n(n − 1)/2' : ''}</small>`;

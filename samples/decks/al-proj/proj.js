@@ -2,7 +2,7 @@
 import { viewer, THREE } from '../engine/v3d.js';
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const css = getComputedStyle(document.body);
-const COL = { acc: '#f7d44c', chalk: '#ece6d6', chalk2: '#c9c3b0', dim: '#8f8b7c', line: 'rgba(236,230,214,.14)', line2: 'rgba(236,230,214,.32)', ok: '#6fd08c', blue: '#5aa9ff', coral: '#ff8a5b' };
+const COL = { acc: (css.getPropertyValue('--accent') || '#0b8a44').trim(), chalk: '#121826', chalk2: '#3d4659', dim: '#6c7488', line: 'rgba(18,24,38,.12)', line2: 'rgba(18,24,38,.28)', ok: '#138a44', blue: '#1f6fd1', coral: '#e8590c' };
 const FONT = '600 22px "JetBrains Mono", monospace';
 const rad = d => d * Math.PI / 180;
 const lang = () => document.documentElement.dataset.lang;

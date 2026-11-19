@@ -1,0 +1,92 @@
+/* Samsoft Decks — one theme per subject, all on a LIGHT slide: white contour texture (tex-white.jpg) + the subject's
+   colours and its own faint motif. <body data-theme="..."> picks it. Clear on a classroom projector. */
+
+/* shared light base */
+body[data-theme] {
+  --board: #ffffff; --board-2: #f2f4f8; --board-3: #e8ecf2; --chalk: #121826; --chalk-2: #3d4659; --chalk-3: #6c7488;
+  --line: rgba(18,24,38,.10); --line-2: rgba(18,24,38,.22); --accent-ink: #fff; --ok: #138a44; --bad: #d62839;
+  --lbl-bg: rgba(255,255,255,.94); --h1-glow: none; --glass: rgba(255,255,255,.75);
+  --tex: url(../engine/tex-white.jpg); color-scheme: light;
+}
+html:has(body[data-theme]), body[data-theme] { background: #e9ecf1; }
+body[data-theme] .slide { background-color: #fbfcfd; }
+
+/* ---------- SPACE MISSION · Grade 5 Solar System ---------- */
+body[data-theme=space] {
+  --accent: #f26a12; --accent2: #2f6bff; --head: 'Fredoka', 'Noto Sans Sinhala', sans-serif; --r: 22px; --kick-pre: '★ '; --corner: rgba(242,106,18,.55);
+  --slide-bg: radial-gradient(900px 620px at 88% 12%, rgba(47,107,255,.10), transparent 70%), radial-gradient(800px 600px at 0% 100%, rgba(242,106,18,.09), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg fill='%232f6bff' fill-opacity='.16'%3E%3Ccircle cx='20' cy='30' r='2'/%3E%3Ccircle cx='150' cy='60' r='1.4'/%3E%3Ccircle cx='90' cy='150' r='2.4'/%3E%3Ccircle cx='190' cy='190' r='1.6'/%3E%3C/g%3E%3Cpath d='M60 100 l4 9 l9 4 l-9 4 l-4 9 l-4 -9 l-9 -4 l9 -4z' fill='%23f26a12' fill-opacity='.18'/%3E%3C/svg%3E"),
+    var(--tex);
+}
+
+/* ---------- ENGINEERING BLUEPRINT · O/L Maths solids ---------- */
+body[data-theme=blueprint] {
+  --accent: #1452a0; --accent2: #e63946; --head: 'Barlow Condensed', 'Noto Sans Sinhala', sans-serif; --mono: 'IBM Plex Mono', monospace;
+  --r: 0px; --kick-pre: 'DWG › '; --corner: rgba(20,82,160,.6);
+  --slide-bg: repeating-linear-gradient(0deg, rgba(20,82,160,.10) 0 1px, transparent 1px 100px), repeating-linear-gradient(90deg, rgba(20,82,160,.10) 0 1px, transparent 1px 100px),
+    repeating-linear-gradient(0deg, rgba(20,82,160,.045) 0 1px, transparent 1px 20px), repeating-linear-gradient(90deg, rgba(20,82,160,.045) 0 1px, transparent 1px 20px), var(--tex);
+}
+body[data-theme=blueprint] h1, body[data-theme=blueprint] h2 { font-weight: 700; letter-spacing: .01em; }
+body[data-theme=blueprint] .slide::before { width: 64px; height: 64px; }
+
+/* ---------- MEDICAL MONITOR · O/L Science heart ---------- */
+body[data-theme=medical] {
+  --accent: #d62839; --accent2: #0a9a72; --head: 'IBM Plex Sans', 'Noto Sans Sinhala', sans-serif; --mono: 'IBM Plex Mono', monospace;
+  --r: 8px; --kick-pre: '♥ '; --corner: rgba(214,40,57,.5);
+  --slide-bg: radial-gradient(800px 560px at 78% 45%, rgba(214,40,57,.07), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(214,40,57,.06) 0 1px, transparent 1px 25px), repeating-linear-gradient(90deg, rgba(214,40,57,.06) 0 1px, transparent 1px 25px), var(--tex);
+}
+body[data-theme=medical] h1, body[data-theme=medical] h2 { font-weight: 700; }
+
+/* ---------- OSCILLOSCOPE · A/L Physics projectiles ---------- */
+body[data-theme=scope] {
+  --accent: #0b8a44; --accent2: #d97b00; --head: 'Saira', 'Noto Sans Sinhala', sans-serif; --mono: 'Share Tech Mono', monospace;
+  --r: 6px; --kick-pre: 'CH1 › '; --corner: rgba(11,138,68,.55);
+  --slide-bg: radial-gradient(900px 600px at 60% 50%, rgba(11,138,68,.07), transparent 75%),
+    repeating-linear-gradient(0deg, rgba(11,138,68,.07) 0 1px, transparent 1px 80px), repeating-linear-gradient(90deg, rgba(11,138,68,.07) 0 1px, transparent 1px 80px), var(--tex);
+}
+
+/* ---------- HOLOGRAPHIC VECTORS · A/L Combined Maths ---------- */
+body[data-theme=holo] {
+  --accent: #6a3df0; --accent2: #0a9fc2; --head: 'Schibsted Grotesk', 'Noto Sans Sinhala', sans-serif; --r: 16px; --kick-pre: '→ '; --corner: rgba(106,61,240,.5);
+  --slide-bg: radial-gradient(800px 500px at 85% 15%, rgba(10,159,194,.09), transparent 70%), radial-gradient(800px 600px at 5% 100%, rgba(106,61,240,.08), transparent 70%),
+    repeating-linear-gradient(60deg, rgba(106,61,240,.05) 0 1px, transparent 1px 46px), repeating-linear-gradient(-60deg, rgba(106,61,240,.05) 0 1px, transparent 1px 46px), var(--tex);
+}
+
+/* ---------- MOLECULAR LAB · A/L Chemistry VSEPR ---------- */
+body[data-theme=molecule] {
+  --accent: #0d8f84; --accent2: #d63384; --head: 'Chakra Petch', 'Noto Sans Sinhala', sans-serif; --r: 12px; --kick-pre: '⬡ '; --corner: rgba(214,51,132,.5);
+  --slide-bg: radial-gradient(800px 560px at 74% 50%, rgba(13,143,132,.08), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='97' viewBox='0 0 84 97'%3E%3Cpath d='M42 1 L83 25 V72 L42 96 L1 72 V25 Z' fill='none' stroke='%230d8f84' stroke-opacity='.10' stroke-width='1.2'/%3E%3C/svg%3E"), var(--tex);
+}
+
+/* ---------- BIO MICROSCOPE · A/L Biology cell ---------- */
+body[data-theme=bio] {
+  --accent: #15803d; --accent2: #c26a00; --head: 'Rajdhani', 'Noto Sans Sinhala', sans-serif; --r: 26px; --kick-pre: '◉ '; --corner: rgba(21,128,61,.5);
+  --slide-bg: radial-gradient(circle at 76% 50%, rgba(21,128,61,.07) 0 300px, transparent 540px), radial-gradient(200px 200px at 10% 88%, rgba(194,106,0,.07), transparent 70%),
+    radial-gradient(260px 260px at 42% 8%, rgba(21,128,61,.06), transparent 70%), var(--tex);
+}
+body[data-theme=bio] h1, body[data-theme=bio] h2 { font-weight: 700; }
+
+/* ---------- NETWORK OPS CENTRE · A/L ICT networks ---------- */
+body[data-theme=netops] {
+  --accent: #e07000; --accent2: #0f8f84; --head: 'Orbitron', 'Noto Sans Sinhala', sans-serif; --r: 4px; --kick-pre: '> '; --corner: rgba(15,143,132,.55);
+  --slide-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Ccircle cx='13' cy='13' r='1.4' fill='%23e07000' fill-opacity='.22'/%3E%3C/svg%3E"), radial-gradient(900px 600px at 82% 25%, rgba(15,143,132,.08), transparent 70%), var(--tex);
+}
+body[data-theme=netops] h1 { font-size: 92px; } body[data-theme=netops] h2 { font-size: 54px; }
+
+/* ---------- ELECTRIC · O/L Science electricity ---------- */
+body[data-theme=electric] {
+  --accent: #c98a00; --accent2: #0072c6; --head: 'Exo 2', 'Noto Sans Sinhala', sans-serif; --r: 10px; --kick-pre: '⚡ '; --corner: rgba(0,114,198,.5);
+  --slide-bg: radial-gradient(800px 560px at 75% 40%, rgba(255,196,0,.10), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%230072c6' stroke-opacity='.09' stroke-width='2'%3E%3Cpath d='M0 40 H60 L80 60 H160 M40 160 V110 L60 90 H120 M120 0 V30 L140 50'/%3E%3C/g%3E%3Cg fill='%230072c6' fill-opacity='.14'%3E%3Ccircle cx='60' cy='40' r='3'/%3E%3Ccircle cx='120' cy='90' r='3'/%3E%3Ccircle cx='140' cy='50' r='3'/%3E%3C/g%3E%3C/svg%3E"), var(--tex);
+}
+body[data-theme=electric] h1, body[data-theme=electric] h2 { font-weight: 700; }
+
+/* ---------- ICT · O/L computer system ---------- */
+body[data-theme=ict] {
+  --accent: #0077b6; --accent2: #6a3df0; --head: 'Space Grotesk', 'Noto Sans Sinhala', sans-serif; --mono: 'JetBrains Mono', monospace; --r: 14px; --kick-pre: '// '; --corner: rgba(0,119,182,.55);
+  --violet: #6a3df0;
+  --slide-bg: radial-gradient(800px 520px at 88% 10%, rgba(0,119,182,.09), transparent 70%), radial-gradient(800px 600px at 4% 100%, rgba(106,61,240,.08), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(0,119,182,.05) 0 1px, transparent 1px 40px), repeating-linear-gradient(90deg, rgba(0,119,182,.05) 0 1px, transparent 1px 40px), var(--tex);
+}
