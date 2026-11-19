@@ -8,8 +8,10 @@
 <link rel="stylesheet" href="../engine/deck.css">
 <link rel="stylesheet" href="computer.css">
 <link rel="stylesheet" href="computer-fx.css">
+<link rel="stylesheet" href="sims.css">
 <script type="importmap">{ "imports": { "three": "../engine/vendor/three.module.min.js" } }</script>
 <script defer src="../engine/deck.js"></script>
+<script defer src="sims.js"></script>
 <script>if(location.protocol==='file:')document.write('<script src="../engine/pack/draco.js"><\/script><script src="pack/assets.js"><\/script><script src="pack/app.js"><\/script>');else document.write('<script type="module" src="computer.js"><\/script>');</script>
 </head>
 <body data-subject="ict" data-tag-en="O/L · ICT" data-tag-si="සා/පෙළ · තොරතුරු හා සන්නිවේදන තාක්ෂණය"
@@ -18,27 +20,52 @@
 
 <!-- 1 cover -->
 <section class="slide cover" data-id="cover">
-  <div class="bleed-r"><div class="v3d" id="v-cover"></div></div>
+  <div class="floor" aria-hidden="true"></div>
+  <div class="bleed-r"><div class="scan" aria-hidden="true"></div><div class="v3d" id="v-cover"></div></div>
   <div class="col" style="position:relative;z-index:2;pointer-events:none">
+    <span class="kick" data-en="O/L ICT · Lesson 04" data-si="සා/පෙළ තො.ස.තා. · පාඩම 04"></span>
     <div class="rule"></div>
     <h1 data-en="The computer&lt;br&gt;system" data-si="පරිගණක&lt;br&gt;පද්ධතිය"></h1>
     <p class="sub" data-en="What is inside the box, and how data moves through it." data-si="පරිගණකය තුළ ඇත්තේ මොනවාද, දත්ත ඒ හරහා ගමන් කරන්නේ කෙසේද."></p>
   </div>
+  <div class="chips" aria-hidden="true">
+    <div class="chip" style="--d:.2s"><i>CPU</i><b>3.2 GHz</b><em data-en="8 cores" data-si="හර 8"></em></div>
+    <div class="chip" style="--d:.5s"><i>RAM</i><b>16 GB</b><em>DDR5</em></div>
+    <div class="chip" style="--d:.8s"><i>SSD</i><b>1 TB</b><em>NVMe</em></div>
+  </div>
   <div class="meta"><b>04</b> · <span data-en="O/L · Grade 10" data-si="සා/පෙළ · 10 ශ්‍රේණිය"></span><br><span data-en="ICT" data-si="තොරතුරු හා සන්නිවේදන තාක්ෂණය"></span></div>
 </section>
 
-<!-- 2 input process output -->
+<!-- 2 input process output: live data-flow simulation -->
 <section class="slide" data-id="ipo">
   <span class="kick" data-en="Every computer works like this" data-si="සෑම පරිගණකයක්ම ක්‍රියා කරන්නේ මෙලෙසයි"></span>
   <h2 data-en="Input → Process → Output" data-si="ආදානය → සැකසීම → ප්‍රතිදානය"></h2>
-  <div class="ipo">
-    <div class="stage-col" data-step="1"><span class="mono acc">01</span><h3 data-en="Input" data-si="ආදානය"></h3><p data-en="Data goes in." data-si="දත්ත ඇතුළු කිරීම."></p><ul><li data-en="keyboard, mouse" data-si="යතුරු පුවරුව, මූසිකය"></li><li data-en="scanner, microphone" data-si="ස්කෑනරය, මයික්‍රොෆෝනය"></li><li data-en="touch screen, camera" data-si="ස්පර්ශ තිරය, කැමරාව"></li></ul></div>
-    <div class="arrow" data-step="2"></div>
-    <div class="stage-col hot" data-step="2"><span class="mono acc">02</span><h3 data-en="Process" data-si="සැකසීම"></h3><p data-en="The CPU works on the data." data-si="මධ්‍ය සැකසුම් ඒකකය දත්ත සකසයි."></p><ul><li data-en="calculate, compare" data-si="ගණනය කිරීම, සැසඳීම"></li><li data-en="sort, search" data-si="පිළිවෙළට සැකසීම, සෙවීම"></li></ul></div>
-    <div class="arrow" data-step="3"></div>
-    <div class="stage-col" data-step="3"><span class="mono acc">03</span><h3 data-en="Output" data-si="ප්‍රතිදානය"></h3><p data-en="Information comes out." data-si="තොරතුරු පිටතට ලැබේ."></p><ul><li data-en="monitor, printer" data-si="මොනිටරය, මුද්‍රණ යන්ත්‍රය"></li><li data-en="speakers, projector" data-si="ස්පීකර, ප්‍රක්ෂේපකය"></li></ul></div>
+  <div class="flow nodrag" id="flow">
+    <svg class="wires" viewBox="0 0 1408 560" aria-hidden="true">
+      <path id="w1" d="M360 200 H540"/><path id="w2" d="M870 200 H1048"/><path id="w3" d="M705 380 V450"/>
+      <circle class="pkt" id="pk" r="9" cx="-50" cy="-50"/>
+    </svg>
+    <div class="node in" id="nIn"><span class="tag mono">01 · INPUT</span>
+      <svg viewBox="0 0 64 40" class="ico"><rect x="2" y="6" width="60" height="30" rx="4"/><path d="M10 14h6M20 14h6M30 14h6M40 14h6M50 14h4M10 22h4M18 22h6M28 22h6M38 22h6M48 22h6M16 30h32"/></svg>
+      <h3 data-en="Input" data-si="ආදානය"></h3>
+      <label class="term"><span class="mono">&gt;</span><input id="sum" value="25 * 4" maxlength="18" spellcheck="false" autocomplete="off"></label>
+      <button class="go" id="run"><span data-en="Run ▶" data-si="ධාවනය ▶"></span></button>
+    </div>
+    <div class="node cpu" id="nCpu"><span class="tag mono">02 · PROCESS</span>
+      <div class="die"><span>CPU</span><i></i><i></i><i></i><i></i></div>
+      <h3 data-en="Process" data-si="සැකසීම"></h3>
+      <p class="mono st" id="cpuSt">idle</p>
+    </div>
+    <div class="node out" id="nOut"><span class="tag mono">03 · OUTPUT</span>
+      <div class="screen"><b id="res" class="mono">—</b></div>
+      <h3 data-en="Output" data-si="ප්‍රතිදානය"></h3>
+      <p data-en="information on the monitor" data-si="මොනිටරයේ තොරතුරු"></p>
+    </div>
+    <div class="node sto" id="nSto"><span class="tag mono">+ STORAGE</span>
+      <h3 data-en="Storage" data-si="ආචයනය"></h3><p class="mono" id="saved">history.txt</p>
+    </div>
   </div>
-  <div class="store" data-step="4"><span class="mono acc">+</span> <strong data-en="Storage" data-si="ආචයනය"></strong> <span data-en="keeps data and programs for later: hard disk, SSD, flash drive." data-si="දත්ත සහ වැඩසටහන් පසුව භාවිතයට තබා ගනී: දෘඪ තැටිය, SSD, සැණෙලි ධාවකය."></span></div>
+  <p class="hint" data-en="Type a sum and press Run: the data goes in, the CPU works it out, the answer comes out and is saved." data-si="ගණනක් type කර ධාවනය ඔබන්න: දත්ත ඇතුළු වේ, CPU එක එය සකසයි, පිළිතුර පිටතට ලැබී ගබඩා වේ."></p>
 </section>
 
 <!-- 3 inside the system unit -->
@@ -47,6 +74,14 @@
   <div class="ins-head">
     <span class="kick" data-en="Inside the system unit" data-si="පද්ධති ඒකකය ඇතුළත"></span>
     <h2 data-en="Main parts" data-si="ප්‍රධාන කොටස්"></h2>
+    <ul class="plist">
+      <li><b data-en="CPU" data-si="CPU"></b><span data-en="processes data, runs instructions" data-si="දත්ත සකසා උපදෙස් ක්‍රියාත්මක කරයි"></span></li>
+      <li><b data-en="RAM" data-si="RAM"></b><span data-en="holds the programs in use now" data-si="දැනට භාවිත වන වැඩසටහන් රඳවයි"></span></li>
+      <li><b data-en="Motherboard" data-si="මවු පුවරුව"></b><span data-en="connects every part" data-si="සියලු කොටස් සම්බන්ධ කරයි"></span></li>
+      <li><b data-en="Graphics card" data-si="චිත්‍රක පත"></b><span data-en="makes the picture for the monitor" data-si="මොනිටරයට රූපය සකසයි"></span></li>
+      <li><b data-en="SSD / hard disk" data-si="SSD / දෘඪ තැටිය"></b><span data-en="keeps files when the power is off" data-si="විදුලිය නැති විටද ගොනු රඳවයි"></span></li>
+      <li><b data-en="Power supply" data-si="බල සැපයුම"></b><span data-en="turns mains AC into low DC" data-si="ප්‍රධාන AC අඩු DC බවට හරවයි"></span></li>
+    </ul>
   </div>
 </section>
 
@@ -81,41 +116,53 @@
   </div>
 </section>
 
-<!-- 6 machine cycle -->
+<!-- 6 machine cycle: a working CPU simulator -->
 <section class="slide" data-id="cycle">
-  <span class="kick" data-en="How the CPU runs one instruction" data-si="CPU එක උපදෙසක් ක්‍රියාත්මක කරන හැටි"></span>
+  <span class="kick" data-en="Simulation · how the CPU runs a program" data-si="සිමියුලේෂන් · CPU එක වැඩසටහනක් ධාවනය කරන හැටි"></span>
   <h2 data-en="The machine cycle" data-si="යන්ත්‍ර චක්‍රය"></h2>
-  <div class="cycle">
-    <div class="ring" id="ring">
-      <button data-k="0"><b>1</b><span data-en="Fetch" data-si="ලබා ගැනීම"></span></button>
-      <button data-k="1"><b>2</b><span data-en="Decode" data-si="විකේතනය"></span></button>
-      <button data-k="2"><b>3</b><span data-en="Execute" data-si="ක්‍රියාත්මක කිරීම"></span></button>
-      <button data-k="3"><b>4</b><span data-en="Store" data-si="ගබඩා කිරීම"></span></button>
-      <div class="hub mono">CPU</div>
+  <div class="sim nodrag" id="sim">
+    <div class="stages" id="stg">
+      <div data-k="0"><b>1</b><span data-en="Fetch" data-si="ලබා ගැනීම"></span></div>
+      <div data-k="1"><b>2</b><span data-en="Decode" data-si="විකේතනය"></span></div>
+      <div data-k="2"><b>3</b><span data-en="Execute" data-si="ක්‍රියාත්මක කිරීම"></span></div>
+      <div data-k="3"><b>4</b><span data-en="Store" data-si="ගබඩා කිරීම"></span></div>
     </div>
-    <div class="explain">
-      <div class="ex on" data-k="0"><h3 data-en="Fetch" data-si="ලබා ගැනීම"></h3><p data-en="The control unit brings the next instruction from RAM into a register." data-si="පාලන ඒකකය ඊළඟ උපදෙස RAM එකෙන් රෙජිස්තරයකට ගෙන එයි."></p><p class="mono small acc">ADD 5, 3</p></div>
-      <div class="ex" data-k="1"><h3 data-en="Decode" data-si="විකේතනය"></h3><p data-en="The control unit works out what the instruction means: add two numbers." data-si="පාලන ඒකකය උපදෙසේ අර්ථය හඳුනා ගනී: සංඛ්‍යා දෙකක් එකතු කිරීම."></p><p class="mono small acc">ADD → ALU, 5, 3</p></div>
-      <div class="ex" data-k="2"><h3 data-en="Execute" data-si="ක්‍රියාත්මක කිරීම"></h3><p data-en="The ALU does the work." data-si="ALU එක එම කාර්යය කරයි."></p><p class="mono small acc">5 + 3 = 8</p></div>
-      <div class="ex" data-k="3"><h3 data-en="Store" data-si="ගබඩා කිරීම"></h3><p data-en="The result is written to a register or to memory. Then the cycle starts again." data-si="ප්‍රතිඵලය රෙජිස්තරයකට හෝ මතකයට ලියනු ලැබේ. ඉන්පසු චක්‍රය නැවත ආරම්භ වේ."></p><p class="mono small acc">R1 ← 8</p></div>
+    <div class="ram panel"><h4 class="mono">RAM</h4><ol id="mem"></ol></div>
+    <div class="bus" aria-hidden="true"><i id="busDot"></i><span class="mono">BUS</span></div>
+    <div class="cpu panel"><h4 class="mono">CPU</h4>
+      <div class="cu"><span class="mono lab" data-en="Control unit" data-si="පාලන ඒකකය"></span>
+        <div class="reg"><i class="mono">PC</i><b class="mono" id="rPC">00</b></div>
+        <div class="reg wide"><i class="mono">IR</i><b class="mono" id="rIR">—</b></div></div>
+      <div class="alu"><span class="mono lab">ALU</span><b class="mono" id="rALU">—</b></div>
+      <div class="reg acc"><i class="mono">ACC</i><b class="mono" id="rACC">0</b></div>
+    </div>
+    <div class="say panel"><p id="say"></p>
+      <ul class="legend mono">
+        <li><b>PC</b><span data-en="program counter: address of the next instruction" data-si="වැඩසටහන් ගණකය: ඊළඟ උපදෙසේ ලිපිනය"></span></li>
+        <li><b>IR</b><span data-en="instruction register: the instruction being run" data-si="උපදෙස් රෙජිස්තරය: දැන් ධාවනය වන උපදෙස"></span></li>
+        <li><b>ACC</b><span data-en="accumulator: holds the working result" data-si="සමුච්චායකය: වැඩ කරන ප්‍රතිඵලය රඳවයි"></span></li>
+      </ul>
+      <div class="ctl"><button id="sStep"><span data-en="Step ▶" data-si="ඊළඟ පියවර ▶"></span></button><button id="sRun"><span data-en="Auto" data-si="ස්වයංක්‍රීය"></span></button><button id="sReset"><span data-en="Reset" data-si="යළි අරඹන්න"></span></button></div>
     </div>
   </div>
 </section>
 
-<!-- 7 memory hierarchy -->
+<!-- 7 memory hierarchy with real speeds -->
 <section class="slide" data-id="memory">
   <span class="kick" data-en="Fast and small → slow and large" data-si="වේගවත් සහ කුඩා → සෙමින් සහ විශාල"></span>
   <h2 data-en="Memory hierarchy" data-si="මතක ධුරාවලිය"></h2>
-  <div class="hier">
-    <div class="tier" style="--w:22%"><b data-en="Registers" data-si="රෙජිස්තර"></b><em class="sz">bytes</em><i data-en="inside the CPU" data-si="CPU තුළ"></i></div>
-    <div class="tier" style="--w:40%"><b data-en="Cache memory" data-si="නිහිත මතකය"></b><em class="sz">MB</em><i data-en="on the CPU chip" data-si="CPU චිපය මත"></i></div>
-    <div class="tier" style="--w:62%"><b data-en="Main memory (RAM)" data-si="ප්‍රධාන මතකය (RAM)"></b><em class="sz">GB</em><i data-en="programs that are running" data-si="ක්‍රියාත්මක වන වැඩසටහන්"></i></div>
-    <div class="tier" style="--w:88%"><b data-en="Secondary storage" data-si="ද්විතීයික ආචයනය"></b><em class="sz">GB – TB</em><i data-en="SSD, hard disk: kept when power is off" data-si="SSD, දෘඪ තැටිය: විදුලිය නැති විටද රැඳේ"></i></div>
+  <p class="lead2" data-en="If reading a <b>register</b> took <b>1 second</b>, how long would the others take?" data-si="<b>රෙජිස්තරයකින්</b> කියවීමට <b>තත්පර 1ක්</b> ගත වූවා නම්, අනෙක් ඒවාට කොපමණ කාලයක් ගතවේද?"></p>
+  <div class="speed" id="speed">
+    <div class="sp" style="--v:2%"><b data-en="Registers" data-si="රෙජිස්තර"></b><em class="mono">bytes</em><div class="track"><i></i></div><span class="t" data-en="1 second" data-si="තත්පර 1"></span></div>
+    <div class="sp" style="--v:16%"><b data-en="Cache memory" data-si="නිහිත මතකය"></b><em class="mono">MB</em><div class="track"><i></i></div><span class="t" data-en="7 seconds" data-si="තත්පර 7"></span></div>
+    <div class="sp" style="--v:38%"><b data-en="Main memory (RAM)" data-si="ප්‍රධාන මතකය (RAM)"></b><em class="mono">GB</em><div class="track"><i></i></div><span class="t" data-en="4 minutes" data-si="මිනිත්තු 4"></span></div>
+    <div class="sp" style="--v:72%"><b>SSD</b><em class="mono">GB–TB</em><div class="track"><i></i></div><span class="t" data-en="4 days" data-si="දින 4"></span></div>
+    <div class="sp" style="--v:100%"><b data-en="Hard disk" data-si="දෘඪ තැටිය"></b><em class="mono">TB</em><div class="track"><i></i></div><span class="t" data-en="1 year" data-si="අවුරුදු 1"></span></div>
   </div>
-  <div class="axis mono"><span data-en="↑ faster, costlier per GB" data-si="↑ වේගවත්, GB එකකට මිල වැඩි"></span><span data-en="↓ bigger, cheaper per GB" data-si="↓ විශාල, GB එකකට මිල අඩු"></span></div>
+  <div class="axis mono"><span data-en="↑ faster, smaller, costlier per GB" data-si="↑ වේගවත්, කුඩා, GB එකකට මිල වැඩි"></span><span data-en="↓ slower, bigger, cheaper per GB" data-si="↓ සෙමින්, විශාල, GB එකකට මිල අඩු"></span></div>
 </section>
 
-<!-- 8 RAM vs ROM -->
+<!-- 8 RAM vs ROM: power switch simulation -->
 <section class="slide" data-id="ramrom">
   <div class="split">
     <div class="col">
@@ -131,14 +178,41 @@
         </tbody>
       </table>
     </div>
-    <div class="fill"><div class="v3d" id="v-ram"></div></div>
+    <div class="col">
+      <div class="pwr nodrag" id="pwr">
+        <button class="switch on" id="pSw"><i></i><span class="mono">POWER</span></button>
+        <div class="chipbox"><h4 class="mono">RAM <small data-en="volatile" data-si="නශ්‍ය"></small></h4><div class="cells" id="ramC"></div></div>
+        <div class="chipbox rom"><h4 class="mono">ROM <small data-en="non-volatile" data-si="අනශ්‍ය"></small></h4><div class="cells" id="romC"></div></div>
+        <p class="pmsg" id="pMsg"></p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- 9 quiz -->
+<!-- 9 units of storage: converter -->
+<section class="slide" data-id="units">
+  <span class="kick" data-en="Units of storage" data-si="ආචයන ඒකක"></span>
+  <h2 data-en="Bits, bytes and beyond" data-si="බිටු, බයිට සහ ඉන් ඔබ්බට"></h2>
+  <div class="units nodrag">
+    <div class="ladder mono"><span>8 bit = 1 byte</span><span>1024 byte = 1 KB</span><span>1024 KB = 1 MB</span><span>1024 MB = 1 GB</span><span>1024 GB = 1 TB</span></div>
+    <div class="conv panel">
+      <div class="row1"><input id="uN" type="number" value="16" min="0"><select id="uU"><option>bit</option><option>byte</option><option>KB</option><option>MB</option><option selected>GB</option><option>TB</option></select></div>
+      <div class="uout" id="uOut"></div>
+    </div>
+    <div class="fit panel">
+      <h4 data-en="How many fit?" data-si="කීයක් ගබඩා කළ හැකිද?"></h4>
+      <div class="row2"><label data-en="Phone storage" data-si="දුරකථන ඉඩ"></label><input id="fS" type="range" min="1" max="7" value="4"><b class="mono" id="fSo"></b></div>
+      <div class="row2"><label data-en="One photo" data-si="ඡායාරූපයක්"></label><input id="fP" type="range" min="1" max="12" value="4"><b class="mono" id="fPo"></b></div>
+      <p class="big mono" id="fAns"></p>
+    </div>
+    <p class="why2" data-en="&lt;b&gt;Why 1024 and not 1000?&lt;/b&gt; Computers count in powers of 2: 2&lt;sup&gt;10&lt;/sup&gt; = 1024. So each unit is 1024 times the one before." data-si="&lt;b&gt;1000 නොව 1024 ඇයි?&lt;/b&gt; පරිගණක ගණන් කරන්නේ 2 හි බලවලින්: 2&lt;sup&gt;10&lt;/sup&gt; = 1024. එබැවින් සෑම ඒකකයක්ම පෙර ඒකකය මෙන් 1024 ගුණයකි."></p>
+  </div>
+</section>
+
+<!-- 10 quiz -->
 <section class="slide" data-id="quiz">
   <span class="kick" data-en="Paper style" data-si="ප්‍රශ්න පත්‍ර ආකාරයට"></span>
-  <h2 data-en="Try these" data-si="උත්තර දෙන්න"></h2>
+  <h2 data-en="Try these" data-si="උත්තර දෙන්න"></h2><div class="score mono" id="score">0 / 3</div>
   <div class="mcq" data-ans="4">
     <p class="q" data-en="Which part of the CPU compares two numbers?" data-si="සංඛ්‍යා දෙකක් සසඳන්නේ CPU හි කුමන කොටසද?"></p>
     <ol><li><button data-en="Control unit" data-si="පාලන ඒකකය"></button></li><li><button data-en="Register" data-si="රෙජිස්තරය"></button></li><li><button data-en="Cache memory" data-si="නිහිත මතකය"></button></li><li><button data-en="Arithmetic and logic unit" data-si="අංක ගණිත හා තාර්කික ඒකකය"></button></li></ol>
@@ -149,21 +223,26 @@
     <ol><li><button>RAM</button></li><li><button>ROM</button></li><li><button>SSD</button></li><li><button data-en="Hard disk" data-si="දෘඪ තැටිය"></button></li></ol>
     <p class="why" data-en="RAM is volatile. ROM, SSDs and hard disks keep data without power." data-si="RAM නශ්‍ය මතකයකි. ROM, SSD සහ දෘඪ තැටි විදුලිය නැතිවද දත්ත රඳවා ගනී."></p>
   </div>
+  <div class="mcq" data-ans="3">
+    <p class="q" data-en="1 GB is equal to" data-si="1 GB සමාන වන්නේ"></p>
+    <ol><li><button>1000 KB</button></li><li><button>1024 KB</button></li><li><button>1024 MB</button></li><li><button>1000 MB</button></li></ol>
+    <p class="why" data-en="1 GB = 1024 MB, and 1 MB = 1024 KB." data-si="1 GB = MB 1024, සහ 1 MB = KB 1024."></p>
+  </div>
 </section>
 
-<!-- 10 summary -->
+<!-- 11 summary -->
 <section class="slide" data-id="summary">
   <div class="split wide-l">
     <div class="col">
       <span class="kick" data-en="Summary" data-si="සාරාංශය"></span>
       <h2 data-en="What we learned" data-si="මේ පාඩමෙන් අපි ඉගෙන ගත්තේ"></h2>
-      <ol class="sum" style="columns:1">
-        <li data-en="A computer system: input → process → output, with storage." data-si="පරිගණක පද්ධතිය: ආදානය → සැකසීම → ප්‍රතිදානය, සමඟ ආචයනය."></li>
+      <ol class="cards">
+        <li data-en="Input → process → output, with storage." data-si="ආදානය → සැකසීම → ප්‍රතිදානය, සමඟ ආචයනය."></li>
         <li data-en="Every part connects to the motherboard; data moves on buses." data-si="සියලු කොටස් මවු පුවරුවට සම්බන්ධ වේ; දත්ත බස් ඔස්සේ ගමන් කරයි."></li>
-        <li data-en="CPU = ALU + control unit + registers. Clock speed in GHz." data-si="CPU = ALU + පාලන ඒකකය + රෙජිස්තර. ස්පන්දක වේගය GHz වලින්."></li>
-        <li data-en="Machine cycle: fetch → decode → execute → store." data-si="යන්ත්‍ර චක්‍රය: ලබා ගැනීම → විකේතනය → ක්‍රියාත්මක කිරීම → ගබඩා කිරීම."></li>
-        <li data-en="Registers → cache → RAM → secondary storage: faster at the top, bigger at the bottom." data-si="රෙජිස්තර → නිහිත මතකය → RAM → ද්විතීයික ආචයනය: ඉහළට වේගවත්, පහළට විශාල."></li>
-        <li data-en="RAM is volatile; ROM is non-volatile." data-si="RAM නශ්‍ය ය; ROM අනශ්‍ය ය."></li>
+        <li data-en="CPU = ALU + control unit + registers." data-si="CPU = ALU + පාලන ඒකකය + රෙජිස්තර."></li>
+        <li data-en="Fetch → decode → execute → store." data-si="ලබා ගැනීම → විකේතනය → ක්‍රියාත්මක කිරීම → ගබඩා කිරීම."></li>
+        <li data-en="Registers → cache → RAM → storage: faster up, bigger down." data-si="රෙජිස්තර → නිහිත → RAM → ආචයනය: ඉහළට වේගවත්, පහළට විශාල."></li>
+        <li data-en="RAM is volatile; ROM is non-volatile. 1 GB = 1024 MB." data-si="RAM නශ්‍ය ය; ROM අනශ්‍ය ය. 1 GB = MB 1024."></li>
       </ol>
     </div>
     <div class="fill"><div class="v3d" id="v-end"></div></div>

@@ -72,7 +72,7 @@ once('v-cpu', async el => {
   const die = { Cpu_cores: ['Cores', 'හර (cores)', 'l'], Cpu_cache: ['Cache memory', 'නිහිත මතකය', 'l'], Cpu_gpu: ['Graphics', 'චිත්‍රක ඒකකය', 'r'], Cpu_mem: ['Memory controller', 'මතක පාලකය', 'r'] };
   const dieL = Object.entries(die).map(([n, [en, si, side]]) => { const o = get(n); return o && v.label({ pos: centre(o, v.root).toArray(), en, si, side, depth: 9 }); }).filter(Boolean);
   const ihsL = ihs && v.label({ obj: ihs, en: 'Heat spreader (lid)', si: 'තාප විසරකය (ආවරණය)', depth: .6, side: 'l' });
-  const sockL = plate && v.label({ pos: centre(plate, v.root).toArray(), en: 'Socket', si: 'කෙවෙනිය', depth: .6, side: 'l' });
+  const sockL = plate && v.label({ pos: centre(plate, v.root).toArray(), en: 'Socket', si: 'කෙවෙනිය', depth: .6, side: 'r' });
   function set(t) {
     if (ihs) { ihs.getWorldScale(ws); ihs.position.copy(home); ihs.position.y += t * size * .35 / (ws.y || 1); }
     if (plate) plate.visible = t < .05; if (lever) lever.visible = t < .05; if (paste) paste.visible = t < .3;
@@ -83,30 +83,8 @@ once('v-cpu', async el => {
   v.controls.enableZoom = false;
 });
 
-/* 8 a RAM stick from the PC model */
-once('v-ram', async el => {
-  const v = viewer(el, { cam: [0, .9, 3], fov: 28, spin: true, spinSpeed: .7 });
-  const g = await v.load(M + 'pc.glb');
-  const ram = g.scene.getObjectByName('RAM_1');
-  v.root.remove(g.scene);
-  if (ram) { const w = new THREE.Group(); ram.updateWorldMatrix(true, false); const c = ram.clone(); c.applyMatrix4(ram.matrixWorld); c.position.set(0, 0, 0);
-    w.add(c); w.rotation.z = -Math.PI / 2; v.root.add(w); w.updateMatrixWorld(true); const b = new THREE.Box3().setFromObject(w); w.position.sub(b.getCenter(new THREE.Vector3())); }
-  v.fit(v.root, .9); v.controls.enableZoom = false;
-});
-
 /* 10 the PC again */
 once('v-end', async el => {
   const v = viewer(el, { cam: [-2.2, 1, 2.8], fov: 30, spin: true, spinSpeed: .5 });
   await pc(v); v.controls.enableZoom = false;
 });
-
-/* 6 machine cycle: click a step, or it runs by itself while the slide is on */
-{
-  const btn = $$('#ring button'), ex = $$('.explain .ex'); let k = 0, timer = 0;
-  const show = i => { k = i; btn.forEach(b => b.classList.toggle('on', +b.dataset.k === i)); ex.forEach(e => e.classList.toggle('on', +e.dataset.k === i)); };
-  btn.forEach(b => b.addEventListener('click', () => { clearInterval(timer); show(+b.dataset.k); }));
-  const s = $('#ring').closest('.slide');
-  s.addEventListener('slide:enter', () => { show(0); clearInterval(timer); timer = setInterval(() => show((k + 1) % 4), 3200); });
-  s.addEventListener('slide:leave', () => clearInterval(timer));
-  show(0);
-}
