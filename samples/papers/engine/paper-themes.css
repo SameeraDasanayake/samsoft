@@ -1,0 +1,39 @@
+/* Subject themes for the papers (same families as the tutes). The <html> gets data-theme from the paper's data. */
+
+/* ICT — neon HUD */
+html[data-theme=ict] { --ac: #0077b6; --band: #070d1c; --band-img: url(../../tutes/engine/cover-ict.jpg); --band-ac: #22e4ff; --tint: #eef8fd;
+  --chip-bg: #070d1c; --chip-ink: #22e4ff; --head: 'Space Grotesk', 'Noto Sans Sinhala', sans-serif; }
+html[data-theme=ict] .part h2 { background: linear-gradient(100deg, #070d1c, #2a1d6b); }
+html[data-theme=ict] .qn { font-family: 'JetBrains Mono', monospace; }
+
+/* Maths — engineering blueprint */
+html[data-theme=blueprint] { --ac: #1452a0; --band: #0c3e7a; --band-img: url(../../tutes/engine/cover-blueprint.jpg); --band-ac: #ffd166; --tint: #eef4fb;
+  --r: 0; --chip-bg: #fff; --chip-ink: #1452a0; --head: 'Barlow Condensed', 'Noto Sans Sinhala', sans-serif; }
+html[data-theme=blueprint] .mast { outline: .5mm solid #ffffffaa; outline-offset: -2.5mm; }
+html[data-theme=blueprint] .part h2 { background: #0c3e7a; }
+html[data-theme=blueprint] .qn { border: .35mm solid #1452a0; }
+html[data-theme=blueprint] .abox { border-radius: 0; }
+
+/* Science — medical monitor */
+html[data-theme=medical] { --ac: #c8102e; --band: #0a0e13; --band-img: url(../../tutes/engine/cover-ecg.jpg); --band-ac: #2ee59d; --tint: #fdf1f2;
+  --r: 2mm; --chip-bg: #c8102e; --chip-ink: #fff; --head: 'IBM Plex Sans', 'Noto Sans Sinhala', sans-serif; }
+html[data-theme=medical] .part h2 { background: #0a0e13; border-left: 1.4mm solid #2ee59d; }
+html[data-theme=medical] .qn { font-family: 'IBM Plex Mono', monospace; }
+
+/* Physics — oscilloscope */
+html[data-theme=scope] { --ac: #0e7a43; --band: #050906; --band-img: url(../../tutes/engine/cover-scope.jpg); --band-ac: #39ff88; --tint: #eef8f1;
+  --r: 1.4mm; --chip-bg: #050906; --chip-ink: #39ff88; --head: 'Saira', 'Noto Sans Sinhala', sans-serif; }
+html[data-theme=scope] .part h2 { background: #050906; color: #39ff88; }
+html[data-theme=scope] .qn { font-family: 'Share Tech Mono', monospace; }
+
+/* Grade 5 scholarship — space mission */
+html[data-theme=space] { --ac: #e2601b; --band: #0b1033; --band-img: url(../../tutes/engine/cover-space.jpg); --band-ac: #ffc93c; --tint: #fff4ec;
+  --r: 4mm; --chip-bg: #ff7a30; --chip-ink: #fff; --head: 'Fredoka', 'Noto Sans Sinhala', sans-serif; }
+html[data-theme=space] .part h2 { background: #0b1033; color: #ffc93c; }
+html[data-theme=space] .qn { border-radius: 50%; width: 6.6mm; height: 6.6mm; font-family: 'Fredoka', sans-serif; }
+html[data-theme=space] .abox { border-radius: 50%; }
+
+/* Sinhala: no letter-spacing on the band labels */
+html[lang=si] .mast-top, html[lang=si] .meta b { letter-spacing: 0; }
+html[lang=si] .mast h1 { font-family: 'Noto Sans Sinhala', sans-serif; font-weight: 700; }
+html[data-theme=medical] .mast::before { background-position: center 4%; }

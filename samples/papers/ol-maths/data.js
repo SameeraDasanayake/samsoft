@@ -22,7 +22,7 @@ const statH = { en: ['Marks (class interval)', 'No. of students (<i class="v">f<
                 si: ['ලකුණු (පන්ති ප්‍රාන්තරය)', 'සිසුන් ගණන (<i class="v">f</i>)', 'මධ්‍ය අගය (<i class="v">x</i>)', 'එකතුව'] };
 
 window.PAPER = {
-  code: 'OLM-S1', accent: '#1f4e3d',
+  code: 'OLM-S1', accent: '#1452a0',
   inst: { en: 'Kelani Academy · Mathematics class', si: 'කැලණි ඇකඩමිය · ගණිතය පන්තිය' },
   subject: { en: 'Mathematics', si: 'ගණිතය' },
   title: { en: 'G.C.E. (O/L) — Term test, sample paper', si: 'අ.පො.ස. (සා.පෙළ) — වාර පරීක්ෂණය, ආදර්ශ ප්‍රශ්න පත්‍රය' },

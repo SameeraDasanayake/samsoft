@@ -60,10 +60,10 @@
 <div class="wrap">
   <section class="hero">
     <div><h1 data-en="Sample papers" data-si="ආදර්ශ ප්‍රශ්න පත්‍ර"></h1></div>
-    <div><p data-en="Five print-ready papers for tuition classes, each in Sinhala and English, with a full marking scheme for the teacher. A4, black ink, made to photocopy cleanly."
-            data-si="උපකාරක පන්ති සඳහා මුද්‍රණයට සූදානම් ප්‍රශ්න පත්‍ර පහක්. එක් එක් පත්‍රය සිංහල හා ඉංග්‍රීසි මාධ්‍යවලින්, ගුරුවරයාට සම්පූර්ණ ලකුණු දීමේ පටිපාටිය සමඟ. A4, කළු තීන්ත, ඡායා පිටපත් කිරීමට ගැළපේ."></p></div>
+    <div><p data-en="Five print-ready papers for tuition classes: a Sinhala paper, an English paper and one marking scheme in both languages for the teacher. Every subject has its own design; the questions stay black on white so they photocopy cleanly."
+            data-si="උපකාරක පන්ති සඳහා මුද්‍රණයට සූදානම් ප්‍රශ්න පත්‍ර පහක්: සිංහල පත්‍රය, ඉංග්‍රීසි පත්‍රය සහ ගුරුවරයාට භාෂා දෙකෙන්ම එක් ලකුණු දීමේ පටිපාටියක්. සෑම විෂයකටම වෙනම නිර්මාණයක්; ප්‍රශ්න කළු-සුදු නිසා ඡායා පිටපත් හොඳින් ගත හැක."></p></div>
   </section>
-  <div class="facts"><div><b>5</b><span data-en="papers" data-si="ප්‍රශ්න පත්‍ර"></span></div><div><b>2</b><span data-en="languages" data-si="මාධ්‍ය"></span></div><div><b>20</b><span data-en="PDF files" data-si="PDF ගොනු"></span></div></div>
+  <div class="facts"><div><b>5</b><span data-en="papers" data-si="ප්‍රශ්න පත්‍ර"></span></div><div><b>2</b><span data-en="languages" data-si="මාධ්‍ය"></span></div><div><b>15</b><span data-en="PDF files" data-si="PDF ගොනු"></span></div></div>
   <main id="list"></main>
 </div>
 <footer><div class="wrap" data-en="Original questions written for these samples. Diagrams drawn to exact measurements; no textbook figures are used." data-si="මෙම ආදර්ශ සඳහා ම ලියූ මුල් ප්‍රශ්න. රූප සටහන් නිවැරදි මිනුම්වලට ඇඳ ඇත; පෙළපොත් රූප භාවිත කර නැත."></div></footer>
@@ -80,7 +80,7 @@ const P = [
   { id: 'al-phy', code: 'ALP-S1', ac: '#5a2330', t: { en: 'A/L Physics', si: 'උ/පෙළ භෞතික විද්‍යාව' }, l: { en: 'Grades 12 – 13 · unit test · 1 hour 15 minutes · 50 marks', si: '12 – 13 ශ්‍රේණි · ඒකක පරීක්ෂණය · පැය 1 මිනිත්තු 15 · ලකුණු 50' },
     w: { en: 'Five-option multiple choice, then a projectile over a wall and a cell with internal resistance, worked mark by mark in the scheme.', si: 'පිළිතුරු පහේ බහුවරණ, ඉන්පසු බිත්තියක් උඩින් යන ප්‍රක්ෂිප්තයක් හා අභ්‍යන්තර ප්‍රතිරෝධය සහිත කෝෂයක්; ලකුණු දීමේ පටිපාටියේ පියවරෙන් පියවර ලකුණු.' } },
 ];
-const T = { en: { p: 'Paper', s: 'Marking scheme', e: 'English medium', si: 'Sinhala medium', v: 'View online' }, si: { p: 'ප්‍රශ්න පත්‍රය', s: 'ලකුණු දීමේ පටිපාටිය', e: 'ඉංග්‍රීසි මාධ්‍යය', si: 'සිංහල මාධ්‍යය', v: 'බලන්න' } };
+const T = { en: { p: 'Paper', s: 'Marking scheme', e: 'English medium', si: 'Sinhala medium', v: 'View online', t: 'For the teacher (Sinhala + English)' }, si: { p: 'ප්‍රශ්න පත්‍රය', s: 'ලකුණු දීමේ පටිපාටිය', e: 'ඉංග්‍රීසි මාධ්‍යය', si: 'සිංහල මාධ්‍යය', v: 'බලන්න', t: 'ගුරුවරයාට (සිංහල + English)' } };
 function render(lang) {
   let L; try { localStorage.setItem('papers-lang', lang); } catch (e) {}
   document.documentElement.lang = lang; L = T[lang];
@@ -90,7 +90,7 @@ function render(lang) {
   document.getElementById('list').innerHTML = P.map(p => `<article class="row" style="--ac:${p.ac}">
     <a class="sheet" href="${p.id}/index.html?lang=${lang}" target="_blank" rel="noopener"><img src="thumbs/${p.id}-${lang}.jpg" alt="${p.t[lang]}" loading="lazy"></a>
     <div class="info"><span class="code">${p.code}</span><h2>${p.t[lang]}</h2><div class="lvl">${p.l[lang]}</div><p class="what">${p.w[lang]}</p>
-      <div class="dl">${['si', 'en'].map(m => `<div><h3>${L[m === 'en' ? 'e' : 'si']}</h3>${a(`${p.id}/${p.id}-${m}.pdf`, L.p, 'PDF')}${a(`${p.id}/${p.id}-${m}-scheme.pdf`, L.s, 'PDF')}${a(`${p.id}/index.html?lang=${m}`, L.v, 'HTML')}</div>`).join('')}</div>
+      <div class="dl">${['si', 'en'].map(m => `<div><h3>${L[m === 'en' ? 'e' : 'si']}</h3>${a(`${p.id}/${p.id}-${m}.pdf`, L.p, 'PDF')}${a(`${p.id}/index.html?lang=${m}`, L.v, 'HTML')}</div>`).join('')}<div><h3>${L.t}</h3>${a(`${p.id}/${p.id}-scheme.pdf`, L.s, 'PDF')}</div></div>
     </div></article>`).join('');
 }
 document.querySelectorAll('.lang button').forEach(b => b.onclick = () => render(b.dataset.l));

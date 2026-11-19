@@ -22,7 +22,7 @@ const loopFig = { en: loop(['Lungs', 'Body tissues', 'Right atrium', 'Right vent
                   si: loop(['පෙනහළු', 'දේහ පටක', 'දකුණු කර්ණිකාව', 'දකුණු කෝෂිකාව', 'වම් කර්ණිකාව', 'වම් කෝෂිකාව']) };
 
 window.PAPER = {
-  code: 'OLS-S1', accent: '#6b4a12',
+  code: 'OLS-S1', accent: '#c8102e',
   inst: { en: 'Kelani Academy · Science class', si: 'කැලණි ඇකඩමිය · විද්‍යාව පන්තිය' },
   subject: { en: 'Science', si: 'විද්‍යාව' },
   title: { en: 'G.C.E. (O/L) — Term test, sample paper', si: 'අ.පො.ස. (සා.පෙළ) — වාර පරීක්ෂණය, ආදර්ශ ප්‍රශ්න පත්‍රය' },

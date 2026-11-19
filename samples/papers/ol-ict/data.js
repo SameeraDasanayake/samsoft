@@ -18,7 +18,7 @@ const sheet = `<table class="tb"><tr><th></th><th>A</th><th>B</th><th>C</th><th>
 const py = s => `<pre class="code">${s}</pre>`;
 
 window.PAPER = {
-  code: 'OLI-S1', accent: '#1d3f6e',
+  code: 'OLI-S1', accent: '#0077b6',
   inst: { en: 'Kelani Academy · ICT class', si: 'කැලණි ඇකඩමිය · තොරතුරු හා සන්නිවේදන තාක්ෂණය පන්තිය' },
   subject: { en: 'Information & Communication Technology', si: 'තොරතුරු හා සන්නිවේදන තාක්ෂණය' },
   title: { en: 'G.C.E. (O/L) — Term test, sample paper', si: 'අ.පො.ස. (සා.පෙළ) — වාර පරීක්ෂණය, ආදර්ශ ප්‍රශ්න පත්‍රය' },

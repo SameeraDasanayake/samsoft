@@ -71,7 +71,7 @@
   const bar = `<nav class="bar noprint"><a href="../index.html">← ${lang === 'si' ? 'පත්‍ර' : 'Papers'}</a><span class="sp"></span>
     <span class="grp"><a class="${lang === 'en' ? 'on' : ''}" href="${link('en', part)}">English</a><a class="${lang === 'si' ? 'on' : ''}" href="${link('si', part)}">සිංහල</a></span>
     <span class="grp"><a class="${part === 'paper' ? 'on' : ''}" href="${link(lang, 'paper')}">${L.paper}</a><a class="${part === 'scheme' ? 'on' : ''}" href="${link(lang, 'scheme')}">${L.scheme}</a></span>
-    <a href="${self}-${lang}${part === 'scheme' ? '-scheme' : ''}.pdf">${L.pdf} ↓</a></nav>`;
+    <a href="${part === 'scheme' ? `${self}-scheme` : `${self}-${lang}`}.pdf">${L.pdf} ↓</a></nav>`;
 
   const meta = `<div class="meta"><div><b>${L.grade}</b>${t(P.grade)}</div><div><b>${L.time}</b>${t(P.time)}</div><div><b>${L.marks}</b>${P.marks}</div><div><b>${L.qn}</b>${n}</div><div></div></div>`;
   const mast = `<header class="mast"><div class="mast-top"><span>${t(P.inst)}</span><span class="code">${P.code}${part === 'scheme' ? ' · MS' : ''}</span></div>
@@ -79,8 +79,8 @@
     ${part === 'paper' ? `<div class="cand"><div class="nm">${L.name}<span></span></div><div class="ix">${L.ix}<span>${'<i></i>'.repeat(7)}</span></div></div>` : ''}</header>`;
   const instr = part === 'paper' && P.instr ? `<div class="instr"><b>${L.instr}</b><ol>${P.instr.map(i => `<li>${t(i)}</li>`).join('')}</ol></div>` : '';
 
-  const body = P.parts.map(s => `<section class="part${s[part === 'paper' ? 'newpage' : 'snewpage'] ? ' newpage' : ''}">${part === 'paper' ? '<div class="keep">' : ''}<h2><span>${t(s.h)}</span><span class="note">${part === 'paper' ? t(s.note) : ''}</span><span class="mk">${t(s.mk)}</span></h2>${
-    part === 'paper' ? qHtml(s.qs[0]) + '</div>' + s.qs.slice(1).map(qHtml).join('') : schemePart(s)}</section>`).join('');
+  const body = P.parts.map(s => `<section class="part"><h2><span>${t(s.h)}</span><span class="note">${part === 'paper' ? t(s.note) : ''}</span><span class="mk">${t(s.mk)}</span></h2>${
+    part === 'paper' ? s.qs.map(qHtml).join('') : schemePart(s)}</section>`).join('');
 
   document.body.innerHTML = bar + `<main class="sheet">${mast}${instr}${body}<div class="end">${L.end}</div></main>`;
 })();

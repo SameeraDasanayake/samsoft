@@ -25,7 +25,7 @@ const projFig = SVG(360, 84, `
 
 const v = s => `<i class="v">${s}</i>`;
 window.PAPER = {
-  code: 'ALP-S1', accent: '#5a2330',
+  code: 'ALP-S1', accent: '#0e7a43',
   inst: { en: 'Kelani Academy · Physics class', si: 'කැලණි ඇකඩමිය · භෞතික විද්‍යාව පන්තිය' },
   subject: { en: 'Physics', si: 'භෞතික විද්‍යාව' },
   title: { en: 'G.C.E. (A/L) — Unit test: mechanics & electricity, sample paper', si: 'අ.පො.ස. (උ.පෙළ) — ඒකක පරීක්ෂණය: යාන්ත්‍ර විද්‍යාව හා විද්‍යුතය, ආදර්ශ ප්‍රශ්න පත්‍රය' },

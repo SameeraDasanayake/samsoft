@@ -1,0 +1,50 @@
+/* Samsoft papers — themed look shared by every subject (loads after paper.css, before the subject theme).
+   Page 1 gets a dark subject band (the theme's cover art); the questions stay black-on-white so the paper photocopies well.
+   Each theme file sets the variables below and a few subject-specific touches. */
+:root {
+  --band: #0b1220; --band-img: none; --band-ac: #8fd3ff; --band-ink: #fff;
+  --r: 3mm; --chip-bg: var(--ac); --chip-ink: #fff; --tint: #f3f6fa; --head: var(--narrow);
+}
+html { background: #10141c; }
+@media print { html { background: #fff; } }
+
+/* ---------- page-1 band ---------- */
+.mast { position: relative; overflow: hidden; border-top: 0; margin: 0 0 4mm; padding: 6.5mm 7mm 5mm; border-radius: var(--r);
+  background: var(--band); color: var(--band-ink); }
+.mast::before { content: ''; position: absolute; inset: 0; background: var(--band-img) center / cover no-repeat; opacity: .9; }
+.mast > * { position: relative; }
+.mast-top { color: var(--band-ac); }
+.mast-top .code { color: #ffffffb0; }
+.mast h1 { color: #fff; font-family: var(--head); }
+.mast .sub { color: #ffffffcc; }
+.meta { border-top: .6px solid #ffffff55; border-bottom: .6px solid #ffffff55; margin-top: 3.5mm; }
+.meta div { border-right-color: #ffffff33; color: #fff; }
+.meta b { color: var(--band-ac); }
+.cand { margin: 4mm -7mm -5mm; padding: 3mm 7mm; background: #fff; color: var(--ink); }
+.stamp { border-color: var(--band-ac); color: var(--band-ink); background: #ffffff14; }
+
+/* ---------- instructions ---------- */
+.instr { border-left: 0; border-radius: var(--r); background: var(--tint); border: .6px solid color-mix(in srgb, var(--ac) 30%, #fff); }
+.instr > b { color: var(--ac); }
+
+/* ---------- part headings ---------- */
+.part h2 { border-bottom: 0; padding: 2mm 3mm; border-radius: var(--r); background: var(--ink); color: #fff; font-family: var(--head); }
+.part h2 .note { color: #ffffffb0; }
+.part h2 .mk { color: var(--band-ac); }
+
+/* ---------- questions ---------- */
+.qn { color: var(--chip-ink); background: var(--chip-bg); border-radius: 1.4mm; width: 7mm; height: 5.4mm; display: grid; place-items: center; font-size: 9pt; margin-top: .5mm; line-height: 1; }
+.abox { border-color: var(--ac); border-width: 1.2px; border-radius: 1.4mm; }
+.q { border-bottom-color: #e3e7ee; }
+.q.stp.last { border-bottom-color: #e3e7ee; }
+.opts li > span:first-child { color: var(--ac); }
+.lines i { border-bottom-color: #8b97a8; }
+.ansbox i { border-color: var(--ac); border-radius: 1mm; }
+table.tb th { background: var(--tint); color: var(--ac); }
+pre.code { border-left-color: var(--ac); background: var(--tint); }
+
+/* ---------- marking scheme ---------- */
+.key { border-top-color: var(--ac); }
+.key div b { color: var(--ac); }
+.sa .mkr, .tot { color: var(--ac); }
+.end { color: var(--ac); }

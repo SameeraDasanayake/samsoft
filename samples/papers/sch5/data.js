@@ -11,7 +11,7 @@ const gridFig = SVG(6 * g + 2, 4 * g + 2,
   `<path d="M${P(1, 0)} L${P(3, 0)} L${P(3, 2)} L${P(5, 2)} L${P(5, 3)} L${P(1, 3)} Z" fill="#14141433" stroke="#141414" stroke-width="2"/>`);
 
 window.PAPER = {
-  code: 'SCH5-S1', accent: '#0f5560',
+  code: 'SCH5-S1', accent: '#e2601b',
   inst: { en: 'Kelani Academy · Scholarship class', si: 'කැලණි ඇකඩමිය · ශිෂ්‍යත්ව පන්තිය' },
   subject: { en: 'Grade 5 Scholarship', si: '5 ශ්‍රේණිය ශිෂ්‍යත්වය' },
   title: { en: 'Practice paper — Paper I, sample', si: 'පුහුණු ප්‍රශ්න පත්‍රය — I පත්‍රය, ආදර්ශය' },

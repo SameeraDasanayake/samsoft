@@ -8,7 +8,9 @@
 (function () {
   const MM = 96 / 25.4;
   const sheet = document.querySelector('main.sheet');
-  const solidFig = el => !!el.querySelector('figure .art > svg, figure .art > img');
+  // papers set window.FIT before this file: which blocks to mark, where their figures are
+  const C = Object.assign({ blocks: ':scope > *', art: 'figure .art', kids: ':scope > svg, :scope > img' }, window.FIT || {});
+  const solidFig = el => { const a = el.querySelector(C.art); return !!(a && a.querySelector(C.kids)); };
   const movable = el => el.matches('.row') && !el.querySelector('figure') && !el.matches('.sec, .exh');
   const stopper = el => el.matches('.sec, .newpage, .exh') || !!el.querySelector('.sec, .exh');
   const tried = new Map();
@@ -16,7 +18,7 @@
   function mark() {
     // a short table (under 60 mm) never splits, so its header row is never left alone at a page end
     sheet.querySelectorAll(':scope > .row.rtbl').forEach(r => { if (r.getBoundingClientRect().height < 60 * MM) r.style.breakInside = 'avoid'; });
-    [...sheet.children].forEach((el, k) => {
+    [...sheet.querySelectorAll(C.blocks)].forEach((el, k) => {
       if (el.dataset.k) return; el.dataset.k = k;
       const m = document.createElement('i'); m.className = 'mk'; m.textContent = `⟦${k}⟧`; el.prepend(m);
     });
@@ -26,7 +28,7 @@
   document.head.appendChild(css);
 
   function fix(k, holeMM) {
-    let el = sheet.querySelector(`:scope > [data-k="${k}"]`); if (!el) return false;
+    let el = sheet.querySelector(`[data-k="${k}"]`); if (!el) return false;
     const n = (tried.get(k) || 0) + 1; tried.set(k, n); if (n > 4) return false;
     while (el.matches('.sec, .exh') && el.nextElementSibling) el = el.nextElementSibling;          // the real jumper follows its headings
     let start = el; while (start.previousElementSibling && start.previousElementSibling.matches('.sec, .exh')) start = start.previousElementSibling;
@@ -34,9 +36,9 @@
     const r = el.getBoundingClientRect(), head = r.top - sTop, h = r.height, need = head + h - hole + 2 * MM;   // how much is too tall
     // 1. shrink the figure
     if (need > 0 && solidFig(el)) {
-      const art = el.querySelector('figure .art'), fh = art.getBoundingClientRect().height, kf = (fh - need - 2 * MM) / fh;
+      const art = el.querySelector(C.art), fh = art.getBoundingClientRect().height, kf = (fh - need - 2 * MM) / fh;
       if (kf >= .7 && kf < 1) {
-        art.querySelectorAll(':scope > svg, :scope > img').forEach(x => { const w = x.getBoundingClientRect().width; x.style.width = (w * kf) + 'px'; x.removeAttribute('width'); x.style.height = 'auto'; });
+        art.querySelectorAll(C.kids).forEach(x => { const w = x.getBoundingClientRect().width; x.style.width = (w * kf) + 'px'; x.removeAttribute('width'); x.style.height = 'auto'; });
         return true;
       }
     }
@@ -83,12 +85,13 @@
       sheet.dataset.tailTight = 1;
       sheet.querySelectorAll(':scope > .sum li, :scope > .gloss div, :scope > .ans .a').forEach(x => { x.style.paddingTop = '.6mm'; x.style.paddingBottom = '.6mm'; x.style.lineHeight = '1.3'; });
       sheet.querySelectorAll(':scope > .sum').forEach(x => x.style.gap = '2mm 5mm');
+      sheet.querySelectorAll('.lines i').forEach(x => x.style.height = '6.2mm');
       return true;
     }
-    const figs = [...sheet.querySelectorAll(':scope > * figure .art')].reverse();
+    const figs = [...sheet.querySelectorAll(C.art)].reverse();
     for (const art of figs) {
       if (need <= 0) break;
-      const kids = [...art.querySelectorAll(':scope > svg, :scope > img')]; if (!kids.length || art.dataset.t) continue;
+      const kids = [...art.querySelectorAll(C.kids)]; if (!kids.length || art.dataset.t) continue;
       const fh = art.getBoundingClientRect().height, k = Math.max(.8, (fh - need) / fh);
       kids.forEach(x => { const w = x.getBoundingClientRect().width; x.style.width = (w * k) + 'px'; x.removeAttribute('width'); x.style.height = 'auto'; });
       art.dataset.t = 1; need -= fh * (1 - k); did = true;
