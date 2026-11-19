@@ -19,7 +19,8 @@ window.SAMSOFT = {
       credit: "ආයුබෝවන් Samsoft, ඩිජිටල් නය පොත ගැන දැනගන්න ඕන.",
       booking: "ආයුබෝවන් Samsoft, appointments / booking පද්ධතියක් ගැන දැනගන්න ඕන.",
       staff: "ආයුබෝවන් Samsoft, සේවක පැමිණීම සහ වැටුප් software එකක් ගැන දැනගන්න ඕන.",
-      website: "ආයුබෝවන් Samsoft, මට website එකක් හදාගන්න ඕන."
+      website: "ආයුබෝවන් Samsoft, මට website එකක් හදාගන්න ඕන.",
+      twebsite: "ආයුබෝවන් Samsoft, මගේ පන්තියට වෙබ් අඩවියක් හදාගන්න ඕන."
     },
     en: {
       general: "Hello Samsoft, I would like to know more about your services.",
@@ -34,7 +35,8 @@ window.SAMSOFT = {
       credit: "Hello Samsoft, I would like to know about the digital credit book.",
       booking: "Hello Samsoft, I would like to know about an appointments / booking system.",
       staff: "Hello Samsoft, I would like to know about staff attendance and salary software.",
-      website: "Hello Samsoft, I would like a website made."
+      website: "Hello Samsoft, I would like a website made.",
+      twebsite: "Hello Samsoft, I would like a website for my class."
     }
   }
 };

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang="si" data-lang="si">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -113,7 +113,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font: 500 13px
   let lang = q.get('lang');
   const set = l => { root.dataset.lang = l; root.lang = l; document.querySelectorAll('#lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
     document.querySelectorAll('.card[href]').forEach(a => { a.href = a.getAttribute('href').split('?')[0] + '?lang=' + l; }); try { localStorage.setItem('samsoft-deck-lang', l); } catch (e) {} };
-  set(lang === 'si' ? 'si' : 'en');
+  set(lang === 'en' ? 'en' : 'si');
   document.getElementById('lang').addEventListener('click', e => { const b = e.target.closest('button'); if (b) set(b.dataset.l); });
   document.getElementById('lvl').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return;
     document.querySelectorAll('#lvl button').forEach(x => x.setAttribute('aria-pressed', x === b));

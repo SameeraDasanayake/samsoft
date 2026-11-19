@@ -2,7 +2,7 @@
    Plain script (no modules / fetch) so it also works when opened by double-click. */
 (function () {
   const P = window.PAPER, qs = new URLSearchParams(location.search);
-  const lang = qs.get('lang') === 'si' ? 'si' : 'en', part = qs.get('part') === 'scheme' ? 'scheme' : 'paper';
+  const lang = qs.get('lang') === 'en' ? 'en' : 'si', part = qs.get('part') === 'scheme' ? 'scheme' : 'paper';
   const t = x => x == null ? '' : typeof x === 'string' || typeof x === 'number' ? String(x) : (x[lang] ?? x.en);
   const L = {
     en: { time: 'Time', marks: 'Marks', qn: 'Questions', grade: 'Grade', name: 'Name', ix: 'Index No.', instr: 'Instructions',

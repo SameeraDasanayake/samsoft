@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="si">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sample tutes</title>
@@ -102,7 +102,7 @@ function render(lang) {
 }
 document.querySelectorAll('.lang button').forEach(b => b.onclick = () => render(b.dataset.l));
 let start = new URLSearchParams(location.search).get('lang');
-render(start === 'si' ? 'si' : 'en');
+render(start === 'en' ? 'en' : 'si');
 </script>
 </body>
 </html>

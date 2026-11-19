@@ -2,7 +2,7 @@
    ?lang=en|si. Plain script (no modules / fetch) so it also works when opened by double-click. */
 (function () {
   const T = window.TUTE, F = window.FIGS || {}, qs = new URLSearchParams(location.search);
-  const lang = qs.get('lang') === 'si' ? 'si' : 'en', other = lang === 'si' ? 'en' : 'si';
+  const lang = qs.get('lang') === 'en' ? 'en' : 'si', other = lang === 'si' ? 'en' : 'si';
   const ed = qs.get('ed') === 'student' ? 'student' : 'teacher', stu = ed === 'student';
   const t = x => x == null ? '' : typeof x === 'string' || typeof x === 'number' ? String(x) : (x[lang] ?? x.en);
   const L = {

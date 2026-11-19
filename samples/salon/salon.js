@@ -205,7 +205,7 @@
   // ---------- ui state ----------
   const qp = new URLSearchParams(location.search);
   const U = {
-    lang: qp.get('lang') === 'si' ? 'si' : 'en',
+    lang: qp.get('lang') === 'en' ? 'en' : 'si',
     page: ['queue', 'barbers', 'customers', 'reports', 'prices'].includes(qp.get('page')) ? qp.get('page') : 'queue',
     bp: 'today', rp: 'today', cf: 'all', cq: '', sel: null, bill: null, nt: null, btab: 's'
   };

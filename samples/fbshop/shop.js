@@ -29,7 +29,7 @@
       msgHead: 'ආයුබෝවන් Nethu Closet! මට order කරන්න ඕනේ:', msgName: 'නම', msgPhone: 'දුරකථනය', msgAddr: 'ලිපිනය', msgPay: 'ගෙවීම', msgOrder: 'Order', noPhoto: 'photo ළඟදීම', close: 'වසන්න' }
   };
   const qp = new URLSearchParams(location.search);
-  const U = { lang: qp.get('lang') === 'si' ? 'si' : 'en', cat: 'all', bag: [], form: { name: '', phone: '', address: '', district: 'Colombo', town: '', note: '', pay: 'cod' }, sel: null, last: null };
+  const U = { lang: qp.get('lang') === 'en' ? 'en' : 'si', cat: 'all', bag: [], form: { name: '', phone: '', address: '', district: 'Colombo', town: '', note: '', pay: 'cod' }, sel: null, last: null };
   try { const b = JSON.parse(sessionStorage.getItem('nethu-bag')); if (Array.isArray(b)) U.bag = b; } catch (e) { /* ignore */ }
   const t = (k, v) => { let s = T[U.lang][k] != null ? T[U.lang][k] : T.en[k]; if (v) Object.keys(v).forEach(x => { s = String(s).split('{' + x + '}').join(v[x]); }); return s; };
   const nm = o => (U.lang === 'si' ? o.si : o.en);

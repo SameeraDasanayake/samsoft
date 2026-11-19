@@ -17,8 +17,7 @@
   st.uploads = st.uploads || [];
   st.newPapers = st.newPapers || [];
 
-  let lang = qs.get('lang') === 'si' ? 'si' : 'en';
-  if (lang !== 'si') lang = 'en';
+  let lang = qs.get('lang') === 'en' ? 'en' : 'si';
   const S = { role: qs.get('role') === 'teacher' ? 'teacher' : 'student', page: qs.get('page') || '', sub: qs.get('id') || '' };
   const T = (en, si) => (lang === 'si' ? si : en);
   const N = o => (lang === 'si' ? o.si : o.en);

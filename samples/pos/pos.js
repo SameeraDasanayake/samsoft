@@ -131,7 +131,7 @@
   function initLang() {
     const q = new URLSearchParams(location.search).get('lang');
     if (q === 'si' || q === 'en') return q;
-    return 'en';
+    return 'si';
   }
   const U = {
     lang: initLang(), page: 'bill', cat: 'all', q: '',

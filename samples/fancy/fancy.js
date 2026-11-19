@@ -145,7 +145,7 @@
   const PAGES = ['sell', 'hamper', 'stock', 'loyal', 'reports'];
   const newCart = () => ({ mode: 'retail', lines: [], cid: null, phone: '', name: '', redeem: false, disc: '', method: 'cash', msg: '' });
   const U = {
-    lang: qp.get('lang') === 'si' ? 'si' : 'en', page: PAGES.includes(qp.get('page')) ? qp.get('page') : 'sell',
+    lang: qp.get('lang') === 'en' ? 'en' : 'si', page: PAGES.includes(qp.get('page')) ? qp.get('page') : 'sell',
     cat: 'all', q: '', cart: newCart(), sf: 'all', sq: '', lq: '', lsel: null, rp: 'd7', hb: { base: 'basket', items: [], name: '', price: '', iq: '' }
   };
   const t = (k, v) => { let s = T[U.lang][k] != null ? T[U.lang][k] : (T.en[k] != null ? T.en[k] : k); if (v) Object.keys(v).forEach(x => { s = String(s).split('{' + x + '}').join(v[x]); }); return s; };

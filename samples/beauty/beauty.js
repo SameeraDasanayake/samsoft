@@ -189,7 +189,7 @@
   const qp = new URLSearchParams(location.search);
   const PAGES = ['cal', 'bridal', 'clients', 'rem', 'reports'];
   const U = {
-    lang: qp.get('lang') === 'si' ? 'si' : 'en', page: PAGES.includes(qp.get('page')) ? qp.get('page') : 'cal',
+    lang: qp.get('lang') === 'en' ? 'en' : 'si', page: PAGES.includes(qp.get('page')) ? qp.get('page') : 'cal',
     day: dayStart(Date.now()), sty: 's1', bf: 'up', bsel: null, cq: '', csel: null, rp: 'd7', na: null, co: null, nb: null, btab: 's'
   };
   const t = (k, v) => { let s = T[U.lang][k] != null ? T[U.lang][k] : (T.en[k] != null ? T.en[k] : k); if (v) Object.keys(v).forEach(x => { s = String(s).split('{' + x + '}').join(v[x]); }); return s; };

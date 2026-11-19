@@ -5,12 +5,12 @@
   function getLang() {
     var q = new URLSearchParams(location.search).get("lang");
     if (q === "si" || q === "en") return q;
-    try { return localStorage.getItem("samsoft-ui-lang") || "en"; } catch (e) { return "en"; }
+    try { return localStorage.getItem("samsoft-lang") || "si"; } catch (e) { return "si"; }
   }
   function setLang(l) {
     root.setAttribute("data-lang", l);
     root.setAttribute("lang", l);
-    try { localStorage.setItem("samsoft-ui-lang", l); } catch (e) {}
+    try { localStorage.setItem("samsoft-lang", l); } catch (e) {}
     updateWa();
     document.querySelectorAll(".js-demo").forEach(function (a) {
       a.setAttribute("href", a.getAttribute("data-demo"));

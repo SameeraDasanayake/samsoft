@@ -133,7 +133,7 @@
   save();
 
   const qp = new URLSearchParams(location.search);
-  const U = { lang: qp.get('lang') === 'si' ? 'si' : 'en', page: ['orders', 'cod', 'stock', 'profit'].includes(qp.get('page')) ? qp.get('page') : 'orders',
+  const U = { lang: qp.get('lang') === 'en' ? 'en' : 'si', page: ['orders', 'cod', 'stock', 'profit'].includes(qp.get('page')) ? qp.get('page') : 'orders',
     view: 'pipe', q: '', src: 'all', rp: 'd30', no: null };
   const t = (k, v) => { let s = T[U.lang][k] != null ? T[U.lang][k] : T.en[k]; if (s == null) s = k; if (v) Object.keys(v).forEach(x => { s = String(s).split('{' + x + '}').join(v[x]); }); return s; };
   const nm = o => (U.lang === 'si' ? o.si : o.en);
