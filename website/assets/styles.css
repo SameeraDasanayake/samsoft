@@ -646,3 +646,6 @@ html[data-lang="si"] .bp b { font-size: 30px; }
 .tlinks b { font-size: 17px; color: #fff; } .tlinks span { color: var(--amber); font-size: 14px; } .tlinks i { font-style: normal; color: var(--amber); margin-top: auto; }
 @media (max-width: 1020px) { .tlinks { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .tlinks { grid-template-columns: 1fr; } }
+
+.scards.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 640px) { .scards.two { grid-template-columns: 1fr; } }

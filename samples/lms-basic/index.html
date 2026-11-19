@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="si" data-lang="si" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kasun ICT · LMS | Samsoft sample (Basic)</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../tutes/engine/fonts/fonts.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- ================= LOGIN ================= -->
+<section class="login" id="login">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="login-card glass">
+    <div class="brand big"><span class="mark">K</span><span><b>Kasun ICT</b><small>Learning Portal</small></span></div>
+    <h1><span lang="si">ආයුබෝවන් 👋</span><span lang="en">Welcome back 👋</span></h1>
+    <p class="muted"><span lang="si">ඔබේ පන්ති recordings, සටහන් සහ දැන්වීම් එක තැනකින්.</span><span lang="en">Your class recordings, notes and notices in one place.</span></p>
+    <form id="loginForm">
+      <label><span lang="si">සිසු අංකය හෝ දුරකථන අංකය</span><span lang="en">Student ID or phone</span>
+        <span class="field"><i>#</i><input id="uid" value="KJ-2027-0148" autocomplete="off"></span></label>
+      <label><span lang="si">මුරපදය</span><span lang="en">Password</span>
+        <span class="field"><i>🔒</i><input id="pw" type="password" value="demo1234"><button type="button" class="eye" id="eye" aria-label="Show">👁</button></span></label>
+      <button class="btn grad" type="submit"><span lang="si">ඇතුළු වන්න</span><span lang="en">Log in</span> →</button>
+      <p class="hint"><span lang="si">ආදර්ශ ගිණුමක් දැනටමත් පුරවා ඇත. "ඇතුළු වන්න" ඔබන්න.</span><span lang="en">A demo account is already filled in. Press "Log in".</span></p>
+    </form>
+    <div class="login-foot"><button class="chip-btn" data-act="lang"><span lang="si">English</span><span lang="en">සිංහල</span></button><span>Samsoft LMS · Basic</span></div>
+  </div>
+</section>
+
+<!-- ================= APP ================= -->
+<div class="app" id="app" hidden>
+  <aside class="side">
+    <div class="brand"><span class="mark">K</span><span><b>Kasun ICT</b><small>Learning Portal</small></span></div>
+    <nav class="menu" id="menu">
+      <a data-v="home" class="on"><i>⌂</i><span lang="si">මුල් පිටුව</span><span lang="en">Home</span></a>
+      <a data-v="rec"><i>▶</i><span lang="si">Recordings</span><span lang="en">Recordings</span></a>
+      <a data-v="notes"><i>⎙</i><span lang="si">සටහන් සහ PDF</span><span lang="en">Notes &amp; PDFs</span></a>
+      <a data-v="news"><i>✦</i><span lang="si">දැන්වීම්</span><span lang="en">Notices</span><b class="badge" id="newsBadge">2</b></a>
+      <a data-v="me"><i>☺</i><span lang="si">මගේ ගිණුම</span><span lang="en">My account</span></a>
+    </nav>
+    <div class="side-card">
+      <small><span lang="si">ඊළඟ පන්තිය</span><span lang="en">Next class</span></small>
+      <b><span lang="si">ඉරිදා · පෙ.ව. 8.00</span><span lang="en">Sunday · 8.00 am</span></b>
+      <div class="cd" id="cdSide"></div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="bar">
+      <button class="icon only-m" id="mBrand" aria-hidden="true"><span class="mark sm">K</span></button>
+      <div class="search"><i>⌕</i><input id="q" placeholder="Search lessons, notes…"></div>
+      <div class="bar-r">
+        <button class="icon" data-act="theme" title="Theme">◐</button>
+        <button class="icon" data-act="lang" title="Language"><span lang="si">EN</span><span lang="en">සිං</span></button>
+        <button class="icon bell" data-v="news" title="Notices">🔔<b id="bellDot"></b></button>
+        <button class="me" data-v="me"><span class="av">ස</span><span class="hide-s"><b><span lang="si">සෙනුරි</span><span lang="en">Senuri</span></b><small>11 · O/L 2027</small></span></button>
+      </div>
+    </header>
+
+    <!-- HOME -->
+    <section class="view on" id="v-home">
+      <div class="hello glass-dark">
+        <div>
+          <p class="eyebrow"><span lang="si">11 ශ්‍රේණිය · 2027 සා/පෙළ ICT</span><span lang="en">Grade 11 · 2027 O/L ICT</span></p>
+          <h2><span lang="si">සුභ උදෑසනක්, සෙනුරි!</span><span lang="en">Good morning, Senuri!</span></h2>
+          <p><span lang="si">මේ සතියේ පාඩම: <b>ජාල සහ අන්තර්ජාලය</b>. පසුගිය පන්තියේ recording එක දැන් බලන්න පුළුවන්.</span><span lang="en">This week: <b>Networks and the Internet</b>. Last class's recording is ready to watch.</span></p>
+          <div class="row-btns"><button class="btn lime" data-play="r1">▶ <span lang="si">Recording එක බලන්න</span><span lang="en">Watch the recording</span></button><button class="btn ghost-l" data-v="notes"><span lang="si">සටහන් බාගන්න</span><span lang="en">Get the notes</span></button></div>
+        </div>
+        <div class="ring" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="trk"/><circle cx="60" cy="60" r="50" class="val" id="ringVal"/></svg><div><b id="ringTxt">0%</b><small><span lang="si">පාඩම් බලා ඇත</span><span lang="en">lessons watched</span></small></div></div>
+      </div>
+
+      <div class="stats">
+        <div class="stat glass"><i>▶</i><b data-count="18">0</b><small><span lang="si">Recordings</span><span lang="en">Recordings</span></small></div>
+        <div class="stat glass"><i>⎙</i><b data-count="24">0</b><small><span lang="si">සටහන් / PDF</span><span lang="en">Notes / PDFs</span></small></div>
+        <div class="stat glass"><i>⏱</i><b data-count="31">0</b><small><span lang="si">බැලූ පැය</span><span lang="en">hours watched</span></small></div>
+        <div class="stat glass pay"><i>✓</i><b><span lang="si">ගෙවා ඇත</span><span lang="en">Paid</span></b><small><span lang="si">දෙසැම්බර් ගාස්තුව</span><span lang="en">December fee</span></small></div>
+      </div>
+
+      <div class="grid2">
+        <div class="panel glass">
+          <div class="ph"><h3><span lang="si">දිගටම බලන්න</span><span lang="en">Continue watching</span></h3><a data-v="rec"><span lang="si">සියල්ල</span><span lang="en">All</span> →</a></div>
+          <div class="cw" id="cw"></div>
+        </div>
+        <div class="panel glass">
+          <div class="ph"><h3><span lang="si">නවතම දැන්වීම්</span><span lang="en">Latest notices</span></h3><a data-v="news"><span lang="si">සියල්ල</span><span lang="en">All</span> →</a></div>
+          <div id="newsMini"></div>
+        </div>
+      </div>
+
+      <div class="panel glass">
+        <div class="ph"><h3><span lang="si">මේ සතියේ කාලසටහන</span><span lang="en">This week</span></h3></div>
+        <div class="week" id="week"></div>
+      </div>
+    </section>
+
+    <!-- RECORDINGS -->
+    <section class="view" id="v-rec">
+      <div class="vh"><div><p class="eyebrow">Recordings</p><h2><span lang="si">පන්ති recordings</span><span lang="en">Class recordings</span></h2></div>
+        <div class="tabs" id="recTabs"><button aria-pressed="true" data-f="all"><span lang="si">සියල්ල</span><span lang="en">All</span></button><button data-f="theory">Theory</button><button data-f="paper"><span lang="si">Paper සාකච්ඡා</span><span lang="en">Paper class</span></button><button data-f="practical">Practicals</button></div></div>
+      <p class="lockinfo glass"><i>🔒</i><span><span lang="si">ඔබ ගාස්තු ගෙවූ මාසවල recordings පමණක් විවෘතයි. ජනවාරි recordings විවෘත වන්නේ ජනවාරි ගාස්තුව ගෙවූ පසුයි.</span><span lang="en">Only recordings from months you have paid for are open. January opens after the January fee is paid.</span></span></p>
+      <div class="recs" id="recs"></div>
+    </section>
+
+    <!-- NOTES -->
+    <section class="view" id="v-notes">
+      <div class="vh"><div><p class="eyebrow">Downloads</p><h2><span lang="si">සටහන් සහ PDF</span><span lang="en">Notes and PDFs</span></h2></div>
+        <div class="tabs" id="noteTabs"><button aria-pressed="true" data-f="all"><span lang="si">සියල්ල</span><span lang="en">All</span></button><button data-f="tute">Tutes</button><button data-f="paper">Papers</button><button data-f="other"><span lang="si">වෙනත්</span><span lang="en">Other</span></button></div></div>
+      <div class="notes" id="notes"></div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="view" id="v-news">
+      <div class="vh"><div><p class="eyebrow"><span lang="si">පන්ති දැන්වීම්</span><span lang="en">Class notices</span></p><h2><span lang="si">දැන්වීම්</span><span lang="en">Notices</span></h2></div>
+        <button class="btn ghost-d" id="readAll"><span lang="si">සියල්ල කියවූ ලෙස සලකුණු කරන්න</span><span lang="en">Mark all as read</span></button></div>
+      <div class="news" id="news"></div>
+    </section>
+
+    <!-- ME -->
+    <section class="view" id="v-me">
+      <div class="vh"><div><p class="eyebrow"><span lang="si">ගිණුම</span><span lang="en">Account</span></p><h2><span lang="si">මගේ ගිණුම</span><span lang="en">My account</span></h2></div></div>
+      <div class="grid2">
+        <div class="panel glass profile">
+          <div class="pf-top"><span class="av big">ස</span><div><b><span lang="si">සෙනුරි පෙරේරා</span><span lang="en">Senuri Perera</span></b><small>KJ-2027-0148</small></div></div>
+          <dl>
+            <dt><span lang="si">පන්තිය</span><span lang="en">Class</span></dt><dd><span lang="si">11 ශ්‍රේණිය · Theory (ඉරිදා)</span><span lang="en">Grade 11 · Theory (Sunday)</span></dd>
+            <dt><span lang="si">පාසල</span><span lang="en">School</span></dt><dd><span lang="si">ගම්පහ ශ්‍රී බෝධි විද්‍යාලය</span><span lang="en">Sri Bodhi College, Gampaha</span></dd>
+            <dt><span lang="si">දුරකථන</span><span lang="en">Phone</span></dt><dd>07X XXX 0148</dd>
+            <dt><span lang="si">ලියාපදිංචි වූයේ</span><span lang="en">Joined</span></dt><dd>2026-01-04</dd>
+          </dl>
+          <button class="btn ghost-d" data-act="logout"><span lang="si">ඉවත් වන්න</span><span lang="en">Log out</span></button>
+        </div>
+        <div class="panel glass">
+          <div class="ph"><h3><span lang="si">ගාස්තු තත්ත්වය</span><span lang="en">Fee status</span></h3></div>
+          <div class="fees" id="fees"></div>
+          <p class="muted small"><span lang="si">ගාස්තු ගෙවූ පසු ගුරුතුමා එය සලකුණු කළ විට ඒ මාසයේ recordings ස්වයංක්‍රීයව විවෘත වේ.</span><span lang="en">When the teacher marks your fee as paid, that month's recordings open automatically.</span></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <nav class="tabbar" id="tabbar">
+    <a data-v="home" class="on"><i>⌂</i><span lang="si">මුල</span><span lang="en">Home</span></a>
+    <a data-v="rec"><i>▶</i><span lang="si">Videos</span><span lang="en">Videos</span></a>
+    <a data-v="notes"><i>⎙</i><span lang="si">සටහන්</span><span lang="en">Notes</span></a>
+    <a data-v="news"><i>✦</i><span lang="si">දැන්වීම්</span><span lang="en">Notices</span></a>
+    <a data-v="me"><i>☺</i><span lang="si">මම</span><span lang="en">Me</span></a>
+  </nav>
+</div>
+
+<!-- PLAYER -->
+<div class="modal" id="player" hidden>
+  <div class="player glass-dark">
+    <div class="screen" id="screen">
+      <div class="wm" id="wm">Senuri · 0148</div>
+      <div class="sc-title" id="scTitle"></div>
+      <button class="bigplay" id="bigplay">▶</button>
+      <div class="ctl"><button id="pp">▶</button><div class="prog" id="prog"><i id="progVal"></i></div><span id="tm">00:00 / 58:20</span><button id="spd">1x</button><button id="closeP">✕</button></div>
+    </div>
+    <div class="pinfo"><b id="pTitle"></b><small id="pMeta"></small>
+      <p class="muted small"><span lang="si">ආරක්ෂාව සඳහා video එක උඩ ඔබේ නම පෙන්වයි. Recording share කිරීම තහනම්.</span><span lang="en">For safety your name shows on the video. Sharing recordings is not allowed.</span></p></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<a class="sample-tag" href="../../lms.html" target="_top">Samsoft · Basic LMS sample</a>
+<script src="app.js"></script>
+</body>
+</html>
