@@ -1,0 +1,57 @@
+/* ICT deck - FUTURISTIC theme (same family as the ICT tute: navy, neon grid, HUD brackets, cyan -> violet). */
+@import url('../../tutes/engine/fonts/fonts.css');
+:root {
+  --board: #070d1c; --board-2: #0b1428; --board-3: #0f1b35;
+  --chalk: #eaf2ff; --chalk-2: #b4c4e2; --chalk-3: #6f84a8;
+  --line: rgba(34, 228, 255, .14); --line-2: rgba(34, 228, 255, .34);
+  --accent: #22e4ff; --accent-ink: #04101f; --violet: #8b5cff;
+  --grad: linear-gradient(100deg, #22e4ff, #4f6cf7 55%, #8b5cff);
+  --head: 'Space Grotesk', 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif;
+}
+body[data-subject="ict"] { --accent: #22e4ff; }
+html[data-lang="si"] body { --head: 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif; }
+html, body { background: #03060d; }
+
+.slide { background-color: var(--board);
+  background-image:
+    radial-gradient(640px 420px at 88% 8%, rgba(34, 228, 255, .13), transparent 70%),
+    radial-gradient(700px 480px at 4% 100%, rgba(139, 92, 255, .16), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 40px); }
+/* HUD corner brackets on every slide */
+.slide::before, .slide::after { content: ''; position: absolute; width: 46px; height: 46px; border: 2px solid rgba(34, 228, 255, .55); pointer-events: none; z-index: 3; }
+.slide::before { left: 30px; top: 22px; border-right: 0; border-bottom: 0; }
+.slide::after { right: 30px; bottom: 22px; border-left: 0; border-top: 0; }
+
+h1, h2, h3 { font-family: var(--head); letter-spacing: -.01em; }
+h1 { text-shadow: 0 0 34px rgba(34, 228, 255, .35); }
+.kick { color: var(--accent); }
+.kick::before { content: '// '; color: var(--violet); }
+.chrome b { color: var(--accent); }
+.cover .rule { background: var(--grad) !important; height: 5px !important; border-radius: 3px; box-shadow: 0 0 18px rgba(34, 228, 255, .6); }
+
+/* input -> process -> output */
+.stage-col { border-top: 0; padding: 26px 26px 18px; border-radius: 14px; border: 1px solid var(--line-2);
+  background: linear-gradient(160deg, rgba(34, 228, 255, .07), rgba(139, 92, 255, .05)); }
+.stage-col.hot { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(34, 228, 255, .4), 0 0 40px rgba(34, 228, 255, .18); }
+.stage-col li { border-bottom-color: var(--line); }
+.arrow::before { background: var(--grad); height: 3px; box-shadow: 0 0 10px rgba(34, 228, 255, .6); }
+.arrow::after { border-left-color: var(--violet); }
+.store { border: 1px dashed var(--line-2); border-radius: 12px; padding: 20px 24px; background: rgba(34, 228, 255, .04); }
+
+/* machine cycle */
+.ring { border-color: rgba(34, 228, 255, .4); box-shadow: 0 0 60px rgba(34, 228, 255, .08) inset; }
+.ring button { border-radius: 12px; background: rgba(11, 20, 40, .92); border-color: var(--line-2); }
+.ring button.on { background: var(--grad); color: #fff; border-color: transparent; box-shadow: 0 0 30px rgba(34, 228, 255, .45); }
+.ring button.on b { color: #e8faff; }
+.ring .hub { border-radius: 50%; border-color: var(--accent); box-shadow: 0 0 36px rgba(34, 228, 255, .4), inset 0 0 26px rgba(139, 92, 255, .35); font-family: 'JetBrains Mono', monospace; }
+.explain h3 { color: var(--accent); }
+.explain p.mono { color: #22e4ff; text-shadow: 0 0 14px rgba(34, 228, 255, .5); }
+
+/* memory hierarchy */
+.tier { border-left: 0; border-radius: 12px; border: 1px solid var(--line-2); background: linear-gradient(100deg, rgba(34, 228, 255, .10), rgba(139, 92, 255, .08)); }
+.tier:nth-child(1) { background: linear-gradient(100deg, rgba(139, 92, 255, .55), rgba(79, 108, 247, .4)); }
+.tier:nth-child(2) { background: linear-gradient(100deg, rgba(79, 108, 247, .4), rgba(34, 228, 255, .2)); }
+.tier .sz { color: var(--accent); }
+
+.cycle { margin-left: 60px; }

@@ -75,14 +75,15 @@ const P = [
   { id: 'ol-heart', no: '03', ac: '#a11d33', pages: [11, 12], t: { en: 'The heart and blood circulation', si: 'හෘදය සහ රුධිර සංසරණය' }, l: { en: 'O/L Science · Human biology', si: 'සා/පෙළ විද්‍යාව · මිනිස් ජීව විද්‍යාව' },
     w: { en: 'Chambers and valves, double circulation, heartbeat and pulse, and arteries, veins and capillaries — with a labelled cut-away heart.', si: 'කුටීර සහ කපාට, ද්විත්ව සංසරණය, හෘද ස්පන්දනය සහ නාඩිය, ධමනි, ශිරා සහ කේශනාලිකා — නම් කළ කපා විවෘත කළ හෘදයක් සමඟ.' },
     i: { en: ['14-label cut-away heart', 'circulation plan', 'label-the-diagram question'], si: ['ලේබල 14ක හෘද රූපය', 'සංසරණ සැලැස්ම', 'රූපය නම් කිරීමේ ප්‍රශ්නය'] } },
-  { id: 'ol-computer', no: '04', ac: '#2b6b3f', pages: [10, 11], t: { en: 'The computer system', si: 'පරිගණක පද්ධතිය' }, l: { en: 'O/L ICT · Grade 10', si: 'සා/පෙළ තො.ස.තා. · 10 ශ්‍රේණිය' },
+  { id: 'ol-computer', no: '04', ac: '#0096c7', ed: [18, 9, 8], t: { en: 'The computer system', si: 'පරිගණක පද්ධතිය' }, l: { en: 'O/L ICT · Grade 10', si: 'සා/පෙළ තො.ස.තා. · 10 ශ්‍රේණිය' },
     w: { en: 'Input–process–output, the parts inside the system unit, the CPU, the machine cycle, the memory hierarchy, RAM and ROM, and storage units.', si: 'ආදානය–සැකසීම–ප්‍රතිදානය, පද්ධති ඒකකය තුළ කොටස්, CPU, යන්ත්‍ර චක්‍රය, මතක ධුරාවලිය, RAM සහ ROM සහ ආචයන ඒකක.' },
     i: { en: ['labelled PC and CPU die', 'exploded view', 'storage-unit sums'], si: ['නම් කළ පරිගණකය සහ CPU චිපය', 'කොටස් වෙන් කළ රූපය', 'ආචයන ඒකක ගණනය'] } },
   { id: 'al-proj', no: '05', ac: '#1f4f8a', pages: [9, 10], t: { en: 'Projectile motion', si: 'ප්‍රක්ෂිප්ත චලිතය' }, l: { en: 'A/L Physics · Mechanics', si: 'උ/පෙළ භෞතික විද්‍යාව · යාන්ත්‍ර විද්‍යාව' },
     w: { en: 'Two independent motions, components, position and velocity at time t, T, H and R, why 45° goes furthest, and horizontal launches.', si: 'ස්වායත්ත චලිත දෙක, සංරචක, t කාලයේදී පිහිටීම සහ ප්‍රවේගය, T, H සහ R, 45° උපරිම දුර යන්නේ ඇයි, සහ තිරස්ව විදීම.' },
     i: { en: ['graphs computed from the equations', 'football and cliff examples', 'A/L structured questions'], si: ['සමීකරණවලින් ගණනය කළ ප්‍රස්තාර', 'පාපන්දු සහ කඳු මුදුන් නිදසුන්', 'උ/පෙළ ව්‍යුහගත ප්‍රශ්න'] } }
 ];
-const T = { en: { e: 'English PDF', s: 'Sinhala PDF', v: 'View online', p: n => `${n} pages` }, si: { e: 'ඉංග්‍රීසි PDF', s: 'සිංහල PDF', v: 'බලන්න', p: n => `පිටු ${n}` } };
+const T = { en: { e: 'English PDF', s: 'Sinhala PDF', v: 'View online', p: n => `${n} pages`, tc: "Teacher's copy (Sinhala + English)", ss: 'Student · Sinhala', se: 'Student · English' },
+  si: { e: 'ඉංග්‍රීසි PDF', s: 'සිංහල PDF', v: 'බලන්න', p: n => `පිටු ${n}`, tc: 'ගුරු පිටපත (සිංහල + English)', ss: 'සිසු පිටපත · සිංහල', se: 'සිසු පිටපත · English' } };
 function render(lang) {
   try { localStorage.setItem('tutes-lang', lang); } catch (e) {}
   document.documentElement.lang = lang; const L = T[lang];
@@ -93,7 +94,7 @@ function render(lang) {
     <a class="cov" href="${p.id}/index.html?lang=${lang}" target="_blank" rel="noopener"><img src="thumbs/${p.id}-${lang}.jpg" alt="${p.t[lang]}" loading="lazy"></a>
     <div><div class="meta">${p.l[lang]}</div><h2>${p.t[lang]}</h2><p class="what">${p.w[lang]}</p>
       <ul class="inside">${p.i[lang].map(x => `<li>${x}</li>`).join('')}</ul>
-      <div class="get">${lang === 'si'
+      <div class="get">${p.ed ? `<a class="pdf" href="${p.id}/${p.id}-teacher.pdf" target="_blank" rel="noopener">${L.tc} <small>${L.p(p.ed[0])}</small></a><a href="${p.id}/${p.id}-student-si.pdf" target="_blank" rel="noopener">${L.ss} <small>${L.p(p.ed[1])}</small></a><a href="${p.id}/${p.id}-student-en.pdf" target="_blank" rel="noopener">${L.se} <small>${L.p(p.ed[2])}</small></a>` : lang === 'si'
         ? `<a class="pdf" href="${p.id}/${p.id}-si.pdf" target="_blank" rel="noopener">${L.s} <small>${L.p(p.pages[1])}</small></a><a href="${p.id}/${p.id}-en.pdf" target="_blank" rel="noopener">${L.e} <small>${L.p(p.pages[0])}</small></a>`
         : `<a class="pdf" href="${p.id}/${p.id}-en.pdf" target="_blank" rel="noopener">${L.e} <small>${L.p(p.pages[0])}</small></a><a href="${p.id}/${p.id}-si.pdf" target="_blank" rel="noopener">${L.s} <small>${L.p(p.pages[1])}</small></a>`}
         <a href="${p.id}/index.html?lang=${lang}" target="_blank" rel="noopener">${L.v}</a></div>

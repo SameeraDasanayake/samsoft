@@ -1,5 +1,5 @@
 // O/L ICT — The computer system. Renders from the ol-computer deck (pc.glb, cpu.glb built in Blender) + block diagrams.
-const INK = '#1c1d1f', AC = '#2b6b3f', T1 = '#e3efe6', T2 = '#c9e0cf';
+const INK = '#0b1426', AC = '#0096c7', T1 = '#e3f6fc', T2 = '#ece4ff';
 const tx = (x, y, s, a = 'middle', c = 't', fs = 13) => `<text class="${c}" x="${x}" y="${y}" font-size="${fs}" text-anchor="${a}">${s}</text>`;
 
 const ipo = SVG2(l => {
@@ -19,7 +19,7 @@ const cycle = SVG2(l => {
   const cx = 170, cy = 135, R = 106, pt = d => [(cx + R * Math.cos(d * Math.PI / 180)).toFixed(1), (cy - R * Math.sin(d * Math.PI / 180)).toFixed(1)];
   const arc = (d0, d1) => { const [x0, y0] = pt(d0), [x1, y1] = pt(d1); return `<path d="M${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1}" fill="none" stroke="${INK}" stroke-width="2.2" marker-end="url(#mcA)"/>`; };
   const P = [[90, B('1 Fetch', '1 ලබා ගැනීම')], [0, B('2 Decode', '2 විකේතනය')], [-90, B('3 Execute', '3 ක්‍රියාත්මක කිරීම')], [180, B('4 Store', '4 ගබඩා කිරීම')]];
-  return SVG(84, 340, 270, `${ARROW('mcA')}<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="${INK}" stroke-width="1" stroke-dasharray="4 5"/>
+  return SVG(62, 340, 270, `${ARROW('mcA')}<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="${INK}" stroke-width="1" stroke-dasharray="4 5"/>
     ${arc(50, 16)}${arc(-16, -50)}${arc(-130, -164)}${arc(164, 130)}
     ${P.map(([d, t]) => { const [x, y] = pt(d).map(Number); return `<rect x="${x - 62}" y="${y - 15}" width="124" height="30" fill="${T2}" stroke="${INK}" stroke-width="1.4"/>${tx(x, y + 5, l(t), 'middle', 't', 12.5)}`; }).join('')}
     ${tx(cx, cy - 4, 'CPU', 'middle', 'ta', 18)}${tx(cx, cy + 16, l(B('one instruction', 'එක් උපදෙසක්')), 'middle', 't', 11)}`);
@@ -28,7 +28,7 @@ const cycle = SVG2(l => {
 const hier = SVG2(l => {
   const L = [[B('Registers', 'රෙජිස්තර'), B('inside the CPU', 'CPU තුළ')], [B('Cache memory', 'නිහිත මතකය'), B('on the CPU chip', 'CPU චිපය මත')],
     [B('Main memory (RAM)', 'ප්‍රධාන මතකය (RAM)'), B('programs that are running', 'ක්‍රියාත්මක වන වැඩසටහන්')], [B('Secondary storage', 'ද්විතීයික ආචයනය'), B('SSD, hard disk: kept when power is off', 'SSD, දෘඪ තැටිය: විදුලිය නැති විටද රැඳේ')]];
-  const fills = ['#2b6b3f', '#5f8f6c', '#a9c8b0', '#dbe9de'];
+  const fills = ['#3b1f9e', '#4f6cf7', '#7fd3f0', '#dff4fb'];
   return SVG(150, 520, 236, `${ARROW('hA')}${L.map(([a, b], i) => {
     const y = 10 + i * 54, w0 = 90 + i * 70, w1 = w0 + 70, cx = 260;
     return `<path d="M${cx - w0 / 2} ${y} H${cx + w0 / 2} L${cx + w1 / 2} ${y + 50} H${cx - w1 / 2} Z" fill="${fills[i]}" stroke="${INK}" stroke-width="1.2"/>` +
@@ -40,7 +40,7 @@ const hier = SVG2(l => {
 });
 
 window.TUTE = {
-  no: '04', code: 'OLI-T4', accent: '#2b6b3f', hero: 'pc-hero',
+  no: '04', code: 'OLI-T4', accent: '#0096c7', hero: 'pc-hero',
   inst: B('Kelani Academy', 'කැලණි ඇකඩමිය'), teacher: B('O/L ICT class', 'සා/පෙළ තොරතුරු හා සන්නිවේදන තාක්ෂණය පන්තිය'),
   subject: B('ICT', 'තො.ස.තා.'), grade: B('O/L · Grade 10', 'සා/පෙළ · 10 ශ්‍රේණිය'),
   title: B('The computer system', 'පරිගණක පද්ධතිය'),
@@ -64,9 +64,6 @@ window.TUTE = {
       lead: B('The case that holds the main parts is the <b>system unit</b>. Take off the side panel and every part you see is connected to one large circuit board: the <b>motherboard</b>.',
         'ප්‍රධාන කොටස් අඩංගු ආවරණය <b>පද්ධති ඒකකයයි</b>. පැති පුවරුව ඉවත් කළ විට පෙනෙන සෑම කොටසක්ම එක් විශාල පරිපථ පුවරුවකට සම්බන්ධ වී ඇත: එනම් <b>මවු පුවරුව</b>.'),
       s: { term: B('motherboard', 'මවු පුවරුව'), d: B('The main circuit board; all parts connect to it.', 'ප්‍රධාන පරිපථ පුවරුව; සියලු කොටස් එයට සම්බන්ධ වේ.') } },
-    { fig: { img: 'pc-inside', w: 172, lw: 38, rw: 38, labels: [['CPU + cooler', null, 'l'], ['SSD', null, 'l'], ['Power supply unit', null, 'l'], ['NVMe SSD', null, 'l'],
-        ['RAM', null, 'r'], ['Motherboard', null, 'r'], ['Graphics card', null, 'r'], ['Cooling fan', null, 'r'], ['Hard disk', null, 'r']] },
-      cap: B('Inside a desktop computer (side panel removed).', 'ඩෙස්ක්ටොප් පරිගණකයක් ඇතුළත (පැති පුවරුව ඉවත් කර).'), wide: true },
     { tbl: { head: [B('Part', 'කොටස'), B('Job', 'කාර්යය')],
       rows: [[B('CPU', 'CPU'), B('processes data and runs instructions', 'දත්ත සකසා උපදෙස් ක්‍රියාත්මක කරයි')],
         [B('RAM', 'RAM'), B('holds the programs and data in use now', 'දැනට භාවිත වන වැඩසටහන් සහ දත්ත රඳවා ගනී')],
@@ -75,7 +72,10 @@ window.TUTE = {
         [B('Power supply unit', 'බල සැපයුම් ඒකකය'), B('changes mains AC into the low DC voltages the parts need', 'ප්‍රධාන AC විදුලිය කොටස්වලට අවශ්‍ය අඩු DC වෝල්ටීයතාවලට හරවයි')],
         [B('Cooler and fans', 'සිසිලනය සහ පංකා'), B('carry heat away so the parts do not overheat', 'කොටස් අධික ලෙස රත් නොවීමට තාපය ඉවත් කරයි')]] },
       s: { rem: B('Parts outside the system unit (keyboard, monitor, printer…) are called <b>peripherals</b>.', 'පද්ධති ඒකකයෙන් පිටත ඇති කොටස් (යතුරු පුවරුව, මොනිටරය, මුද්‍රණ යන්ත්‍රය…) <b>පර්යන්ත උපාංග</b> ලෙස හැඳින්වේ.') } },
-    { fig: { img: 'pc-explode', w: 84 }, cap: B('The same computer taken apart: every part leaves the motherboard.', 'එම පරිගණකයම කොටස් වෙන් කළ විට: සෑම කොටසක්ම මවු පුවරුවෙන් ඉවත් වේ.'),
+    { fig: { img: 'pc-inside', w: 172, lw: 38, rw: 38, labels: [['CPU + cooler', null, 'l'], ['SSD', null, 'l'], ['Power supply unit', null, 'l'], ['NVMe SSD', null, 'l'],
+        ['RAM', null, 'r'], ['Motherboard', null, 'r'], ['Graphics card', null, 'r'], ['Cooling fan', null, 'r'], ['Hard disk', null, 'r']] },
+      cap: B('Inside a desktop computer (side panel removed).', 'ඩෙස්ක්ටොප් පරිගණකයක් ඇතුළත (පැති පුවරුව ඉවත් කර).'), wide: true },
+    { fig: { img: 'pc-explode', w: 66 }, cap: B('The same computer taken apart: every part leaves the motherboard.', 'එම පරිගණකයම කොටස් වෙන් කළ විට: සෑම කොටසක්ම මවු පුවරුවෙන් ඉවත් වේ.'),
       s: [{ term: B('bus', 'බසය'), d: B('A set of wires on the motherboard that carries signals between parts.', 'කොටස් අතර සංඥා ගෙන යන, මවු පුවරුවේ ඇති කම්බි සමූහයකි.') },
         { note: B('<b>Data bus</b> — carries the data.<br><b>Address bus</b> — carries where in memory.<br><b>Control bus</b> — carries commands such as read / write.', '<b>දත්ත බසය</b> — දත්ත ගෙන යයි.<br><b>ලිපින බසය</b> — මතකයේ ස්ථානය ගෙන යයි.<br><b>පාලන බසය</b> — කියවීම / ලිවීම වැනි විධාන ගෙන යයි.'), tag: B('Three buses', 'බස් තුන') }] },
 

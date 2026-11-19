@@ -1,0 +1,143 @@
+/* Samsoft tutes — FUTURISTIC theme (loads after tute.css).
+   Dark neon cover with grid + HUD brackets, gradient chips, glass-tinted panels, mono "system" labels.
+   Palette: cyan -> violet on deep navy. */
+:root {
+  --ink: #0b1426; --ink2: #3b4a63; --mute: #7a879c; --hair: #d6deea;
+  --ac: #0096c7; --ac2: #7b2ff7; --neon: #22e4ff; --navy: #070d1c;
+  --grad: linear-gradient(100deg, #00b4d8 0%, #4f6cf7 55%, #7b2ff7 100%);
+  --tint: #f1f8fd; --tint2: #f4f0ff;
+  --body: 'Literata', 'Noto Sans Sinhala', serif;
+  --head: 'Space Grotesk', 'Noto Sans Sinhala', sans-serif;
+  --disp: 'Space Grotesk', 'Gemunu Libre', sans-serif;
+  --mono: 'JetBrains Mono', 'Noto Sans Sinhala', monospace;
+}
+html[lang=si] { --body: 'Noto Sans Sinhala', 'Literata', sans-serif; --head: 'Noto Sans Sinhala', 'Space Grotesk', sans-serif; --disp: 'Gemunu Libre', 'Noto Sans Sinhala', sans-serif; }
+html { background: #0d1324; }
+@media print { html { background: #fff; } }
+.bar { background: #060b17; border-bottom: 1px solid #22e4ff33; }
+.bar a.on, .bar a:hover { border-color: var(--neon); }
+
+/* ================= COVER ================= */
+.cover { background: var(--navy); color: #fff; }
+.cover::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: url(cover-ict.jpg) center / cover no-repeat; }
+.cover::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1.6mm; background: var(--grad); }
+.cover .band { display: none; }
+.cover .top { color: #9fd8ff; font: 700 7.6pt/1 var(--mono); letter-spacing: .18em; top: 12mm; }
+html[lang=si] .cover .top { font: 600 9pt/1 'Noto Sans Sinhala', sans-serif; letter-spacing: .02em; }
+.cover .top span:first-child::before { content: '// '; color: var(--neon); }
+.cover .no { top: 26mm; left: 15mm; opacity: 1; font: 700 64pt/.9 'Space Grotesk', sans-serif; color: transparent;
+  -webkit-text-stroke: .5mm #22e4ffcc; letter-spacing: -.02em; }
+.cover .no::after { content: 'TUTE'; display: block; margin-top: 2mm; font: 700 7pt/1 var(--mono); letter-spacing: .5em; color: #22e4ff; -webkit-text-stroke: 0; }
+.cover h1 { top: 64mm; color: #fff;  }
+.cover .sub { top: 100mm; color: #c6d3ea; }
+.cover .hero { top: 36mm; }
+.cover .hero::before, .cover .hero::after { content: ''; position: absolute; width: 14mm; height: 14mm; border: .6mm solid var(--neon); }
+.cover .hero::before { left: -2mm; top: 2mm; border-right: 0; border-bottom: 0; }
+.cover .hero::after { right: 0; bottom: 2mm; border-left: 0; border-top: 0; }
+.cover .hero img { filter: none; }
+.cover .who { top: 170mm; }
+.cover .who div { border: .3mm solid #22e4ff55; border-radius: 2mm; background: #ffffff08; padding: 0 3mm 2mm; color: #8fb3d9; font: 700 7pt/1 var(--mono); letter-spacing: .2em; }
+html[lang=si] .cover .who div { font: 600 8.6pt/1 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.cover .toc { top: 192mm; }
+.cover .toc h3 { color: var(--neon); font: 700 7.6pt/1 var(--mono); letter-spacing: .24em; }
+html[lang=si] .cover .toc h3 { font: 700 10pt/1 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.cover .toc ol { columns: 2; column-gap: 6mm; }
+.cover .toc li { border: .3mm solid #ffffff1a; border-radius: 2mm; background: linear-gradient(100deg, #ffffff0d, #ffffff03); padding: 2.2mm 3mm; margin-bottom: 2mm; color: #e7eefc; }
+.cover .toc li span { font: 700 8pt/1 var(--mono); color: var(--neon); }
+.cover .foot { border-top: .4mm solid #22e4ff66; color: #9fb3d3; }
+.cover .foot b { color: #fff; }
+.cover .foot .meta { font-family: var(--mono); font-size: 7.6pt; letter-spacing: .12em; color: #22e4ff; }
+
+/* ================= SECTION HEADINGS ================= */
+.sec { grid-template-columns: auto 1fr; gap: 4mm; align-items: center; border-bottom: 0; padding-bottom: 2.4mm; position: relative; margin: 7mm 0 4mm; }
+.sec::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: .7mm; border-radius: 1mm; background: linear-gradient(90deg, #00b4d8, #7b2ff7 60%, transparent); }
+.sec .n { font: 700 11pt/1 var(--mono); color: #fff; background: var(--grad); padding: 2.2mm 3mm; border-radius: 2mm; letter-spacing: .04em; box-shadow: 0 1.5mm 4mm #4f6cf740; }
+.sec .n::before { content: '#'; opacity: .7; margin-right: .6mm; }
+.sec h2 { font-weight: 700; letter-spacing: -.01em; }
+h3.sub { color: var(--ink); padding-left: 3mm; border-left: .9mm solid var(--ac); }
+ul.dots li::before { width: 1.8mm; height: 1.8mm; border-radius: .4mm; background: var(--grad); transform: rotate(45deg); }
+
+/* ================= MARGIN COLUMN ================= */
+.row > .s { border-left: .5mm solid transparent; border-image: linear-gradient(#00b4d8, #7b2ff7) 1; }
+.s .term b { font-family: var(--head); }
+.s .term em { color: var(--ac2); }
+.s .tag { font-family: var(--mono); color: var(--ac); letter-spacing: .18em; }
+html[lang=si] .s .tag { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+
+/* ================= FIGURES (HUD frame) ================= */
+figure .art { position: relative; padding: 2mm; }
+figure .art::before, figure .art::after { content: ''; position: absolute; width: 5mm; height: 5mm; border: .45mm solid var(--ac); opacity: .8; }
+figure .art::before { left: 0; top: 0; border-right: 0; border-bottom: 0; }
+figure .art::after { right: 0; bottom: 0; border-left: 0; border-top: 0; }
+.s figure .art { padding: 0; } .s figure .art::before, .s figure .art::after { display: none; }
+figcaption b { font-family: var(--mono); color: var(--ac2); }
+.lab .dt { fill: var(--ac); }
+svg .ta { fill: var(--ac); }
+
+/* ================= BOXES ================= */
+.box { border-top: 0; border-radius: 2.6mm; background: linear-gradient(120deg, #eaf7fd, #f3eeff); position: relative; overflow: hidden; padding-left: 5.4mm; }
+.box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1.2mm; background: var(--grad); }
+.box > .bt { font-family: var(--mono); color: var(--ac); letter-spacing: .2em; }
+html[lang=si] .box > .bt { font-family: 'Noto Sans Sinhala', sans-serif; font-weight: 700; letter-spacing: 0; }
+.box.key { background: radial-gradient(60mm 30mm at 100% 0%, #7b2ff755, transparent 70%), var(--navy); border: .3mm solid #22e4ff66; color: #eaf2ff; }
+.box.key::before { background: linear-gradient(#22e4ff, #7b2ff7); }
+.box.key > .bt { color: var(--neon); }
+
+/* ================= WORKED EXAMPLE ================= */
+.ex { border-left: 0; padding: 3mm 4mm; border-radius: 2.6mm; border: .3mm solid #0096c744; background: #fbfdff; }
+.ex .eh span { font-family: var(--mono); color: #fff; background: var(--grad); padding: 1.2mm 2.4mm; border-radius: 1.4mm; letter-spacing: .14em; }
+html[lang=si] .ex .eh span { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+.ex ol.steps li::before { font-family: var(--mono); color: var(--ac); }
+.ex .ea { background: var(--navy); color: #22e4ff; border-radius: 1.6mm; }
+
+/* ================= TABLES ================= */
+table.t { border-collapse: separate; border-spacing: 0; border: .3mm solid #c9d6ea; border-radius: 2.4mm; overflow: hidden; }
+table.t th { background: var(--grad); color: #fff; border-bottom: 0; font-family: var(--mono); letter-spacing: .1em; }
+html[lang=si] table.t th { font-family: 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
+table.t tr:nth-child(even) td { background: #f3f8fd; }
+
+/* ================= QUICK CHECK ================= */
+.check { border: .4mm dashed var(--ac); border-radius: 2.6mm; padding-top: 4mm; background: #fbfdff; }
+.check > .bt { top: -2.8mm; background: var(--navy); color: var(--neon); border-radius: 1.4mm; padding: .9mm 2.4mm; font-family: var(--mono); }
+html[lang=si] .check > .bt { font-family: 'Noto Sans Sinhala', sans-serif; }
+
+/* ================= EXERCISES ================= */
+.exh { border-bottom: 0; position: relative; padding-bottom: 2.4mm; }
+.exh::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: .6mm; background: linear-gradient(90deg, #00b4d8, #7b2ff7 60%, transparent); border-radius: 1mm; }
+.q .qn, .sq .qn { font: 700 8.4pt/1 var(--mono); color: #fff; background: var(--grad); border-radius: 1.2mm; height: 5.4mm; width: 6.6mm; display: grid; place-items: center; margin-top: .4mm; }
+.q .abox { border: .4mm solid var(--ac); border-radius: 1.4mm; }
+.q { border-top: .3mm solid var(--hair); }
+
+/* ================= SUMMARY / ANSWERS ================= */
+.sum li { background: linear-gradient(120deg, #eaf7fd, #f3eeff); border-radius: 2.4mm; }
+.sum li::before { font-family: var(--mono); color: var(--ac2); }
+.gloss div span { color: var(--ac2); }
+.ans h4 { font-family: var(--mono); color: var(--ac); }
+html[lang=si] .ans h4 { font-family: 'Noto Sans Sinhala', sans-serif; }
+.ans .mcqk div { border-radius: 1.4mm; border-color: #c9d6ea; }
+.ans .mcqk div b { color: var(--ac2); }
+
+/* less empty space: big rows may split across pages; the parts inside them stay whole */
+.row { break-inside: avoid; } .row.rtbl, .row.rfig { break-inside: auto; }
+.row figure, .box, .ex, .check, table.t tr, .sum li, .q, .qp { break-inside: avoid; }
+
+/* margin notes float in the right column, so the main text never waits for them (no gaps after short paragraphs) */
+.row { display: block; }
+.row > .s { float: right; clear: right; width: var(--side); margin: 0 0 2mm var(--gap); }
+.row > .m { margin-right: calc(var(--side) + var(--gap)); }
+.row.wide { clear: both; } .row.wide > .m { margin-right: 0; }
+.sec, .exh, .sum, .gloss, .ans { clear: both; }
+.cover .toc { top: 168mm; }
+
+.check { margin-top: 4.5mm; }
+.check > .bt { position: static; display: inline-block; margin: 0 0 1.6mm; }
+.check { margin-top: 2mm; padding-top: 2.6mm; }
+
+/* editions: student blanks / teacher highlighted answers */
+.blank { display: inline-block; max-width: 100%; height: 1.05em; vertical-align: -.2em; border-bottom: .3mm dashed var(--ac); background: #eef8fd; border-radius: .6mm .6mm 0 0; margin: 0 .15em; }
+.key .blank, .box.key .blank { background: #ffffff14; border-color: var(--neon); }
+b.fill { background: linear-gradient(transparent 58%, #22e4ff55 58%); padding: 0 .1em; }
+.box.key b.fill { background: linear-gradient(transparent 58%, #7b2ff7aa 58%); }
+.cover .ed { position: absolute; right: 16mm; top: 20mm; padding: 1.6mm 3.2mm; border-radius: 1.6mm; font: 700 7.4pt/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: #06101f; background: var(--neon); }
+.cover .ed.student { background: #ffb21e; }
+html[lang=si] .cover .ed { font: 700 9pt/1 'Noto Sans Sinhala', sans-serif; letter-spacing: 0; }
