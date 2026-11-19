@@ -649,3 +649,17 @@ html[data-lang="si"] .bp b { font-size: 30px; }
 
 .scards.two { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 640px) { .scards.two { grid-template-columns: 1fr; } }
+
+/* LMS packages */
+.pkgs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 10px; align-items: stretch; }
+.pkg { position: relative; display: flex; flex-direction: column; padding: 26px; border-radius: 24px; }
+.pkg.hot { border-color: rgba(255, 178, 30, .55); background: linear-gradient(160deg, rgba(255, 178, 30, .16), rgba(255, 178, 30, .03)); box-shadow: 0 0 0 1px rgba(255, 178, 30, .25), 0 30px 60px rgba(0, 0, 0, .4); }
+.pkg-h { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--edge); }
+.pkg-h small { display: inline-block; font-size: 12.5px; color: var(--amber); margin-bottom: 6px; }
+.pkg.hot .pkg-h small { color: #1a1000; background: var(--amber); padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+.pkg-h b { display: block; font: 700 26px/1.2 "Outfit", sans-serif; color: #fff; }
+.pkg-p { display: block; font: 700 34px/1.2 "Outfit", sans-serif; color: var(--amber); margin-top: 4px; }
+.pkg-h em { font-style: normal; font-size: 13px; color: var(--muted); }
+.pkg .ticks { flex: 1; margin-bottom: 22px; } .pkg .ticks li { font-size: 14.5px; color: var(--text-2); }
+.pkg-b { display: grid; gap: 10px; } .pkg-b .btn { justify-content: center; height: 46px; font-size: 14.5px; }
+@media (max-width: 1020px) { .pkgs { grid-template-columns: 1fr; } }

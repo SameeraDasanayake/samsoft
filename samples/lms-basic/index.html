@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="si" data-lang="si" data-theme="light">
+<html lang="si" data-lang="si" data-theme="light" data-role="student" data-pkg="basic">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kasun ICT · LMS | Samsoft sample (Basic)</title>
+<title>Kasun ICT · LMS | Samsoft sample</title>
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="../tutes/engine/fonts/fonts.css">
 <link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="more.css">
 </head>
 <body>
 
@@ -17,64 +18,83 @@
     <div class="brand big"><span class="mark">K</span><span><b>Kasun ICT</b><small>Learning Portal</small></span></div>
     <h1><span lang="si">ආයුබෝවන් 👋</span><span lang="en">Welcome back 👋</span></h1>
     <p class="muted"><span lang="si">ඔබේ පන්ති recordings, සටහන් සහ දැන්වීම් එක තැනකින්.</span><span lang="en">Your class recordings, notes and notices in one place.</span></p>
+    <div class="roles" id="roles">
+      <button type="button" data-r="student" aria-pressed="true"><i>🎓</i><span lang="si">සිසුවා</span><span lang="en">Student</span></button>
+      <button type="button" data-r="teacher" aria-pressed="false"><i>🧑‍🏫</i><span lang="si">ගුරුතුමා (Admin)</span><span lang="en">Teacher (admin)</span></button>
+    </div>
     <form id="loginForm">
-      <label><span lang="si">සිසු අංකය හෝ දුරකථන අංකය</span><span lang="en">Student ID or phone</span>
+      <label><span class="r-s"><span lang="si">සිසු අංකය හෝ දුරකථන අංකය</span><span lang="en">Student ID or phone</span></span><span class="r-t">Admin email</span>
         <span class="field"><i>#</i><input id="uid" value="KJ-2027-0148" autocomplete="off"></span></label>
       <label><span lang="si">මුරපදය</span><span lang="en">Password</span>
         <span class="field"><i>🔒</i><input id="pw" type="password" value="demo1234"><button type="button" class="eye" id="eye" aria-label="Show">👁</button></span></label>
       <button class="btn grad" type="submit"><span lang="si">ඇතුළු වන්න</span><span lang="en">Log in</span> →</button>
       <p class="hint"><span lang="si">ආදර්ශ ගිණුමක් දැනටමත් පුරවා ඇත. "ඇතුළු වන්න" ඔබන්න.</span><span lang="en">A demo account is already filled in. Press "Log in".</span></p>
     </form>
-    <div class="login-foot"><button class="chip-btn" data-act="lang"><span lang="si">English</span><span lang="en">සිංහල</span></button><span>Samsoft LMS · Basic</span></div>
+    <div class="login-foot"><button class="chip-btn" data-act="lang"><span lang="si">English</span><span lang="en">සිංහල</span></button><span>Samsoft LMS</span></div>
   </div>
 </section>
 
 <!-- ================= APP ================= -->
 <div class="app" id="app" hidden>
-  <aside class="side">
-    <div class="brand"><span class="mark">K</span><span><b>Kasun ICT</b><small>Learning Portal</small></span></div>
-    <nav class="menu" id="menu">
-      <a data-v="home" class="on"><i>⌂</i><span lang="si">මුල් පිටුව</span><span lang="en">Home</span></a>
-      <a data-v="rec"><i>▶</i><span lang="si">Recordings</span><span lang="en">Recordings</span></a>
-      <a data-v="notes"><i>⎙</i><span lang="si">සටහන් සහ PDF</span><span lang="en">Notes &amp; PDFs</span></a>
-      <a data-v="news"><i>✦</i><span lang="si">දැන්වීම්</span><span lang="en">Notices</span><b class="badge" id="newsBadge">2</b></a>
-      <a data-v="me"><i>☺</i><span lang="si">මගේ ගිණුම</span><span lang="en">My account</span></a>
-    </nav>
-    <div class="side-card">
+  <aside class="side" id="side">
+    <div class="brand"><span class="mark">K</span><span><b>Kasun ICT</b><small class="r-s">Learning Portal</small><small class="r-t">Admin panel</small></span></div>
+    <nav class="menu" id="menu"></nav>
+    <div class="side-card r-s">
       <small><span lang="si">ඊළඟ පන්තිය</span><span lang="en">Next class</span></small>
       <b><span lang="si">ඉරිදා · පෙ.ව. 8.00</span><span lang="en">Sunday · 8.00 am</span></b>
       <div class="cd" id="cdSide"></div>
     </div>
+    <div class="side-card r-t">
+      <small><span lang="si">මේ මාසයේ ගාස්තු</span><span lang="en">This month's fees</span></small>
+      <b class="side-money" id="sideMoney">Rs. 0</b>
+      <div class="side-bar"><i id="sideBar"></i></div>
+      <small id="sidePaid"></small>
+    </div>
   </aside>
+  <div class="scrim" id="scrim"></div>
 
   <div class="main">
+    <div class="pkgbar" id="pkgbar">
+      <span class="pk-l"><b>SAMPLE</b> <span lang="si">පැකේජය:</span><span lang="en">Package:</span></span>
+      <div class="pk-seg" id="pkSeg">
+        <button data-p="basic">Basic <small>20,000</small></button>
+        <button data-p="medium">Medium <small>40,000</small></button>
+        <button data-p="advanced">Advanced <small>75,000</small></button>
+      </div>
+      <button class="pk-role" data-act="role"><span class="r-s"><span lang="si">ගුරු Admin පැත්ත →</span><span lang="en">Teacher admin side →</span></span><span class="r-t"><span lang="si">සිසු පැත්ත →</span><span lang="en">Student side →</span></span></button>
+    </div>
     <header class="bar">
-      <button class="icon only-m" id="mBrand" aria-hidden="true"><span class="mark sm">K</span></button>
-      <div class="search"><i>⌕</i><input id="q" placeholder="Search lessons, notes…"></div>
+      <button class="icon only-m" id="mBrand" aria-label="Menu"><span class="mark sm">K</span></button>
+      <div class="search"><i>⌕</i><input id="q" placeholder="Search…"></div>
       <div class="bar-r">
+        <span class="pts r-s pk-adv" title="Points">🪙 <b id="ptsVal">1,240</b></span>
         <button class="icon" data-act="theme" title="Theme">◐</button>
         <button class="icon" data-act="lang" title="Language"><span lang="si">EN</span><span lang="en">සිං</span></button>
-        <button class="icon bell" data-v="news" title="Notices">🔔<b id="bellDot"></b></button>
-        <button class="me" data-v="me"><span class="av">ස</span><span class="hide-s"><b><span lang="si">සෙනුරි</span><span lang="en">Senuri</span></b><small>11 · O/L 2027</small></span></button>
+        <button class="icon bell r-s" data-v="news" title="Notices">🔔<b id="bellDot"></b></button>
+        <button class="me r-s" data-v="me"><span class="av">ස</span><span class="hide-s"><b><span lang="si">සෙනුරි</span><span lang="en">Senuri</span></b><small>11 · O/L 2027</small></span></button>
+        <button class="me r-t" data-v="t-set"><span class="av t">ක</span><span class="hide-s"><b><span lang="si">කසුන් සර්</span><span lang="en">Kasun Sir</span></b><small>Admin</small></span></button>
       </div>
     </header>
 
-    <!-- HOME -->
-    <section class="view on" id="v-home">
+    <!-- ============ STUDENT: HOME ============ -->
+    <section class="view" id="v-home">
       <div class="hello glass-dark">
         <div>
           <p class="eyebrow"><span lang="si">11 ශ්‍රේණිය · 2027 සා/පෙළ ICT</span><span lang="en">Grade 11 · 2027 O/L ICT</span></p>
           <h2><span lang="si">සුභ උදෑසනක්, සෙනුරි!</span><span lang="en">Good morning, Senuri!</span></h2>
           <p><span lang="si">මේ සතියේ පාඩම: <b>ජාල සහ අන්තර්ජාලය</b>. පසුගිය පන්තියේ recording එක දැන් බලන්න පුළුවන්.</span><span lang="en">This week: <b>Networks and the Internet</b>. Last class's recording is ready to watch.</span></p>
-          <div class="row-btns"><button class="btn lime" data-play="r1">▶ <span lang="si">Recording එක බලන්න</span><span lang="en">Watch the recording</span></button><button class="btn ghost-l" data-v="notes"><span lang="si">සටහන් බාගන්න</span><span lang="en">Get the notes</span></button></div>
+          <div class="row-btns"><button class="btn lime" data-play="r1">▶ <span lang="si">Recording එක බලන්න</span><span lang="en">Watch the recording</span></button><button class="btn ghost-l pk-med" data-v="papers">✎ <span lang="si">Paper 09 කරන්න</span><span lang="en">Do paper 09</span></button><button class="btn ghost-l pk-adv" data-v="games">🎮 Games</button></div>
         </div>
         <div class="ring" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="trk"/><circle cx="60" cy="60" r="50" class="val" id="ringVal"/></svg><div><b id="ringTxt">0%</b><small><span lang="si">පාඩම් බලා ඇත</span><span lang="en">lessons watched</span></small></div></div>
       </div>
 
       <div class="stats">
-        <div class="stat glass"><i>▶</i><b data-count="18">0</b><small><span lang="si">Recordings</span><span lang="en">Recordings</span></small></div>
-        <div class="stat glass"><i>⎙</i><b data-count="24">0</b><small><span lang="si">සටහන් / PDF</span><span lang="en">Notes / PDFs</span></small></div>
-        <div class="stat glass"><i>⏱</i><b data-count="31">0</b><small><span lang="si">බැලූ පැය</span><span lang="en">hours watched</span></small></div>
+        <div class="stat glass"><i>▶</i><b data-count="18">0</b><small>Recordings</small></div>
+        <div class="stat glass pk-basic-only"><i>⎙</i><b data-count="24">0</b><small><span lang="si">සටහන් / PDF</span><span lang="en">Notes / PDFs</span></small></div>
+        <div class="stat glass pk-basic-only"><i>⏱</i><b data-count="31">0</b><small><span lang="si">බැලූ පැය</span><span lang="en">hours watched</span></small></div>
+        <div class="stat glass pk-med"><i>✎</i><b data-count="78" data-suf="%">0</b><small><span lang="si">සාමාන්‍ය ලකුණු</span><span lang="en">average mark</span></small></div>
+        <div class="stat glass pk-med-only"><i>🏆</i><b data-count="7" data-pre="#">0</b><small><span lang="si">පන්තියේ ස්ථානය</span><span lang="en">class rank</span></small></div>
+        <div class="stat glass pk-adv"><i>🔥</i><b data-count="12">0</b><small><span lang="si">දින streak එක</span><span lang="en">day streak</span></small></div>
         <div class="stat glass pay"><i>✓</i><b><span lang="si">ගෙවා ඇත</span><span lang="en">Paid</span></b><small><span lang="si">දෙසැම්බර් ගාස්තුව</span><span lang="en">December fee</span></small></div>
       </div>
 
@@ -89,13 +109,18 @@
         </div>
       </div>
 
+      <div class="panel glass pk-adv">
+        <div class="ph"><h3><span lang="si">අද දවසේ missions</span><span lang="en">Today's missions</span></h3><a data-v="rewards"><span lang="si">ත්‍යාග</span><span lang="en">Rewards</span> →</a></div>
+        <div class="missions" id="missionsHome"></div>
+      </div>
+
       <div class="panel glass">
         <div class="ph"><h3><span lang="si">මේ සතියේ කාලසටහන</span><span lang="en">This week</span></h3></div>
         <div class="week" id="week"></div>
       </div>
     </section>
 
-    <!-- RECORDINGS -->
+    <!-- ============ STUDENT: RECORDINGS ============ -->
     <section class="view" id="v-rec">
       <div class="vh"><div><p class="eyebrow">Recordings</p><h2><span lang="si">පන්ති recordings</span><span lang="en">Class recordings</span></h2></div>
         <div class="tabs" id="recTabs"><button aria-pressed="true" data-f="all"><span lang="si">සියල්ල</span><span lang="en">All</span></button><button data-f="theory">Theory</button><button data-f="paper"><span lang="si">Paper සාකච්ඡා</span><span lang="en">Paper class</span></button><button data-f="practical">Practicals</button></div></div>
@@ -103,21 +128,29 @@
       <div class="recs" id="recs"></div>
     </section>
 
-    <!-- NOTES -->
+    <!-- ============ STUDENT: NOTES ============ -->
     <section class="view" id="v-notes">
       <div class="vh"><div><p class="eyebrow">Downloads</p><h2><span lang="si">සටහන් සහ PDF</span><span lang="en">Notes and PDFs</span></h2></div>
         <div class="tabs" id="noteTabs"><button aria-pressed="true" data-f="all"><span lang="si">සියල්ල</span><span lang="en">All</span></button><button data-f="tute">Tutes</button><button data-f="paper">Papers</button><button data-f="other"><span lang="si">වෙනත්</span><span lang="en">Other</span></button></div></div>
       <div class="notes" id="notes"></div>
     </section>
 
-    <!-- NEWS -->
+    <!-- ============ STUDENT: NEWS ============ -->
     <section class="view" id="v-news">
       <div class="vh"><div><p class="eyebrow"><span lang="si">පන්ති දැන්වීම්</span><span lang="en">Class notices</span></p><h2><span lang="si">දැන්වීම්</span><span lang="en">Notices</span></h2></div>
         <button class="btn ghost-d" id="readAll"><span lang="si">සියල්ල කියවූ ලෙස සලකුණු කරන්න</span><span lang="en">Mark all as read</span></button></div>
       <div class="news" id="news"></div>
     </section>
 
-    <!-- ME -->
+    <!-- medium / advanced student views (extra.js) -->
+    <section class="view" id="v-papers"></section>
+    <section class="view" id="v-results"></section>
+    <section class="view" id="v-games"></section>
+    <section class="view" id="v-typing"></section>
+    <section class="view" id="v-rewards"></section>
+    <section class="view" id="v-lab"></section>
+
+    <!-- ============ STUDENT: ME ============ -->
     <section class="view" id="v-me">
       <div class="vh"><div><p class="eyebrow"><span lang="si">ගිණුම</span><span lang="en">Account</span></p><h2><span lang="si">මගේ ගිණුම</span><span lang="en">My account</span></h2></div></div>
       <div class="grid2">
@@ -138,15 +171,19 @@
         </div>
       </div>
     </section>
+
+    <!-- teacher views (admin.js) -->
+    <section class="view" id="v-t-dash"></section>
+    <section class="view" id="v-t-students"></section>
+    <section class="view" id="v-t-fees"></section>
+    <section class="view" id="v-t-upload"></section>
+    <section class="view" id="v-t-news"></section>
+    <section class="view" id="v-t-papers"></section>
+    <section class="view" id="v-t-games"></section>
+    <section class="view" id="v-t-set"></section>
   </div>
 
-  <nav class="tabbar" id="tabbar">
-    <a data-v="home" class="on"><i>⌂</i><span lang="si">මුල</span><span lang="en">Home</span></a>
-    <a data-v="rec"><i>▶</i><span lang="si">Videos</span><span lang="en">Videos</span></a>
-    <a data-v="notes"><i>⎙</i><span lang="si">සටහන්</span><span lang="en">Notes</span></a>
-    <a data-v="news"><i>✦</i><span lang="si">දැන්වීම්</span><span lang="en">Notices</span></a>
-    <a data-v="me"><i>☺</i><span lang="si">මම</span><span lang="en">Me</span></a>
-  </nav>
+  <nav class="tabbar" id="tabbar"></nav>
 </div>
 
 <!-- PLAYER -->
@@ -163,8 +200,12 @@
   </div>
 </div>
 
+<!-- SHEET: games, paper, forms -->
+<div class="modal" id="sheet" hidden><div class="sheet glass" id="sheetIn"></div></div>
+
 <div class="toast" id="toast"></div>
-<a class="sample-tag" href="../../lms.html" target="_top">Samsoft · Basic LMS sample</a>
 <script src="app.js"></script>
+<script src="admin.js"></script>
+<script src="extra.js"></script>
 </body>
 </html>
