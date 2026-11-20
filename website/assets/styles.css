@@ -663,3 +663,18 @@ html[data-lang="si"] .bp b { font-size: 30px; }
 .pkg .ticks { flex: 1; margin-bottom: 22px; } .pkg .ticks li { font-size: 14.5px; color: var(--text-2); }
 .pkg-b { display: grid; gap: 10px; } .pkg-b .btn { justify-content: center; height: 46px; font-size: 14.5px; }
 @media (max-width: 1020px) { .pkgs { grid-template-columns: 1fr; } }
+/* "pay once, yours for life" note */
+.notyp.life { border-color: rgba(0, 200, 224, .4); background: linear-gradient(135deg, rgba(0, 200, 224, .14), rgba(255, 178, 30, .06)); margin-bottom: 0; }
+.notyp.life > b { font-size: 22px; }
+.notyp.life.big { text-align: center; padding: 40px 34px; }
+.notyp.life.big > b { font-size: clamp(26px, 3.4vw, 40px); margin-bottom: 14px; }
+.notyp.life.big p { margin: 0 auto; font-size: 17px; max-width: 760px; }
+/* phone: price tables stack as cards (item / includes / price) so nothing is cut off */
+@media (max-width: 640px) {
+  .ptable { padding: 4px 16px 12px; }
+  .ptable thead { display: none; }
+  .ptable table, .ptable tbody, .ptable tr, .ptable td { display: block; width: 100%; }
+  .ptable tr { padding: 12px 0; border-bottom: 1px solid rgba(160, 240, 255, .1); }
+  .ptable td { border: 0; padding: 3px 0; text-align: center !important; }
+  .ptable .r { white-space: normal; margin-top: 4px; }
+}
