@@ -651,7 +651,7 @@ html[data-lang="si"] .bp b { font-size: 30px; }
 @media (max-width: 640px) { .scards.two { grid-template-columns: 1fr; } }
 
 /* LMS packages */
-.pkgs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 10px; align-items: stretch; }
+.pkgs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 10px; align-items: stretch; }
 .pkg { position: relative; display: flex; flex-direction: column; padding: 26px; border-radius: 24px; }
 .pkg.hot { border-color: rgba(255, 178, 30, .55); background: linear-gradient(160deg, rgba(255, 178, 30, .16), rgba(255, 178, 30, .03)); box-shadow: 0 0 0 1px rgba(255, 178, 30, .25), 0 30px 60px rgba(0, 0, 0, .4); }
 .pkg-h { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--edge); }
@@ -662,7 +662,13 @@ html[data-lang="si"] .bp b { font-size: 30px; }
 .pkg-h em { font-style: normal; font-size: 13px; color: var(--muted); }
 .pkg .ticks { flex: 1; margin-bottom: 22px; } .pkg .ticks li { font-size: 14.5px; color: var(--text-2); }
 .pkg-b { display: grid; gap: 10px; } .pkg-b .btn { justify-content: center; height: 46px; font-size: 14.5px; }
-@media (max-width: 1020px) { .pkgs { grid-template-columns: 1fr; } }
+/* (2026-11-21) four packages: Game World = the LMS as a 2D game (pink), no demo yet */
+.pkg.gw { border-color: rgba(255, 92, 158, .45); background: linear-gradient(160deg, rgba(255, 92, 158, .14), rgba(122, 92, 255, .05)); }
+.pkg.gw .pkg-h small { color: #ff8fbc; } .pkg.gw .pkg-p { color: #ff8fbc; }
+.pkg-soon { display: block; text-align: center; font-size: 13px; color: var(--muted); padding: 4px 0; }
+.bigprices:has(> :nth-child(4)) { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1240px) { .pkgs, .bigprices:has(> :nth-child(4)) { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .pkgs, .bigprices:has(> :nth-child(4)) { grid-template-columns: 1fr; } }
 /* "pay once, yours for life" note */
 .notyp.life { border-color: rgba(0, 200, 224, .4); background: linear-gradient(135deg, rgba(0, 200, 224, .14), rgba(255, 178, 30, .06)); margin-bottom: 0; }
 .notyp.life > b { font-size: 22px; }
