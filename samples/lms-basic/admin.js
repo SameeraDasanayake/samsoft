@@ -254,7 +254,7 @@
   /* ================= SETTINGS ================= */
   views['t-set'] = el => {
     const F = { basic: [['සිසු logins', 'Student logins'], ['Recordings (YouTube, මාසයෙන් lock)', 'Recordings (YouTube, locked by month)'], ['සටහන් / PDF', 'Notes / PDFs'], ['දැන්වීම්', 'Notices'], ['ගාස්තු සලකුණු කිරීම', 'Marking fees']],
-      medium: [['Online MCQ papers', 'Online MCQ papers'], ['ස්වයංක්‍රීය ලකුණු සහ ස්ථාන', 'Automatic marks and ranks'], ['ප්‍රශ්නයෙන් ප්‍රශ්නයට විශ්ලේෂණය', 'Per-question analysis'], ['WhatsApp ගාස්තු මතක් කිරීම්', 'WhatsApp fee reminders']],
+      medium: [['Online MCQ papers', 'Online MCQ papers'], ['ස්වයංක්‍රීය ලකුණු සහ ස්ථාන', 'Automatic marks and ranks'], ['ප්‍රශ්නයෙන් ප්‍රශ්නයට විශ්ලේෂණය', 'Per-question analysis'], ['WhatsApp ගාස්තු මතක් කිරීම්', 'WhatsApp fee reminders'], ['QR කාඩ්: පැමිණීම සහ ගාස්තු scan', 'QR cards: scan attendance and fees']],
       advanced: [['Games Hub', 'Games Hub'], ['Typing පාඩම් සහ සහතික', 'Typing lessons and certificates'], ['Practical Lab (Python, HTML)', 'Practical Lab (Python, HTML)'], ['ත්‍යාග ලකුණු, badges, missions', 'Points, badges, missions'], ['සතියේ leaderboard', 'Weekly leaderboard']] };
     const order = ['basic', 'medium', 'advanced'];
     el.innerHTML = vh(L('සැකසුම්', 'Settings'), 'පන්තියේ සැකසුම්', 'Class settings') + `
@@ -272,4 +272,85 @@
       LMS.root.style.setProperty('--ind', b.dataset.col); LMS.root.style.setProperty('--ind2', b.dataset.col);
       LMS.root.style.setProperty('--grad', `linear-gradient(120deg, ${b.dataset.col}, ${b.dataset.col}cc 55%, #22c3ee)`); });
   };
+  /* ================= QR CARDS + ATTENDANCE (Medium and up) ================= */
+  // The QR holds only the student number; a reprint adds -2, -3... and the old card stops working.
+  const QRRE = /^(KJ-\d{4}-\d{4})(?:-(\d+))?$/;
+  const NOW = () => new Date().toTimeString().slice(0, 5);
+  const TODAY = { c: '11 · Theory', si: 'ඉරිදා · පෙ.ව. 8.00', en: 'Sunday · 8.00 a.m.' };
+  const ATT = {}; ST.filter(s => s.c === TODAY.c).slice(0, 3).forEach((s, i) => { ATT[s.id] = ['07:52', '07:55', '07:58'][i]; });
+  const qcode = s => QRKit.code(s.id, s.ver || 1);
+  const inClass = () => ST.filter(s => s.c === TODAY.c);
+  let qMode = 'att', stopCam = null;
+  const qrCard = s => `<div class="qcard"><div class="qc-top"><b>Kasun ICT</b><span>${L('සිසු කාඩ්පත', 'Student card')}</span></div>
+    <div class="qc-mid"><div>${av(s)}<b>${L(s.n[0], s.n[1])}</b><small>${s.c}</small><code>${qcode(s)}</code></div>${QRKit.svg(qcode(s), { cls: 'qc-qr' })}</div></div>`;
+  const qHead = () => vh('QR', 'QR කාඩ් සහ පැමිණීම', 'QR cards & attendance', `<div class="row-btns"><button class="btn grad sm" data-scan="att">📷 ${L('පැමිණීම scan කරන්න', 'Scan attendance')}</button><button class="btn ghost-d" data-scan="fee">₨ ${L('ගාස්තු scan කරන්න', 'Scan fees')}</button><button class="btn ghost-d" id="qPrint">🖨 ${L('කාඩ් print කරන්න', 'Print cards')}</button></div>`);
+
+  views['t-qr'] = async el => {
+    el.innerHTML = qHead() + `<p class="muted">…</p>`;
+    try { await QRKit.load(); } catch (e) { el.querySelector('p.muted').innerHTML = L('QR library එක load වුණේ නැහැ. Internet එක බලන්න.', 'Could not load the QR library. Check the internet.'); return; }
+    const here = inClass().filter(s => ATT[s.id]).sort((a, b) => (ATT[a.id] < ATT[b.id] ? -1 : 1)), away = inClass().filter(s => !ATT[s.id]);
+    el.innerHTML = qHead() + `
+    <div class="stats">
+      <div class="stat glass"><i>✓</i><b>${here.length} / ${inClass().length}</b><small>${L('අද පන්තියට ආවා', 'in class today')}</small></div>
+      <div class="stat glass"><i>⏰</i><b>${TODAY.c}</b><small>${L(TODAY.si, TODAY.en)}</small></div>
+      <div class="stat glass"><i>₨</i><b>${ST.filter(s => s.paid).length} / ${ST.length}</b><small>${L('ජනවාරි ගාස්තු ගෙවා (ආදර්ශ සිසුන්)', 'paid for January (sample)')}</small></div>
+      <div class="stat glass"><i>▦</i><b>${TOTAL}</b><small>${L('සිසු QR කාඩ්', 'student QR cards')}</small></div>
+    </div>
+    <div class="grid2">
+      <div class="panel glass"><div class="ph"><h3>${L('අද පැමිණීම', 'Today')} · ${TODAY.c}</h3><span class="muted">${L(TODAY.si, TODAY.en)}</span></div>
+        <div class="ulist">${here.map(s => `<div class="urow">${av(s)}<span><b>${L(s.n[0], s.n[1])}</b><small>${s.id}${s.paid ? '' : ` · <em class="due-t">${L('ජනවාරි ගාස්තුව නැහැ', 'January fee due')}</em>`}</small></span><em class="paid">✓ ${ATT[s.id]}</em><span></span></div>`).join('') || `<p class="muted">${L('තවම කවුරුත් scan කරලා නැහැ.', 'Nobody scanned yet.')}</p>`}</div>
+        <h3 class="qh">${L('තවම නාපු අය', 'Not here yet')} · ${away.length}</h3>
+        <div class="ulist">${away.map(s => `<div class="urow">${av(s)}<span><b>${L(s.n[0], s.n[1])}</b><small>${s.ph}</small></span><a class="mini wa" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(LMS.root.dataset.lang === 'si' ? `ආයුබෝවන්! ${s.n[0]} අද (${TODAY.si}) Kasun ICT පන්තියට ආවේ නැහැ. - කසුන් සර්` : `Hello! ${s.n[1]} did not come to Kasun ICT today (${TODAY.en}). - Kasun Sir`)}">💬 ${L('දෙමාපියන්ට', 'Parent')}</a><button class="mini" data-here="${s.id}">✓ ${L('ආවා', 'Here')}</button></div>`).join('') || `<p class="muted">🎉 ${L('හැමෝම ආවා!', 'Everyone is here!')}</p>`}</div></div>
+      <div class="panel glass"><div class="ph"><h3>${L('සිසු QR කාඩ්', 'Student QR cards')}</h3></div>
+        <p class="muted small" style="margin-top:0">${L('සිසුවෙක් එකතු කළාම කාඩ් එක ඉබේම හැදෙනවා. QR එකේ තියෙන්නේ සිසු අංකය. කාඩ් එක නැති වුණොත් Reprint කරන්න: පරණ කාඩ් එක ඉබේම වැඩ කරන්නේ නැති වෙනවා.', 'A card is made by itself when you add a student. The QR holds the student number. If a card is lost, reprint it: the old card stops working.')}</p>
+        <div class="qgrid">${ST.slice(0, 4).map(s => `<div>${qrCard(s)}<button class="mini" data-re="${s.id}">↻ Reprint${(s.ver || 1) > 1 ? ' · v' + s.ver : ''}</button></div>`).join('')}</div>
+        <p class="muted small">${L(`සිසුන් ${TOTAL}ටම කාඩ් · A4 එකකට 10ක් (ID card size) · print කරලා කපලා දෙන්න`, `Cards for all ${TOTAL} students · 10 per A4 page (ID-card size) · print, cut, hand out`)}</p></div>
+    </div>`;
+    el.querySelectorAll('[data-scan]').forEach(b => b.onclick = () => openScan(b.dataset.scan));
+    el.querySelector('#qPrint').onclick = () => {
+      const si = LMS.root.dataset.lang === 'si';
+      const ok = QRKit.print(ST.map(s => ({ name: si ? s.n[0] : s.n[1], sub: s.c, code: qcode(s), initial: s.n[0].slice(0, 1) })),
+        { brand: 'Kasun ICT', tagline: si ? 'සිසු කාඩ්පත' : 'Student card', title: 'Kasun ICT · QR cards', note: si ? 'පන්තියට එද්දී මේ කාඩ් එක පෙන්වන්න.' : 'Show this card when you come to class.' });
+      if (!ok) toast(L('Popup එක block වුණා. Allow කරන්න.', 'The popup was blocked. Please allow it.'));
+    };
+    el.querySelectorAll('[data-re]').forEach(b => b.onclick = () => { const s = ST.find(x => x.id === b.dataset.re); s.ver = (s.ver || 1) + 1; views['t-qr'](el);
+      toast(L(`↻ අලුත් කාඩ් එක: ${qcode(s)} · පරණ කාඩ් එක දැන් වැඩ කරන්නේ නැහැ`, `↻ New card: ${qcode(s)} · the old card no longer works`)); });
+    el.querySelectorAll('[data-here]').forEach(b => b.onclick = () => { ATT[b.dataset.here] = NOW(); views['t-qr'](el); });
+  };
+
+  function openScan(mode) {
+    qMode = mode;
+    const old = ST[0], oldCode = (old.ver || 1) > 1 ? old.id : old.id + '-0'; // (demo: a card from before a reprint)
+    const sh = LMS.sheet(`<h3>📷 ${L('QR scan කරන්න', 'Scan a QR')}</h3>
+      <div class="tabs qtabs"><button data-m="att" aria-pressed="${mode === 'att'}">✓ ${L('පැමිණීම', 'Attendance')}</button><button data-m="fee" aria-pressed="${mode === 'fee'}">₨ ${L('ගාස්තු', 'Fees')}</button></div>
+      <div class="qscan"><div class="qcam" id="qCam"><button class="btn grad sm" id="qStart">📷 ${L('Camera එක on කරන්න', 'Turn on the camera')}</button></div><div class="qres" id="qRes"></div></div>
+      <p class="muted small">${L('Demo: ළඟ කාඩ් එකක් නැත්නම් පහළ කාඩ් එකක් ඔබන්න (scan කළා වගේ). කාඩ් print කරලා phone එකෙන් scan කරලත් බලන්න පුළුවන්.', 'Demo: no card at hand? Tap a card below (as if scanned). You can also print the cards and scan them with a phone.')}</p>
+      <div class="qpick">${ST.slice(0, 6).map(s => `<button data-sim="${qcode(s)}" title="${qcode(s)}">${QRKit.svg(qcode(s), { cls: 'qc-qr' })}<small>${L(s.n[0].split(' ')[0], s.n[1].split(' ')[0])}</small></button>`).join('')}<button data-sim="${oldCode}" class="old" title="${oldCode}">${QRKit.svg(oldCode, { cls: 'qc-qr' })}<small>${L('පරණ කාඩ් එකක්', 'An old card')}</small></button></div>`, true);
+    const hint = () => { sh.querySelector('#qRes').innerHTML = `<p class="muted">${qMode === 'att' ? L('<b>පැමිණීම:</b> scan කරන හැම කෙනාම "ආවා" ලෙස සලකුණු වෙනවා. ගාස්තු නොගෙවූ අය ගැනත් කියනවා.', '<b>Attendance:</b> everyone you scan is marked here. It also tells you who has not paid.') : L('<b>ගාස්තු:</b> scan කළාම නම, මාසය, මුදල පේනවා. මුදල ලැබුණාම "ගෙවූ" ඔබන්න.', '<b>Fees:</b> a scan shows the name, month and amount. Press "Paid" once you have the money.')}</p>`; };
+    hint();
+    sh.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { qMode = b.dataset.m; sh.querySelectorAll('[data-m]').forEach(x => x.setAttribute('aria-pressed', x === b)); hint(); });
+    sh.querySelectorAll('[data-sim]').forEach(b => b.onclick = () => onScan(b.dataset.sim));
+    sh.querySelector('#qStart').onclick = async () => { sh.querySelector('#qStart').disabled = true; stopCam = await QRKit.scan(sh.querySelector('#qCam'), onScan, () => { sh.querySelector('#qCam').innerHTML = `<p class="muted">${L('Camera එකක් නැහැ / අවසර නැහැ. පහළ demo කාඩ් පාවිච්චි කරන්න.', 'No camera or no permission. Use the demo cards below.')}</p>`; }); };
+    LMS.onClose = () => { if (stopCam) stopCam(); stopCam = null; sideMoney(); views['t-qr']($('#v-t-qr')); };
+  }
+
+  function onScan(text) {
+    const box = $('#qRes'); if (!box) return;
+    const p = QRKit.parse(text, QRRE), s = p && ST.find(x => x.id === p.id);
+    const bad = msg => { QRKit.beep(false); box.innerHTML = `<div class="qr-out bad"><i>✕</i><div><b>${msg}</b><small class="mono">${String(text).replace(/</g, '&lt;')}</small></div></div>`; };
+    if (!s) return bad(L('මේ කාඩ් එක අපේ පන්තියේ නෙවෙයි', 'This card is not from our class'));
+    if (p.ver !== (s.ver || 1)) return bad(L(`${s.n[0]} ගේ පරණ කාඩ් එකක්. අලුත් කාඩ් එක ඉල්ලන්න.`, `An old card of ${s.n[1]}. Ask for the new card.`));
+    QRKit.beep(true);
+    const big = av(s).replace('av sm', 'av big');
+    if (qMode === 'att') {
+      const again = !!ATT[s.id]; if (!again) ATT[s.id] = NOW();
+      box.innerHTML = `<div class="qr-out ${again ? 'info' : 'ok'}">${big}<div><b>${L(s.n[0], s.n[1])}</b><small>${s.id} · ${s.c}</small>
+        <p>${again ? L(`ℹ දැනටමත් ආවා · ${ATT[s.id]}`, `ℹ Already here · ${ATT[s.id]}`) : L(`✓ ආවා · ${ATT[s.id]}`, `✓ Here · ${ATT[s.id]}`)}</p>${s.paid ? '' : `<p class="due-t">⚠ ${L('ජනවාරි ගාස්තුව තවම නැහැ', 'January fee not paid yet')}</p>`}</div></div>`;
+    } else {
+      box.innerHTML = `<div class="qr-out ${s.paid ? 'info' : 'ok'}">${big}<div><b>${L(s.n[0], s.n[1])}</b><small>${s.id} · ${s.c}</small>
+        <p>${L('ජනවාරි 2027', 'January 2027')} · <b>Rs. 2,200</b></p>${s.paid ? `<p>✓ ${L('දැනටමත් ගෙවලා', 'Already paid')}</p>` : `<button class="btn grad sm" id="qPay">✓ ${L('මුදල් ලැබුණා: ගෙවූ ලෙස සලකුණු කරන්න', 'Money received: mark as paid')}</button>`}</div></div>`;
+      const b = box.querySelector('#qPay'); if (b) b.onclick = () => { s.paid = true; sideMoney(); onScan(text);
+        toast(L(`✓ ${s.n[0]} ගෙවූ ලෙස සලකුණු කළා. ජනවාරි recordings විවෘත වුණා.`, `✓ ${s.n[1]} marked paid. The January recordings are open.`)); };
+    }
+  }
 })();

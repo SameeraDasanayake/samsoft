@@ -45,6 +45,7 @@
       ['games', '🎮', 'Games Hub', 'Games Hub', 2], ['typing', '⌨', 'Typing', 'Typing', 2], ['lab', '🧪', 'Practical Lab', 'Practical Lab', 2], ['rewards', '🏆', 'ත්‍යාග සහ Leaderboard', 'Rewards & leaderboard', 2],
       ['me', '☺', 'මගේ ගිණුම', 'My account', 0]],
     teacher: [['t-dash', '⌂', 'Dashboard', 'Dashboard', 0], ['t-students', '👥', 'සිසුන්', 'Students', 0], ['t-fees', '₨', 'ගාස්තු', 'Fees', 0],
+      ['t-qr', '▦', 'QR කාඩ් සහ පැමිණීම', 'QR cards & attendance', 1],
       ['t-upload', '⇪', 'Recordings සහ සටහන්', 'Recordings & notes', 0], ['t-news', '✦', 'දැන්වීම්', 'Notices', 0],
       ['t-papers', '✎', 'Papers සහ ප්‍රතිඵල', 'Papers & results', 1], ['t-games', '🎮', 'Games සහ ත්‍යාග', 'Games & rewards', 2], ['t-set', '⚙', 'සැකසුම්', 'Settings', 0]]
   };

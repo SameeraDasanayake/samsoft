@@ -355,12 +355,12 @@ function questsPanel(hello) {
   panel('#e4594b', '🎯', L(['අද Quests', "Today's quests"]), hello || L(['හැම දවසකම අලුත් quests', 'New quests every day']),
     `<ul class="lb">${QUESTS.map((q) => `<li class="${S.quests[q.id] ? 'me2' : ''}"><em>${S.quests[q.id] ? '✔' : '🎯'}</em><span>${esc(L(q.t))}</span><span>+${q.xp} XP${q.coins ? ` · ${q.coins}🪙` : ''}</span></li>`).join('')}</ul><p class="note">${t('ඉඟිය: පාඩම් පාසලට, විභාග ශාලාවට සහ ක්‍රීඩා පිටියට යන්න.', 'Hint: visit the Lesson School, the Exam Hall and the Playground.')}</p>`, { sm: true });
 }
-function noticesPanel() { panel('#c97f45', '📌', L(['දැන්වීම් පුවරුව', 'Notice board']), CLASS.teacher[lang === 'en' ? 1 : 0], NOTICES.map(([h, p]) => `<div class="card" style="margin-bottom:10px"><h3>📢 ${esc(L(h))}</h3><p>${esc(L(p))}</p></div>`).join(''), { sm: true }); }
+function noticesPanel() { panel('#c97f45', '📌', L(['දැන්වීම් පුවරුව', 'Notice board']), CLASS.teacher[lang === 'en' ? 1 : 0], [...(() => { try { return JSON.parse(localStorage.getItem('sp-gw-notices')) || []; } catch { return []; } })().map((n) => [n.h, n.p]), ...NOTICES].map(([h, p]) => `<div class="card" style="margin-bottom:10px"><h3>📢 ${esc(L(h))}</h3><p>${esc(L(p))}</p></div>`).join(''), { sm: true }); }
 function chestOpen() { if (S.chest === today()) { toast(t('🎁 අද තෑග්ග ගත්තා. හෙට එන්න!', '🎁 Already opened today. Come back tomorrow!')); return; } S.chest = today(); save(); gain(15, 25, t('🎁 දිනපතා තෑග්ග', '🎁 Daily gift')); }
 function menuPanel() {
   const b = panel('#3b2733', '☰', 'Menu', `${L(CLASS.name)} · ${L(CLASS.grade)}`,
     `<div style="display:grid;gap:10px"><button class="btn w" data-m="lang">🌐 ${lang === 'en' ? 'සිංහල' : 'English'}</button><button class="btn w" data-m="me">👕 ${t('මගේ character එක', 'My character')}</button>
-      <a class="btn b" href="../lms-basic/index.html?pkg=advanced&role=teacher" target="_blank" rel="noopener">👩‍🏫 ${t('ගුරු Admin පැත්ත (demo)', 'Teacher admin side (demo)')} ↗</a>
+      <a class="btn b" href="admin.html">👩‍🏫 ${t('ගුරු Admin පැත්ත (demo)', 'Teacher admin side (demo)')}</a>
       <button class="btn w" data-m="reset">↺ ${t('Demo එක මුල ඉඳන්', 'Restart the demo')}</button>
       <p class="note">${t('මේ Samsoft ගේ Game World LMS sample එකක්. ඔබේ පන්තියේ නම, logo එක, පාට, විෂය සහ පාඩම් වලට හදලා දෙනවා.', "This is Samsoft's Game World LMS sample. Yours is made with your class name, logo, colours, subject and lessons.")} <a href="https://samsoft.lk/lms" style="color:var(--blue);font-weight:800">samsoft.lk/lms</a></p></div>`, { sm: true });
   b.querySelector('[data-m=lang]').onclick = () => { lang = lang === 'en' ? 'si' : 'en'; try { localStorage.setItem('sp-gw-lang', lang); } catch { /* none */ } document.documentElement.lang = lang; closePanel(); hud(); };

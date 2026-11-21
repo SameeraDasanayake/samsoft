@@ -709,3 +709,23 @@ html[data-lang="si"] .bp b { font-size: 30px; }
 @media (max-width: 640px) { .steps2.five { grid-template-columns: 1fr; } }
 .feats.notes { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 640px) { .feats.notes { grid-template-columns: 1fr; } }
+
+/* (2026-11-21) LMS samples: 6 cards in thirds + the 2 Game World cards (game + teacher admin) in halves */
+.scards.six { grid-template-columns: repeat(6, 1fr); } .scards.six > .scard { grid-column: span 2; } .scards.six > .scard.h { grid-column: span 3; }
+.scards.six > .scard.h .scard-pic { aspect-ratio: 16 / 9; }
+@media (max-width: 1020px) { .scards.six { grid-template-columns: 1fr 1fr; } .scards.six > .scard, .scards.six > .scard.h { grid-column: auto; } .scards.six > .scard.h .scard-pic { aspect-ratio: 4 / 3; } }
+@media (max-width: 640px) { .scards.six { grid-template-columns: 1fr; } }
+.bigprices:has(> :nth-child(2):last-child) { grid-template-columns: 1fr 1fr; }
+@media (max-width: 640px) { .bigprices:has(> :nth-child(2):last-child) { grid-template-columns: 1fr; } }
+
+/* (2026-11-21) LMS package comparison table (scrolls sideways on a phone, first column stays) */
+.cmpt { margin: 18px 0 8px; border-radius: 20px; padding: 6px 0 10px; overflow-x: auto; }
+.cmpt table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14.5px; }
+.cmpt th, .cmpt td { padding: 11px 14px; border-bottom: 1px solid rgba(160, 240, 255, .08); color: var(--text-2); text-align: left; }
+.cmpt th { font-size: 13px; color: #fff; font-weight: 700; border-bottom: 1px solid var(--edge); }
+.cmpt .c { text-align: center; width: 13%; white-space: nowrap; } .cmpt .y { color: var(--amber); font-weight: 800; font-size: 17px; } .cmpt .n { color: var(--muted); opacity: .5; }
+.cmpt th.hot, .cmpt td:nth-child(3) { background: rgba(255, 178, 30, .06); } .cmpt th.hot { color: var(--amber); }
+.cmpt tr.grp td { background: rgba(160, 240, 255, .05); color: var(--amber); font-size: 12.5px; font-weight: 700; letter-spacing: .03em; padding: 8px 14px; }
+.cmpt tr.pr td { color: #fff; font-weight: 700; border-bottom: 0; } .cmpt tr.pr td.c { color: var(--amber); }
+.cmpt em.new { font-style: normal; font-size: 11px; font-weight: 700; color: #12142e; background: var(--amber); border-radius: 6px; padding: 1px 6px; margin-left: 4px; }
+@media (max-width: 640px) { .cmpt td:first-child, .cmpt th:first-child { position: sticky; left: 0; background: #0d141d; z-index: 1; min-width: 190px; } }
