@@ -735,3 +735,4 @@ html[data-lang="si"] .bp b { font-size: 30px; }
 .sec.more .wrap { text-align: center; } .sec.more .hf-chips { justify-content: center; }
 /* (2026-11-21) user: the description goes under the title everywhere (no more text beside the samples headings) */
 .head.row { display: block; max-width: 760px; } .head.row .sub { max-width: none; }
+.ptable .save { color: #7ee0a0; font-weight: 700; white-space: nowrap; }
