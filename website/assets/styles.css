@@ -729,3 +729,9 @@ html[data-lang="si"] .bp b { font-size: 30px; }
 .cmpt tr.pr td { color: #fff; font-weight: 700; border-bottom: 0; } .cmpt tr.pr td.c { color: var(--amber); }
 .cmpt em.new { font-style: normal; font-size: 11px; font-weight: 700; color: #12142e; background: var(--amber); border-radius: 6px; padding: 1px 6px; margin-left: 4px; }
 @media (max-width: 640px) { .cmpt td:first-child, .cmpt th:first-child { position: sticky; left: 0; background: #0d141d; z-index: 1; min-width: 190px; } }
+/* (2026-11-21) user: centre the "pay once" box, the advance note and the other-services chips on every service page */
+.notyp.life { text-align: center; } .notyp.life p { margin-left: auto; margin-right: auto; }
+.pay-note { margin-left: auto; margin-right: auto; }
+.sec.more .wrap { text-align: center; } .sec.more .hf-chips { justify-content: center; }
+/* (2026-11-21) user: the description goes under the title everywhere (no more text beside the samples headings) */
+.head.row { display: block; max-width: 760px; } .head.row .sub { max-width: none; }
