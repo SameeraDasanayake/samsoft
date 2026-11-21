@@ -20,7 +20,10 @@ window.SAMSOFT = {
       booking: "ආයුබෝවන් Samsoft, appointments / booking පද්ධතියක් ගැන දැනගන්න ඕන.",
       staff: "ආයුබෝවන් Samsoft, සේවක පැමිණීම සහ වැටුප් software එකක් ගැන දැනගන්න ඕන.",
       website: "ආයුබෝවන් Samsoft, මට website එකක් හදාගන්න ඕන.",
-      twebsite: "ආයුබෝවන් Samsoft, මගේ පන්තියට වෙබ් අඩවියක් හදාගන්න ඕන."
+      twebsite: "ආයුබෝවන් Samsoft, මගේ පන්තියට වෙබ් අඩවියක් හදාගන්න ඕන.",
+      promovideo: "ආයුබෝවන් Samsoft, මගේ පන්තියට promotion video එකක් හදාගන්න ඕන.",
+      promopost: "ආයුබෝවන් Samsoft, මගේ පන්තියට promotion posts හදාගන්න ඕන.",
+      smm: "ආයුබෝවන් Samsoft, මගේ පන්තියේ social media pages manage කරගන්න ඕන. පැකේජ ගැන විස්තර දැනගන්න කැමතියි."
     },
     en: {
       general: "Hello Samsoft, I would like to know more about your services.",
@@ -36,7 +39,10 @@ window.SAMSOFT = {
       booking: "Hello Samsoft, I would like to know about an appointments / booking system.",
       staff: "Hello Samsoft, I would like to know about staff attendance and salary software.",
       website: "Hello Samsoft, I would like a website made.",
-      twebsite: "Hello Samsoft, I would like a website for my class."
+      twebsite: "Hello Samsoft, I would like a website for my class.",
+      promovideo: "Hello Samsoft, I would like a promotion video for my class.",
+      promopost: "Hello Samsoft, I would like promotion posts for my class.",
+      smm: "Hello Samsoft, I would like you to manage my class social media pages. Please tell me about the packages."
     }
   }
 };
